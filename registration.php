@@ -23,7 +23,7 @@ if(!$CONNECTION)
 		else print_r("Registeration failed");
 	
 	}elseif ($action=="addProfile"){ 
-		
+		 
 		
 	}
 
