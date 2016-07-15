@@ -22,7 +22,7 @@ if(!$CONNECTION)
 			print_r("Registered Sucessfully");
 		else print_r("Registeration failed");
 	
-	}elseif ($action=="addProfile"){
+	}elseif ($action=="addProfile"){ 
 		
 		
 	}
