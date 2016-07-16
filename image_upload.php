@@ -1,4 +1,6 @@
 <?php
+$image = $_POST['image'];
+print_r($image);die;
 
 $KEY_IMAGE = $_FILES['KEY_IMAGE']['name'];
 //print_r($data);
@@ -12,4 +14,6 @@ move_uploaded_file($_FILES['KEY_IMAGE']['tmp_name'],'image/'.$KEY_IMAGE['tmp_nam
 		
 $sql="inser into tbl_name fields(image) values('$KEY_IMAGE')";
 mysqli_query($CONNECTION,$sql);
+
+
 }
