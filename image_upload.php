@@ -15,7 +15,7 @@ if(!$CONNECTION)
 		
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$image')";
 		
-		echo $sql;die;
+		
 		if(mysqli_query($CONNECTION,$sql)){
 			file_put_contents($path,base64_decode($image));
 			echo "Successfully Uploaded";
