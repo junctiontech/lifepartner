@@ -39,7 +39,7 @@ if(!$CONNECTION)
 	
 	}else if(isset($_GET['action'])&& $_GET['action']=="download"){
 		//echo 'hii';die;
-		$countrow= mysqli_query($CONNECTION,"select imageName from imagedata where s_no='10'");
+		$countrow= mysqli_query($CONNECTION,"select imageName from imagedata where s_no='12'");
 	//echo $countrow;	
 	$data1 = mysqli_fetch_array($countrow);//print_r($data1);
 	
