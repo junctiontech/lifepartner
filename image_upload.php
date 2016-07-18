@@ -13,8 +13,8 @@ if(!$CONNECTION)
 		$image = $_POST['image'];
 		$name= $_POST['name'];
 		
-		$queryInsert="insert into Profiles(registerUserID,imageName)
-		values('1','$image')";
+		$queryInsert="insert into imagedata(imageName)
+		values('$image')";
 			
 			
 		if (mysqli_query($CONNECTION,$queryInsert)){
@@ -30,7 +30,7 @@ if(!$CONNECTION)
 		
 	
 	}else if(isset($_GET['action'])&& $_GET['action']=="download"){
-		$countrow=mysqli_query($CONNECTION,"select imageName from Profiles where registerUserID='1'");
+		$countrow=mysqli_query($CONNECTION,"select imageName from imagedata where s_no='1'");
 		$data1 = mysqli_fetch_array($countrow);
 		echo $data1['imageName'];
 	}
