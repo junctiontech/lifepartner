@@ -16,7 +16,9 @@ if(!$CONNECTION)
 		$queryInsert="insert into imagedata(imageName)values('$image')";
 		mysqli_query($CONNECTION,$queryInsert);
 			
-		if (mysqli_affected_rows()>=0){
+		
+		print_r(mysqli_affected_rows());
+		if (mysqli_affected_rows()>0){
 			$path = "images/$name.png";
 			file_put_contents($path,base64_decode($image));
 			echo "Successfully Uploaded";
