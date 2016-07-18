@@ -17,6 +17,7 @@ if(!$CONNECTION)
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$image')";
  		echo $sql;
 		print_r(mysqli_query($CONNECTION,$sql));die;
+		
 // 		echo $CONNECTION;die;
 // 		echo mysqli_query($CONNECTION,$sql);die;
 // 		if(mysqli_query($CONNECTION,$sql)){
