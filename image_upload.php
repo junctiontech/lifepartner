@@ -19,7 +19,7 @@ if(!$CONNECTION)
 		file_put_contents($path,base64_decode($_POST['image']));
 		echo "Successfully Uploaded";
 		
-				
+			
 // 		$queryInsert="insert into imagedata(imageName)values('$image')";
 // 		mysqli_query($CONNECTION,$queryInsert);
 			
@@ -38,9 +38,9 @@ if(!$CONNECTION)
 		
 	
 	}else if(isset($_GET['action'])&& $_GET['action']=="download"){
-		$countrow=mysqli_query($CONNECTION,"select imageName from imagedata where s_no='5'");
-		$data1 = mysqli_fetch_array($countrow);
-		echo $data1['imageName'];
+		$countrow=mysqli_query($CONNECTION,"select imageName from imagedata where s_no='10'");
+		$data1 = mysqli_fetch_array($countrow);print_r($data1);
+		echo $data1['imageName']; 
 	}
 }
 
