@@ -14,7 +14,7 @@ if(!$CONNECTION)
 		$name= $_POST['name'];
 		
 		//print_r($image);
-		$sql = "INSERT INTO imagedata (imageName) VALUES ('$image')";
+		$sql = "INSERT INTO imagedata (imageName) VALUES ('4454')";
  		//echo $sql;
 		print_r(mysqli_query($CONNECTION,$sql));die;
 		
@@ -24,6 +24,7 @@ if(!$CONNECTION)
 			file_put_contents($path,base64_decode($image));
 			echo "Successfully Uploaded";
 		}else {
+						
 			echo "failled Insertion";
 		}
 		
