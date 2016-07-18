@@ -1,7 +1,8 @@
 <?php
 $image = $_POST['image'];
+$name= $_POST['name'];
 
-$path = "images/$id.png";
+$path = "images/$name";
 file_put_contents($path,base64_decode($image));
 echo "Successfully Uploaded";
 
