@@ -9,13 +9,10 @@ if(!$CONNECTION)
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
-	
-		$image = $_POST['image'];
-		$name= $_POST['name'];
-		//echo $name;
-		//print_r($image);
-		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
- 		//echo $sql;
+		$id=substr(md5(microtime()),rand(0,26),5);	
+		$image = $id.$_POST['image'];
+		$sql = "INSERT INTO imagedata (imageName) VALUES ('$image')";
+ 		echo $sql;
 		print_r(mysqli_query($CONNECTION,$sql));
 		file_put_contents($path,base64_decode($image));
 		echo "Successfully Uploaded";
