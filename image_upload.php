@@ -41,8 +41,11 @@ if(!$CONNECTION)
 		//echo 'hii';die;
 		$countrow= mysqli_query($CONNECTION,"select imageName from imagedata where s_no='10'");
 	//echo $countrow;	
-	$data1 = mysqli_fetch_array($countrow);print_r($data1);
-		echo $data1['imageName']; 
+	$data1 = mysqli_fetch_array($countrow);//print_r($data1);
+	
+			echo 'http://192.168.1.151/images'.$data1['imageName'];
+		 
+	
 	}
 	else {}
 }
