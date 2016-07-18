@@ -10,11 +10,11 @@ if(!$CONNECTION)
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
 		$id=substr(md5(microtime()),rand(0,26),5);	
-		$image = $id.$_POST['name'];
-		$sql = "INSERT INTO imagedata (imageName) VALUES ('$image')";
- 		echo $sql;
-		print_r(mysqli_query($CONNECTION,$sql));
-		file_put_contents($path,base64_decode($image));
+		$name = $id.$_POST['name'];
+		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
+ 		//echo $sql;
+		//print_r(mysqli_query($CONNECTION,$sql));
+		file_put_contents($path,base64_decode($_POST['image']));
 		echo "Successfully Uploaded";
 		
 		
@@ -37,7 +37,7 @@ if(!$CONNECTION)
 		
 	
 	}else if(isset($_GET['action'])&& $_GET['action']=="download"){
-		$countrow=mysqli_query($CONNECTION,"select imageName from imagedata where s_no='1'");
+		$countrow=mysqli_query($CONNECTION,"select imageName from imagedata where s_no='5'");
 		$data1 = mysqli_fetch_array($countrow);
 		echo $data1['imageName'];
 	}
