@@ -12,21 +12,14 @@ if(!$CONNECTION)
 	
 		$image = $_POST['image'];
 		$name= $_POST['name'];
-		echo $name;
+		//echo $name;
 		//print_r($image);
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
- 		echo $sql;
-		print_r(mysqli_query($CONNECTION,$sql));die;
-		
-// 		echo $CONNECTION;die;
-// 		echo mysqli_query($CONNECTION,$sql);die;
-		if(mysqli_query($CONNECTION,$sql)){
-			file_put_contents($path,base64_decode($image));
-			echo "Successfully Uploaded";
-		}else {
-						
-			echo "failled Insertion";
-		}
+ 		//echo $sql;
+		print_r(mysqli_query($CONNECTION,$sql));
+		file_put_contents($path,base64_decode($image));
+		echo "Successfully Uploaded";
+		die;
 		
 		
 // 		$queryInsert="insert into imagedata(imageName)values('$image')";
