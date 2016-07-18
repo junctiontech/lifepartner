@@ -11,14 +11,14 @@ if(!$CONNECTION)
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
 		
 		$id=substr(md5(microtime()),rand(0,26),5);	
-		$name = $id.$_POST['name'];
+		$name = $id.$_POST['name'].'jpeg';
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
  		//echo $sql;
-		$path = "images/$name.png";
+		$path = "images/$name.jpeg";
 	    mysqli_query($CONNECTION,$sql);
 		file_put_contents($path,base64_decode($_POST['image']));
 		echo "Successfully Uploaded";
-		echo $_FILES['name']['name'];
+		
 				
 // 		$queryInsert="insert into imagedata(imageName)values('$image')";
 // 		mysqli_query($CONNECTION,$queryInsert);
