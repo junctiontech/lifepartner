@@ -13,11 +13,10 @@ if(!$CONNECTION)
 		$image = $_POST['image'];
 		$name= $_POST['name'];
 		
-		$queryInsert="insert into imagedata(imageName)
-		values('$image')";
+		$queryInsert="insert into imagedata(imageName)values('$image')";
+		mysqli_query($CONNECTION,$queryInsert);
 			
-			
-		if (mysqli_query($CONNECTION,$queryInsert)){
+		if (mysqli_affected_rows()>=0){
 			$path = "images/$name.png";
 			file_put_contents($path,base64_decode($image));
 			echo "Successfully Uploaded";
