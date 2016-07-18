@@ -42,6 +42,7 @@ if(!$CONNECTION)
 // 	echo $countrow;	$data1 = mysqli_fetch_array($countrow);print_r($data1);
 // 		echo $data1['imageName']; 
 	}
+	else {}
 }
 
 
