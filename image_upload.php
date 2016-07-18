@@ -12,10 +12,10 @@ if(!$CONNECTION)
 	
 		$image = $_POST['image'];
 		$name= $_POST['name'];
-		
+		echo $name;
 		//print_r($image);
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
- 		//echo $sql;
+ 		echo $sql;
 		print_r(mysqli_query($CONNECTION,$sql));die;
 		
 // 		echo $CONNECTION;die;
