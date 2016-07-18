@@ -1,10 +1,43 @@
 <?php
-$image = $_POST['image'];
-$name= $_POST['name'];
 
-$path = "images/$name";
-file_put_contents($path,base64_decode($image));
-echo "Successfully Uploaded";
+
+$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+if(!$CONNECTION)
+{
+	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
+	exit();
+}else{
+	//isset($_GET['action'])?$_GET['action']:'';
+	if(isset($_GET['action'])&& $_GET['action']=="upload"){
+	
+		$image = $_POST['image'];
+		$name= $_POST['name'];
+		
+		$queryInsert="insert into Profiles(registerUserID,imageName)
+		values('1','$image')";
+			
+			
+		if (mysqli_query($CONNECTION,$queryInsert)){
+			$path = "images/$name.png";
+			file_put_contents($path,base64_decode($image));
+			echo "Successfully Uploaded";
+		}
+		else {
+			echo "failled Insertion";
+		}
+			
+		
+		
+	
+	}else if(isset($_GET['action'])&& $_GET['action']=="download"){
+		$countrow=mysqli_query($CONNECTION,"select imageName from Profiles where registerUserID='1'");
+		$data1 = mysqli_fetch_array($countrow);
+		echo $data1['imageName'];
+	}
+}
+
+
+
 
 
 // $KEY_IMAGE = $_FILES['KEY_IMAGE']['name'];
