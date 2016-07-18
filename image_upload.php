@@ -11,7 +11,7 @@ if(!$CONNECTION)
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
 		
 		$id=substr(md5(microtime()),rand(0,26),5);	
-		$name = $id.$_POST['name'].'jpeg';
+		$name = $id.$_POST['name'].'.jpeg';
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
  		//echo $sql;
 		$path = "images/$name.jpeg";
@@ -43,7 +43,7 @@ if(!$CONNECTION)
 	//echo $countrow;	
 	$data1 = mysqli_fetch_array($countrow);//print_r($data1);
 	
-			echo 'http://192.168.1.151/images'.$data1['imageName'];
+			echo 'http://192.168.1.151/lifepartner/images/'.$data1['imageName'];
 		 
 	
 	}
