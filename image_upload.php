@@ -14,7 +14,7 @@ if(!$CONNECTION)
 		$name = $id.$_POST['name'].'.jpeg';
 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
  		//echo $sql;
-		$path = "images/$name.jpeg";
+		$path = "images/$name";
 	    mysqli_query($CONNECTION,$sql);
 		file_put_contents($path,base64_decode($_POST['image']));
 		echo "Successfully Uploaded";
