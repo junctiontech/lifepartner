@@ -28,7 +28,7 @@ if(!$CONNECTION)
 			mysqli_query($CONNECTION,$queryInsert);
 			$id=mysqli_insert_id($CONNECTION);
 			print_r(mysqli_affected_rows());
-			print_r($id);
+			print_r($id);die;
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($querySearch);
 				$re=array('code'=>"100",
