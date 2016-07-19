@@ -15,12 +15,12 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
+		$querySearch="Select registerUserID from RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
 		if (mysqli_query($CONNECTION,$querySearch)){	
-			$result=mysqli_fetch_array($querySearch);
+			
 			$re= array('code'=>"100",
 					'result'=>"success",				
-					'registeredId'=>$result['registerUserID']
+					'registeredId'=>$querySearch['registerUserID']
 			);
 			print_r(json_encode($re));
 		}else {
