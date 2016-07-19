@@ -19,7 +19,7 @@ if(!$CONNECTION)
 		echo $querySearch;
 		if (mysqli_query($CONNECTION,$querySearch)){
 		echo 'hii';
-			$result=mysqli_fetch_array($querySearch);print_r($result);
+			$result=mysqli_fetch_array(mysqli_query($CONNECTION,$querySearch));print_r($result);
 			echo $result['registerUserID']; echo 'byee';die;
 			
 			//mysqli_fetch_array($querySearch); 
