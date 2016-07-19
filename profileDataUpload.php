@@ -9,8 +9,8 @@ if(!$CONNECTION)
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
-		$data=json_decode($_POST['json'],true);print_r($data);
-		$registerID= $_POST['registeredId'];
+		$data=json_decode($_POST['json'],true);print_r($data); 
+		$registerID= $_POST['registeredId'];echo $registerID;
 		
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('d-m-Y H:i:s').'_'.'.jpeg';
@@ -18,9 +18,9 @@ if(!$CONNECTION)
 		
 		$queryInsert= "insert into Profiles(`registerUserID`,
 		 `gender`, 
-		 `firstName`
+		 `saturn`
 		 )
-		values('$registerID','".$data['gender']."','".$data['firstName']."') "; 
+		values('$registerID','".$data['gender']."','".$data['saturn']."') "; 
 		//values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness'].",'".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
 		echo $queryInsert;$a=mysqli_query($CONNECTION,$queryInsert);echo $a;die;
 				/* if (mysqli_affected_rows()>0){
