@@ -15,7 +15,7 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
+		$querySearch="Select * from RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
 		if (mysqli_query($CONNECTION,$querySearch)){	
 			$result=mysqli_fetch_array($querySearch);
 			$re= array('code'=>"100",
