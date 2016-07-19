@@ -9,9 +9,9 @@ if(!$CONNECTION)
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
-		$data=json_decode($_POST['json'],true);print_r($data); 
+		$data=json_decode($_POST['json'],true);
 		$registerID= $_POST['registeredId'];echo $registerID;
-		
+		print_r($data);
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('d-m-Y H:i:s').'_'.'.jpeg';
 		
