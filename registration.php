@@ -16,7 +16,7 @@ if(!$CONNECTION)
 		$MobileNumber = $data['MobileNumber'];
 		
 		$querySearch="Select * RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
-		if (mysqli_query($CONNECTION,$querySearch)){	echo 'select query';die;
+		if (mysqli_query($CONNECTION,$querySearch)){	
 			$result=mysqli_fetch_array($querySearch);
 			$re= array('code'=>"100",
 					'result'=>"success",				
@@ -25,11 +25,10 @@ if(!$CONNECTION)
 			print_r(json_encode($re));
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
-			echo $queryInsert;
-			mysqli_query($CONNECTION,$queryInsert);echo mysqli_insert_id($CONNECTION);
-			$id=mysqli_insert_id($CONNECTION);
+		
+			mysqli_query($CONNECTION,$queryInsert);
+			$id=mysqli_insert_id($CONNECTION);		
 			
-			print_r($id);die;
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($querySearch);
 				$re=array('code'=>"100",
