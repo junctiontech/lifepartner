@@ -27,8 +27,8 @@ if(!$CONNECTION)
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
 			mysqli_query($CONNECTION,$queryInsert);
 			$id=mysqli_insert_id($CONNECTION);
-			
-			
+			print_r(mysqli_affected_rows());
+			print_r($id);
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($querySearch);
 				$re=array('code'=>"100",
