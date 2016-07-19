@@ -9,6 +9,7 @@ if(!$CONNECTION)
 	exit();
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
+	
 	if(isset($_GET['action'])&& $_GET['action']=="register"){
 		
 		$userName = $data['userName'];
