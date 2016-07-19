@@ -17,10 +17,10 @@ if(!$CONNECTION)
 		
 		
 		$queryInsert= "insert into Profiles(`registerUserID`,
-		 `gender`, 
-		 `saturn`
+		 `firstName`, 
+		 `lastName`
 		 )
-		values('$registerID','".$data['gender']."','".$data['saturn']."') "; 
+		values('$registerID','".$data['firstName']."','".$data['lastName']."') "; 
 		//values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness'].",'".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
 		echo $queryInsert;$a=mysqli_query($CONNECTION,$queryInsert);echo $a;die;
 				/* if (mysqli_affected_rows()>0){
