@@ -9,15 +9,33 @@ if(!$CONNECTION)
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
+		$data=json_decode($_POST['json'],true);
+		$registerID= $_POST['registeredId'];
 		
-		$id=substr(md5(microtime()),rand(0,26),5);	
-		$name = $id.$_POST['name'].'.jpeg';
-		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
- 		//echo $sql;
-		$path = "images/$name";
-	    mysqli_query($CONNECTION,$sql);
+		$id=substr(md5(microtime()),rand(0,26),5);
+		$name = $id.'_'.$registerID.'_'.date('d-m-Y H:i:s').'_'.'.jpeg';
+		
+		$queryInsert= "insert into Profiles((`registerUserID`, `gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`,'heightOfUser','birthTime', `highestQualification`,'TypeOfBusiness', `business`, `income`,'TypeOfFatherBusiness', `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`)
+				values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness'].",'".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','','','$name') "; 
+		
+		mysqli_query($CONNECTION,$queryInsert);
+				if (mysqli_affected_rows()>0){
+				$path = "images/$name";
+	   
 		file_put_contents($path,base64_decode($_POST['image']));
 		echo "Successfully Uploaded";
+				}
+				else {
+					echo "failled Insertion";
+				}
+		
+	
+// 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
+//  		//echo $sql;
+// 		$path = "images/$name";
+// 	    mysqli_query($CONNECTION,$sql);
+// 		file_put_contents($path,base64_decode($_POST['image']));
+// 		echo "Successfully Uploaded";
 		
 			
 // 		$queryInsert="insert into imagedata(imageName)values('$image')";
