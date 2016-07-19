@@ -20,7 +20,7 @@ if(!$CONNECTION)
 			$result=mysqli_fetch_result($querySearch);
 			$re= array('code'=>"100",
 					'result'=>"success",				
-					'registeredId'=>$result['registerUserID']
+					'registeredId'=>mysqli_result($result, 0)
 			);
 			print_r(json_encode($re));
 		}else {
