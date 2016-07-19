@@ -36,8 +36,8 @@ if(!$CONNECTION)
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
 		
-			mysqli_query($CONNECTION,$queryInsert);
-			$id=mysqli_insert_id($CONNECTION);		
+			//mysqli_query($CONNECTION,$queryInsert);
+			$id=mysqli_insert_id(mysqli_query($CONNECTION,$queryInsert));		
 			
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($queryInsert);
