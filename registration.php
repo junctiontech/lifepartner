@@ -23,29 +23,31 @@ if(!$CONNECTION)
 					'registeredId'=>$result['registerUserID']
 			);
 			print_r(json_encode($re));
-		}
-		
-		$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
-		mysqli_query($CONNECTION,$queryInsert);
-		$id=mysqli_insert_id($CONNECTION);
-	
-		
-		if (mysqli_affected_rows()>=0){
-			$result=mysqli_fetch_array($querySearch);
-			$re=array('code'=>"100",
-					'result'=>"success",
-					'msg'=>'',
-					'registeredId'=>$id
-			);
-			print_r(json_encode($re));
 		}else {
-			$result=mysqli_fetch_array($querySearch);
-			$re=array('code'=>"200",
-					'result'=>"failled",				
-					'registeredId'=>0
-			);
-			print_r(json_encode($re));
+			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
+			mysqli_query($CONNECTION,$queryInsert);
+			$id=mysqli_insert_id($CONNECTION);
+			
+			
+			if (mysqli_affected_rows()>=0){
+				$result=mysqli_fetch_array($querySearch);
+				$re=array('code'=>"100",
+						'result'=>"success",
+						'msg'=>'',
+						'registeredId'=>$id
+				);
+				print_r(json_encode($re));
+			}else {
+				$result=mysqli_fetch_array($querySearch);
+				$re=array('code'=>"200",
+						'result'=>"failled",
+						'registeredId'=>0
+				);
+				print_r(json_encode($re));
+			}
 		}
+		
+	
 	
 	}elseif ($action=="addProfile"){ 
 		 
