@@ -46,6 +46,7 @@ if(!$CONNECTION)
 						'msg'=>'',
 						'registeredId'=>$id
 				);
+				
 				print_r(json_encode($re));
 			}else {
 			
