@@ -35,9 +35,9 @@ if(!$CONNECTION)
 			print_r(json_encode($re));
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
-		
-			//mysqli_query($CONNECTION,$queryInsert);
-			$id=mysqli_insert_id(mysqli_query($CONNECTION,$queryInsert));		
+		print_r($queryInsert);
+			mysqli_query($CONNECTION,$queryInsert);
+			$id=mysqli_insert_id($CONNECTION);		
 			
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($queryInsert);
