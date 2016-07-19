@@ -28,7 +28,7 @@ if(!$CONNECTION)
 		
 			$aa= $result['registerUserID'];
 			$re= array('code'=>"100",
-					'result'=>"success",				
+					'result'=>"search",				
 					'registeredId'=>$aa
 			);
 			
@@ -42,7 +42,7 @@ if(!$CONNECTION)
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($queryInsert);
 				$re=array('code'=>"100",
-						'result'=>"success",
+						'result'=>"inserted",
 						'msg'=>'',
 						'registeredId'=>$id
 				);
