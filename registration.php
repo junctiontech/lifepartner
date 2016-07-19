@@ -18,7 +18,7 @@ if(!$CONNECTION)
 		$querySearch="Select * from RegisteredUser where EmailID='$EmailID' or MobileNumber='$MobileNumber'";
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$result=mysqli_fetch_array($query);
-		if(count($result)>0)
+		if(count($result)>0) 
 		{
 			$aa= $result['registerUserID'];
 			$re= array('code'=>"100",
