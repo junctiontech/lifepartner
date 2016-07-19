@@ -18,9 +18,9 @@ if(!$CONNECTION)
 		$querySearch="Select * from RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
 		echo $querySearch;
 		if (mysqli_query($CONNECTION,$querySearch)){
-		
-			print_r(mysqli_fetch_array($querySearch));die;
-			$result=mysqli_fetch_array($querySearch);
+		echo 'hii';
+			$result=mysqli_fetch_array($querySearch); print_r($result);die;
+			//$result=mysqli_fetch_array($querySearch);
 		
 			$aa= $result['registerUserID'];
 			$re= array('code'=>"100",
