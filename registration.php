@@ -17,7 +17,7 @@ if(!$CONNECTION)
 		
 		$querySearch="Select registerUserID from RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
 		if (mysqli_query($CONNECTION,$querySearch)){	
-			$result=mysqli_fetch_array($querySearch);
+			$result=mysqli_fetch_result($querySearch);
 			$re= array('code'=>"100",
 					'result'=>"success",				
 					'registeredId'=>$result['registerUserID']
