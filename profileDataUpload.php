@@ -9,7 +9,7 @@ if(!$CONNECTION)
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
-		$data=json_decode($_POST['json'],true);
+		$data=json_decode($_POST['json'],true);print_r($data);
 		$registerID= $_POST['registeredId'];
 		
 		$id=substr(md5(microtime()),rand(0,26),5);
