@@ -17,10 +17,10 @@ if(!$CONNECTION)
 		
 		$querySearch="Select registerUserID from RegisteredUser where EmailID='$EmailID' OR MobileNumber='$MobileNumber'";
 		if (mysqli_query($CONNECTION,$querySearch)){	
-			
+			$result=mysqli_fetch_array($querySearch);
 			$re= array('code'=>"100",
 					'result'=>"success",				
-					'registeredId'=>$querySearch['registerUserID']
+					'registeredId'=>$result['registerUserID']
 			);
 			print_r(json_encode($re));
 		}else {
@@ -30,7 +30,7 @@ if(!$CONNECTION)
 			$id=mysqli_insert_id($CONNECTION);		
 			
 			if (mysqli_affected_rows()>=0){
-				$result=mysqli_fetch_array($querySearch);
+				$result=mysqli_fetch_array($queryInsert);
 				$re=array('code'=>"100",
 						'result'=>"success",
 						'msg'=>'',
@@ -38,7 +38,7 @@ if(!$CONNECTION)
 				);
 				print_r(json_encode($re));
 			}else {
-				$result=mysqli_fetch_array($querySearch);
+			
 				$re=array('code'=>"200",
 						'result'=>"failled",
 						'registeredId'=>0
