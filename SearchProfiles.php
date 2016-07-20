@@ -7,6 +7,7 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
+	echo $_POST;die;
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];
 	$bride_groom= $_POST['bride_groom'];
@@ -15,7 +16,7 @@ if(!$CONNECTION)
 	$manglik= $_POST['manglik'];
 	$income= $_POST['income'];
 	
-	echo $_POST;die;
+	
 	
 	$querySearch="Select * from Profiles where 	gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
 	$query=mysqli_query($CONNECTION,$querySearch);
