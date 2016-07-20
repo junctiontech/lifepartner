@@ -7,20 +7,20 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-	
-	
-	print_r($_POST['min_age']);
+		
 	$min_age= $_POST['min_age'];
-// 	$max_age= $_POST['max_age'];
-// 	$bride_groom= $_POST['bride_groom'];
-// 	$gautr= $_POST['gautr'];
-// // 	$gautr_nanihal= $_POST['gautr_nanihal'];
-// 	$manglik= $_POST['manglik'];
-// 	$income= $_POST['income'];
+	$max_age= $_POST['max_age'];
+	$bride_groom= $_POST['bride_groom'];
+	$gautr= $_POST['gautr'];
+// 	$gautr_nanihal= $_POST['gautr_nanihal'];
+	$manglik= $_POST['manglik'];
+	$income= $_POST['income'];
 	
 	
 	
-// 	$querySearch="Select * from Profiles where 	gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
+$querySearch="Select * from Profiles where 	gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
+
+print_r($querySearch);
 // 	$query=mysqli_query($CONNECTION,$querySearch);
 // $searchResult=array();
 // 	if($query){
