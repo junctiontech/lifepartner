@@ -7,6 +7,7 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
+	echo "hi";die;
 	echo $_POST;die;
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];
