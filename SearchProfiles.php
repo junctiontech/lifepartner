@@ -20,11 +20,11 @@ if(!$CONNECTION)
 	
 $querySearch="Select * from Profiles where 	gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
 
-print_r($querySearch);
-// 	$query=mysqli_query($CONNECTION,$querySearch);
-// $searchResult=array();
-// 	if($query){
-		
+//print_r($querySearch);
+ 	$query=mysqli_query($CONNECTION,$querySearch);
+ $searchResult=array();
+ 	if($query){
+		print_r(mysqli_fetch_array($query));die;
 	
 // 		while($result=mysqli_fetch_array($query)){
 // 			$from = new DateTime($result['dateOfBirth']);
@@ -66,9 +66,9 @@ print_r($querySearch);
 		
 	
 		
-// 	}
+	}
 	
-// 	print_r(json_encode($searchResult));
+	print_r(json_encode($searchResult));
 
 	
 	
