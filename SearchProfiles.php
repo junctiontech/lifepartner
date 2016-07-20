@@ -8,7 +8,7 @@ if(!$CONNECTION)
 	exit();
 }else{
 	
-	echo $_POST;die;
+	
 	print_r($_POST['min_age']);
 	$min_age= $_POST['min_age'];
 // 	$max_age= $_POST['max_age'];
