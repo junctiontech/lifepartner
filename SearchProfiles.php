@@ -8,10 +8,10 @@ if(!$CONNECTION)
 	exit();
 }else{
 		
-	$min_age= 21;
-	$max_age= 35;
-// 	$min_age= $_POST['min_age'];
-// 	$max_age= $_POST['max_age'];
+//	$min_age= 21;
+//	$max_age= 35;
+	$min_age= $_POST['min_age'];
+	$max_age= $_POST['max_age'];
 	$bride_groom= $_POST['bride_groom'];
 	$gautr= $_POST['gautr'];
 // 	$gautr_nanihal= $_POST['gautr_nanihal'];
@@ -35,35 +35,35 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
 			//	print_r($age);die;
 			if ($min_age<=$age && $age <=$max_age){
 				echo "hi";
-// 				$searchResult[]= array('firstName'=>$result['firstName'],
-// 						'lastName'=>$result['lastName'],
-// 						'fatherName'=>$result['fatherName'],
-// 						'dateOfBirth'=>$result['dateOfBirth'],
-// 						'birthPlace'=>$result['birthPlace'],
-// 						'heightOfUser'=>$result['heightOfUser'],
-// 						'birthTime'=>$result['birthTime'],
-// 						'highestQualification'=>$result['highestQualification'],
-// 						'TypeOfBusiness'=>$result['TypeOfBusiness'],
-// 						'business'=>$result['business'],
-// 						'income'=>$result['income'],
-// 						'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
-// 						'fatherBusiness'=>$result['fatherBusiness'],
-// 						'fatherIncome'=>$result['fatherIncome'],
-// 						'gautr'=>$result['gautr'],
-// 						'gautrNanihal'=>$result['gautrNanihal'],
-// 						'zodiacSign'=>$result['zodiacSign'],
-// 						'star'=>$result['star'],
-// 						'saturn'=>$result['saturn'],
-// 						'manglik'=>$result['manglik'],
-// 						'currentAddress'=>$result['currentAddress'],
-// 						'permanentAddress'=>$result['permanentAddress'],
-// 						'emailId'=>$result['emailId'],
-// 						'mobileNumber'=>$result['mobileNumber'],
-// 						'WhatsAppNumber'=>$result['WhatsAppNumber']
+				$searchResult[]= array('firstName'=>$result['firstName'],
+						'lastName'=>$result['lastName'],
+						'fatherName'=>$result['fatherName'],
+						'dateOfBirth'=>$result['dateOfBirth'],
+						'birthPlace'=>$result['birthPlace'],
+						'heightOfUser'=>$result['heightOfUser'],
+						'birthTime'=>$result['birthTime'],
+						'highestQualification'=>$result['highestQualification'],
+						'TypeOfBusiness'=>$result['TypeOfBusiness'],
+						'business'=>$result['business'],
+						'income'=>$result['income'],
+						'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
+						'fatherBusiness'=>$result['fatherBusiness'],
+						'fatherIncome'=>$result['fatherIncome'],
+						'gautr'=>$result['gautr'],
+						'gautrNanihal'=>$result['gautrNanihal'],
+						'zodiacSign'=>$result['zodiacSign'],
+						'star'=>$result['star'],
+						'saturn'=>$result['saturn'],
+						'manglik'=>$result['manglik'],
+						'currentAddress'=>$result['currentAddress'],
+						'permanentAddress'=>$result['permanentAddress'],
+						'emailId'=>$result['emailId'],
+						'mobileNumber'=>$result['mobileNumber'],
+						'WhatsAppNumber'=>$result['WhatsAppNumber']
 						
 							
 			
-// 				);
+				);
 			}
 		}
 		
