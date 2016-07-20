@@ -15,6 +15,8 @@ if(!$CONNECTION)
 	$manglik= $_POST['manglik'];
 	$income= $_POST['income'];
 	
+	echo $_POST;die;
+	
 	$querySearch="Select * from Profiles where 	gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
 	$query=mysqli_query($CONNECTION,$querySearch);
 $searchResult=array();
