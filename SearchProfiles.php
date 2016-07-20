@@ -9,7 +9,7 @@ if(!$CONNECTION)
 }else{
 	
 	echo $_POST;die;
-	print_r($_POST);
+	print_r($_POST['min_age']);
 	$min_age= $_POST['min_age'];
 // 	$max_age= $_POST['max_age'];
 // 	$bride_groom= $_POST['bride_groom'];
