@@ -35,7 +35,8 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
 			//	print_r($age);die;
 			if ($min_age<=$age && $age <=$max_age){
 				
-				$searchResult[]= array('firstName'=>$result['firstName'],
+				$searchResult[]= array('gender'=>$bride_groom,
+						'firstName'=>$result['firstName'],
 						'lastName'=>$result['lastName'],
 						'fatherName'=>$result['fatherName'],
 						'dateOfBirth'=>$result['dateOfBirth'],
