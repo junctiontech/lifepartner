@@ -24,7 +24,7 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
  	$query=mysqli_query($CONNECTION,$querySearch);
  $searchResult=array();
  	if($query){
-		print_r(mysqli_fetch_array($query));die;
+		//print_r(mysqli_fetch_array($query));die;
 	
 		while($result=mysqli_fetch_array($query)){
 			$from = new DateTime($result['dateOfBirth']);
