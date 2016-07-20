@@ -10,10 +10,10 @@ if(!$CONNECTION)
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
 		$data=json_decode($_POST['json'],true);
-		$registerID= $_POST['registeredId'];echo $registerID;
+		$registerID= $_POST['registeredId'];//echo $registerID;
 	//	print_r($data);
 		$id=substr(md5(microtime()),rand(0,26),5);
-		$name = $id.'_'.$registerID.'_'.date('d-m-Y H:i:s').'_'.'.jpeg';
+		$name = $id.'_'.$registerID.'_'.date('d-m-Y_H:i:s').'_'.'.jpeg';
 				
 		$queryInsert= "insert into Profiles(`registerUserID`, `gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `TypeOfBusiness`, `business`, `income`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName` ) values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
 	//	echo $queryInsert;
@@ -66,7 +66,16 @@ if(!$CONNECTION)
 		 
 	
 	}
-	else {}
+else if(isset($_GET['action'])&& $_GET['action']=="Search"){
+		//echo 'hii';die;
+		$countrow= mysqli_query($CONNECTION,"select imageName from imagedata where s_no='12'");
+	//echo $countrow;	
+	$data1 = mysqli_fetch_array($countrow);//print_r($data1);
+	
+			echo 'http://192.168.1.151/lifepartner/images/'.$data1['imageName'];
+		 
+	
+	}
 }
 
 
