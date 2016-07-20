@@ -34,7 +34,7 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
 			$age = $from->diff($to)->y;
 			//	print_r($age);die;
 			if ($min_age<=$age && $age <=$max_age){
-				echo "hi";
+				
 				$searchResult[]= array('firstName'=>$result['firstName'],
 						'lastName'=>$result['lastName'],
 						'fatherName'=>$result['fatherName'],
@@ -59,8 +59,8 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
 						'permanentAddress'=>$result['permanentAddress'],
 						'emailId'=>$result['emailId'],
 						'mobileNumber'=>$result['mobileNumber'],
-						'WhatsAppNumber'=>$result['WhatsAppNumber']
-						
+						'WhatsAppNumber'=>$result['WhatsAppNumber'],
+						'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
 							
 			
 				);
