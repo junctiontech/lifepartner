@@ -25,7 +25,7 @@ if(!$CONNECTION)
 		
 			foreach ($result as $proData){			
 				
-			echo $proData['no']; $proData['category'];
+			echo $proData['no']; echo $proData['category'];
 			$searchResult[]= array('serverProfileId'=>$proData['no'],
 					'category'=>$proData['category'],
 					'gender'=>$proData->gender,
