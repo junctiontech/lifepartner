@@ -26,11 +26,11 @@ if(!$CONNECTION)
 		}
 		if(count($row)>0) 
 		{
-			//$aa= $result['registerUserID'];
+			
 		
 					foreach ($row as $result)
 					{
-						
+						$aa= $result['registerUserID'];
 			$searchResult[]= array('serverProfileId'=>$result['no'],
 					'category'=>$result['category'],
 					'gender'=>$result['gender'],
