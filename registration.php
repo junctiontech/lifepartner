@@ -18,7 +18,7 @@ if(!$CONNECTION)
 		
 		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' AND RegisteredUser.registerUserID=Profiles.registerUserID";
 		$query=mysqli_query($CONNECTION,$querySearch);
-		$result=mysqli_fetch_array($query);
+		$result=mysqli_fetch_array($query);print_r($result);die;
 		if(count($result)>0) 
 		{
 			$aa= $result['registerUserID'];
