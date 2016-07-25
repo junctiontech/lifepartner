@@ -31,7 +31,7 @@ if(!$CONNECTION)
 					foreach ($row as $result)
 					{
 						
-			$searchResult= array('serverProfileId'=>$result['no'],
+			$searchResult[]= array('serverProfileId'=>$result['no'],
 					'category'=>$result['category'],
 					'gender'=>$result['gender'],
 					'firstName'=>$result['firstName'],
