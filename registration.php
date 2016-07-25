@@ -57,7 +57,7 @@ if(!$CONNECTION)
 					'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName'],
 					
 						
-			);print_r($searchResult);die;
+			);
 			
 			
 			
@@ -70,7 +70,7 @@ if(!$CONNECTION)
 					'profiles'=>$searchResult
 			);
 			
-			//print_r(json_encode($re));
+			print_r(json_encode($re));
 			
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
