@@ -23,10 +23,9 @@ if(!$CONNECTION)
 		{
 			$aa= $result['registerUserID'];
 		
-			foreach ($result as $proData){
-			
+			foreach ($result as $proData){			
 				
-				print_r($proData);
+			//	print_r($proData);
 			$searchResult[]= array('serverProfileId'=>$proData->no,
 					'category'=>$proData->category,
 					'gender'=>$proData->gender,
@@ -60,7 +59,7 @@ if(!$CONNECTION)
 						
 			);
 			
-			}die;
+			}
 			
 			
 			
