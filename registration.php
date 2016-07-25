@@ -16,7 +16,7 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.registerUserID=Profiles.registerUserID AND MobileNumber='$MobileNumber'";
+		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' AND RegisteredUser.registerUserID=Profiles.registerUserID";
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$result=mysqli_fetch_array($query);
 		if(count($result)>0) 
