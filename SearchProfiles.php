@@ -8,13 +8,12 @@ if(!$CONNECTION)
 	exit();
 }else{
 		
-//	$min_age= 21;
-//	$max_age= 35;
+
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];
 	$bride_groom= $_POST['bride_groom'];
 	$gautr= $_POST['gautr'];
-// 	$gautr_nanihal= $_POST['gautr_nanihal'];
+
 	$manglik= $_POST['manglik'];
 	$income= $_POST['income'];
 	

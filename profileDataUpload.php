@@ -9,26 +9,36 @@ if(!$CONNECTION)
 }else{
 	//isset($_GET['action'])?$_GET['action']:'';
 	if(isset($_GET['action'])&& $_GET['action']=="upload"){
-		$data=json_decode($_POST['json'],true);
+		$Totaldata=json_decode($_POST['json'],true);
 		$registerID= $_POST['registeredId'];//echo $registerID;
 	//	print_r($data);
+		
+		$resultUpload=array();
+		foreach ($Totaldata as $data){
+		
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('d-m-Y_H:i:s').'.jpeg';
 				
 		$queryInsert= "insert into Profiles(`registerUserID`, `gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `TypeOfBusiness`, `business`, `income`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName` ) values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
-	//	echo $queryInsert;
+	
 		$a=mysqli_query($CONNECTION,$queryInsert);
-				
+		$profile_no=mysqli_insert_id($CONNECTION);
 		
 		 if ($a>0){
 				$path = "images/$name";
 	   $image= $data['profilePhoto'];
 		file_put_contents($path,base64_decode($image));
-		echo "Successfully Uploaded";
-				}
+		
+				
+		 
+		 $resultUpload[] = array('result'=>"success", 'profileID'=>$profile_no);
+		 }
 				else {
-					echo "failled Insertion";
+						 $resultUpload[] = array('result'=>"error");
 				} 
+		}
+		
+		print_r(json_encode($resultUpload));
 		
 	
 // 		$sql = "INSERT INTO imagedata (imageName) VALUES ('$name')";
