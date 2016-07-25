@@ -16,46 +16,44 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser where MobileNumber='$MobileNumber'";
+		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.registerUserID=Profiles.registerUserID AND MobileNumber='$MobileNumber'";
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$result=mysqli_fetch_array($query);
 		if(count($result)>0) 
 		{
 			$aa= $result['registerUserID'];
-			$query1="Select * from Profiles where registerUserID='$aa'";
-			$query2=mysqli_query($CONNECTION,$query1);
-			$searchResult=array();
-			foreach (mysqli_fetch_array($query2) as $proData){
 			
-			$searchResult[]= array('serverProfileId'=>$proData['no'],
-					'category'=>$proData['category'],
-					'gender'=>$proData['gender'],
-					'firstName'=>$proData['firstName'],
-					'lastName'=>$proData['lastName'],
-					'fatherName'=>$proData['fatherName'],
-					'dateOfBirth'=>$proData['dateOfBirth'],
-					'birthPlace'=>$proData['birthPlace'],
-					'heightOfUser'=>$proData['heightOfUser'],
-					'birthTime'=>$proData['birthTime'],
-					'highestQualification'=>$proData['highestQualification'],
-					'TypeOfBusiness'=>$proData['TypeOfBusiness'],
-					'business'=>$proData['business'],
-					'income'=>$proData['income'],
-					'TypeOfFatherBusiness'=>$proData['TypeOfFatherBusiness'],
-					'fatherBusiness'=>$$proData['fatherBusiness'],
-					'fatherIncome'=>$proData['fatherIncome'],
-					'gautr'=>$proData['gautr'],
-					'gautrNanihal'=>$proData['gautrNanihal'],
-					'zodiacSign'=>$proData['zodiacSign'],
-					'star'=>$proData['star'],
-					'saturn'=>$proData['saturn'],
-					'manglik'=>$proData['manglik'],
-					'currentAddress'=>$proData['currentAddress'],
-					'permanentAddress'=>$proData['permanentAddress'],
-					'emailId'=>$proData['emailId'],
-					'mobileNumber'=>$proData['mobileNumber'],
-					'WhatsAppNumber'=>$proData['WhatsAppNumber'],
-					'imageName'=>"http://192.168.1.151/lifepartner/images/".$proData['imageName'],
+			foreach ($result as $proData){
+			
+			$searchResult[]= array('serverProfileId'=>$proData->no,
+					'category'=>$proData->category,
+					'gender'=>$proData->gender,
+					'firstName'=>$proData->firstName,
+					'lastName'=>$proData->lastName,
+					'fatherName'=>$proData->fatherName,
+					'dateOfBirth'=>$proData->dateOfBirth,
+					'birthPlace'=>$proData->birthPlace,
+					'heightOfUser'=>$proData->heightOfUser,
+					'birthTime'=>$proData->birthTime,
+					'highestQualification'=>$proData->highestQualification,
+					'TypeOfBusiness'=>$proData->TypeOfBusiness,
+					'business'=>$proData->business,
+					'income'=>$proData->income,
+					'TypeOfFatherBusiness'=>$proData->TypeOfFatherBusiness,
+					'fatherBusiness'=>$$proData->fatherBusiness,
+					'fatherIncome'=>$proData->fatherIncome,
+					'gautr'=>$proData->gautr,
+					'gautrNanihal'=>$proData->gautrNanihal,
+					'zodiacSign'=>$proData->zodiacSign,
+					'star'=>$proData->star,
+					'saturn'=>$proData->saturn,
+					'manglik'=>$proData->manglik,
+					'currentAddress'=>$proData->currentAddress,
+					'permanentAddress'=>$proData->permanentAddress,
+					'emailId'=>$proData->emailId,
+					'mobileNumber'=>$proData->mobileNumber,
+					'WhatsAppNumber'=>$proData->WhatsAppNumber,
+					'imageName'=>"http://192.168.1.151/lifepartner/images/".$proData->imageName,
 					
 						
 			);
