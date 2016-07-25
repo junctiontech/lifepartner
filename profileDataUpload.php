@@ -18,25 +18,47 @@ if(!$CONNECTION)
 		
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('d-m-Y_H:i:s').'.jpeg';
-				
-		$queryInsert= "insert into Profiles(`registerUserID`, `gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `TypeOfBusiness`, `business`, `income`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName` ) values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
-	
-		$a=mysqli_query($CONNECTION,$queryInsert);
-		$profile_no=mysqli_insert_id($CONNECTION);
+$serverProfileId= $data['serverProfileId'];
 		
-		 if ($a>0){
+		if ($serverProfileId==''){
+			$queryInsert= "insert into Profiles(`registerUserID`, `gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `TypeOfBusiness`, `business`, `income`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName` ) values('$registerID','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
+			
+			
+			$a=mysqli_query($CONNECTION,$queryInsert);
+			$profile_no=mysqli_insert_id($CONNECTION);
+			
+			$s_no=$data['S_no'];
+			if ($a>0){
 				$path = "images/$name";
-	   $image= $data['profilePhoto'];
-		file_put_contents($path,base64_decode($image));
-		
+				$image= $data['profilePhoto'];
+				file_put_contents($path,base64_decode($image));
+					
+				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no);
+			}
+			else {
+				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
+			}
+			
+		}else {	
+			$querySearch="Select imageName from Profiles where no='$s_no'";				
+			mysqli_query($CONNECTION,$querySearch);
+			 $resultsearch =mysqli_fetch_array($querySearch);
+			 $imagename=$resultsearch['imageName'];
+			 $filepath="images/$imagename";
+				if (unlink($filepath))
+					echo "deleted";
+				else echo "failld";
 				
-		 
-		 $resultUpload[] = array('result'=>"success", 'profileID'=>$profile_no);
-		 }
-				else {
-						 $resultUpload[] = array('result'=>"error");
-				} 
+			$sql = "UPDATE Profiles SET gender='".$data['gender']."', firstName= '".$data['firstName']."' , lastName='".$data['lastName']."',`fatherName`='".$data['fatherName']."', `dateOfBirth`='".$data['dateOfBirth']."', `birthPlace`='".$data['birthPlace']."', `heightOfUser`='".$data['heightOfUser']."', `birthTime`='".$data['birthTime']."', `highestQualification`='".$data['highestQualification']."', `TypeOfBusiness`='".$data['TypeOfBusiness']."', `business`='".$data['business']."', `income`='".$data['income']."', `TypeOfFatherBusiness`='".$data['TypeOfFatherBusiness']."', `fatherBusiness`='".$data['fatherBusiness']."', `fatherIncome`='".$data['fatherIncome']."', `gautr`='".$data['gautr']."', `gautrNanihal`='".$data['gautrNanihal']."', `zodiacSign`='".$data['zodiacSign']."', `star`='".$data['star']."', `saturn`='".$data['saturn']."', `manglik`='".$data['manglik']."', `currentAddress`='".$data['currentAddress']."', `permanentAddress`='".$data['permanentAddress']."', `emailId`='".$data['emailId']."', `mobileNumber`='".$data['mobileNumber']."', `WhatsAppNumber`='".$data['WhatsAppNumber']."', `lastUpdationDate`='".date('d-m-Y H:i:s')."', `imageName`='$name' WHERE registerUserID='$registerID' AND no='$serverProfileId'";
+			$resultupdate =	mysqli_query($CONNECTION,$sql);
+			if ($resultupdate){
+				echo "Profile updated successfully";
+			}else echo "Profile updation failled";
+			
+			}
 		}
+		
+		
 		
 		print_r(json_encode($resultUpload));
 		
