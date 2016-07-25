@@ -24,12 +24,11 @@ if(!$CONNECTION)
 		{
 			$row[]=$result;
 		}
-		print_r($row);die;
-		if(count($result)>0) 
+		if(count($row)>0) 
 		{
 			//$aa= $result['registerUserID'];
 		
-					foreach ($result as $list)
+					foreach ($row as $list)
 					{
 						echo'<pre>';
 						print_r($list);
