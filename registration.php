@@ -25,9 +25,9 @@ if(!$CONNECTION)
 		
 			foreach ($result as $proData){			
 				
-			//	print_r($proData);
-			$searchResult[]= array('serverProfileId'=>$proData->no,
-					'category'=>$proData->category,
+			echo $proData['no']; $proData['category'];
+			$searchResult[]= array('serverProfileId'=>$proData['no'],
+					'category'=>$proData['category'],
 					'gender'=>$proData->gender,
 					'firstName'=>$proData->firstName,
 					'lastName'=>$proData->lastName,
@@ -57,7 +57,7 @@ if(!$CONNECTION)
 					'imageName'=>"http://192.168.1.151/lifepartner/images/".$proData->imageName,
 					
 						
-			);
+			);die;
 			
 			}
 			
