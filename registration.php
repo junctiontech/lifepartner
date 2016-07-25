@@ -18,48 +18,48 @@ if(!$CONNECTION)
 		
 		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' AND RegisteredUser.registerUserID=Profiles.registerUserID";
 		$query=mysqli_query($CONNECTION,$querySearch);
-		$result=mysqli_fetch_array($query);print_r($result);die;
+		$result=mysqli_fetch_array($query);//print_r($result);die;
 		if(count($result)>0) 
 		{
 			$aa= $result['registerUserID'];
 		
-			foreach ($result as $proData){			
+					
 				
-			print_r($proData);
-			$searchResult= array('serverProfileId'=>$proData['no'],
-					'category'=>$proData['category'],
-					'gender'=>$proData['gender'],
-					'firstName'=>$proData['firstName'],
-					'lastName'=>$proData['lastName'],
-					'fatherName'=>$proData['fatherName'],
-					'dateOfBirth'=>$proData['dateOfBirth'],
-					'birthPlace'=>$proData['birthPlace'],
-					'heightOfUser'=>$proData['heightOfUser'],
-					'birthTime'=>$proData['birthTime'],
-					'highestQualification'=>$proData['highestQualification'],
-					'TypeOfBusiness'=>$proData['TypeOfBusiness'],
-					'business'=>$proData['business'],
-					'income'=>$proData['income'],
-					'TypeOfFatherBusiness'=>$proData['TypeOfFatherBusiness'],
-					'fatherBusiness'=>$proData['fatherBusiness'],
-					'fatherIncome'=>$proData['fatherIncome'],
-					'gautr'=>$proData['gautr'],
-					'gautrNanihal'=>$proData['gautrNanihal'],
-					'zodiacSign'=>$proData['zodiacSign'],
-					'star'=>$proData['star'],
-					'saturn'=>$proData['saturn'],
-					'manglik'=>$proData['manglik'],
-					'currentAddress'=>$proData['currentAddress'],
-					'permanentAddress'=>$proData['permanentAddress'],
-					'emailId'=>$proData['emailId'],
-					'mobileNumber'=>$proData['mobileNumber'],
-					'WhatsAppNumber'=>$proData['WhatsAppNumber'],
-					'imageName'=>"http://192.168.1.151/lifepartner/images/".$proData['imageName'],
+			
+			$searchResult= array('serverProfileId'=>$result['no'],
+					'category'=>$result['category'],
+					'gender'=>$result['gender'],
+					'firstName'=>$result['firstName'],
+					'lastName'=>$result['lastName'],
+					'fatherName'=>$result['fatherName'],
+					'dateOfBirth'=>$result['dateOfBirth'],
+					'birthPlace'=>$result['birthPlace'],
+					'heightOfUser'=>$result['heightOfUser'],
+					'birthTime'=>$result['birthTime'],
+					'highestQualification'=>$result['highestQualification'],
+					'TypeOfBusiness'=>$result['TypeOfBusiness'],
+					'business'=>$result['business'],
+					'income'=>$result['income'],
+					'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
+					'fatherBusiness'=>$result['fatherBusiness'],
+					'fatherIncome'=>$result['fatherIncome'],
+					'gautr'=>$result['gautr'],
+					'gautrNanihal'=>$result['gautrNanihal'],
+					'zodiacSign'=>$result['zodiacSign'],
+					'star'=>$result['star'],
+					'saturn'=>$result['saturn'],
+					'manglik'=>$result['manglik'],
+					'currentAddress'=>$result['currentAddress'],
+					'permanentAddress'=>$result['permanentAddress'],
+					'emailId'=>$result['emailId'],
+					'mobileNumber'=>$result['mobileNumber'],
+					'WhatsAppNumber'=>$result['WhatsAppNumber'],
+					'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName'],
 					
 						
 			);print_r($searchResult);die;
 			
-			}
+			
 			
 			
 			
