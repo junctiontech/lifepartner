@@ -25,39 +25,39 @@ if(!$CONNECTION)
 		
 			foreach ($result as $proData){			
 				
-			echo $proData['no']; echo $proData['category'];
-			$searchResult[]= array('serverProfileId'=>$proData['no'],
+			print_r($proData);
+			$searchResult= array('serverProfileId'=>$proData['no'],
 					'category'=>$proData['category'],
-					'gender'=>$proData->gender,
-					'firstName'=>$proData->firstName,
-					'lastName'=>$proData->lastName,
-					'fatherName'=>$proData->fatherName,
-					'dateOfBirth'=>$proData->dateOfBirth,
-					'birthPlace'=>$proData->birthPlace,
-					'heightOfUser'=>$proData->heightOfUser,
-					'birthTime'=>$proData->birthTime,
-					'highestQualification'=>$proData->highestQualification,
-					'TypeOfBusiness'=>$proData->TypeOfBusiness,
-					'business'=>$proData->business,
-					'income'=>$proData->income,
-					'TypeOfFatherBusiness'=>$proData->TypeOfFatherBusiness,
-					'fatherBusiness'=>$$proData->fatherBusiness,
-					'fatherIncome'=>$proData->fatherIncome,
-					'gautr'=>$proData->gautr,
-					'gautrNanihal'=>$proData->gautrNanihal,
-					'zodiacSign'=>$proData->zodiacSign,
-					'star'=>$proData->star,
-					'saturn'=>$proData->saturn,
-					'manglik'=>$proData->manglik,
-					'currentAddress'=>$proData->currentAddress,
-					'permanentAddress'=>$proData->permanentAddress,
-					'emailId'=>$proData->emailId,
-					'mobileNumber'=>$proData->mobileNumber,
-					'WhatsAppNumber'=>$proData->WhatsAppNumber,
-					'imageName'=>"http://192.168.1.151/lifepartner/images/".$proData->imageName,
+					'gender'=>$proData['gender'],
+					'firstName'=>$proData['firstName'],
+					'lastName'=>$proData['lastName'],
+					'fatherName'=>$proData['fatherName'],
+					'dateOfBirth'=>$proData['dateOfBirth'],
+					'birthPlace'=>$proData['birthPlace'],
+					'heightOfUser'=>$proData['heightOfUser'],
+					'birthTime'=>$proData['birthTime'],
+					'highestQualification'=>$proData['highestQualification'],
+					'TypeOfBusiness'=>$proData['TypeOfBusiness'],
+					'business'=>$proData['business'],
+					'income'=>$proData['income'],
+					'TypeOfFatherBusiness'=>$proData['TypeOfFatherBusiness'],
+					'fatherBusiness'=>$proData['fatherBusiness'],
+					'fatherIncome'=>$proData['fatherIncome'],
+					'gautr'=>$proData['gautr'],
+					'gautrNanihal'=>$proData['gautrNanihal'],
+					'zodiacSign'=>$proData['zodiacSign'],
+					'star'=>$proData['star'],
+					'saturn'=>$proData['saturn'],
+					'manglik'=>$proData['manglik'],
+					'currentAddress'=>$proData['currentAddress'],
+					'permanentAddress'=>$proData['permanentAddress'],
+					'emailId'=>$proData['emailId'],
+					'mobileNumber'=>$proData['mobileNumber'],
+					'WhatsAppNumber'=>$proData['WhatsAppNumber'],
+					'imageName'=>"http://192.168.1.151/lifepartner/images/".$proData['imageName'],
 					
 						
-			);die;
+			);print_r($searchResult);die;
 			
 			}
 			
@@ -70,7 +70,7 @@ if(!$CONNECTION)
 					'profiles'=>$searchResult
 			);
 			
-			print_r(json_encode($re));
+			//print_r(json_encode($re));
 			
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
