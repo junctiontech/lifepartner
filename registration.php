@@ -18,10 +18,13 @@ if(!$CONNECTION)
 		
 		$querySearch="Select * from Profiles where registerUserID=23";//echo $querySearch;
 		$query=mysqli_query($CONNECTION,$querySearch);
-		$count=mysqli_num_rows($query);echo $count;die;
-		mysqli_data_seek($query);
-		$result=mysqli_fetch_assoc($query);print_r($result);//die;
+		$count=mysqli_num_rows($query);
 		
+		while($result=mysqli_fetch_assoc($query))
+		{
+			$row[]=$result;
+		}
+		print_r($row);die;
 		if(count($result)>0) 
 		{
 			//$aa= $result['registerUserID'];
