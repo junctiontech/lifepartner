@@ -16,18 +16,63 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser where EmailID='$EmailID' or MobileNumber='$MobileNumber'";
+		$querySearch="Select * from RegisteredUser where MobileNumber='$MobileNumber'";
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$result=mysqli_fetch_array($query);
 		if(count($result)>0) 
 		{
 			$aa= $result['registerUserID'];
+			$query1="Select * from Profiles where registerUserID='$aa'";
+			$query2=mysqli_query($CONNECTION,$query1);
+			$searchResult=array();
+			foreach (mysqli_fetch_array($query2) as $result){
+			
+			$searchResult[]= array('serverProfileId'=>$result['no'],
+					'category'=>$result['category'],
+					'gender'=>$result['gender'],
+					'firstName'=>$result['firstName'],
+					'lastName'=>$result['lastName'],
+					'fatherName'=>$result['fatherName'],
+					'dateOfBirth'=>$result['dateOfBirth'],
+					'birthPlace'=>$result['birthPlace'],
+					'heightOfUser'=>$result['heightOfUser'],
+					'birthTime'=>$result['birthTime'],
+					'highestQualification'=>$result['highestQualification'],
+					'TypeOfBusiness'=>$result['TypeOfBusiness'],
+					'business'=>$result['business'],
+					'income'=>$result['income'],
+					'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
+					'fatherBusiness'=>$result['fatherBusiness'],
+					'fatherIncome'=>$result['fatherIncome'],
+					'gautr'=>$result['gautr'],
+					'gautrNanihal'=>$result['gautrNanihal'],
+					'zodiacSign'=>$result['zodiacSign'],
+					'star'=>$result['star'],
+					'saturn'=>$result['saturn'],
+					'manglik'=>$result['manglik'],
+					'currentAddress'=>$result['currentAddress'],
+					'permanentAddress'=>$result['permanentAddress'],
+					'emailId'=>$result['emailId'],
+					'mobileNumber'=>$result['mobileNumber'],
+					'WhatsAppNumber'=>$result['WhatsAppNumber'],
+					'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName'],
+					
+						
+			);
+			
+			}
+			
+			
+			
+			
 			$re= array('code'=>"100",
 					'result'=>"search",				
-					'registeredId'=>$aa
+					'registeredId'=>$aa,
+					'profiles'=>$searchResult
 			);
 			
 			print_r(json_encode($re));
+			
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
 		//print_r($queryInsert);
