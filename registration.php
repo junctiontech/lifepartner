@@ -87,7 +87,7 @@ if(!$CONNECTION)
 			
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($queryInsert);
-				$re=array('code'=>"100",
+				$re=array('code'=>"200",
 						'result'=>"inserted",
 						'msg'=>'',
 						'registeredId'=>$id
@@ -96,7 +96,7 @@ if(!$CONNECTION)
 				print_r(json_encode($re));
 			}else {
 			
-				$re=array('code'=>"200",
+				$re=array('code'=>"300",
 						'result'=>"failled",
 						'registeredId'=>0
 				);
