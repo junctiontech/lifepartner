@@ -17,7 +17,7 @@ if(!$CONNECTION)
 		foreach ($Totaldata['profileData'] as $data){
 		
 		$id=substr(md5(microtime()),rand(0,26),5);
-		$name = $id.'_'.$registerID.'_'.date('d-m-Y_H:i:s').'.jpeg';
+		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
 $serverProfileId= $data['serverProfileId'];
 		
 		if ($serverProfileId==''){
