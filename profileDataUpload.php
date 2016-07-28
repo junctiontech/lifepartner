@@ -1,6 +1,5 @@
 <?php
 
-print_r("hii");
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
