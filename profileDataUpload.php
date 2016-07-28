@@ -42,29 +42,30 @@ if(!$CONNECTION)
 			 $resultsearch =mysqli_fetch_array($querySearch);
 			 $imagename=$resultsearch['imageName'];
 			 $filepath="images/$imagename";
-				if (unlink($filepath))
+			 
+				if (unlink($filepath)){
 					echo "deleted";
-				else echo "failld";
-				
-				
-				$path = "images/$name";
-				$image= $data['profilePhoto'];
-				file_put_contents($path,base64_decode($image));
+					$path = "images/$name";
+					$image= $data['profilePhoto'];
+					file_put_contents($path,base64_decode($image));
+						
+					$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
 					
-				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
-          				
-			$sql = "UPDATE Profiles SET gender='".$data['gender']."', firstName= '".$data['firstName']."' , lastName='".$data['lastName']."',`fatherName`='".$data['fatherName']."', `dateOfBirth`='".$data['dateOfBirth']."', `birthPlace`='".$data['birthPlace']."', `heightOfUser`='".$data['heightOfUser']."', `birthTime`='".$data['birthTime']."', `highestQualification`='".$data['highestQualification']."',`userJobProfile`='".$data['userJobProfile']."', `TypeOfBusiness`='".$data['TypeOfBusiness']."', `business`='".$data['business']."', `income`='".$data['income']."',`fatherJobProfile`='".$data['fatherJobProfile']."', `TypeOfFatherBusiness`='".$data['TypeOfFatherBusiness']."', `fatherBusiness`='".$data['fatherBusiness']."', `fatherIncome`='".$data['fatherIncome']."', `gautr`='".$data['gautr']."', `gautrNanihal`='".$data['gautrNanihal']."', `zodiacSign`='".$data['zodiacSign']."', `star`='".$data['star']."', `saturn`='".$data['saturn']."', `manglik`='".$data['manglik']."', `currentAddress`='".$data['currentAddress']."', `permanentAddress`='".$data['permanentAddress']."', `emailId`='".$data['emailId']."', `mobileNumber`='".$data['mobileNumber']."', `WhatsAppNumber`='".$data['WhatsAppNumber']."', `lastUpdationDate`='".date('d-m-Y H:i:s')."', `imageName`='$name' WHERE registerUserID='$registerID' AND no='$serverProfileId'";
-			//print_r($sql);die;
-			$resultupdate =	mysqli_query($CONNECTION,$sql);
-			
-			if ($resultupdate){
-								$path = "images/$name";
-								$image= $data['profilePhoto'];
-								file_put_contents($path,base64_decode($image));
+					$sql = "UPDATE Profiles SET gender='".$data['gender']."', firstName= '".$data['firstName']."' , lastName='".$data['lastName']."',`fatherName`='".$data['fatherName']."', `dateOfBirth`='".$data['dateOfBirth']."', `birthPlace`='".$data['birthPlace']."', `heightOfUser`='".$data['heightOfUser']."', `birthTime`='".$data['birthTime']."', `highestQualification`='".$data['highestQualification']."',`userJobProfile`='".$data['userJobProfile']."', `TypeOfBusiness`='".$data['TypeOfBusiness']."', `business`='".$data['business']."', `income`='".$data['income']."',`fatherJobProfile`='".$data['fatherJobProfile']."', `TypeOfFatherBusiness`='".$data['TypeOfFatherBusiness']."', `fatherBusiness`='".$data['fatherBusiness']."', `fatherIncome`='".$data['fatherIncome']."', `gautr`='".$data['gautr']."', `gautrNanihal`='".$data['gautrNanihal']."', `zodiacSign`='".$data['zodiacSign']."', `star`='".$data['star']."', `saturn`='".$data['saturn']."', `manglik`='".$data['manglik']."', `currentAddress`='".$data['currentAddress']."', `permanentAddress`='".$data['permanentAddress']."', `emailId`='".$data['emailId']."', `mobileNumber`='".$data['mobileNumber']."', `WhatsAppNumber`='".$data['WhatsAppNumber']."', `lastUpdationDate`='".date('d-m-Y H:i:s')."', `imageName`='$name' WHERE registerUserID='$registerID' AND no='$serverProfileId'";
+					//print_r($sql);die;
+					$resultupdate =	mysqli_query($CONNECTION,$sql);
+						
+					if ($resultupdate){
+						$path = "images/$name";
+						$image= $data['profilePhoto'];
+						file_put_contents($path,base64_decode($image));
+					
+						$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
+					
+					}else $resultUpload[] =  array('result'=>"success");
+						
+		}else $resultUpload[] =  array('result'=>"image deletion failled");				
 				
-			$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
-								
-			}else 	$resultUpload[] = array('result'=>"success");
 			
 			}
 		}
