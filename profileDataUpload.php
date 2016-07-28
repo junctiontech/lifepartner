@@ -42,6 +42,7 @@ if(!$CONNECTION)
 			 $resultsearch =mysqli_fetch_array($querySearch);
 			 $imagename=$resultsearch['imageName'];
 			 $filepath="images/$imagename";
+			 print_r($filepath);die;
 			 
 				if (unlink($filepath)){
 					echo "deleted";
