@@ -26,8 +26,7 @@ if(!$CONNECTION)
 		}
 		if(count($row)>0) 
 		{
-			
-		
+					
 					foreach ($row as $result)
 					{
 						$aa= $result['registerUserID'];
