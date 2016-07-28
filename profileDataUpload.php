@@ -19,7 +19,7 @@ if(!$CONNECTION)
 		
 		if ($serverProfileId==''){
 			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName` ) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name') ";
-						
+				print_r($queryInsert);die;		
 			$a=mysqli_query($CONNECTION,$queryInsert);
 			$profile_no=mysqli_insert_id($CONNECTION);
 			
