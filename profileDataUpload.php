@@ -64,7 +64,7 @@ if(!$CONNECTION)
 				
 			$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
 								
-			}else echo "Profile updation failled";
+			}else 	$resultUpload[] = array('result'=>"success");
 			
 			}
 		}
