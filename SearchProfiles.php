@@ -19,7 +19,7 @@ if(!$CONNECTION)
 	
 	
 	
-$querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
+$querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$manglik' OR gautr='$gautr'";
 
 //print_r($querySearch);
  	$query=mysqli_query($CONNECTION,$querySearch);
