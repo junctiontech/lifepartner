@@ -30,7 +30,7 @@ if(!$CONNECTION)
 				$image= $data['profilePhoto'];
 				file_put_contents($path,base64_decode($image));
 					
-				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
+				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
 			}
 			else {
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
@@ -45,7 +45,7 @@ if(!$CONNECTION)
 			$tempName =$imagename['imageName'];
 			$filepath = "images/$tempName";
 				if (unlink($filepath)){
-					echo "deleted";
+				//	echo "deleted";
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
 					file_put_contents($path,base64_decode($image));
