@@ -41,9 +41,25 @@ if(!$CONNECTION)
 		$ress=	mysqli_query($CONNECTION,$querySearch);
 			
 			//print_r($querySearch);die;
-			 $imagename =mysqli_result($ress, "imageName");
+			 $imagename =mysqli_result_assoc($ress);
+			echo  $imagename['imageName'];die;
 			// echo $resultsearch;
 			// $imagename=$resultsearch['imageName'];
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
 			 $filepath="images/$imagename";
 			  print_r($filepath);
 			 
