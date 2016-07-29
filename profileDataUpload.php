@@ -30,7 +30,7 @@ if(!$CONNECTION)
 				$image= $data['profilePhoto'];
 				file_put_contents($path,base64_decode($image));
 					
-				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
+				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
 			}
 			else {
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
