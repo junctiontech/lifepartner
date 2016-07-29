@@ -42,8 +42,8 @@ if(!$CONNECTION)
 			//echo $querySearch;die;
 		$imagename=mysqli_fetch_assoc($ress);
 			// $imagename =mysqli_result_assoc($ress);
-			$name =$imagename['imageName'];
-		 
+			$tempName =$imagename['imageName'];
+			$filepath = "images/$tempName";
 				if (unlink($filepath)){
 					echo "deleted";
 					$path = "images/$name";
