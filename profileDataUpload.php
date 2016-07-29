@@ -43,7 +43,7 @@ if(!$CONNECTION)
 			 echo $resultsearch;
 			 $imagename=$resultsearch['imageName'];
 			 $filepath="images/$imagename";
-			 print_r($filepath);die;
+			 print_r($filepath);
 			 
 				if (unlink($filepath)){
 					echo "deleted";
