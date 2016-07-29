@@ -37,7 +37,7 @@ if(!$CONNECTION)
 			}
 			
 		}else {	 
-			$querySearch="Select imageName from Profiles where no='$s_no'";				
+			$querySearch="Select imageName from Profiles where no='$serverProfileId'";				
 			mysqli_query($CONNECTION,$querySearch);
 			 $resultsearch =mysqli_fetch_array($querySearch);
 			 echo $resultsearch;
