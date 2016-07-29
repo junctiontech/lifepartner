@@ -40,9 +40,9 @@ if(!$CONNECTION)
 			$querySearch="Select imageName from Profiles where no='$serverProfileId'";				
 			mysqli_query($CONNECTION,$querySearch);
 			
-			print_r($querySearch);die;
+			//print_r($querySearch);die;
 			 $resultsearch =mysqli_fetch_array($querySearch);
-			 echo $resultsearch;
+			// echo $resultsearch;
 			 $imagename=$resultsearch['imageName'];
 			 $filepath="images/$imagename";
 			 print_r($filepath);
