@@ -40,8 +40,8 @@ if(!$CONNECTION)
 			$querySearch="Select imageName from Profiles where no='$serverProfileId'";				
 		$ress=	mysqli_query($CONNECTION,$querySearch);
 			
-			//print_r($querySearch);die;
-			 $imagename =mysqli_result_assoc($ress);
+			
+			 $imagename =mysqli_result_assoc($ress);print_r($imagename);die;
 			echo  $imagename['imageName'];die;
 			// echo $resultsearch;
 			// $imagename=$resultsearch['imageName'];
@@ -60,9 +60,7 @@ if(!$CONNECTION)
 			 
 			 
 			 
-			 $filepath="images/$imagename";
-			  print_r($filepath);
-			 
+			
 				if (unlink($filepath)){
 					echo "deleted";
 					$path = "images/$name";
