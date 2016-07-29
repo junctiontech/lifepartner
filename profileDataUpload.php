@@ -36,10 +36,11 @@ if(!$CONNECTION)
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
 			}
 			
-		}else {	
+		}else {	 
 			$querySearch="Select imageName from Profiles where no='$s_no'";				
 			mysqli_query($CONNECTION,$querySearch);
 			 $resultsearch =mysqli_fetch_array($querySearch);
+			 echo $resultsearch;
 			 $imagename=$resultsearch['imageName'];
 			 $filepath="images/$imagename";
 			 print_r($filepath);die;
