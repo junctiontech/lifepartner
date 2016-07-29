@@ -39,6 +39,8 @@ if(!$CONNECTION)
 		}else {	 
 			$querySearch="Select imageName from Profiles where no='$serverProfileId'";				
 			mysqli_query($CONNECTION,$querySearch);
+			
+			print_r($querySearch);die;
 			 $resultsearch =mysqli_fetch_array($querySearch);
 			 echo $resultsearch;
 			 $imagename=$resultsearch['imageName'];
@@ -66,15 +68,16 @@ if(!$CONNECTION)
 					
 					}else $resultUpload[] =  array('result'=>"success");
 						
-		}else $resultUpload[] =  array('result'=>"image deletion failled");				
+		       }else $resultUpload[] =  array('result'=>"image deletion failled");				
 				
 			
 			}
-		}
-		
-		
+			
+	  }
 		
 		print_r(json_encode($resultUpload));
+		
+	
 		
 	
 		
