@@ -41,7 +41,7 @@ if(!$CONNECTION)
 		$ress=	mysqli_query($CONNECTION,$querySearch);
 			//echo $querySearch;die;
 			
-			 $imagename =mysqli_result_assoc($ress);print_r($imagename);die;
+			 $imagename =mysqli_result_assoc($ress);print_r($imagename['imageName']);die;
 			//echo  $imagename['imageName'];die;
 			// echo $resultsearch;
 			// $imagename=$resultsearch['imageName'];
