@@ -24,7 +24,7 @@
  			$registerUserID=$json['registerUserID'];
  			$profileId=$json['profileId'];
  			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
- 			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);print_r($getRequest);//die;
+ 			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequest);//die;
  			if(count($getRequest)>0)
  			{
  				/* $data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
@@ -41,7 +41,7 @@
  			} 
  			else 
  			{
- 				$data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);print_r($data);
+ 				$data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);//print_r($data);
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
  				if($requestUpdate)
  				{
