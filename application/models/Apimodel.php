@@ -18,6 +18,7 @@ class Apimodel extends CI_Model{
 	{
 			 $this->db->where($filter);
 		$qry=$this->db->update($table,$data);
+		return $qry;
 	}
 	
 	function post($table,$data)
