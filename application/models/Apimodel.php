@@ -22,7 +22,7 @@ class Apimodel extends CI_Model{
 	
 	function post($table,$data)
 	{
-		$qry=$this->db->inset($table,$data);
+		$qry=$this->db->insert($table,$data);
 		return $qry->result();
 	}
 	
