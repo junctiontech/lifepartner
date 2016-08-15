@@ -37,11 +37,11 @@
 								 <div class="fileupload fileupload-new" data-provides="fileupload">
 									<?php if(isset($profile[0]->firstName)){ ?>
 										<div class="fileupload-new">
-										  <img src="images/<?=$profile[0]->imageName?>" alt=""  class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
+										  <img src="images/<?=$profile[0]->imageName?>" alt="" style="width:120px; height:120px;margin-left:118px; margin-bottom:22px; margin-top:-16px;" class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
 										</div>
 									<?php }else{ ?>
 										<div class="fileupload-new">
-										  <img src="http://www.placehold.it/120x120/EFEFEF/AAAAAA&amp;text=no+image" alt=""  class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
+										  <img src="http://www.placehold.it/120x120/EFEFEF/AAAAAA&amp;text=no+image"  alt=""  class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
 										</div>		
 									
 									<?php } ?>
