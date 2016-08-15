@@ -23,7 +23,7 @@ class Apimodel extends CI_Model{
 	function post($table,$data)
 	{
 		$qry=$this->db->insert($table,$data);
-		return $qry->result();
+		return $qry;
 	}
 	
 	function getDistinct($table,$calumn)

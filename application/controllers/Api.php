@@ -45,11 +45,11 @@
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
  				if($requestUpdate)
  				{
- 					$response=array('code'=>'200','message'=>'request successfully');echo json_encode($response);
+ 					$result=array('code'=>'200','message'=>'request successfully');echo json_encode($result);die;
  				}
  				else
  				{
- 					$response=array('code'=>'400','message'=>'request failure');echo json_encode($response);
+ 					$result=array('code'=>'400','message'=>'request failure');echo json_encode($result);die;
  				}
  			}
  		}
