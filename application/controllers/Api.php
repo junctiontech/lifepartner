@@ -18,7 +18,7 @@
  	function request()
  	{
  		$request=$_POST['request'];
- 		if(isset($json))
+ 		if(isset($request))
  		{
  			$json=json_decode($json,true);
  			$registerUserID=$json['registerUserID'];
