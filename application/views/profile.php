@@ -150,6 +150,86 @@
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Father Name</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->fatherName)){ echo $profile[0]->fatherName; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Father Business</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->fatherJobProfile)){ echo $profile[0]->fatherJobProfile; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Father Income</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->fatherIncome)){ echo $profile[0]->fatherIncome; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Birth Place</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->birthPlace)){ echo $profile[0]->birthPlace; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Nanihal Gautra</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->gautrNanihal)){ echo $profile[0]->gautrNanihal; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Zodiac Sign</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->zodiacSign)){ echo $profile[0]->zodiacSign; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Manglik</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->manglik)){ echo $profile[0]->manglik; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Saturn</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->saturn)){ echo $profile[0]->saturn; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="form-group-separator"></div>
 							<div class="form-group">
 								<!--<button type="submit" class="btn btn-success">Submit</button>-->

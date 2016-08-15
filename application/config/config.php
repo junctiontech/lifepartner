@@ -34,7 +34,7 @@ $config['base_url']	= 'http://localhost:8080/lifepartner';
 }
 else
 {
-	$config['base_url']	= 'http://cpanel.zeroerp.com/';
+	$config['base_url']	= 'http://lifepartner.zeroerp.com/';
 }
 
 

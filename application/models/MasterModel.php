@@ -9,6 +9,7 @@ class MasterModel extends CI_Model{
 	/* Function for Verify Organization Admin user id and password.......................................................................*/
 	function get()
 	{
+		$this->db->order_by('firstName','asc');
 		$qry=$this->db->get('Profiles');
 		return $qry->result();
 	}
