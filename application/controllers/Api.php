@@ -38,7 +38,7 @@
  				 {*/
  					//$response=array('code'=>'400','message'=>'request failure');echo json_encode($response);
  				/*}*/
- 			}
+ 			} 
  			else 
  			{
  				$data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
