@@ -20,7 +20,7 @@
  		$request=$_POST['request'];
  		if(isset($request))
  		{
- 			$json=json_decode($json,true);
+ 			$json=json_decode($request,true);
  			$registerUserID=$json['registerUserID'];
  			$profileId=$json['profileId'];
  			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
