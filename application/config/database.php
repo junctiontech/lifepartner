@@ -75,7 +75,7 @@ if($_SERVER['HTTP_HOST']=='192.168.1.151')
 	$username='root';
 	$password='initial1$';
 }
-elseif($_SERVER['HTTP_HOST']=='cpanel.zeroerp.com')
+elseif($_SERVER['HTTP_HOST']=='lifepartner.zeroerp.com')
 {
 	$username='root';
 	$password='initial1$';
@@ -93,7 +93,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => $username,
 	'password' => $password,
-	'database' => 'lifePartner',
+	'database' => 'LifePartner',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
