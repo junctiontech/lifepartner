@@ -19,7 +19,7 @@ if(!$CONNECTION)
 	
 	
 	
-$querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$manglik' AND income='$income' AND gautr='$gautr'";
+$querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$manglik' OR gautr='$gautr'";
 
 //print_r($querySearch);
  	$query=mysqli_query($CONNECTION,$querySearch);
@@ -62,7 +62,7 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
 						'emailId'=>$result['emailId'],
 						'mobileNumber'=>$result['mobileNumber'],
 						'WhatsAppNumber'=>$result['WhatsAppNumber'],
-						'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName'],
+						'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
 						'age'=>	$age
 			
 				);

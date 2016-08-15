@@ -26,8 +26,7 @@ if(!$CONNECTION)
 		}
 		if(count($row)>0) 
 		{
-			
-		
+					
 					foreach ($row as $result)
 					{
 						$aa= $result['registerUserID'];
@@ -61,7 +60,7 @@ if(!$CONNECTION)
 					'emailId'=>$result['emailId'],
 					'mobileNumber'=>$result['mobileNumber'],
 					'WhatsAppNumber'=>$result['WhatsAppNumber'],
-					'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName'],
+					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
 					
 						
 			);
