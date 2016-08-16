@@ -38,7 +38,7 @@
 							<optgroup label="Please select Organizations Name" >
 							<?php //foreach($organizationList as $list){ ?>
 								<option value="M">Male</option>
-								<option value="F">Fe Male</option>
+								<option value="F">Female</option>
 							<?php //} ?>
 							</optgroup>
 					</select>

@@ -6,8 +6,8 @@
 				
 					<!-- Add your copyright text here -->
 					<div class="footer-text text-black" >
-						&copy; <?php echo date("Y"); ?> 
-						<strong >Junction ERP.Copyright<a href="http://junctiontech.in/" target="_blank"> Junction Software Pvt.Ltd	</a></strong> 
+						 <?php //echo date("Y"); ?> 
+						<strong ><a href="http://junctiontech.in/" target="_blank"> Junction Software Pvt.Ltd	</a></strong> 
 						Mobile Number- 8109069226 				</div>
 					
 					

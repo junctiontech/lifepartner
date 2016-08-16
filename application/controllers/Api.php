@@ -7,14 +7,12 @@
  		$this->data[]='';
  		$this->load->helper('url');
  		$this->data['url']=base_url();
-		$this->load->library('parser');
-		$this->load->library('session');
 		$this->load->model('Apimodel');
 		$timezone = "Asia/Calcutta";
 		if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	}
 
- 	/* Function for login Admin area view.......................................................................*/
+ 	/* Start Function for request contact api.......................................................................*/
  	function request()
  	{
  		$request=$_POST['request'];//echo $request;
@@ -55,7 +53,10 @@
  			}
  		}
  	}
+ 	/* End Function for request contact api.......................................................................*/
  	
+ 	
+ 	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{
  		$registerUserID=$_POST['registerUserID'];
@@ -89,7 +90,10 @@
  			}
  		}
  	}
- 	
+ 	/* End Function for request list get.......................................................................*/
+
+    
+ 	/* Start Function for approval............................................................................*/
     function approval()
     {
     	$request=$_POST['approval'];
@@ -121,5 +125,5 @@
     		}
     	}
     }
-	
+    /* End Function for approval..............................................................................*/
  }
