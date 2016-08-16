@@ -149,67 +149,7 @@
     		$registerUserID=$json['registerUserID'];
     		$filter=array('registerUserID'=>$registerUserID);
     		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilter('requestContact',$filter);print_r($getRequestStatus);
-    		if(count($getRequestStatus)>0)
-    		{
-    			foreach($getRequestStatus as $list)
-    			{
-    				if($list->status=='Y')
-    				{
-    					$filter=array('profileID'=>$list->profileID);
-    					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
-    					if(count($getProfileDetails)>0)
-    					{
-    						$profileResult[]= array(
-    								'profileId'=>$getProfileDetails['no'],
-    								'registerUserID'=>$getProfileDetails['registerUserID'],
-    								'gender'=>$getProfileDetails['gender'],
-    								'firstName'=>$getProfileDetails['firstName'],
-    								'lastName'=>$getProfileDetails['lastName'],
-    								'fatherName'=>$getProfileDetails['fatherName'],
-    								'dateOfBirth'=>$getProfileDetails['dateOfBirth'],
-    								'birthPlace'=>$getProfileDetails['birthPlace'],
-    								'heightOfUser'=>$getProfileDetails['heightOfUser'],
-    								'birthTime'=>$getProfileDetails['birthTime'],
-    								'highestQualification'=>$getProfileDetails['highestQualification'],
-    								'userJobProfile'=>$getProfileDetails['userJobProfile'],
-    								'TypeOfBusiness'=>$getProfileDetails['TypeOfBusiness'],
-    								'business'=>$getProfileDetails['business'],
-    								'income'=>$getProfileDetails['income'],
-    								'fatherJobProfile'=>$getProfileDetails['fatherJobProfile'],
-    								'TypeOfFatherBusiness'=>$getProfileDetails['TypeOfFatherBusiness'],
-    								'fatherBusiness'=>$getProfileDetails['fatherBusiness'],
-    								'fatherIncome'=>$getProfileDetails['fatherIncome'],
-    								'gautr'=>$getProfileDetails['gautr'],
-    								'gautrNanihal'=>$getProfileDetails['gautrNanihal'],
-    								'zodiacSign'=>$getProfileDetails['zodiacSign'],
-    								'star'=>$getProfileDetails['star'],
-    								'saturn'=>$getProfileDetails['saturn'],
-    								'manglik'=>$getProfileDetails['manglik'],
-    								'currentAddress'=>$getProfileDetails['currentAddress'],
-    								'permanentAddress'=>$getProfileDetails['permanentAddress'],
-    								'emailId'=>$getProfileDetails['emailId'],
-    								'mobileNumber'=>$getProfileDetails['mobileNumber'],
-    								'WhatsAppNumber'=>$getProfileDetails['WhatsAppNumber'],
-    								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
-    								'age'=>	$getProfileDetails['age']
-    									
-    						);
-    					}
-    				}
-    			}
-    			if(count($profileResult)>0)
-    			{
-    				$result=array('code'=>'200','message'=>'Success','data'=>$profileResult);echo json_encode($result);die;
-    			}
-    			else 
-    			{
-    				$result=array('code'=>'400','message'=>'Your request not approved');echo json_encode($result);die;
-    			}
-    		}
-    		else 
-    		{
-    			$result=array('code'=>'400','message'=>'You have not requested to any profile');echo json_encode($result);die;
-    		}
+    		
     	}
     }
  }
