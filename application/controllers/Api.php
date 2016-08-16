@@ -79,6 +79,7 @@
 	 						$response[]=array(
 	 								'profileID'=>$list->profileID,
 	 								'registerUserID'=>$list->registerUserID,
+	 								'requestRegisterUserID'=>$list->requestRegisterUserID,
 	 								'name'=>$getRegisterList[0]->userName,
 	 								'EmailID'=>$getRegisterList[0]->EmailID,
 	 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
