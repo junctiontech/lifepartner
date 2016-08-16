@@ -86,7 +86,7 @@
 	 					}
  					}
  				}
- 				if(isset($response))
+ 				if(isset($response) && $response!=='')
  				{
 					$result=array('code'=>'200','response'=>$response,'message'=>'Success');
  					echo json_encode($result);die;
