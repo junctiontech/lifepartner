@@ -60,6 +60,8 @@
  	function requestList()
  	{
  		$registerUserID=$_POST['registerUserID'];
+ 		$result=array();
+ 		$response=array();
  		if(isset($registerUserID))
  		{
  			$filter=array('registerUserID'=>$registerUserID);
@@ -68,20 +70,23 @@
  			{
  				foreach ($getRequestList as $list)
  				{
- 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
- 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
- 					if(count($getRegisterList)>0)
+ 					if($list->status=='N' || $list->status=='')
  					{
- 						$response[]=array(
- 								'profileID'=>$list->profileID,
- 								'registerUserID'=>$list->registerUserID,
- 								'name'=>$getRegisterList[0]->userName,
- 								'EmailID'=>$getRegisterList[0]->EmailID,
- 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
- 						);
+	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
+	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
+	 					if(count($getRegisterList)>0)
+	 					{
+	 						$response[]=array(
+	 								'profileID'=>$list->profileID,
+	 								'registerUserID'=>$list->registerUserID,
+	 								'name'=>$getRegisterList[0]->userName,
+	 								'EmailID'=>$getRegisterList[0]->EmailID,
+	 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
+	 						);
+	 					}
  					}
  				}
- 				$result=array('code'=>'200','response'=>$response);
+ 				$result=array('code'=>'200','response'=>$response,'message'=>'Success');
  				echo json_encode($result);die;
  			}
  			else 
@@ -100,28 +105,20 @@
     	if(isset($json))
     	{
     		$json=json_decode($json,true);
+    		$requestRegisterUserID=$json['requestRegisterUserID'];
     		$registerUserID=$json['registerUserID'];
     		$profileId=$json['profileId'];
     		$status=$json['status'];
-    		$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
-    		$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequest);//die;
-    		if(count($getRequest)>0)
-    		{
-    			$response=array('code'=>'200','message'=>'request successfully');echo json_encode($response);
+    		$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);
+   			$data=array('status'=>$status);
+   			$approval=$this->data['approval']=$this->Apimodel->put('requestContact',$data,$filter);
+   			if($approval)
+   			{
+    			$result=array('code'=>'200','message'=>'request submit');echo json_encode($result);die;
     		}
     		else 
     		{
-    			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
-    			$data=array('status'=>$status);
-    			$approval=$this->data['approval']=$this->Apimodel->put('requestContact',$data,$filter);
-    			if($approval)
-    			{
-    				$result=array('code'=>'200','message'=>'request failure');echo json_encode($result);die;
-    			}
-    			else 
-    			{
-    				$result=array('code'=>'400','message'=>'request failure');echo json_encode($result);die;
-    			}
+    			$result=array('code'=>'400','message'=>'request failure');echo json_encode($result);die;
     		}
     	}
     }
