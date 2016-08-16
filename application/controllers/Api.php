@@ -156,17 +156,17 @@
     				if($list->status=='Y')
     				{
     					$filter=array('no'=>$list->profileID);
-    					$getProfileDetails=$this->data['getProfileDetails'][0]=$this->Apimodel->getfilter('Profiles',$filter);//print_r($getProfileDetails);die;
+    					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);//print_r($getProfileDetails);die;
     					if(count($getProfileDetails)>0)
     					{
     						$profileResult[]= array(
-    								'profileId'=>$getProfileDetails['no'],
-    								'registerUserID'=>$getProfileDetails['registerUserID'],
-    								'gender'=>$getProfileDetails['gender'],
-    								'firstName'=>$getProfileDetails['firstName'],
-    								'lastName'=>$getProfileDetails['lastName'],
-    								'fatherName'=>$getProfileDetails['fatherName'],
-    								'dateOfBirth'=>$getProfileDetails['dateOfBirth'],
+    								'profileId'=>$getProfileDetails[0]->no,
+    								'registerUserID'=>$getProfileDetails[0]->registerUserID,
+    								'gender'=>$getProfileDetails[0]->gender,
+    								'firstName'=>$getProfileDetails[0]->firstName,
+    								'lastName'=>$getProfileDetails[0]->lastName,
+    								'fatherName'=>$getProfileDetails[0]->fatherName,
+    								/* 'dateOfBirth'=>$getProfileDetails['dateOfBirth'],
     								'birthPlace'=>$getProfileDetails['birthPlace'],
     								'heightOfUser'=>$getProfileDetails['heightOfUser'],
     								'birthTime'=>$getProfileDetails['birthTime'],
@@ -191,7 +191,7 @@
     								'mobileNumber'=>$getProfileDetails['mobileNumber'],
     								'WhatsAppNumber'=>$getProfileDetails['WhatsAppNumber'],
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
-    								'age'=>	$getProfileDetails['age']
+    								'age'=>	$getProfileDetails['age'] */
     									
     						);
     					}
