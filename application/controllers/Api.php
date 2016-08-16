@@ -171,7 +171,7 @@
     								'heightOfUser'=>$getProfileDetails[0]->heightOfUser,
     								'birthTime'=>$getProfileDetails[0]->birthTime,
     								'highestQualification'=>$getProfileDetails[0]->highestQualification,
-    								'userJobProfile'=>$getProfileDetails['userJobProfile'],
+    								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
     								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
     								'business'=>$getProfileDetails[0]->business,
     								'income'=>$getProfileDetails[0]->income,
@@ -191,8 +191,7 @@
     								'mobileNumber'=>$getProfileDetails[0]->mobileNumber,
     								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
-    								'age'=>	$getProfileDetails[0]->age 
-    									
+    								
     						);
     					}
     				}
