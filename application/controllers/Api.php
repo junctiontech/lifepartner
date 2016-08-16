@@ -111,7 +111,7 @@
     	$request=$_POST['approval'];
     	if(isset($request))
     	{
-    		$json=json_decode($request,true);
+    		$json=json_decode($request,true);print_r($json);
     		$requestRegisterUserID=$json['requestRegisterUserID'];
     		$registerUserID=$json['registerUserID'];
     		$profileId=$json['profileId'];
