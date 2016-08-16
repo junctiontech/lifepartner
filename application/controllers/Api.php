@@ -122,7 +122,14 @@
    			$approval=$this->data['approval']=$this->Apimodel->put('requestContact',$data,$filter);
    			if($approval)
    			{
-    			$result=array('code'=>'200','message'=>'request submit');echo json_encode($result);die;
+   				if($status=='N')
+   				{
+   					$result=array('code'=>'200','message'=>'Request Disapproved Successfully');echo json_encode($result);die;
+   				}
+   				else 
+   				{
+   					$result=array('code'=>'200','message'=>'Request Approved Successfully');echo json_encode($result);die;
+   				}
     		}
     		else 
     		{
