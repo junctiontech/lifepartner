@@ -86,8 +86,15 @@
 	 					}
  					}
  				}
- 				$result=array('code'=>'200','response'=>$response,'message'=>'Success');
- 				echo json_encode($result);die;
+ 				if(isset($response))
+ 				{
+					$result=array('code'=>'200','response'=>$response,'message'=>'Success');
+ 					echo json_encode($result);die;
+ 				}
+ 				else 
+ 				{
+ 					$response=array('code'=>'400','message'=>'No Request Found');echo json_encode($response);die;
+ 				}
  			}
  			else 
  			{
