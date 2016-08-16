@@ -199,7 +199,7 @@
     			}
     			if(count($profileResult)>0)
     			{
-    				$result=array('code'=>'200','message'=>'Success','data'=>$profileResult);echo json_encode($result);
+    				$result=array('code'=>'200','message'=>'Success','data'=>$profileResult);echo json_encode($result);die;
     			}
     			else 
     			{
