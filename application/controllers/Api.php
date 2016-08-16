@@ -73,7 +73,6 @@
  					if(count($getRegisterList)>0)
  					{
  						$response[]=array(
- 								'code'=>'200',
  								'profileID'=>$list->profileID,
  								'registerUserID'=>$list->registerUserID,
  								'name'=>$getRegisterList[0]->userName,
@@ -82,7 +81,8 @@
  						);
  					}
  				}
- 				echo json_encode($response);die;
+ 				$result=array('code'=>'200','response'=>$response);
+ 				echo json_encode($result);die;
  			}
  			else 
  			{
