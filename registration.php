@@ -60,6 +60,9 @@ if(!$CONNECTION)
 					'emailId'=>$result['emailId'],
 					'mobileNumber'=>$result['mobileNumber'],
 					'WhatsAppNumber'=>$result['WhatsAppNumber'],
+					'city'=>$result['city'],
+					'caste'=>$result['caste'],
+					'subcaste'=>$result['subcaste'],
 					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
 					
 						
