@@ -146,7 +146,7 @@
     	{
     		$profileResult=array();
     		$json=json_decode($request,true);//print_r($json);
-    		$registerUserID=$json['requestRegisterUserID'];
+    		$registerUserID=$json['registerUserID'];
     		$filter=array('registerUserID'=>$registerUserID);
     		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilter('requestContact',$filter);
     		print_r($getRequestStatus);
