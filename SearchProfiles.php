@@ -66,7 +66,10 @@ $querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$m
 						'mobileNumber'=>$result['mobileNumber'],
 						'WhatsAppNumber'=>$result['WhatsAppNumber'],
 						'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
-						'age'=>	$age
+						'age'=>	$age,
+						'city'=>$result['city'],
+						'caste'=>$result['caste'],
+						'subcaste'=>$result['subcaste']
 			
 				);
 			}
