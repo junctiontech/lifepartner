@@ -191,6 +191,9 @@
     								'mobileNumber'=>$getProfileDetails[0]->mobileNumber,
     								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+    								'city'=>$getProfileDetails[0]->city,
+    								'caste'=>$getProfileDetails[0]->caste,
+    								'subcaste'=>$getProfileDetails[0]->subcaste,
     								
     						);
     					}
