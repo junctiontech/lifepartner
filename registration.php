@@ -65,11 +65,9 @@ if(!$CONNECTION)
 					'subcaste'=>$result['subcaste'],
 					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
 					
-						
-			);
+					);
 			
-			
-					}
+			}
 			
 			
 			
