@@ -146,9 +146,10 @@
     	{
     		$profileResult=array();
     		$json=json_decode($request,true);//print_r($json);
-    		$registerUserID=$json['registerUserID'];
+    		$registerUserID=$json['requestRegisterUserID'];
     		$filter=array('registerUserID'=>$registerUserID);
-    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequestStatus);
+    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilter('requestContact',$filter);
+    		print_r($getRequestStatus);
     		if(count($getRequestStatus)>0)
     		{
     			foreach($getRequestStatus as $list)
@@ -192,7 +193,7 @@
     								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
     								'city'=>$getProfileDetails[0]->city,
-    								'caste'=>$getProfileDetails[0]->caste,
+    								'caste'=>$getProfileDetails[0]->caste, 
     								'subcaste'=>$getProfileDetails[0]->subcaste,
     								
     						);
