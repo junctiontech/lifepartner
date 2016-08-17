@@ -149,7 +149,7 @@
     		$registerUserID=$json['registerUserID'];
     		$filter=array('requestRegisterUserID'=>$registerUserID);
     		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilter('requestContact',$filter);
-    		print_r($getRequestStatus);
+    		//print_r($getRequestStatus);
     		if(count($getRequestStatus)>0)
     		{
     			foreach($getRequestStatus as $list)
