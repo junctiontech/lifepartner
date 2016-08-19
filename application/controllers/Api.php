@@ -65,6 +65,7 @@
  		if(isset($registerUserID))
  		{
  			$filter=array('registerUserID'=>$registerUserID);
+ 			
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequestList)>0)
  			{
@@ -76,7 +77,13 @@
 	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
 	 					if(count($getRegisterList)>0)
 	 					{
+	 						
+	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
+	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
+	 						
+	 						
 	 						$response[]=array(
+	 								'profileName'=>$getData->firstName,
 	 								'profileID'=>$list->profileID,
 	 								'registerUserID'=>$list->registerUserID,
 	 								'requestRegisterUserID'=>$list->requestRegisterUserID,
@@ -84,6 +91,8 @@
 	 								'EmailID'=>$getRegisterList[0]->EmailID,
 	 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
 	 						);
+	 						
+	 						
 	 					}
  					}
  				}
@@ -194,7 +203,7 @@
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
     								'city'=>$getProfileDetails[0]->city,
     								'caste'=>$getProfileDetails[0]->caste, 
-    								'subcaste'=>$getProfileDetails[0]->subcaste,
+    								'subcaste'=>$getProfileDetails[0]->subcaste
     								
     						);
     					}
