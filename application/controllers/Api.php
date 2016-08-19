@@ -221,7 +221,7 @@
     			}
     			else 
     			{
-    				$result=array('code'=>'400','message'=>'Your request not approved','data'=>$profileResult);echo json_encode($result);die;
+    				$result=array('code'=>'200','message'=>'Your request not approved','data'=>$profileResult);echo json_encode($result);die;
     			}
     		}
     		else 
