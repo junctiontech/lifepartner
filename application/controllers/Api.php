@@ -31,7 +31,15 @@
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);
  				if($requestUpdate)
  				{*/
- 					$response=array('code'=>'200','message'=>'request successfully');echo json_encode($response);
+ 				
+ 				$data=array('status'=>'','registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
+ 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
+ 				if($requestUpdate)
+ 				{
+ 					$result=array('code'=>'200','message'=>'request successfully');echo json_encode($result);die;
+ 				}
+ 				
+ 					//$response=array('code'=>'200','message'=>'request successfully');echo json_encode($response);
  				/*}
  				else
  				 {*/
@@ -40,7 +48,7 @@
  			} 
  			else 
  			{
- 				$data=array('status'=>'','registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
+ 				$data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
  				if($requestUpdate)
  				{
