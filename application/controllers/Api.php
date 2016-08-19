@@ -80,10 +80,14 @@
 	 						
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
-	 						
+	 						if(count($getData)>0)
+	 						{
+	 							foreach ($getData as $list1)
+	 							{
+	 							
 	 						
 	 						$response[]=array(
-	 								'profileName'=>$getData->firstName,
+	 								'profileName'=>$list1->firstName,
 	 								'profileID'=>$list->profileID,
 	 								'registerUserID'=>$list->registerUserID,
 	 								'requestRegisterUserID'=>$list->requestRegisterUserID,
@@ -91,6 +95,8 @@
 	 								'EmailID'=>$getRegisterList[0]->EmailID,
 	 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
 	 						);
+	 							}
+	 						}
 	 						
 	 						
 	 					}
