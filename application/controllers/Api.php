@@ -87,7 +87,7 @@
 	 							
 	 						
 	 						$response[]=array(
-	 								'profileName'=>$list1->firstName,
+	 								'profileName'=>$list1->firstName." ".$list1->lastName,
 	 								'profileID'=>$list->profileID,
 	 								'registerUserID'=>$list->registerUserID,
 	 								'requestRegisterUserID'=>$list->requestRegisterUserID,
