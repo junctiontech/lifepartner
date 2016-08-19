@@ -175,6 +175,12 @@
     					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);//print_r($getProfileDetails);die;
     					if(count($getProfileDetails)>0)
     					{
+    						if ($list->status=='Y')
+    							$msg= "Success";
+    						else if ($list->status=='N')
+    							$msg= "Your request not approved";
+    						else $msg= "Your request is under processed";
+    						
     						$profileResult[]= array(
     								'profileId'=>$getProfileDetails[0]->no,
     								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -209,8 +215,8 @@
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
     								'city'=>$getProfileDetails[0]->city,
     								'caste'=>$getProfileDetails[0]->caste, 
-    								'subcaste'=>$getProfileDetails[0]->subcaste
-    								
+    								'subcaste'=>$getProfileDetails[0]->subcaste,
+    								'message'=>$msg
     								
     						);
     					}
@@ -218,15 +224,15 @@
     			}
     			if(count($profileResult)>0 && $list->status=='Y')
     			{
-    				$result=array('code'=>'200','message'=>'Success','data'=>$profileResult);echo json_encode($result);die;
+    				$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
     			}
     			else if(count($profileResult)>0 && $list->status=='N')
     			{
-    				$result=array('code'=>'200','message'=>'Your request not approved','data'=>$profileResult);echo json_encode($result);die;
+    				$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
     			}
     			else 
     			{
-    				$result=array('code'=>'200','message'=>'Your request is under processed','data'=>$profileResult);echo json_encode($result);die;
+    				$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
     			}
     		}
     		else 
