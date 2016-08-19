@@ -169,8 +169,8 @@
     		{
     			foreach($getRequestStatus as $list)
     			{
-    				if($list->status=='Y')
-    				{
+//     				if($list->status=='Y')
+//     				{
     					$filter=array('no'=>$list->profileID);
     					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);//print_r($getProfileDetails);die;
     					if(count($getProfileDetails)>0)
@@ -211,9 +211,10 @@
     								'caste'=>$getProfileDetails[0]->caste, 
     								'subcaste'=>$getProfileDetails[0]->subcaste
     								
+    								
     						);
     					}
-    				}
+    				//}
     			}
     			if(count($profileResult)>0)
     			{
