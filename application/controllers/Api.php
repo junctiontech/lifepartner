@@ -40,7 +40,7 @@
  			} 
  			else 
  			{
- 				$data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
+ 				$data=array('status'=>'','registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
  				if($requestUpdate)
  				{
