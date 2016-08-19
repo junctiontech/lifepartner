@@ -26,25 +26,17 @@
  			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequest);//die;
  			if(count($getRequest)>0)
  			{
- 				/* $data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
+ 				 $data=array('status'=>'','registerUserID'=>$registerUserID,'profileID'=>$profileId);
  				$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);
  				if($requestUpdate)
- 				{*/
- 				
- 				$data=array('status'=>'','registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
- 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
- 				if($requestUpdate)
  				{
- 					$result=array('code'=>'200','message'=>'request successfully');echo json_encode($result);die;
+ 					$response=array('code'=>'200','message'=>'request updated successfully');echo json_encode($response);
  				}
- 				
- 					//$response=array('code'=>'200','message'=>'request successfully');echo json_encode($response);
- 				/*}
  				else
- 				 {*/
+ 				 {
  					//$response=array('code'=>'400','message'=>'request failure');echo json_encode($response);
- 				/*}*/
+ 				}
  			} 
  			else 
  			{
