@@ -216,13 +216,17 @@
     					}
     				//}
     			}
-    			if(count($profileResult)>0)
+    			if(count($profileResult)>0 && $list->status=='Y')
     			{
     				$result=array('code'=>'200','message'=>'Success','data'=>$profileResult);echo json_encode($result);die;
     			}
-    			else 
+    			else if(count($profileResult)>0 && $list->status=='N')
     			{
     				$result=array('code'=>'200','message'=>'Your request not approved','data'=>$profileResult);echo json_encode($result);die;
+    			}
+    			else 
+    			{
+    				$result=array('code'=>'200','message'=>'Your request is under processed','data'=>$profileResult);echo json_encode($result);die;
     			}
     		}
     		else 
