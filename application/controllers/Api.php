@@ -23,6 +23,15 @@
  			$requestRegisterUserID=$json['requestRegisterUserID'];
  			$profileId=$json['profileId'];
  			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
+ 			
+ 			$filter_track_record=array('registerUserID'=>$registerUserID);
+ 			$getCount=$this->data['getCount']=$this->Apimodel->getfilter('requestContact',$filter_track_record);
+ 			if(count($getCount)>50)
+ 			{
+ 				$response=array('code'=>'400','message'=>'You reached my maximum limit, Request Failure');echo json_encode($response);die;
+ 			}
+ 			
+ 			
  			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequest);//die;
  			if(count($getRequest)>0)
  			{
@@ -35,7 +44,7 @@
  				}
  				else
  				 {
- 					//$response=array('code'=>'400','message'=>'request failure');echo json_encode($response);
+ 					$response=array('code'=>'400','message'=>'request failure');echo json_encode($response);die;
  				}
  			} 
  			else 
