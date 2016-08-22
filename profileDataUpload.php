@@ -30,7 +30,8 @@ if(!$CONNECTION)
 				$image= $data['profilePhoto'];
 				
 				$image= $data['userAadharIdPath'];
-				json_decode($image);die;
+				//json_decode($image);die;
+				print_r($image);die;
 				
 				file_put_contents($path,base64_decode($image));
 					
@@ -55,7 +56,8 @@ if(!$CONNECTION)
 					file_put_contents($path,base64_decode($image));
 					
 					$image= $data['userAadharIdPath'];
-					json_decode($image);die;
+					//json_decode($image);die;
+					print_r($image);die;
 						
 					//$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
 					
@@ -69,8 +71,8 @@ if(!$CONNECTION)
 						file_put_contents($path,base64_decode($image));
 						
 						$image= $data['userAadharIdPath'];
-						json_decode($image);die;
-					
+						//json_decode($image);die;
+					print_r($image);die;
 						$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
 					
 					}
