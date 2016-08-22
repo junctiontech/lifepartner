@@ -28,6 +28,10 @@ if(!$CONNECTION)
 			if ($a>0){
 				$path = "images/$name";
 				$image= $data['profilePhoto'];
+				
+				$image= $data['userAadharIdPath'];
+				json_decode($image);die;
+				
 				file_put_contents($path,base64_decode($image));
 					
 				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
@@ -49,6 +53,9 @@ if(!$CONNECTION)
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
 					file_put_contents($path,base64_decode($image));
+					
+					$image= $data['userAadharIdPath'];
+					json_decode($image);die;
 						
 					//$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
 					
@@ -60,6 +67,9 @@ if(!$CONNECTION)
 						$path = "images/$name";
 						$image= $data['profilePhoto'];
 						file_put_contents($path,base64_decode($image));
+						
+						$image= $data['userAadharIdPath'];
+						json_decode($image);die;
 					
 						$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
 					
