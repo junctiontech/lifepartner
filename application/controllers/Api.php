@@ -26,7 +26,7 @@
  			
  			$filter_track_record=array('registerUserID'=>$registerUserID);
  			$getCount=$this->data['getCount']=$this->Apimodel->getfilter('requestContact',$filter_track_record);
- 			if(count($getCount)>50)
+ 			if(count($getCount)>25)
  			{
  				$response=array('code'=>'400','message'=>'You reached my maximum limit, Request Failure');echo json_encode($response);die;
  			}
