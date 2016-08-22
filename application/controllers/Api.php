@@ -24,7 +24,7 @@
  			$profileId=$json['profileId'];
  			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
  			
- 			$filter_track_record=array('registerUserID'=>$registerUserID);
+ 			$filter_track_record=array('requestRegisterUserID'=>$requestRegisterUserID);
  			$getCount=$this->data['getCount']=$this->Apimodel->getfilter('requestContact',$filter_track_record);
  			if(count($getCount)>25)
  			{
