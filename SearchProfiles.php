@@ -12,14 +12,14 @@ if(!$CONNECTION)
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];
 	$bride_groom= $_POST['bride_groom'];
-	$gautr= $_POST['gautr'];
+//	$gautr= $_POST['gautr'];
 // 	$gautr_nanihal= $_POST['gautr_nanihal'];
 	$manglik= $_POST['manglik'];
 	$income= $_POST['income'];
+	$registeredId = $_POST['registeredId'];
 	
 	
-	
-$querySearch="Select * from Profiles where gender='$bride_groom' AND manglik='$manglik' OR gautr='$gautr'";
+$querySearch="Select * from Profiles where registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik'";
 
 //print_r($querySearch);
  	$query=mysqli_query($CONNECTION,$querySearch);
