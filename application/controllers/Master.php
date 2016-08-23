@@ -51,12 +51,12 @@
 			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
 			if(!empty($birthPlaces)){ $query.=" and birthPlace='$birthPlaces'"; }
 			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
-			$profileList=$this->data['profileList']=$this->MasterModel->ProfilesListGet($query);
+			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);
 			if(!empty($ages))
 			{ 
 				$explode=explode('-',$ages);$firstYear=$explode[0];if(isset($explode[1])){ $secondYear=$explode[1]; }; 
 				if(!isset($secondYear)){$secondYear='';}
-				foreach($profileList as $list)
+				foreach($profileLists as $list)
 				{	//echo'<pre>';print_r($list);echo'</pre>';
 					$age=date('Y')-date('Y',strtotime($list->dateOfBirth));
 					if($firstYear <= $age && $age <= $secondYear)
@@ -65,6 +65,10 @@
 					}
 				}//die;
 				//echo'<pre>';print_r($profileList);echo'</pre>';die;
+			}
+			else 
+			{
+				$this->data['profileList']=$profileLists;
 			}
 		}
 		else
