@@ -69,8 +69,7 @@ if(!$CONNECTION)
 			
 			}
 			
-			
-			
+						
 			$re= array('code'=>"100",
 					'result'=>"search",				
 					'registeredId'=>$aa,
