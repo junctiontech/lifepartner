@@ -65,7 +65,7 @@ $querySearch="Select * from Profiles where registerUserID!='$registeredId' AND g
 						'emailId'=>$result['emailId'],
 						'mobileNumber'=>$result['mobileNumber'],
 						'WhatsAppNumber'=>$result['WhatsAppNumber'],
-						'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+						'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
 						'age'=>	$age,
 					    'city'=>$result['city'],
 						'caste'=>$result['caste'],

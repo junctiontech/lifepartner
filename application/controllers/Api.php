@@ -221,6 +221,8 @@
     								'emailId'=>$getProfileDetails[0]->emailId,
     								'mobileNumber'=>$getProfileDetails[0]->mobileNumber,
     								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
+    								'imageName'=>"http://".$_SERVER['HTTP_HOST']."/lifepartner/images/".$result['imageName'],
+    								'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
     								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
     								'city'=>$getProfileDetails[0]->city,
     								'caste'=>$getProfileDetails[0]->caste, 

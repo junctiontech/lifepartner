@@ -64,7 +64,7 @@ if(!$CONNECTION)
 					'caste'=>$result['caste'],
 					'subcaste'=>$result['subcaste'],
 					'imageName'=>"http://".$_SERVER['HTTP_HOST']."/lifepartner/images/".$result['imageName'],
-					'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/lifepartner/images/".$result['uniqueImageId'],
+					'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
 						
  					//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
  					//'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
