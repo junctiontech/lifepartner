@@ -64,7 +64,7 @@ if(!$CONNECTION)
 					'caste'=>$result['caste'],
 					'subcaste'=>$result['subcaste'],
 					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
-					
+					'aadharImageName'=>"http://lifepartner.zeroerp.com/images/".$result['aadharImageId'],
 					);
 			
 			}
