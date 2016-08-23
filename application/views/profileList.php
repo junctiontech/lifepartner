@@ -50,9 +50,10 @@
 				<label class="col-sm-2 control-label" for="field-1">Age</label>
 				<div class="col-sm-10">
 					<div id="male">
-						<select class="selectboxit s2example-1" id="s2example-1" name="age">
+						<select class="selectboxit s2example-1" id="s2example-1" name="maleAge">
 							<optgroup label="Please select Age " >
 							<?php //foreach($organizationList as $list){ ?>
+								<option value="">Please Select Age</option>
 								<option value="21-25">21-25 Year</option>
 								<option value="25-30">25-30 Year</option>
 								<option value="30-35">31-35 Year</option>
@@ -66,9 +67,10 @@
 						</select>
 					</div>
 					<div id="female" style="display:none">
-						<select class="selectboxit s2example-1" id="s2example-1" name="age">
+						<select class="selectboxit s2example-1" id="s2example-1" name="feMaleAge">
 							<optgroup label="Please select Age " >
 							<?php //foreach($organizationList as $list){ ?>
+								<option value="">Please Select Age</option>
 								<option value="18-25">18-25 Year</option>
 								<option value="25-30">25-30 Year</option>
 								<option value="30-35">31-35 Year</option>
@@ -87,15 +89,26 @@
 		<div class="col-sm-4">
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Income</label>
-				<div class="col-sm-10">
+				<div class="col-sm-8">
 					<select class="selectboxit s2example-1" id="" name="income">
 						<optgroup label="Please select income Income" >
-							<option value="">Please Select Income</option>
-							<?php foreach($income as $list){ ?>
-								<option value="<?php echo $list->income?>"><?php echo $list->income; ?></option>
-							<?php  } ?>
-							</optgroup>
+							<option value="100000">1 Lakh</option>
+							<option value="500000">5 Lakh</option>
+							<option value="1000000">10 Lakh</option>
+							<option value="1500000">15 Lakh</option>
+							<option value="2000000">20 Lakh</option>
+							<option value="2500000">25 Lakh</option>
+							<option value="3000000">30 Lakh</option>
+							<option value="3500000">35 Lakh</option>
+							<option value="4000000">40 Lakh</option>
+							<option value="4500000">45 Lakh</option>
+							<option value="5000000">50 Lakh</option>
+						</optgroup>
 					</select>
+				</div>
+				<div class="col-sm-2">
+					<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+					<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 				</div>
 			</div>
 		</div>	

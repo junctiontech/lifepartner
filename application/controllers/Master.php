@@ -31,32 +31,41 @@
 	/* Start Function For View Registratio Report......................................................................... */
 	function profileList()
 	{	error_reporting(0);
+		
 		$genders=$this->input->post('gender');
 		$incomes=$this->input->post('income');
 		$birthPlaces=$this->input->post('city');
+		$incomeIdentity=$this->input->post('incomeIdentity');
 		$highestQualifications=$this->input->post('education');
-		if(!empty($genders) or !empty($ages) or !empty($incomes) or !empty($birthPlaces) or !empty($highestQualifications))
+		if($this->input->post('maleAge')!=='')
 		{
-			$ages=$this->input->post('age');$explode=explode('-',$ages);$firstYear=$explode[0];if(isset($explode[1])){ $secondYear=$explode[1]; };
-			//$ages=$this->input->post('age');$explode=explode('-',$ages);$firstYear=$explode[0]-1;if(isset($explode[1])){ $secondYear=$explode[1]+1; };
-			//$minYear=date('Y',strtotime("-$firstYear year"));
-			//$maxYear=date('Y',strtotime("-$secondYear year"));
+			$ages=$this->input->post('maleAge');
+		}
+		if($this->input->post('feMaleAge')!=='')
+		{
+			$ages=$this->input->post('feMaleAge');
+		}
+		if(!empty($genders)  or !empty($incomes) or !empty($birthPlaces) or !empty($highestQualifications))
+		{	
 			if(!empty($genders)){ $query =" gender='$genders'"; }
-			//if(!empty($ages)){ $query.=" and  YEAR(dateOfBirth) <= YEAR('$maxYear') and YEAR(dateOfBirth) >= YEAR('$minYear')"; }
-			if(!empty($incomes)){ $query.=" and income='$incomes'"; }
+			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
 			if(!empty($birthPlaces)){ $query.=" and birthPlace='$birthPlaces'"; }
 			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
-			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);// echo $firstYear;echo $secondYear;
-			if(!isset($secondYear)){$secondYear='';}
-			foreach($profileLists as $list)
-			{
-				$age=date('Y')-date('Y',strtotime($list->dateOfBirth)); 
-				if($firstYear <= $age && $age <= $secondYear)
-				{	//echo $firstYear; echo $age;echo $secondYear;echo'</br>';
-					$profileList=$this->data['profileList'][]=$list;
-				}
-			}//die;
-			//echo'<pre>';print_r($profileList);echo'</pre>';die;
+			$profileList=$this->data['profileList']=$this->MasterModel->ProfilesListGet($query);
+			if(!empty($ages))
+			{ 
+				$explode=explode('-',$ages);$firstYear=$explode[0];if(isset($explode[1])){ $secondYear=$explode[1]; }; 
+				if(!isset($secondYear)){$secondYear='';}
+				foreach($profileList as $list)
+				{	//echo'<pre>';print_r($list);echo'</pre>';
+					$age=date('Y')-date('Y',strtotime($list->dateOfBirth));
+					if($firstYear <= $age && $age <= $secondYear)
+					{	
+						$profileList=$this->data['profileList'][]=$list;
+					}
+				}//die;
+				//echo'<pre>';print_r($profileList);echo'</pre>';die;
+			}
 		}
 		else
 		{

@@ -49,19 +49,24 @@
 										<div>
 								</div></div>
 							</div>
-							<div class="row col-sm-8">
-								<div class=" form-group">
-									<label class="col-sm-2 control-label" for="field-1">First Name</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->firstName)){ echo $profile[0]->firstName; }?>" id="field-1" >
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label" for="field-1">Last Name</label>
-									<div class="col-sm-10">
-										<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->lastName)){ echo $profile[0]->lastName; }?>" id="field-1" placeholder="Organization Name"  >
-									</div>
-								</div>
+							<div class="row col-sm-4">
+								<label class="control-label" for="joiningletter">Unique Identity</label>
+								 <div class="fileupload fileupload-new" data-provides="fileupload">
+									<?php if(isset($profile[0]->uniqueImageId)){ ?>
+										<div class="fileupload-new">
+										  <img src="images/<?=$profile[0]->uniqueImageId?>" alt="http://www.placehold.it/120x120/EFEFEF/AAAAAA&amp;text=no+image" style="width:120px; height:120px;margin-left:118px; margin-bottom:22px; margin-top:-16px;" class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
+										</div>
+									<?php }else{ ?>
+										<div class="fileupload-new">
+										  <img src="http://www.placehold.it/120x120/EFEFEF/AAAAAA&amp;text=no+image"  alt=""  class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
+										</div>		
+									
+									<?php } ?>
+									  <!--<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 120px; max-height: 120px; line-height: 20px;"></div>-->
+										<div>
+								</div></div>
+							</div>
+							<div class="row col-sm-4">
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="field-1">Gender</label>
 									<div class="col-sm-10">
@@ -69,7 +74,29 @@
 									</div>
 								</div>
 							</div>
-						</div>	
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">First Name</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->firstName)){ echo $profile[0]->firstName; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Last Name</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->lastName)){ echo $profile[0]->lastName; }?>" id="field-1" placeholder="Organization Name"  >
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="col-sm-6">
@@ -225,6 +252,26 @@
 										<label class="col-sm-2 control-label" for="field-1">Saturn</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->saturn)){ echo $profile[0]->saturn; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Caste</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->caste)){ echo $profile[0]->caste; }?>" id="field-1" >
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class=" form-group">
+										<label class="col-sm-2 control-label" for="field-1">Sub Caste</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->subcaste)){ echo $profile[0]->subcaste; }?>" id="field-1" >
 										</div>
 									</div>
 								</div>
