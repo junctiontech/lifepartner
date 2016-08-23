@@ -15,12 +15,13 @@ if(!$CONNECTION)
 		
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
+		$aadharName = $id.'_'.$registerID.'_aadhar'.'_'.date('dmy_H:i:s').'.jpeg';
+		
         $serverProfileId= $data['serverProfileId'];
         $s_no=$data['S_no'];
 		if ($serverProfileId==''){
-			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`, `city`, `caste`, `subcaste` ) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name','".$data['city']."','".$data['caste']."','".$data['subcaste']."') ";
-			
-			
+			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`,`aadharImageId`, `city`, `caste`, `subcaste` ) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name','$aadharName','".$data['city']."','".$data['caste']."','".$data['subcaste']."') ";
+						
 			$a=mysqli_query($CONNECTION,$queryInsert);
 			$profile_no=mysqli_insert_id($CONNECTION);
 			
@@ -29,11 +30,13 @@ if(!$CONNECTION)
 				$path = "images/$name";
 				$image= $data['profilePhoto'];
 				
-			//	$image= $data['userAadharIdPath'];
+				$aadharPath = "images/$aadharName";
+			    $aadharImage= $data['userAadharIdPath'];
 				//json_decode($image);die;
 			//	print_r($image);die;
 				
 				file_put_contents($path,base64_decode($image));
+				file_put_contents($aadharPath,base64_decode($aadharImage));
 					
 				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
 			}
