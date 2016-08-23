@@ -63,11 +63,11 @@ if(!$CONNECTION)
 					'city'=>$result['city'],
 					'caste'=>$result['caste'],
 					'subcaste'=>$result['subcaste'],
-					'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
-					'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
+					//'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
+					//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
 						
- 					//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
- 					//'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
+ 					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+ 					'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
  					);
 			
 			}
