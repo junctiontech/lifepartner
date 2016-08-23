@@ -21,7 +21,7 @@ if(!$CONNECTION)
         $s_no=$data['S_no'];
 		if ($serverProfileId==''){
 			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`,`aadharImageId`, `city`, `caste`, `subcaste` ) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','".$data['income']."','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name','$aadharName','".$data['city']."','".$data['caste']."','".$data['subcaste']."') ";
-					print_r($queryInsert);
+					//print_r($queryInsert);
 						
 			$a=mysqli_query($CONNECTION,$queryInsert);
 			$profile_no=mysqli_insert_id($CONNECTION);
@@ -46,26 +46,29 @@ if(!$CONNECTION)
 			}
 			
 		}else {	 
-			$querySearch="Select imageName from Profiles where no='$serverProfileId'";				
+			$querySearch="Select imageName,aadharImageId from Profiles where no='$serverProfileId'";				
 		$ress=	mysqli_query($CONNECTION,$querySearch);
 			//echo $querySearch;die;
 		$imagename=mysqli_fetch_assoc($ress);
 			// $imagename =mysqli_result_assoc($ress);
-			$tempName =$imagename['imageName'];
+			$tempName =$imagename['imageName']; 
 			$filepath = "images/$tempName";
-				if (unlink($filepath)){
+			
+			$tempNameAadhar =$imagename['aadharImageId'];
+			$filepathAdhar = "images/$tempNameAadhar";
+			
+				if (unlink($filepath) && unlink($filepathAdhar)){
 				//	echo "deleted";
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
 					file_put_contents($path,base64_decode($image));
 					
-			//		$image= $data['userAadharIdPath'];
-					//json_decode($image);die;
-			//		print_r($image);die;
-						
-					//$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
 					
-					$sql = "UPDATE Profiles SET gender='".$data['gender']."', city= '".$data['city']."' , caste= '".$data['caste']."' , subcaste= '".$data['subcaste']."' , firstName= '".$data['firstName']."' , lastName='".$data['lastName']."',`fatherName`='".$data['fatherName']."', `dateOfBirth`='".$data['dateOfBirth']."', `birthPlace`='".$data['birthPlace']."', `heightOfUser`='".$data['heightOfUser']."', `birthTime`='".$data['birthTime']."', `highestQualification`='".$data['highestQualification']."',`userJobProfile`='".$data['userJobProfile']."', `TypeOfBusiness`='".$data['TypeOfBusiness']."', `business`='".$data['business']."', `income`='".$data['income']."',`fatherJobProfile`='".$data['fatherJobProfile']."', `TypeOfFatherBusiness`='".$data['TypeOfFatherBusiness']."', `fatherBusiness`='".$data['fatherBusiness']."', `fatherIncome`='".$data['fatherIncome']."', `gautr`='".$data['gautr']."', `gautrNanihal`='".$data['gautrNanihal']."', `zodiacSign`='".$data['zodiacSign']."', `star`='".$data['star']."', `saturn`='".$data['saturn']."', `manglik`='".$data['manglik']."', `currentAddress`='".$data['currentAddress']."', `permanentAddress`='".$data['permanentAddress']."', `emailId`='".$data['emailId']."', `mobileNumber`='".$data['mobileNumber']."', `WhatsAppNumber`='".$data['WhatsAppNumber']."', `lastUpdationDate`='".date('d-m-Y H:i:s')."', `imageName`='$name' WHERE registerUserID='$registerID' AND no='$serverProfileId'";
+					$aadharPath = "images/$aadharName";
+					$aadharImage= $data['userAadharIdPath'];
+					file_put_contents($aadharPath,base64_decode($aadharImage));
+			
+					$sql = "UPDATE Profiles SET gender='".$data['gender']."', city= '".$data['city']."' , caste= '".$data['caste']."' , subcaste= '".$data['subcaste']."' , firstName= '".$data['firstName']."' , lastName='".$data['lastName']."',`fatherName`='".$data['fatherName']."', `dateOfBirth`='".$data['dateOfBirth']."', `birthPlace`='".$data['birthPlace']."', `heightOfUser`='".$data['heightOfUser']."', `birthTime`='".$data['birthTime']."', `highestQualification`='".$data['highestQualification']."',`userJobProfile`='".$data['userJobProfile']."', `TypeOfBusiness`='".$data['TypeOfBusiness']."', `business`='".$data['business']."', `income`='".$data['income']."',`fatherJobProfile`='".$data['fatherJobProfile']."', `TypeOfFatherBusiness`='".$data['TypeOfFatherBusiness']."', `fatherBusiness`='".$data['fatherBusiness']."', `fatherIncome`='".$data['fatherIncome']."', `gautr`='".$data['gautr']."', `gautrNanihal`='".$data['gautrNanihal']."', `zodiacSign`='".$data['zodiacSign']."', `star`='".$data['star']."', `saturn`='".$data['saturn']."', `manglik`='".$data['manglik']."', `currentAddress`='".$data['currentAddress']."', `permanentAddress`='".$data['permanentAddress']."', `emailId`='".$data['emailId']."', `mobileNumber`='".$data['mobileNumber']."', `WhatsAppNumber`='".$data['WhatsAppNumber']."', `lastUpdationDate`='".date('d-m-Y H:i:s')."', `imageName`='$name',`aadharImageId`='$aadharName' WHERE registerUserID='$registerID' AND no='$serverProfileId'";
 					//print_r($sql);die;
 					$resultupdate =	mysqli_query($CONNECTION,$sql);
 						
@@ -73,10 +76,7 @@ if(!$CONNECTION)
 						$path = "images/$name";
 						$image= $data['profilePhoto'];
 						file_put_contents($path,base64_decode($image));
-						
-			//			$image= $data['userAadharIdPath'];
-						//json_decode($image);die;
-			//		print_r($image);die;
+		
 						$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$serverProfileId);
 					
 					}
