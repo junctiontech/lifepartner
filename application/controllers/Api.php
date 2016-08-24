@@ -26,7 +26,7 @@
  			
  			$filter_track_record=array('requestRegisterUserID'=>$requestRegisterUserID);
  			$getCount=$this->data['getCount']=$this->Apimodel->getfilter('requestContact',$filter_track_record);
- 			if(count($getCount)>49)
+ 			if(count($getCount)>300)
  			{
  				$response=array('code'=>'400','message'=>'You reached my maximum limit, Request Failure');echo json_encode($response);die;
  			}
@@ -252,4 +252,51 @@
     		}
     	}
     }
+    
+    /*************************************************** Function For Report Query Insert ****************************************************/
+    function reportQuery()
+    {
+    	$json=json_decode($_POST['json'],true);
+    	if(isset($json['DBName']) && !empty($json['DBName']))
+    	{
+    		$data1['DBName']=$json['DBName'];
+    	}
+    	if(isset($json['email']) && !empty($json['email']))
+    	{
+    		$data1['email']=$json['email'];
+    	}
+    	if(isset($json['url']) && !empty($json['url']))
+    	{
+    		$data1['url']=$json['url'];
+    	}
+    	if(isset($json['s_no']) && !empty($json['s_no']))
+    	{
+    		$response['s_no']=$json['s_no'];
+    	};
+    	$data2=array(
+    			'reportIdentity'=>$json['reportIdentity'],
+    			'description'=>$json['description'],
+    			'status'=>'Active',
+    			'manageBy'=>'Admin',
+    			'openDate'=>date('d-m-Y_h:i:s')
+    	);
+    	$data=array_merge($data1,$data2);
+    	$reportQuery=$this->data['reportQuery']=$this->Apimodel->post('reportQuery',$data);
+    	if($reportQuery)
+    	{
+    		$response=array(
+    				'code'=>'200',
+    				'url'=>$data1['url']
+    		);
+    		echo json_encode($response);
+    	}
+    	else
+    	{
+    		$response=array(
+    				'code'=>'400',
+    		);
+    		echo json_encode($response);
+    	}
+    }
+    
  }

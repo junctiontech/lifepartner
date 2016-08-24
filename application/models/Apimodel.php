@@ -23,7 +23,7 @@ class Apimodel extends CI_Model{
 	
 	function put($table,$data,$filter)
 	{
-			 $this->db->where($filter);
+		$this->db->where($filter);
 		$qry=$this->db->update($table,$data);
 		if($qry)
 		{
