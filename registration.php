@@ -26,8 +26,8 @@ if(!$CONNECTION)
 		}
 		if(count($row)>0) 
 		{
-			$updateRegistrationInfo="update RegisteredUser set EmailID='$EmailID', userName='$userName' where MobileNumber='$MobileNumber'";
-			$queryUpdate=mysqli_query($CONNECTION,$updateRegistrationInfo);
+			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
+			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
 			{
 				$aa= $result['registerUserID'];
