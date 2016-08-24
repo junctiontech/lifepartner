@@ -19,7 +19,7 @@ if(!$CONNECTION)
 	$registeredId = $_POST['registeredId'];
 	
 	
-$querySearch="Select * from Profiles where registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik'";
+$querySearch="Select * from Profiles where registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik' LIMIT 100";
 
 //print_r($querySearch);
  	$query=mysqli_query($CONNECTION,$querySearch);
