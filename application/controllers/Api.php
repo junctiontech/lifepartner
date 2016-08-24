@@ -272,7 +272,7 @@
     	if(isset($json['s_no']) && !empty($json['s_no']))
     	{
     		$response['s_no']=$json['s_no'];
-    	};
+    	}
     	$data2=array(
     			'reportIdentity'=>$json['reportIdentity'],
     			'description'=>$json['description'],
@@ -286,7 +286,7 @@
     	{
     		$response=array(
     				'code'=>'200',
-    				'url'=>$data1['url']
+    			//	'url'=>$data1['url']
     		);
     		echo json_encode($response);
     	}
