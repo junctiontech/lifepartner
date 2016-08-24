@@ -26,11 +26,12 @@ if(!$CONNECTION)
 		}
 		if(count($row)>0) 
 		{
-					
-					foreach ($row as $result)
-					{
-						$aa= $result['registerUserID'];
-			$searchResult[]= array('serverProfileId'=>$result['no'],
+			$updateRegistrationInfo="update RegisteredUser set EmailID='$EmailID', userName='$userName' where MobileNumber='$MobileNumber'";
+			$queryUpdate=mysqli_query($CONNECTION,$updateRegistrationInfo);
+			foreach ($row as $result)
+			{
+				$aa= $result['registerUserID'];
+				$searchResult[]= array('serverProfileId'=>$result['no'],
 					'category'=>$result['category'],
 					'gender'=>$result['gender'],
 					'firstName'=>$result['firstName'],
@@ -83,10 +84,8 @@ if(!$CONNECTION)
 			
 		}else {
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
-		//print_r($queryInsert);
 			mysqli_query($CONNECTION,$queryInsert);
 			$id=mysqli_insert_id($CONNECTION);		
-			
 			if (mysqli_affected_rows()>=0){
 				$result=mysqli_fetch_array($queryInsert);
 				$re=array('code'=>"200",
