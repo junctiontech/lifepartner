@@ -13,13 +13,13 @@ function genderChange(value)
 }
 
 function height(value)
-{	alert(value);
+{	
 	$.ajax({
 		url:"Master/heightMaxDropdown",
 		type:"post",
 		data:{value:value},
 	})
-	.done(function(result){	alert(result);
+	.done(function(result){	
 		$('#minHeight').html(result);
 	});
 }
