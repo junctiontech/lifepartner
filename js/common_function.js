@@ -19,7 +19,7 @@ function height(value)
 		type:"post",
 		data:{value:value},
 	})
-	.done(function(result){
+	.done(function(result){	alert(result);
 		$('#minHeight').html(result);
 	});
 }
