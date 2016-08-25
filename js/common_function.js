@@ -13,9 +13,9 @@ function genderChange(value)
 }
 
 function height(value)
-{	
+{	alert(value);
 	$.ajax({
-		url:"heightMaxDropdown",
+		url:"Master/heightMaxDropdown",
 		type:"post",
 		data:{value:value},
 	})
