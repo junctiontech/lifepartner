@@ -8,7 +8,7 @@ function genderChange(value)
 	else
 	{
 		$('#female').hide();
-		$('#male').show();
+		$('#male').show(); 
 	}
 }
 
