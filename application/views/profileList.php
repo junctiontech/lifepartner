@@ -50,7 +50,7 @@
 				<label class="col-sm-2 control-label" for="field-1">Age</label>
 				<div class="col-sm-10">
 					<div id="male">
-						<select class="selectboxit s2example-1" id="s2example-1" name="maleAge">
+						<select class="selectboxit s2example-1" id="s2example-1" name="maleAge" required>
 							<optgroup label="Please select Age " >
 							<?php //foreach($organizationList as $list){ ?>
 								<option value="">Please Select Age</option>
@@ -90,7 +90,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Income</label>
 				<div class="col-sm-8">
-					<select class="selectboxit s2example-1" id="" name="income">
+					<select class="selectboxit s2example-1" id="" name="income" >
 						<optgroup label="Please select income Income" >
 							<option value="100000">1 Lakh</option>
 							<option value="500000">5 Lakh</option>
@@ -112,6 +112,56 @@
 				</div>
 			</div>
 		</div>	
+	</div></br></br></br></br>
+	<div class="row col-sm-12">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1">Caste</label>
+				<div class="col-sm-10">
+					<select class="selectboxit s2example-1" id="" name="caste">
+							<optgroup label="Please select city name" >
+							<option value="">Please Select Caste</option>
+							<?php foreach($caste as $list){ ?>
+								<option value="<?php echo $list->caste?>"><?php echo $list->caste; ?></option>
+							<?php } ?>
+							</optgroup>
+					</select>
+				</div>
+			</div>
+		</div>	
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="field-1">Sub Caste</label>
+				<div class="col-sm-9">
+					<select class="selectboxit s2example-1" id="" name="subCaste">
+							<optgroup label="Please select education name" >
+							<option value="">Please Select Sub Caste</option>
+							<?php foreach($subCaste as $list){ ?>
+								<option value="<?php echo $list->subcaste?>"><?php echo $list->subcaste; ?></option>
+							<?php } ?>
+							</optgroup>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1"> Height</label>
+				<div class="col-sm-4">
+					<select class="selectboxit s2example-1" id="" name="minHeight" onchange="height(this.value)">
+						<option value="">Min Height</option>
+						<?php for($i=4;$i<=6;$i++){ for($k=0;$k<12;$k++){ ?>
+							<option value="<?php echo $i.".".$k;?>"><?php echo $i.".".$k;?></option>
+						<?php  } } ?>
+					</select>
+				</div>
+				<label class="col-sm-2 control-label" for="field-1"> To</label>
+				<div class="col-sm-4">
+					<select class="selectboxit s2example-1" id="maxHeight" name="maxHeight">
+					</select>
+				</div>
+			</div>
+		</div>
 	</div></br></br></br></br>
 	<div class="row col-sm-12">
 		<div class="col-sm-6">
