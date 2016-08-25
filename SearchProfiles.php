@@ -7,27 +7,19 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-		
-
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];
 	$bride_groom= $_POST['bride_groom'];
 //	$gautr= $_POST['gautr'];
 // 	$gautr_nanihal= $_POST['gautr_nanihal'];
 	$manglik= $_POST['manglik'];
-	$income= $_POST['income'];
+	$city= $_POST['city'];
 	$registeredId = $_POST['registeredId'];
-	
-	
-$querySearch="Select * from Profiles where registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik' LIMIT 100";
-
-//print_r($querySearch);
- 	$query=mysqli_query($CONNECTION,$querySearch);
- $searchResult=array();
+	$querySearch="Select Profiles.* from Profiles.requestContact where Profiles.registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik' AND city='$city' and Profiles.no!=requestContact.profileID LIMIT 100";
+	$query=mysqli_query($CONNECTION,$querySearch);
+ 	$searchResult=array();
  	if($query){
-		//print_r(mysqli_fetch_array($query));die;
-	
-		while($result=mysqli_fetch_array($query)){
+			while($result=mysqli_fetch_array($query)){
 			$from = new DateTime($result['dateOfBirth']);
 			$to   = new DateTime('today');
 			$age = $from->diff($to)->y;
