@@ -15,7 +15,7 @@ if(!$CONNECTION)
 	$manglik= $_POST['manglik'];
 	$city= $_POST['city'];
 	$registeredId = $_POST['registeredId'];
-	$querySearch="Select DISTINCT Profiles.* from Profiles,requestContact where Profiles.registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik' AND city='$city' AND requestContact.profileID!=Profiles.no LIMIT 100";
+	$querySearch="Select * from Profiles where registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik' AND city='$city' LIMIT 100";
 	$query=mysqli_query($CONNECTION,$querySearch);
  	$searchResult=array();
  	if($query){
