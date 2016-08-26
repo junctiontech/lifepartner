@@ -26,57 +26,63 @@ if(!$CONNECTION)
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	$query=mysqli_query($CONNECTION,$querySearch);
  	$searchResult=array();
- 	if($query){
-			while($result=mysqli_fetch_array($query)){
-			$from = new DateTime($result['dateOfBirth']);
-			$to   = new DateTime('today');
-			$age = $from->diff($to)->y;
-			//	print_r($age);die;
-			if ($min_age<=$age && $age <=$max_age){
+ 	if($query)
+ 	{
+		while($result=mysqli_fetch_array($query))
+		{
+			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
+			$sql=mysqi_query($CONNECTION,$queryRequestContact);
+			if(mysqli_num_rows($countrow)!=0)
+			{
 				
-				$searchResult[]= array(
-						'profileId'=>$result['no'],
-						'registerUserID'=>$result['registerUserID'],
-						'gender'=>$bride_groom,
-						'firstName'=>$result['firstName'],
-						'lastName'=>$result['lastName'],
-						'fatherName'=>$result['fatherName'],
-						'dateOfBirth'=>$result['dateOfBirth'],
-						'birthPlace'=>$result['birthPlace'],
-						'heightOfUser'=>$result['heightOfUser'],
-						'birthTime'=>$result['birthTime'],
-						'highestQualification'=>$result['highestQualification'],
-						'userJobProfile'=>$result['userJobProfile'],
-						'TypeOfBusiness'=>$result['TypeOfBusiness'],
-						'business'=>$result['business'],
-						'income'=>$result['income'],
-						'fatherJobProfile'=>$result['fatherJobProfile'],
-						'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
-						'fatherBusiness'=>$result['fatherBusiness'],
-						'fatherIncome'=>$result['fatherIncome'],
-						'gautr'=>$result['gautr'],
-						'gautrNanihal'=>$result['gautrNanihal'],
-						'zodiacSign'=>$result['zodiacSign'],
-						'star'=>$result['star'],
-						'saturn'=>$result['saturn'],
-						'manglik'=>$result['manglik'],
-						'currentAddress'=>$result['currentAddress'],
-						'permanentAddress'=>$result['permanentAddress'],
-						'emailId'=>$result['emailId'],
-						'mobileNumber'=>$result['mobileNumber'],
-						'WhatsAppNumber'=>$result['WhatsAppNumber'],
-						'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
-						'age'=>	$age,
-					    'city'=>$result['city'],
-						'caste'=>$result['caste'],
-						'subcaste'=>$result['subcaste']
-			
-				);
+			}
+			else 
+			{
+				$from = new DateTime($result['dateOfBirth']);
+				$to   = new DateTime('today');
+				$age = $from->diff($to)->y;
+				if ($min_age<=$age && $age <=$max_age)
+				{
+					$searchResult[]= array(
+							'profileId'=>$result['no'],
+							'registerUserID'=>$result['registerUserID'],
+							'gender'=>$bride_groom,
+							'firstName'=>$result['firstName'],
+							'lastName'=>$result['lastName'],
+							'fatherName'=>$result['fatherName'],
+							'dateOfBirth'=>$result['dateOfBirth'],
+							'birthPlace'=>$result['birthPlace'],
+							'heightOfUser'=>$result['heightOfUser'],
+							'birthTime'=>$result['birthTime'],
+							'highestQualification'=>$result['highestQualification'],
+							'userJobProfile'=>$result['userJobProfile'],
+							'TypeOfBusiness'=>$result['TypeOfBusiness'],
+							'business'=>$result['business'],
+							'income'=>$result['income'],
+							'fatherJobProfile'=>$result['fatherJobProfile'],
+							'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
+							'fatherBusiness'=>$result['fatherBusiness'],
+							'fatherIncome'=>$result['fatherIncome'],
+							'gautr'=>$result['gautr'],
+							'gautrNanihal'=>$result['gautrNanihal'],
+							'zodiacSign'=>$result['zodiacSign'],
+							'star'=>$result['star'],
+							'saturn'=>$result['saturn'],
+							'manglik'=>$result['manglik'],
+							'currentAddress'=>$result['currentAddress'],
+							'permanentAddress'=>$result['permanentAddress'],
+							'emailId'=>$result['emailId'],
+							'mobileNumber'=>$result['mobileNumber'],
+							'WhatsAppNumber'=>$result['WhatsAppNumber'],
+							'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
+							'age'=>	$age,
+							'city'=>$result['city'],
+							'caste'=>$result['caste'],
+							'subcaste'=>$result['subcaste']
+					);
+				}
 			}
 		}
-		
-	
-		
 	}
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
 	print_r(json_encode($searchResult));
