@@ -30,14 +30,14 @@ if(!$CONNECTION)
  	{
 		while($result=mysqli_fetch_array($query))
 		{
-			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
+			/* $queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 			$sql=mysqi_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql)!=0)
 			{
 				
 			}
 			else 
-			{
+			{ */
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
@@ -81,7 +81,7 @@ if(!$CONNECTION)
 							'subcaste'=>$result['subcaste']
 					);
 				}
-			}
+		//	}
 		}
 	}
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
