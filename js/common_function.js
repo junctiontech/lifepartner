@@ -25,4 +25,16 @@ function height(value)
 }
 
 	
-	
+function passwordCHeck()
+{
+	var value=prompt('Please Enter Password');
+	if(value=='admin')
+	{	
+		window.location.assign('Master/registration');
+	}
+	else
+	{	
+		alert('Your password not correct please enter valid password');
+		window.location.assign('Master/profileList');
+	}
+}

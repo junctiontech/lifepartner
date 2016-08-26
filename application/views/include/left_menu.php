@@ -151,7 +151,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>Master/registration">
+						<a onclick="return passwordCHeck();" >
 							<i class="linecons-lightbulb" title="Dashboard"></i>
 							<span class="title" >Registration</span>
 						</a>
