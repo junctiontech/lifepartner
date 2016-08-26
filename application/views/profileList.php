@@ -113,7 +113,7 @@
 			</div>
 		</div>	
 	</div></br></br></br></br>
-	<!-- <div class="row col-sm-12">
+	 <div class="row col-sm-12">
 		<div class="col-sm-4">
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Caste</label>
@@ -162,7 +162,7 @@
 				</div>
 			</div>
 		</div>
-	</div></br></br></br></br>-->
+	</div></br></br></br></br>
 	<div class="row col-sm-12">
 		<div class="col-sm-6">
 			<div class="form-group">
