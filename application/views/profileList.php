@@ -13,20 +13,20 @@
 		</ol>
 	</div>
 </div>
-	<script type="text/javascript">
-				jQuery(document).ready(function($)
+<script type="text/javascript">
+			jQuery(document).ready(function($)
+			{
+				$(".s2example-1").select2({
+					placeholder: 'Select Your Organization Name...',
+					allowClear: true
+				}).on('select2-open', function()
 				{
-					$(".s2example-1").select2({
-						placeholder: 'Select Your Organization Name...',
-						allowClear: true
-					}).on('select2-open', function()
-					{
-						// Adding Custom Scrollbar
-						$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
-					});
-					
+					// Adding Custom Scrollbar
+					$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
 				});
-	</script>
+				
+			});
+</script>
 <form method="post" action ="<?=base_url();?>Master/profileList">
 <div class="container">
 	<div class="row col-sm-12">
@@ -172,7 +172,7 @@
 							<optgroup label="Please select city name" >
 							<option value="">Please Select City</option>
 							<?php foreach($city as $list){ ?>
-								<option value="<?php echo $list->birthPlace?>"><?php echo $list->birthPlace; ?></option>
+								<option value="<?php echo $list->city?>"><?php echo $list->city; ?></option>
 							<?php } ?>
 							</optgroup>
 					</select>
@@ -213,6 +213,7 @@
 			</div>
 		</div>
   		<?php } ?>
+  		
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Profile List</h3>
@@ -240,7 +241,7 @@
 								<th>#</th>
 								<th>Name</th>
 								<th>Age</th>
-								<th>Birth Place</th>
+								<th>City</th>
 								<th>Education</th>
 								<th>Income</th>
 								<th>Action</th>
@@ -251,7 +252,7 @@
 								<th>#</th>
 								<th>Name</th>
 								<th>Age</th>
-								<th>Birth Place</th>
+								<th>City</th>
 								<th>Education</th>
 								<th>Income</th>
 								<th>Action</th>
@@ -263,7 +264,7 @@
 								<td><?=$i;?></td>
 								<td><?php echo $list->firstName;?></td>
 								<td><?php  echo date('Y')-date('Y',strtotime($list->dateOfBirth)).' Year';?></td>
-								<td><?php echo $list->birthPlace;?></td>
+								<td><?php echo $list->city;?></td>
 								<td><?php echo $list->highestQualification;?></td>
 								<td><?php echo $list->income;?></td>
 								<td><a href="<?php echo base_url(); ?>Master/profile/<?=$list->no; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"> View Profile </a>

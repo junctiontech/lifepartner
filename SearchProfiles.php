@@ -10,12 +10,20 @@ if(!$CONNECTION)
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];
 	$bride_groom= $_POST['bride_groom'];
-//	$gautr= $_POST['gautr'];
-// 	$gautr_nanihal= $_POST['gautr_nanihal'];
 	$manglik= $_POST['manglik'];
 	$city= $_POST['city'];
+	$minHeight=$_POST['min_height'];
+	$maxHeight=$_POST['max_height'];
+	$caste=$_POST['caste'];
+	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
-	$querySearch="Select * from Profiles where registerUserID!='$registeredId' AND gender='$bride_groom' AND manglik='$manglik' AND city='$city' LIMIT 100";
+	if(!empty($registeredId)){ $query.=" and registerUserID!='$registeredId'"; }
+	if(!empty($bride_groom)){ $query.=" and bride_groom='$bride_groom'"; }
+	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
+	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
+	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }
+	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
+	$querySearch="Select * from Profiles where $query LIMIT 100";
 	$query=mysqli_query($CONNECTION,$querySearch);
  	$searchResult=array();
  	if($query){

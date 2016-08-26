@@ -29,6 +29,12 @@ class MasterModel extends CI_Model{
 		return $query->result();
 	}
 	
+	function post($table,$data)
+	{
+		$query=$this->db->insert($table,$data);
+		return $query;
+	}
+	
 	function getfilter($table,$filter)
 	{
 		$qry=$this->db->get_where($table,$filter);

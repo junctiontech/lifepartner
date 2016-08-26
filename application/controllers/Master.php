@@ -34,7 +34,7 @@
 		
 		$genders=$this->input->post('gender');
 		$incomes=$this->input->post('income');
-		$birthPlaces=$this->input->post('city');
+		$citys=$this->input->post('city');
 		$castes=$this->input->post('caste');
 		$subCastes=$this->input->post('subCaste');
 		$minHeight=$this->input->post('minHeight');
@@ -53,7 +53,7 @@
 		{	
 			if(!empty($genders)){ $query =" gender='$genders'"; }
 			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
-			if(!empty($birthPlaces)){ $query.=" and birthPlace='$birthPlaces'"; }
+			if(!empty($citys)){ $query.=" and city='$citys'"; }
 			if(!empty($castes)){ $query.=" and caste='$castes'"; }
 			if(!empty($subCastes)){ $query.=" and subcaste='$subCastes'"; }
 			if(!empty($minHeight)){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
@@ -82,7 +82,7 @@
 		{
 			$profileList=$this->data['profileList']=$this->MasterModel->get('Profiles');
 		}
-		$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','birthPlace');
+		$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','city');//print_r($city);die;
 		$education=$this->data['education']=$this->MasterModel->getDistinct('Profiles','highestQualification');
 		$income=$this->data['income']=$this->MasterModel->getDistinct('Profiles','income');
 		$caste=$this->data['caste']=$this->MasterModel->getDistinct('Profiles','caste');
@@ -115,6 +115,93 @@
 						<option value="<?php echo $i.".".$k;?>"><?php echo $i.".".$k;?></option>
 					<?php  } } ?>
 			<?php
+		}
+	}
+	
+	function registration()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('registration',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
+	
+	
+	function registerData()
+	{	
+		$totalValue='';
+		$loopValue=$this->input->post('loopValue');
+		if(isset($loopValue) && !empty($loopValue))
+		{
+			for($i=1;$i<=$loopValue;$i++)
+			{
+			$registerUserID=$this->data['registerUserID']=$this->MasterModel->getDistinct('Profiles','registerUserID');$randomRegisterUserID=$registerUserID[array_rand($registerUserID)];
+			$firstName=$this->data['firstName']=$this->MasterModel->getDistinct('Profiles','firstName');$randomFirstName=$firstName[array_rand($firstName)];
+			$gender=$this->data['gender']=$this->MasterModel->getDistinct('Profiles','gender');$randomGender=$gender[array_rand($gender)];
+			$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','city');$randomCity=$city[array_rand($city)];
+			$birthPlace=$this->data['birthPlace']=$this->MasterModel->getDistinct('Profiles','birthPlace');$randomBirthPlace=$birthPlace[array_rand($birthPlace)];
+			$heightOfUser=$this->data['heightOfUser']=$this->MasterModel->getDistinct('Profiles','heightOfUser');$randomHeightOfUser=$heightOfUser[array_rand($heightOfUser)];
+			$dateOfBirth=$this->data['dateOfBirth']=$this->MasterModel->getDistinct('Profiles','dateOfBirth');$randomDateOfBirth=$dateOfBirth[array_rand($dateOfBirth)];
+			$highestQualification=$this->data['highestQualification']=$this->MasterModel->getDistinct('Profiles','highestQualification');$randomHighestQualification=$highestQualification[array_rand($highestQualification)];
+			$income=$this->data['income']=$this->MasterModel->getDistinct('Profiles','income');$randomIncome=$income[array_rand($income)];
+			$zodiacSign=$this->data['zodiacSign']=$this->MasterModel->getDistinct('Profiles','zodiacSign');$randomZodiacSign=$zodiacSign[array_rand($zodiacSign)];
+			$imageName=$this->data['imageName']=$this->MasterModel->getDistinct('Profiles','imageName');$randomImageName=$imageName[array_rand($imageName)];
+			$uniqueImageId=$this->data['uniqueImageId']=$this->MasterModel->getDistinct('Profiles','uniqueImageId');$randomUniqueImageId=$uniqueImageId[array_rand($uniqueImageId)];
+			$subcaste=$this->data['subcaste']=$this->MasterModel->getDistinct('Profiles','subcaste');$randomSubcaste=$subcaste[array_rand($subcaste)];
+			$category=$this->input->post('category');
+			$chartor='abcdefghijklmnopqrstuvwxyz';
+			$number="0123456789";
+		
+				$data=array(
+					'category'=>$category,
+					'gender'=>$randomGender->gender,
+					'registerUserID'=>$randomRegisterUserID->registerUserID,
+					'firstName'=>$randomFirstName->firstName,
+					'lastName'=>substr(str_shuffle($chartor),0,10),
+					'fatherName'=>substr(str_shuffle($chartor),0,10),
+					'dateOfBirth'=>$randomDateOfBirth->dateOfBirth,
+					'birthPlace'=>$randomBirthPlace->birthPlace,
+					'heightOfUser'=>$randomHeightOfUser->heightOfUser,
+					'birthTime'=>substr(str_shuffle($chartor),0,10),
+					'highestQualification'=>$randomHighestQualification->highestQualification,
+					'userJobProfile'=>substr(str_shuffle($chartor),0,10),
+					'TypeOfBusiness'=>substr(str_shuffle($chartor),0,10),
+					'business'=>substr(str_shuffle($chartor),0,10),
+					'income'=>$randomIncome->income,
+					'TypeOfFatherBusiness'=>substr(str_shuffle($chartor),0,10),
+					'fatherBusiness'=>substr(str_shuffle($chartor),0,10),
+					'fatherIncome'=>$randomIncome->income,
+					'gautr'=>substr(str_shuffle($chartor),0,5),
+					'gautrNanihal'=>substr(str_shuffle($chartor),0,5),
+					'zodiacSign'=>$randomZodiacSign->zodiacSign,
+					'manglik'=>'true',
+					'currentAddress'=>substr(str_shuffle($chartor),0,20),
+					'permanentAddress'=>substr(str_shuffle($chartor),0,20),
+					'emailId'=>substr(str_shuffle($chartor),0,5).'@gmail.com',
+					'mobileNumber'=>substr(str_shuffle($number),0,10),
+					'WhatsAppNumber'=>substr(str_shuffle($number),0,10),
+					'dateOfCreation'=>substr(str_shuffle($chartor),0,10),
+					'imageName'=>$randomImageName->	imageName,
+					'uniqueImageId'=>$randomUniqueImageId->uniqueImageId,
+					'city'=>$randomCity->city,
+					'caste'=>'Brahmin',
+					'subcaste'=>$randomSubcaste->subcaste,
+			);
+			$totalValue=$i;
+			$insertRandom=$this->data['insertRandom']=$this->MasterModel->post('Profiles',$data);
+			}
+			if($insertRandom)
+			{
+				$this->session->set_flashdata('category_success','message');
+				$this->session->set_flashdata('message',"$totalValue Record Succssfully Insert");
+				redirect('Master/profileList');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('category_error','message');
+			$this->session->set_flashdata('message',"Please Enter Valid Value");
+			redirect('Master/registration');
 		}
 	}
  }

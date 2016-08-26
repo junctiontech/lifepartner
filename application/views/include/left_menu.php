@@ -79,14 +79,14 @@
 							<span class="title">Inventory</span>
 						</a>
 				
-					</li>-->
+					</li>
 					<li>
 						<a  href="<?php echo base_url(); ?>home?menu=report" >
 							<i class="linecons-money"></i>
 							<span id="payable" class="title">Reporting</span>
 						</a>
 				
-					</li>
+					</li>-->
 					<li>
 					<a href="javascript:;" onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">
 							<i class="fa-arrows-alt"></i>
@@ -148,6 +148,12 @@
 						<a href="<?php echo base_url(); ?>Master/profileList">
 							<i class="linecons-lightbulb" title="Dashboard"></i>
 							<span class="title" >Profile List</span>
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>Master/registration">
+							<i class="linecons-lightbulb" title="Dashboard"></i>
+							<span class="title" >Registration</span>
 						</a>
 					</li>
 				</ul>
