@@ -17,7 +17,7 @@ if(!$CONNECTION)
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
-	if(!empty($registeredId)){ $query.=" and registerUserID!='$registeredId'"; }
+	if(!empty($registeredId)){ $query="  registerUserID!='$registeredId'"; }
 	if(!empty($bride_groom)){ $query.=" and bride_groom='$bride_groom'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
