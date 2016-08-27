@@ -49,10 +49,24 @@
 		{
 			$ages=$this->input->post('feMaleAge');
 		}
+		
 		if(!empty($genders)  or !empty($incomes) or !empty($birthPlaces) or !empty($highestQualifications))
 		{	
 			if(!empty($genders)){ $query =" gender='$genders'"; }
-			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
+			
+			if(isset($incomeIdentity)&&!empty($incomeIdentity))
+			{
+				if(strcasecmp($incomeIdentity,'>')==0)
+				{
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity='$incomes' or income!='none'"; }
+				}
+				if(strcasecmp($incomeIdentity,'<')==0)
+				{
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity='$incomes' or income='none'"; }
+				}
+			}
+			
+			//if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
 			if(!empty($citys)){ $query.=" and city='$citys'"; }
 			if(!empty($castes)){ $query.=" and caste='$castes'"; }
 			if(!empty($subCastes)){ $query.=" and subcaste='$subCastes'"; }
