@@ -20,7 +20,7 @@ if(!$CONNECTION)
 	$incomes=$explode[0].',00,000';
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
-		if(strcasecmp($income_above_below,'above')==0) 
+		if(strcasecmp($income_above_below,'above')==0)  
 		{
 			$incomeIdentity='>';
 		}
@@ -28,7 +28,7 @@ if(!$CONNECTION)
 		{
 			$$incomeIdentity='<';
 		}
-	}
+	}echo $incomes; echo $incomeIdentity;die;
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
