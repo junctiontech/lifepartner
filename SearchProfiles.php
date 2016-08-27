@@ -27,12 +27,12 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'above')==0)
 		{
 			$incomeIdentity='>';
-			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes' or income!='none'"; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity='$incomes' or income!='none'"; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)
 		{
 			$incomeIdentity='<';
-			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes' or income='none'"; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity='$incomes' or income='none'"; }
 		}
 	}//echo $query;die;
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
