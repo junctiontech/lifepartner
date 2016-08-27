@@ -34,7 +34,7 @@ if(!$CONNECTION)
 			$incomeIdentity='<';
 			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes' and income='none'"; }
 		}
-	}//echo $query;die;
+	}echo $query;die;
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
