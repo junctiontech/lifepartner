@@ -16,7 +16,8 @@ if(!$CONNECTION)
 	$maxHeight=$_POST['max_height'];
 	$income=$_POST['income'];
 	$income_above_below=$_POST['income_above_below'];
-	$h=str_replace('lakh',',00,000', $_POST['income']);
+	$explode=explode(' ',$income);
+	$incomes=$explode[0].',00,000';
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
 		if(strcasecmp($income_above_below,'above')==0)
@@ -32,7 +33,7 @@ if(!$CONNECTION)
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
-	if(!empty($income)){ $query.=" and income$incomeIdentity='$h'"; }
+	if(!empty($income)){ $query.=" and income$incomeIdentity='$incomes'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
