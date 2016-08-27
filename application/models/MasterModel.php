@@ -14,6 +14,13 @@ class MasterModel extends CI_Model{
 		return $qry->result();
 	}
 	
+	function postLastId($table,$data)
+	{
+		$this->db->insert($table,$data);
+		$id=$this->db->insert_id();
+		return $id;
+	}
+	
 	function getDistinct($table,$calumn)
 	{
 		$this->db->distinct();

@@ -12,20 +12,6 @@
 			</div>
 		</div>
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="field-1">Category</label>
-		<div class="col-sm-10">
-			<select class="selectboxit s2example-1" id="" name="category">
-					<optgroup label="Please select Category" >
-					<option value="friend">Friend</option>
-					<option value="son">Son</option>
-					<option value="sister">Sister</option>
-					<option value="brother">Brother</option>
-					<option value="daughter">Daughter</option>
-					</optgroup>
-			</select>
-		</div>
-	</div><br><br><br>
-	<div class="form-group">
 		<label class="col-sm-2 control-label" for="field-1">Number Of Entry</label>
 		<div class="col-sm-10">
 			<select class="selectboxit s2example-1" id="" name="loopValue">

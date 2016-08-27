@@ -135,61 +135,102 @@
 		{
 			for($i=1;$i<=$loopValue;$i++)
 			{
-			$registerUserID=$this->data['registerUserID']=$this->MasterModel->getDistinct('Profiles','registerUserID');$randomRegisterUserID=$registerUserID[array_rand($registerUserID)];
-			$firstName=$this->data['firstName']=$this->MasterModel->getDistinct('Profiles','firstName');$randomFirstName=$firstName[array_rand($firstName)];
-			$gender=$this->data['gender']=$this->MasterModel->getDistinct('Profiles','gender');$randomGender=$gender[array_rand($gender)];
-			$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','city');$randomCity=$city[array_rand($city)];
-			$birthPlace=$this->data['birthPlace']=$this->MasterModel->getDistinct('Profiles','birthPlace');$randomBirthPlace=$birthPlace[array_rand($birthPlace)];
-			$heightOfUser=$this->data['heightOfUser']=$this->MasterModel->getDistinct('Profiles','heightOfUser');$randomHeightOfUser=$heightOfUser[array_rand($heightOfUser)];
-			$dateOfBirth=$this->data['dateOfBirth']=$this->MasterModel->getDistinct('Profiles','dateOfBirth');$randomDateOfBirth=$dateOfBirth[array_rand($dateOfBirth)];
-			$highestQualification=$this->data['highestQualification']=$this->MasterModel->getDistinct('Profiles','highestQualification');$randomHighestQualification=$highestQualification[array_rand($highestQualification)];
-			$income=$this->data['income']=$this->MasterModel->getDistinct('Profiles','income');$randomIncome=$income[array_rand($income)];
-			$zodiacSign=$this->data['zodiacSign']=$this->MasterModel->getDistinct('Profiles','zodiacSign');$randomZodiacSign=$zodiacSign[array_rand($zodiacSign)];
-			$imageName=$this->data['imageName']=$this->MasterModel->getDistinct('Profiles','imageName');$randomImageName=$imageName[array_rand($imageName)];
-			$uniqueImageId=$this->data['uniqueImageId']=$this->MasterModel->getDistinct('Profiles','uniqueImageId');$randomUniqueImageId=$uniqueImageId[array_rand($uniqueImageId)];
-			$subcaste=$this->data['subcaste']=$this->MasterModel->getDistinct('Profiles','subcaste');$randomSubcaste=$subcaste[array_rand($subcaste)];
-			$category=$this->input->post('category');
-			$chartor='abcdefghijklmnopqrstuvwxyz';
-			$number="0123456789";
-		
-				$data=array(
-					'category'=>$category,
-					'gender'=>$randomGender->gender,
-					'registerUserID'=>$randomRegisterUserID->registerUserID,
-					'firstName'=>$randomFirstName->firstName,
-					'lastName'=>substr(str_shuffle($chartor),0,10),
-					'fatherName'=>substr(str_shuffle($chartor),0,10),
-					'dateOfBirth'=>$randomDateOfBirth->dateOfBirth,
-					'birthPlace'=>$randomBirthPlace->birthPlace,
-					'heightOfUser'=>$randomHeightOfUser->heightOfUser,
-					'birthTime'=>substr(str_shuffle($chartor),0,10),
-					'highestQualification'=>$randomHighestQualification->highestQualification,
-					'userJobProfile'=>substr(str_shuffle($chartor),0,10),
-					'TypeOfBusiness'=>substr(str_shuffle($chartor),0,10),
-					'business'=>substr(str_shuffle($chartor),0,10),
-					'income'=>$randomIncome->income,
-					'TypeOfFatherBusiness'=>substr(str_shuffle($chartor),0,10),
-					'fatherBusiness'=>substr(str_shuffle($chartor),0,10),
-					'fatherIncome'=>$randomIncome->income,
-					'gautr'=>substr(str_shuffle($chartor),0,5),
-					'gautrNanihal'=>substr(str_shuffle($chartor),0,5),
-					'zodiacSign'=>$randomZodiacSign->zodiacSign,
-					'manglik'=>'true',
-					'currentAddress'=>substr(str_shuffle($chartor),0,20),
-					'permanentAddress'=>substr(str_shuffle($chartor),0,20),
-					'emailId'=>substr(str_shuffle($chartor),0,5).'@gmail.com',
-					'mobileNumber'=>substr(str_shuffle($number),0,10),
-					'WhatsAppNumber'=>substr(str_shuffle($number),0,10),
-					'dateOfCreation'=>date('d-m-Y H:i:s'),
-					'lastUpdationDate'=>date('d-m-Y H:i:s'),
-					'imageName'=>$randomImageName->	imageName,
-					'uniqueImageId'=>$randomUniqueImageId->uniqueImageId,
-					'city'=>$randomCity->city,
-					'caste'=>'Brahmin',
-					'subcaste'=>$randomSubcaste->subcaste,
-			);
-			$totalValue=$i;
-			$insertRandom=$this->data['insertRandom']=$this->MasterModel->post('Profiles',$data);
+				$chartor='abcdefghijklmnopqrstuvwxyz';
+				$number="0123456789";
+				$dataRegister=array(
+										'userName'=>substr(str_shuffle($chartor),0,5),
+										'EmailID'=>substr(str_shuffle($chartor),0,5).'@gmail.com',
+										'MobileNumber'=>substr(str_shuffle($number),0,10)
+									);
+				$insertRandomRegisterID=$this->data['insertRandomRegisterID']=$this->MasterModel->postLastId('RegisteredUser',$dataRegister);
+				for($k=0;$k<=15;$k++)
+				{
+					if($k==0)
+					{
+						$category='self';
+						$gender='M';
+					}
+					if($k==1||$k==2||$k==3)
+					{
+						$category='son';
+						$gender='M';
+					}
+					if($k==4||$k==5||$k==6)
+					{
+						$category='sister';
+						$gender='F';
+					}
+					if($k==7||$k==8||$k==9)
+					{
+						$category='brother';
+						$gender='M';
+					}
+					if($k==10||$k==11||$k==12)
+					{
+						$category='daughter';
+						$gender='F';
+					}
+					if($k==13||$k==14||$k==15)
+					{
+						$category='friend';
+						$gender='M';
+					}
+
+					$registerUserID=$this->data['registerUserID']=$this->MasterModel->getDistinct('Profiles','registerUserID');$randomRegisterUserID=$registerUserID[array_rand($registerUserID)];
+					$firstName=$this->data['firstName']=$this->MasterModel->getDistinct('Profiles','firstName');$randomFirstName=$firstName[array_rand($firstName)];
+					//$gender=$this->data['gender']=$this->MasterModel->getDistinct('Profiles','gender');$randomGender=$gender[array_rand($gender)];
+					$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','city');$randomCity=$city[array_rand($city)];
+					$birthPlace=$this->data['birthPlace']=$this->MasterModel->getDistinct('Profiles','birthPlace');$randomBirthPlace=$birthPlace[array_rand($birthPlace)];
+					$heightOfUser=$this->data['heightOfUser']=$this->MasterModel->getDistinct('Profiles','heightOfUser');$randomHeightOfUser=$heightOfUser[array_rand($heightOfUser)];
+					$dateOfBirth=$this->data['dateOfBirth']=$this->MasterModel->getDistinct('Profiles','dateOfBirth');$randomDateOfBirth=$dateOfBirth[array_rand($dateOfBirth)];
+					$highestQualification=$this->data['highestQualification']=$this->MasterModel->getDistinct('Profiles','highestQualification');$randomHighestQualification=$highestQualification[array_rand($highestQualification)];
+					$income=$this->data['income']=$this->MasterModel->getDistinct('Profiles','income');$randomIncome=$income[array_rand($income)];
+					$zodiacSign=$this->data['zodiacSign']=$this->MasterModel->getDistinct('Profiles','zodiacSign');$randomZodiacSign=$zodiacSign[array_rand($zodiacSign)];
+					$imageName=$this->data['imageName']=$this->MasterModel->getDistinct('Profiles','imageName');$randomImageName=$imageName[array_rand($imageName)];
+					$uniqueImageId=$this->data['uniqueImageId']=$this->MasterModel->getDistinct('Profiles','uniqueImageId');$randomUniqueImageId=$uniqueImageId[array_rand($uniqueImageId)];
+					$subcaste=$this->data['subcaste']=$this->MasterModel->getDistinct('Profiles','subcaste');$randomSubcaste=$subcaste[array_rand($subcaste)];
+					$chartor='abcdefghijklmnopqrstuvwxyz';
+					$number="0123456789";
+					$data=array(
+							'category'=>$category,
+							'gender'=>$gender,
+							'registerUserID'=>$insertRandomRegisterID,
+							'firstName'=>$randomFirstName->firstName,
+							'lastName'=>substr(str_shuffle($chartor),0,10),
+							'fatherName'=>substr(str_shuffle($chartor),0,10),
+							'dateOfBirth'=>$randomDateOfBirth->dateOfBirth,
+							'birthPlace'=>$randomBirthPlace->birthPlace,
+							'heightOfUser'=>$randomHeightOfUser->heightOfUser,
+							'birthTime'=>substr(str_shuffle($chartor),0,10),
+							'highestQualification'=>$randomHighestQualification->highestQualification,
+							'userJobProfile'=>substr(str_shuffle($chartor),0,10),
+							'TypeOfBusiness'=>substr(str_shuffle($chartor),0,10),
+							'business'=>substr(str_shuffle($chartor),0,10),
+							'income'=>$randomIncome->income,
+							'TypeOfFatherBusiness'=>substr(str_shuffle($chartor),0,10),
+							'fatherBusiness'=>substr(str_shuffle($chartor),0,10),
+							'fatherIncome'=>$randomIncome->income,
+							'gautr'=>substr(str_shuffle($chartor),0,5),
+							'gautrNanihal'=>substr(str_shuffle($chartor),0,5),
+							'zodiacSign'=>$randomZodiacSign->zodiacSign,
+							'manglik'=>'true',
+							'currentAddress'=>substr(str_shuffle($chartor),0,20),
+							'permanentAddress'=>substr(str_shuffle($chartor),0,20),
+							'emailId'=>substr(str_shuffle($chartor),0,5).'@gmail.com',
+							'mobileNumber'=>substr(str_shuffle($number),0,10),
+							'WhatsAppNumber'=>substr(str_shuffle($number),0,10),
+							'dateOfCreation'=>date('d-m-Y H:i:s'),
+							'lastUpdationDate'=>date('d-m-Y H:i:s'),
+							'imageName'=>$randomImageName->	imageName,
+							'uniqueImageId'=>$randomUniqueImageId->uniqueImageId,
+							'city'=>$randomCity->city,
+							'caste'=>'Brahmin',
+							'subcaste'=>$randomSubcaste->subcaste,
+					);
+					$totalValue=$i;
+					$insertRandom=$this->data['insertRandom']=$this->MasterModel->post('Profiles',$data);
+				}
+					
 			}
 			if($insertRandom)
 			{
