@@ -23,17 +23,18 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'above')==0)  
 		{
 			$incomeIdentity='>';
+			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes' and income!='none'"; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)  
 		{
-			$$incomeIdentity='<';
+			$incomeIdentity='<';
+			if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes' and income='none'"; }
 		}
 	}//echo $incomes; echo $incomeIdentity;die;
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
-	if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
