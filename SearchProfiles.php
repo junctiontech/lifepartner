@@ -18,7 +18,7 @@ if(!$CONNECTION)
 	$income_above_below=$_POST['income_above_below'];
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
-		if(strcasecmp($income_above_below,'above'))
+		if(strcasecmp($income_above_below,'above')==0)
 		{
 			$incomeIdentity='>';
 		}
