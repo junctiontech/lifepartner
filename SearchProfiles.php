@@ -37,7 +37,7 @@ if(!$CONNECTION)
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
-	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }
+	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }echo $query;
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	$query=mysqli_query($CONNECTION,$querySearch);
