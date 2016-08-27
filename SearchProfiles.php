@@ -20,11 +20,11 @@ if(!$CONNECTION)
 	{
 		if(strcasecmp($income_above_below,'above')==0)
 		{
-			$incomeIdentity='>';
+			$incomeIdentity='<';
 		}
 		else
 		{
-			$$incomeIdentity='<';
+			$$incomeIdentity='>';
 		}
 	}
 	$caste=$_POST['caste'];
