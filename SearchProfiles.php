@@ -16,7 +16,7 @@ if(!$CONNECTION)
 	$maxHeight=$_POST['max_height'];
 	$income=$_POST['income'];
 	$income_above_below=$_POST['income_above_below'];
-	$h=str_replace(' lakh','00,000', $_POST['income']);
+	$h=str_replace('lakh',',00,000', $_POST['income']);
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
 		if(strcasecmp($income_above_below,'above')==0)
