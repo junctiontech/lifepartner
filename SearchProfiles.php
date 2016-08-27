@@ -14,10 +14,24 @@ if(!$CONNECTION)
 	$city= $_POST['city'];
 	$minHeight=$_POST['min_height'];
 	$maxHeight=$_POST['max_height'];
+	$income=$_POST['income'];
+	$income_above_below=$_POST['income_above_below'];
+	if(isset($income_above_below)&&!empty($income_above_below))
+	{
+		if(strcasecmp($income_above_below,'above'))
+		{
+			$incomeIdentity='>';
+		}
+		else
+		{
+			$$incomeIdentity='<';
+		}
+	}
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
+	if(!empty($income)){ $query.=" and income$incomeIdentity='$income'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
@@ -31,7 +45,7 @@ if(!$CONNECTION)
 		while($result=mysqli_fetch_array($query))
 		{
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
-			$sql=mysqli_query($CONNECTION,$queryRequestContact);//echo $queryRequestContact;print_r(mysqli_num_rows($sql));
+			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql)!=0)
 			{
 				
