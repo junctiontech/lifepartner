@@ -80,7 +80,7 @@
  			{
  				foreach ($getRequestList as $list)
  				{
- 					if($list->status=='N' || $list->status=='')
+ 					if($list->status=='N' || $list->status=='' || $list->status=='Y')
  					{
 	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
 	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
@@ -94,16 +94,15 @@
 	 							foreach ($getData as $list1)
 	 							{
 	 							
-	 						
-	 						$response[]=array(
-	 								'profileName'=>$list1->firstName." ".$list1->lastName,
-	 								'profileID'=>$list->profileID,
-	 								'registerUserID'=>$list->registerUserID,
-	 								'requestRegisterUserID'=>$list->requestRegisterUserID,
-	 								'name'=>$getRegisterList[0]->userName,
-	 								'EmailID'=>$getRegisterList[0]->EmailID,
-	 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
-	 						);
+			 						$response[]=array(
+			 								'profileName'=>$list1->firstName." ".$list1->lastName,
+			 								'profileID'=>$list->profileID,
+			 								'registerUserID'=>$list->registerUserID,
+			 								'requestRegisterUserID'=>$list->requestRegisterUserID,
+			 								'name'=>$getRegisterList[0]->userName,
+			 								'EmailID'=>$getRegisterList[0]->EmailID,
+			 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
+			 						);
 	 							}
 	 						}
 	 						
@@ -253,50 +252,5 @@
     	}
     }
     
-    /*************************************************** Function For Report Query Insert ****************************************************/
-    function reportQuery()
-    {
-    	$json=json_decode($_POST['json'],true);
-    	if(isset($json['DBName']) && !empty($json['DBName']))
-    	{
-    		$data1['DBName']=$json['DBName'];
-    	}
-    	if(isset($json['email']) && !empty($json['email']))
-    	{
-    		$data1['email']=$json['email'];
-    	}
-    	if(isset($json['url']) && !empty($json['url']))
-    	{
-    		$data1['url']=$json['url'];
-    	}
-    	if(isset($json['s_no']) && !empty($json['s_no']))
-    	{
-    		$response['s_no']=$json['s_no'];
-    	}
-    	$data2=array(
-    			'reportIdentity'=>$json['reportIdentity'],
-    			'description'=>$json['description'],
-    			'status'=>'Active',
-    			'manageBy'=>'Admin',
-    			'openDate'=>date('d-m-Y_h:i:s')
-    	);
-    	$data=array_merge($data1,$data2);
-    	$reportQuery=$this->data['reportQuery']=$this->Apimodel->post('reportQuery',$data);
-    	if($reportQuery)
-    	{
-    		$response=array(
-    				'code'=>'200',
-    			//	'url'=>$data1['url']
-    		);
-    		echo json_encode($response);
-    	}
-    	else
-    	{
-    		$response=array(
-    				'code'=>'400',
-    		);
-    		echo json_encode($response);
-    	}
-    }
     
  }
