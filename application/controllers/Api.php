@@ -200,6 +200,8 @@
     								'birthPlace'=>$getProfileDetails[0]->birthPlace,
     								'heightOfUser'=>$getProfileDetails[0]->heightOfUser,
     								'birthTime'=>$getProfileDetails[0]->birthTime,
+    								'noOfKids'=>$getProfileDetails[0]->noOfKids,
+    								'maritalStatus'=>$getProfileDetails[0]->maritalStatus,
     								'highestQualification'=>$getProfileDetails[0]->highestQualification,
     								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
     								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,

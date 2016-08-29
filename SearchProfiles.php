@@ -68,6 +68,8 @@ if(!$CONNECTION)
 							'lastName'=>$result['lastName'],
 							'fatherName'=>$result['fatherName'],
 							'dateOfBirth'=>$result['dateOfBirth'],
+							'noOfKids'=>$result['noOfKids'],
+							'maritalStatus'=>$result['maritalStatus'],
 							'birthPlace'=>$result['birthPlace'],
 							'heightOfUser'=>$result['heightOfUser'],
 							'birthTime'=>$result['birthTime'],
