@@ -22,6 +22,7 @@
  			$registerUserID=$json['registerUserID'];
  			$requestRegisterUserID=$json['requestRegisterUserID'];
  			$profileId=$json['profileId'];
+ 			$requestProfileID=$json['requestProfileID'];
  			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
  			
  			$filter_track_record=array('requestRegisterUserID'=>$requestRegisterUserID);
@@ -49,7 +50,7 @@
  			} 
  			else 
  			{
- 				$data=array('registerUserID'=>$registerUserID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
+ 				$data=array('registerUserID'=>$registerUserID,'requestProfileID'=>$requestProfileID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
  				if($requestUpdate)
  				{
