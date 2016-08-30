@@ -194,7 +194,7 @@
  				}
  				if(isset($response) && count($response)>0)
  				{
- 					$result=array('code'=>'200','response'=>$response,'message'=>'Success');
+ 					$result=array('code'=>'200','data'=>$response,'message'=>'Success');
  					echo json_encode($result);die;
  				}
  				else
