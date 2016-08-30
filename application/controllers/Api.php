@@ -36,7 +36,7 @@
  			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequest);//die;
  			if(count($getRequest)>0)
  			{
- 				 $data=array('status'=>'','registerUserID'=>$registerUserID,'profileID'=>$profileId);
+ 				 $data=array('status'=>'','requestProfileID'=>$requestProfileID,'registerUserID'=>$registerUserID,'profileID'=>$profileId);
  				$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
  				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);
  				if($requestUpdate)
