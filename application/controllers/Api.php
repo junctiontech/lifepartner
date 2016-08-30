@@ -130,6 +130,87 @@
  	/* End Function for request list get.......................................................................*/
 
     
+
+ 	/* Start Function for request list get.......................................................................*/
+ 	function approvedProfileList()
+ 	{
+ 		$requestRegisterUserID=$_POST['registerUserID'];
+ 		$result=array();
+ 		$response=array();
+ 		if(isset($requestRegisterUserID))
+ 		{
+ 			$filter=array('requestRegisterUserID'=>$requestRegisterUserID,'status'=>'Y');
+ 			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
+ 			if(count($getRequestList)>0)
+ 			{
+ 				foreach ($getRequestList as $list)
+ 				{
+ 					$filter=array('no'=>$list->requestProfileID);
+ 					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
+ 					if(count($getProfileDetails)>0)
+ 					{
+ 						$response[]= array(
+ 								'profileId'=>$getProfileDetails[0]->no,
+ 								'registerUserID'=>$getProfileDetails[0]->registerUserID,
+ 								'gender'=>$getProfileDetails[0]->gender,
+ 								'firstName'=>$getProfileDetails[0]->firstName,
+ 								'lastName'=>$getProfileDetails[0]->lastName,
+ 								'fatherName'=>$getProfileDetails[0]->fatherName,
+ 								'dateOfBirth'=>$getProfileDetails[0]->dateOfBirth,
+ 								'birthPlace'=>$getProfileDetails[0]->birthPlace,
+ 								'heightOfUser'=>$getProfileDetails[0]->heightOfUser,
+ 								'birthTime'=>$getProfileDetails[0]->birthTime,
+ 								'no_of_kids'=>$getProfileDetails[0]->noOfKids,
+ 								'marital_status'=>$getProfileDetails[0]->maritalStatus,
+ 								'highestQualification'=>$getProfileDetails[0]->highestQualification,
+ 								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
+ 								'business'=>$getProfileDetails[0]->business,
+ 								'income'=>$getProfileDetails[0]->income,
+ 								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
+ 								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
+ 								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
+ 								'fatherIncome'=>$getProfileDetails[0]->fatherIncome,
+ 								'gautr'=>$getProfileDetails[0]->gautr,
+ 								'gautrNanihal'=>$getProfileDetails[0]->gautrNanihal,
+ 								'zodiacSign'=>$getProfileDetails[0]->zodiacSign,
+ 								'star'=>$getProfileDetails[0]->star,
+ 								'saturn'=>$getProfileDetails[0]->saturn,
+ 								'manglik'=>$getProfileDetails[0]->manglik,
+ 								'currentAddress'=>$getProfileDetails[0]->currentAddress,
+ 								'permanentAddress'=>$getProfileDetails[0]->permanentAddress,
+ 								'emailId'=>$getProfileDetails[0]->emailId,
+ 								'mobileNumber'=>$getProfileDetails[0]->mobileNumber,
+ 								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
+ 								'imageName'=>"http://lifepartner.zeroerp.com/images/".$getProfileDetails[0]->imageName,
+ 								//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
+ 								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+ 								'city'=>$getProfileDetails[0]->city,
+ 								'caste'=>$getProfileDetails[0]->caste,
+ 								'subcaste'=>$getProfileDetails[0]->subcaste,
+ 								//'message'=>$msg
+ 						
+ 						);
+ 					}
+ 				}
+ 				if(isset($response) && count($response)>0)
+ 				{
+ 					$result=array('code'=>'200','response'=>$response,'message'=>'Success');
+ 					echo json_encode($result);die;
+ 				}
+ 				else
+ 				{
+ 					$response=array('code'=>'400','message'=>'No Approved List Found');echo json_encode($response);die;
+ 				}
+ 			}
+ 			else
+ 			{
+ 				$response=array('code'=>'400','message'=>'No Approved List Found');echo json_encode($response);die;
+ 			}
+ 		}
+ 	}
+ 	/* End Function for request list get.......................................................................*/
+ 	
+ 	
  	/* Start Function for approval............................................................................*/
     function approval()
     {
