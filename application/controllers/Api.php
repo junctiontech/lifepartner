@@ -81,7 +81,7 @@
  			{
  				foreach ($getRequestList as $list)
  				{
- 					if($list->status=='')
+ 					if($list->status=='N' || $list->status=='')
  					{
 	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
 	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
