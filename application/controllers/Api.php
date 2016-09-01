@@ -188,7 +188,7 @@
  			{
  				foreach ($getRequestList as $list)
  				{
- 					$filter=array('no'=>$list->requestProfileID);
+ 					$filter=array('no'=>$list->profileID);
  					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
  					if(count($getProfileDetails)>0)
  					{
