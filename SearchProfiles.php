@@ -57,7 +57,7 @@ if(!$CONNECTION)
 			{ 
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
-				$age = $from->diff($to)->y; echo $min_age;echo $age;echo $to;echo $max_age;die;
+				$age = $from->diff($to)->y; echo $min_age;echo $age;echo $to;echo $max_age;//die;
 				if ($min_age<=$age && $age <=$max_age)
 				{
 					$searchResult[]= array(
