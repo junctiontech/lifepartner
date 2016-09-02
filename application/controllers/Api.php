@@ -296,7 +296,7 @@
     		$json=json_decode($request,true);//print_r($json);
     		$registerUserID=$json['registerUserID'];
     		$filter=array('requestRegisterUserID'=>$registerUserID);
-    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilter('requestContact',$filter);
+    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilterOrderBy('requestContact',$filter,'status','DESC');
     		//print_r($getRequestStatus);
     		if(count($getRequestStatus)>0)
     		{
