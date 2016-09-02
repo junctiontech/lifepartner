@@ -94,9 +94,9 @@ if(!$CONNECTION)
 							'mobileNumber'=>$result['mobileNumber'],
 							'WhatsAppNumber'=>$result['WhatsAppNumber'],
 							'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
-							/*'age'=>	$age,
+							'age'=>	$age,
 							'city'=>$result['city'],
-							'caste'=>$result['caste'],
+							/*'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'], */
 					);
 				}
