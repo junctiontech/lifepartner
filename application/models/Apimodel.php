@@ -21,6 +21,12 @@ class Apimodel extends CI_Model{
 		return $qry->result();
 	}
 	
+	function getfilterOrderBy($table,$filter)
+	{
+		$qry=$this->db->query("SELECT * FROM `requestContact` WHERE requestRegisterUserID='$filter' ORDER BY status DESC");
+		return $qry->result();
+	}
+	
 	function put($table,$data,$filter)
 	{
 		$this->db->where($filter);

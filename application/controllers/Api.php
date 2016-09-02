@@ -295,8 +295,8 @@
     		$profileResult=array();
     		$json=json_decode($request,true);//print_r($json);
     		$registerUserID=$json['registerUserID'];
-    		$filter=array('requestRegisterUserID'=>$registerUserID);
-    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilterOrderBy('requestContact',$filter,'status','DESC');
+    		//$filter=array('requestRegisterUserID'=>$registerUserID);
+    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilterOrderBy('requestContact',$registerUserID);
     		//print_r($getRequestStatus);
     		if(count($getRequestStatus)>0)
     		{
