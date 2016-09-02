@@ -60,7 +60,7 @@ if(!$CONNECTION)
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
 				{		print_r($age);echo $min_age;echo $max_age;//die;
-					$searchResult[]= array(
+					/* $searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
 							'gender'=>$bride_groom,
@@ -98,7 +98,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-					);
+					); */
 				}
 			}
 		}
