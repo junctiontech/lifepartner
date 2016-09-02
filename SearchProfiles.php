@@ -33,7 +33,7 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'below')==0)
 		{
 			$incomeIdentity='<';
-			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<='$incomes' or income=none"; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<='$incomes' or income='none' "; }
 		}
 	}
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
@@ -102,9 +102,9 @@ if(!$CONNECTION)
 				}
 			}
 		}
-	}echo count($searchResult);
+	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
-	//print_r(json_encode($searchResult));
+	print_r(json_encode($searchResult));
 
 	
 	
