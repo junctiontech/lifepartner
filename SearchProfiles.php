@@ -96,8 +96,8 @@ if(!$CONNECTION)
 							'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
 							'age'=>	$age,
 							'city'=>$result['city'],
-							/*'caste'=>$result['caste'],
-							'subcaste'=>$result['subcaste'], */
+							'caste'=>$result['caste'],
+							'subcaste'=>$result['subcaste'], 
 					);
 				}
 			}
