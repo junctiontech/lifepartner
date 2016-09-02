@@ -177,18 +177,18 @@
  	/* Start Function for request list get.......................................................................*/
  	function approvedProfileList()
  	{
- 		$requestRegisterUserID=$_POST['registerUserID'];
+ 		$registerUserID=$_POST['registerUserID'];
  		$result=array();
  		$response=array();
- 		if(isset($requestRegisterUserID))
+ 		if(isset($registerUserID))
  		{
- 			$filter=array('requestRegisterUserID'=>$requestRegisterUserID,'status'=>'Y');
+ 			$filter=array('registerUserID'=>$registerUserID,'status'=>'Y');
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequestList)>0)
  			{
  				foreach ($getRequestList as $list)
  				{
- 					$filter=array('no'=>$list->profileID);
+ 					$filter=array('no'=>$list->requestProfileID);
  					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
  					if(count($getProfileDetails)>0)
  					{
