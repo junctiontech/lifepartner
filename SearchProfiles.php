@@ -36,6 +36,7 @@ if(!$CONNECTION)
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<='$incomes' or income='$none' "; }
 		}
 	}
+	if(isset($manglik) && !empty($manglik)){ $query.=" and manglik='$manglik'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }//echo $query;
