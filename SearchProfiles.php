@@ -33,7 +33,7 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'below')==0)
 		{
 			$incomeIdentity='<';
-			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<='$incomes' or income='none'"; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<='$incomes' or income=none"; }
 		}
 	}
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
