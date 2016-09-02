@@ -60,7 +60,7 @@ if(!$CONNECTION)
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
 				{		print_r($age);echo $min_age;echo $max_age;//die;
-					/* $searchResult[]= array(
+					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
 							'gender'=>$bride_groom,
@@ -69,7 +69,7 @@ if(!$CONNECTION)
 							'fatherName'=>$result['fatherName'],
 							'dateOfBirth'=>$result['dateOfBirth'],
 							'no_of_kids'=>$result['noOfKids'],
-							'marital_status'=>$result['maritalStatus'],
+							/* 'marital_status'=>$result['maritalStatus'],
 							'birthPlace'=>$result['birthPlace'],
 							'heightOfUser'=>$result['heightOfUser'],
 							'birthTime'=>$result['birthTime'],
@@ -97,12 +97,12 @@ if(!$CONNECTION)
 							'age'=>	$age,
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
-							'subcaste'=>$result['subcaste'],
-					); */
+							'subcaste'=>$result['subcaste'], */
+					);
 				}
 			}
 		}
-	}die;//echo count($searchResult);
+	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
 	//print_r(json_encode($searchResult));
 
