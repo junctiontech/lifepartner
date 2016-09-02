@@ -40,7 +40,7 @@ if(!$CONNECTION)
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }//echo $query;
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-	$querySearch="Select * from Profiles where $query LIMIT 100";echo $querySearch;//die;
+	$querySearch="Select * from Profiles where $query LIMIT 100";//echo $querySearch;die;
 	$query=mysqli_query($CONNECTION,$querySearch);
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
@@ -59,7 +59,7 @@ if(!$CONNECTION)
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
-				{	//print_r($age);echo $min_age;echo $max_age;
+				{	echo $querySearch;	//print_r($age);echo $min_age;echo $max_age;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
@@ -102,9 +102,9 @@ if(!$CONNECTION)
 				}
 			}
 		}
-	}//echo count($searchResult);
+	}echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
-	print_r(json_encode($searchResult));
+	//print_r(json_encode($searchResult));
 
 	
 	
