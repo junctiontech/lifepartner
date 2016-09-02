@@ -57,9 +57,9 @@ if(!$CONNECTION)
 			{ 
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
-				$age = $from->diff($to)->y;print_r($age);echo $min_age;echo $max_age;
+				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
-				{
+				{	print_r($age);echo $min_age;echo $max_age;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
@@ -102,9 +102,9 @@ if(!$CONNECTION)
 				}
 			}
 		}
-	}
+	}echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
-	print_r(json_encode($searchResult));
+	//print_r(json_encode($searchResult));
 
 	
 	
