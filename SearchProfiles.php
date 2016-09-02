@@ -8,7 +8,7 @@ if(!$CONNECTION)
 	exit();
 }else{
 	$min_age= $_POST['min_age'];
-	$max_age= $_POST['max_age'];echo $min_age;echo $max_age;die;
+	$max_age= $_POST['max_age'];//echo $min_age;echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
 	$manglik= $_POST['manglik'];
 	$city= $_POST['city'];
@@ -57,7 +57,7 @@ if(!$CONNECTION)
 			{ 
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
-				$age = $from->diff($to)->y; //echo $min_age;echo $age;echo $to;echo $max_age;//die;
+				$age = $from->diff($to)->y;// echo $min_age;echo $age;echo $to;echo $max_age;die;
 				if ($min_age<=$age && $age <=$max_age)
 				{
 					$searchResult[]= array(
