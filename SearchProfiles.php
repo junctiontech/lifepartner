@@ -40,8 +40,8 @@ if(!$CONNECTION)
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }//echo $query;
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-	$querySearch="Select * from Profiles where $query LIMIT 100";echo $querySearch;die;
-	$query=mysqli_query($CONNECTION,$querySearch);
+	$querySearch="Select * from Profiles where $query LIMIT 100";echo $querySearch;//die;
+	$query=mysqli_query($CONNECTION,$querySearch);print_r($query);die;
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
  	{
