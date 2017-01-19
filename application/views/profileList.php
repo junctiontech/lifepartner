@@ -186,7 +186,7 @@
 					</div>
 				</div>
 				<div align="right" style="margin-right: 68px; margin-top: 68px;">
-					<button type="submit" value="" class="btn btn-secondary btn-sm btn-icon icon-left">Search</button>
+					<button type="submit" value="" class="btn btn-secondary "><i class="fa fa-search" aria-hidden="true"></i>Search</button>
 				</div>
 			</form>
 		</div>
