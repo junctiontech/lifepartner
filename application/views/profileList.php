@@ -58,7 +58,7 @@
 							</select>
 						</div>
 					<label style="margin-left: 30px;"class="col-sm-1 control-label" for="field-1">Age<span style="color:red;"> *</span></label>
-					<div class="col-sm-3" style="margin-left: -100px;">
+					<div class="col-sm-3">
 						<div id="male">
 							<select class="selectboxit s2example-1" id="s2example-1" name="maleAge" required>
 								<optgroup label="Please select Age " >
