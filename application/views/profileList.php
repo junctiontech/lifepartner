@@ -95,7 +95,7 @@
 						</div>
 					</div>
 					<label class="col-sm-1 control-label" for="field-1"> Income<span style="color:red;"> *</span></label>
-				 	<div class="col-sm-3" style="    margin-top: -34px;margin-left: 800px;margin-right: 1px;">
+				 	<div class="col-sm-3" style="    margin-top: -40px;margin-left: 873px; margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
 							<option value="">Please Select income</option>
 								<option value="100000">1 Lakh</option>
