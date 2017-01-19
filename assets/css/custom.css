@@ -64,5 +64,139 @@
 }
 .hide{display:none;}
 
+/*CSS file Created by login form in Life Partner.............................................................*/
+
+
+body {
+  	font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  	color: #404040;
+ 	background:#c1bdba;
+	}
+
+.container {
+  margin: 80px auto;
+  width: 640px;
+}
+
+.login {
+    background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+ /*h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 30px;
+    color: #555;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 3px 3px 0 0;
+    @include linear-gradient(top, whiteffd, #eef2f5);
+    @include box-shadow(0 1px #f5f5f5);
+  }*/
+
+  
+  p { margin: 20px 0 0; }
+  p:first-child { margin-top: 0; }
+
+  input[type=text], input[type=password] { width: 278px; }
+
+  p.remember_me {
+    float: left;
+    line-height: 31px;
+
+    label {
+      font-size: 12px;
+      color: #777;
+      cursor: pointer;
+    }
+
+    input {
+      position: relative;
+      bottom: 1px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+  }
+
+  p.submit { text-align: right; }
+}
+
+.login-help {
+  margin: 20px 0;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px #2a85a1;
+
+  a {
+    color: #cce7fa;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+:-moz-placeholder {
+  color: #c9c9c9 !important;
+  font-size: 13px;
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+  font-size: 13px;
+}
+
+input {
+  font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+.input[type=text], input[type=password]  {
+    margin: 15px;
+    padding: 0 10px;
+    width: 450px;
+    height: 50px;
+    color: #404040;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 20px;
+    outline: 0px solid #eff4f7;
+    -moz-outline-radius: 3px;
+}
+.button-block {
+    display: block;
+    width: 75%;
+}
+
+.button {
+	margin-left:50px;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #1ab188;
+    color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+}
+
+.lt-ie9 {
+  input[type=text], input[type=password] { line-height: 34px; }
+}
+
+
 
 

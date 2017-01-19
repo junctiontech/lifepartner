@@ -149,9 +149,8 @@
  									'caste'=>$getRequestProfileList[0]->caste,
  									'subcaste'=>$getRequestProfileList[0]->subcaste,
  									//'message'=>$msg
- 									 			
  									);
- 						}
+ 							}
  					}
  				}
  				if(isset($response) && count($response)>0)
@@ -176,7 +175,7 @@
 
  	/* Start Function for request list get.......................................................................*/
  	function approvedProfileList()
- 	{
+ 	 {
  		$registerUserID=$_POST['registerUserID'];
  		$result=array();
  		$response=array();
@@ -231,9 +230,8 @@
  								'caste'=>$getProfileDetails[0]->caste,
  								'subcaste'=>$getProfileDetails[0]->subcaste,
  								//'message'=>$msg
- 						
- 						);
- 					}
+ 							);
+ 					 }
  				}
  				if(isset($response) && count($response)>0)
  				{

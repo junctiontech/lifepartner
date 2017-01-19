@@ -15,23 +15,15 @@
 		//$this->load->library('cpanelDB');
 		$this->load->dbutil();
 		$this->load->model('login_model');
+		$userdata=$this->data['userdata']= $this->session->userdata('username');
 		$timezone = "Asia/Calcutta";
 		if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	}
 
- 	/* Function for login Admin area view.......................................................................*/
- 	function index()
- 	{
- 		$this->parser->parse('include/header',$this->data);
- 		$this->load->view('admin_login',$this->data);
- 	}
- 	
- 
-	
-	/* Start Function For View Registratio Report......................................................................... */
+ /* Start Function For View Registratio Report......................................................................... */
 	function profileList()
-	{	error_reporting(0);
-		
+	{	
+	    if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
 		$genders=$this->input->post('gender');
 		$incomes=$this->input->post('income');
 		$citys=$this->input->post('city');
@@ -41,6 +33,7 @@
 		$maxHeight=$this->input->post('maxHeight');
 		$incomeIdentity=$this->input->post('incomeIdentity');
 		$highestQualifications=$this->input->post('education');
+		//print_r($status);die;
 		if($this->input->post('maleAge')!=='')
 		{
 			$ages=$this->input->post('maleAge');
@@ -50,9 +43,9 @@
 			$ages=$this->input->post('feMaleAge');
 		}
 		
-		if(!empty($genders)  or !empty($incomes) or !empty($birthPlaces) or !empty($highestQualifications))
+		if(!empty($genders)  or !empty($incomes) or !empty($birthPlaces) or !empty($highestQualifications) or !empty($status))
 		{	
-			if(!empty($genders)){ $query =" gender='$genders'"; }
+			if(!empty($genders)){ $query =" gender='$genders' and status='unblock'";}
 			
 			if(isset($incomeIdentity)&&!empty($incomeIdentity))
 			{
@@ -72,6 +65,8 @@
 			if(!empty($subCastes)){ $query.=" and subcaste='$subCastes'"; }
 			if(!empty($minHeight)){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
 			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
+			if(!empty($status)){ $query.=" and status='$status'";}
+				
 			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);
 			if(!empty($ages))
 			{ 
@@ -96,11 +91,22 @@
 		{
 			$profileList=$this->data['profileList']=$this->MasterModel->get('Profiles');
 		}
+		
+			$userDetail=$this->data['userDetail']=$this->MasterModel->get();
+			$filter = $userDetail[0]->registerUserID;
+			$user_Id = $this->data['user_Id']=$this->MasterModel->getData('profiles',array('registerUserID'=>$filter));
+			//print_r($user_Id);die;
+			foreach($user_Id as $list)
+			{
+				$registerUser_ID=$this->data['registerUser_ID'][]=$list->registerUserID;
+			}
 		$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','city');//print_r($city);die;
 		$education=$this->data['education']=$this->MasterModel->getDistinct('Profiles','highestQualification');
 		$income=$this->data['income']=$this->MasterModel->getDistinct('Profiles','income');
 		$caste=$this->data['caste']=$this->MasterModel->getDistinct('Profiles','caste');
 		$subCaste=$this->data['subCaste']=$this->MasterModel->getDistinct('Profiles','subcaste');
+		$status=$this->data['status']=$this->MasterModel->getDistinct('Profiles','status');//print_r($status);die;
+		
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('profileList',$this->data);
@@ -116,8 +122,53 @@
 		$this->load->view('profile',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
+	/* Start Function For Delete profileList Report......................................................................... */
+		
+	function deleteProfileList($id)
+	{   
+		$delete=$this->data['delete']=$this->MasterModel->delete('profiles',array('no'=>$id));
+		$this->session->set_flashdata('category_error','message');
+		$this->session->set_flashdata ('message',"Your Record successfully  delete !!!" );
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+	/*Start Function For userBlock profileList Report......................................................................... */
 	
+   function approve($id= false)
+    { 	
+      if(isset($id) && !empty($id) && isset($_GET['no']))
+	    {
+		  $dataArray=array('status'=>'block');
+		  $update= $this->data['update']=$this->MasterModel->put('profiles',$dataArray,array('no'=>$_GET['no']));
+		  $this->session->set_flashdata('category_error','message');
+		  $this->session->set_flashdata('message','User Diable Successfully');
+		  redirect($_SERVER['HTTP_REFERER']);
+	    }
+	 else
+	    {
+		  $this->session->set_flashdata('category_error','message');
+		  $this->session->set_flashdata('message',' Not Successfully');
+		  redirect($_SERVER['HTTP_REFERER']);
+	    }
+    }
 	
+	function disapprove($id = false)
+   	  {
+   		if(isset($id) && !empty($id) && isset($_GET['no']))
+	     {
+	     	$dataArray=array('status'=>'unblock');
+	     	$update_User = $this->data['update_User']=$this->MasterModel->put('profiles',$dataArray,array('no'=>$_GET['no']));
+	     	$this->session->set_flashdata('category_success','message');
+		    $this->session->set_flashdata('message','User Enable Successfully');
+		    redirect($_SERVER['HTTP_REFERER']);
+		 }
+	   else
+		 {
+		  $this->session->set_flashdata('category_error','message');
+		  $this->session->set_flashdata('message','not Successfully');
+		  redirect($_SERVER['HTTP_REFERER']);
+		 }
+	}
+  
 	function heightMaxDropdown()
 	{	
 		$minHeight=$this->input->post('value');
@@ -144,7 +195,7 @@
 	function registerData()
 	{	
 		$totalValue='';
-		$loopValue=$this->input->post('loopValue');
+		$loopValue=$this->input->post('loopValue');//echo $loopValue;die;
 		if(isset($loopValue) && !empty($loopValue))
 		{
 			for($i=1;$i<=$loopValue;$i++)
@@ -152,9 +203,9 @@
 				$chartor='abcdefghijklmnopqrstuvwxyz';
 				$number="0123456789";
 				$dataRegister=array(
-										'userName'=>substr(str_shuffle($chartor),0,5),
-										'EmailID'=>substr(str_shuffle($chartor),0,5).'@gmail.com',
-										'MobileNumber'=>substr(str_shuffle($number),0,10)
+									'userName'=>substr(str_shuffle($chartor),0,5),
+									'EmailID'=>substr(str_shuffle($chartor),0,5).'@gmail.com',
+									'MobileNumber'=>substr(str_shuffle($number),0,10)
 									);
 				$insertRandomRegisterID=$this->data['insertRandomRegisterID']=$this->MasterModel->postLastId('RegisteredUser',$dataRegister);
 				for($k=0;$k<=15;$k++)
@@ -240,6 +291,7 @@
 							'city'=>$randomCity->city,
 							'caste'=>'Brahmin',
 							'subcaste'=>$randomSubcaste->subcaste,
+							'status'=>'unblock',
 					);
 					$totalValue=$i;
 					$insertRandom=$this->data['insertRandom']=$this->MasterModel->post('Profiles',$data);

@@ -47,4 +47,22 @@ class MasterModel extends CI_Model{
 		$qry=$this->db->get_where($table,$filter);
 		return $qry->result();
 	}
+	
+	function getData($table,$filter)
+	{
+		$qry=$this->db->get_where($table,$filter);
+	
+		return $qry->result();
+	}
+	function put($table,$data,$filter)
+	{
+		$this->db->where($filter);
+		$query=$this->db->update($table,$data);
+		return $query;
+	}
+	function delete($table,$filter)
+	{
+		$query=$this->db->delete($table,$filter);
+		return $query;
+	}
 }

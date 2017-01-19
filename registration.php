@@ -1,3 +1,4 @@
+<?php $userdata=$this->session->userdata('username'); ?>
 <?php
 
 $data = json_decode($_POST['json'],true);
@@ -66,6 +67,7 @@ if(!$CONNECTION)
 					'city'=>$result['city'],
 					'caste'=>$result['caste'],
 					'subcaste'=>$result['subcaste'],
+					'status'=>$result['unblock'],
 					//'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
 					//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
 						

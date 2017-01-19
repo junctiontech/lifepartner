@@ -11,6 +11,7 @@
 	<title>Zero Erp</title>
 	<!-- base url defined -->
 	<base href="<?php echo base_url(); ?>"/>
+   
 	<!-- hrms css started added by palak on 20 june -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fonts/linecons/css/linecons.css">

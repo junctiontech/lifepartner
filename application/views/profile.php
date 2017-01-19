@@ -32,18 +32,18 @@
 				<div class="panel-body"> 
 					<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>Master/insert_organization">
 						<div class="row">
+							<div class="col-sm-12">
 							<div class="row col-sm-4">
 								<label class="control-label" for="joiningletter">Profile Image</label>
 								 <div class="fileupload fileupload-new" data-provides="fileupload">
-									<?php if(isset($profile[0]->firstName)){ ?>
+									<?php if(isset($profile[0])&& !empty($profile[0]->firstName)){?>
 										<div class="fileupload-new">
-										  <img src="images/<?=$profile[0]->imageName?>" alt="" style="width:120px; height:120px;margin-left:118px; margin-bottom:22px; margin-top:-16px;" class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
+											<img src="<?=base_url();?>images/<?=$profile[0]->imageName?>" alt="" name="imageName" style="width:120px; height:120px;margin-left:118px; margin-bottom:22px; margin-top:-16px;" class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
 										</div>
 									<?php }else{ ?>
 										<div class="fileupload-new">
 										  <img src="http://www.placehold.it/120x120/EFEFEF/AAAAAA&amp;text=no+image"  alt=""  class="img-circle tooltip-primary" data-toggle="tooltip" data-placement="top" title="" />
 										</div>		
-									
 									<?php } ?>
 									  <!--<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 120px; max-height: 120px; line-height: 20px;"></div>-->
 										<div>
@@ -75,16 +75,16 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="col-sm-6">
-									<div class=" form-group">
-										<label class="col-sm-2 control-label" for="field-1">First Name</label>
-										<div class="col-sm-10">
-											<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->firstName)){ echo $profile[0]->firstName; }?>" id="field-1" >
-										</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="col-sm-6">
+								<div class=" form-group">
+									<label class="col-sm-2 control-label" for="field-1">First Name</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control"  name="organization_name" value="<?php if(isset($profile[0]->firstName)){ echo $profile[0]->firstName; }?>" id="field-1" >
 									</div>
+								</div>
 								</div>
 								<div class="col-sm-6">
 									<div class=" form-group">
@@ -96,7 +96,6 @@
 								</div>
 							</div>
 						</div>
-						
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="col-sm-6">
