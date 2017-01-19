@@ -119,7 +119,7 @@
 				</div>
 				</br></br></br>
 				<div class="form-group">
-					<label class="col-sm-2 control-label" for="field-1">Caste<span style="color:red;"> *</span></label>
+					<label class="col-sm-2 control-label" style="margin-left: -80px;" for="field-1">Caste<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="caste">
 								<option value="">Please Select Caste</option>
@@ -143,7 +143,7 @@
 				</br></br></br>
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1"> Height<span style="color:red;"> *</span></label>
-					<div class="col-sm-4">
+					<div class="col-sm-4" style="margin-left: -80px;">
 						<select class="selectboxit s2example-1" id="" name="minHeight" onchange="height(this.value)">
 							<option value="">Min Height</option>
 							<?php for($i=4;$i<=6;$i++){ for($k=0;$k<12;$k++){ ?>
@@ -161,7 +161,7 @@
 				</br></br></br>
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1">City<span style="color:red;"> *</span></label>
-					<div class="col-sm-4">
+					<div class="col-sm-4" style="margin-left: -80px;">
 						<select class="selectboxit s2example-1" id="" name="city">
 								<option value="">Please Select City</option>
 								<?php foreach($city as $list){ ?>
