@@ -48,7 +48,7 @@
 				<form method="post" action ="<?=base_url();?>Master/profileList">
 					<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1">Gender<span style="color:red;"> *</span></label>
-						<div class="col-sm-2">
+						<div class="col-sm-2" style="margin-left: -80px;">
 							<select class="selectboxit s2example-1" id="s2example-1" name="gender" onchange="genderChange(this.value);">
 								<?php //foreach($organizationList as $list){ ?>
 								<option value="M">Male</option>
@@ -94,8 +94,8 @@
 							</select>
 						</div>
 					</div>
-					<label class="col-sm-1 control-label" for="field-1"> Income<span style="color:red;"> *</span></label>
-				 	<div class="col-sm-3" style="    margin-top: -40px;margin-left: 815px; margin-right: 1px;">
+					<label class="col-sm-1 control-label" for="field-1" style="margin-left: -36px;"> Income<span style="color:red;">*</span></label>
+				 	<div class="col-sm-3" style="margin-top: -40px;margin-left: 815px; margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
 							<option value="">Please Select income</option>
 								<option value="100000">1 Lakh</option>
