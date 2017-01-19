@@ -113,7 +113,7 @@
 							</optgroup>
 						</select>
 					</div>
-					<div class="col-sm-2" style="margin-top: -30px;margin-left: 880px;">
+					<div class="col-sm-2" style="margin-top: -30px;margin-left: 980px;">
 						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 					</div>
