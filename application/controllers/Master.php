@@ -94,7 +94,7 @@
 		
 			$userDetail=$this->data['userDetail']=$this->MasterModel->get();
 			$filter = $userDetail[0]->registerUserID;
-			$user_Id = $this->data['user_Id']=$this->MasterModel->getData('profiles',array('registerUserID'=>$filter));
+			$user_Id = $this->data['user_Id']=$this->MasterModel->getData('Profiles',array('registerUserID'=>$filter));
 			//print_r($user_Id);die;
 			foreach($user_Id as $list)
 			{
@@ -126,7 +126,7 @@
 		
 	function deleteProfileList($id)
 	{   
-		$delete=$this->data['delete']=$this->MasterModel->delete('profiles',array('no'=>$id));
+		$delete=$this->data['delete']=$this->MasterModel->delete('Profiles',array('no'=>$id));
 		$this->session->set_flashdata('category_error','message');
 		$this->session->set_flashdata ('message',"Your Record successfully  delete !!!" );
 		redirect($_SERVER['HTTP_REFERER']);
@@ -138,7 +138,7 @@
       if(isset($id) && !empty($id) && isset($_GET['no']))
 	    {
 		  $dataArray=array('status'=>'block');
-		  $update= $this->data['update']=$this->MasterModel->put('profiles',$dataArray,array('no'=>$_GET['no']));
+		  $update= $this->data['update']=$this->MasterModel->put('Profiles',$dataArray,array('no'=>$_GET['no']));
 		  $this->session->set_flashdata('category_error','message');
 		  $this->session->set_flashdata('message','User Diable Successfully');
 		  redirect($_SERVER['HTTP_REFERER']);
@@ -156,7 +156,7 @@
    		if(isset($id) && !empty($id) && isset($_GET['no']))
 	     {
 	     	$dataArray=array('status'=>'unblock');
-	     	$update_User = $this->data['update_User']=$this->MasterModel->put('profiles',$dataArray,array('no'=>$_GET['no']));
+	     	$update_User = $this->data['update_User']=$this->MasterModel->put('Profiles',$dataArray,array('no'=>$_GET['no']));
 	     	$this->session->set_flashdata('category_success','message');
 		    $this->session->set_flashdata('message','User Enable Successfully');
 		    redirect($_SERVER['HTTP_REFERER']);
