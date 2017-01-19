@@ -98,7 +98,7 @@
 					<label class="col-sm-2 control-label" for="field-1">Income<span style="color:red;"> *</span></label>
 				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 700px;margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
-							<optgroup label="Please select income Income" >
+							<option value="">Please Select income</option>
 								<option value="100000">1 Lakh</option>
 								<option value="500000">5 Lakh</option>
 								<option value="1000000">10 Lakh</option>
