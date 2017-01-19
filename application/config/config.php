@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$config['base_url']	= 'http://junctiondev.cloudapp.net/cpanel/';
 
-echo $_SERVER['HTTP_HOST'];die;
+//echo $_SERVER['HTTP_HOST'];die;
 if($_SERVER['HTTP_HOST']=="192.168.1.151"){
 $config['base_url']	= 'http://192.168.1.151/lifepartner';	
 }
