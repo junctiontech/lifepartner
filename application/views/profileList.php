@@ -50,11 +50,10 @@
 					<label class="col-sm-2 control-label" for="field-1">Gender<span style="color:red;"> *</span></label>
 						<div class="col-sm-2">
 							<select class="selectboxit s2example-1" id="s2example-1" name="gender" onchange="genderChange(this.value);">
-								<optgroup label="Please select Organizations Name" >
-									<?php //foreach($organizationList as $list){ ?>
-									<option value="M">Male</option>
-									<option value="F">Female</option>
-									<?php //} ?>
+								<?php //foreach($organizationList as $list){ ?>
+								<option value="M">Male</option>
+								<option value="F">Female</option>
+								<?php //} ?>
 								</optgroup>
 							</select>
 						</div>
