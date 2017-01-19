@@ -119,8 +119,8 @@
 				</div>
 				</br></br></br>
 				<div class="form-group">
-					<label class="col-sm-2 control-label" style="margin-left: 0px;" for="field-1">Caste<span style="color:red;"> *</span></label>
-					<div class="col-sm-4">
+					<label class="col-sm-2 control-label"  for="field-1">Caste<span style="color:red;"> *</span></label>
+					<div class="col-sm-4" style="margin-left: -80px;">
 						<select class="selectboxit s2example-1" id="" name="caste">
 								<option value="">Please Select Caste</option>
 								<?php foreach($caste as $list){ ?>
