@@ -57,8 +57,8 @@
 								</optgroup>
 							</select>
 						</div>
-					<label style="margin-left: 30px;"class="col-sm-1 control-label" for="field-1">Age<span style="color:red;"> *</span></label>
-					<div class="col-sm-3">
+					<label style="margin-left: -5px;"class="col-sm-1 control-label" for="field-1">Age<span style="color:red;"> *</span></label>
+					<div class="col-sm-3" style="margin-left:-35px">
 						<div id="male">
 							<select class="selectboxit s2example-1" id="s2example-1" name="maleAge" required>
 								<optgroup label="Please select Age " >
@@ -95,7 +95,7 @@
 						</div>
 					</div>
 					<label class="col-sm-1 control-label" for="field-1"> Income<span style="color:red;"> *</span></label>
-				 	<div class="col-sm-3" style="    margin-top: -40px;margin-left: 873px; margin-right: 1px;">
+				 	<div class="col-sm-3" style="    margin-top: -40px;margin-left: 815px; margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
 							<option value="">Please Select income</option>
 								<option value="100000">1 Lakh</option>
@@ -112,7 +112,7 @@
 							</optgroup>
 						</select>
 					</div>
-					<div class="col-sm-2" style="margin-top: -30px;margin-left: 980px;">
+					<div class="col-sm-2" style="margin-top: -30px;margin-left: 1085px;">
 						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 					</div>
