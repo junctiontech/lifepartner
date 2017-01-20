@@ -1,7 +1,8 @@
 <?php //$userdata=$this->session->userdata('username'); ?>
 <?php
-echo"nnodn";die;
+
 $data = json_decode($_POST['json'],true);
+print_r($data);die;
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");echo"nnodn". $CONNECTION;die;
 if(!$CONNECTION)
 {
