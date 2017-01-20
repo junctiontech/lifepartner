@@ -2,8 +2,7 @@
 <?php
 
 $data = json_decode($_POST['json'],true);
-print_r($data);
-/* $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
@@ -17,8 +16,8 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";echo $querySearch;
-		$query=mysqli_query($CONNECTION,$querySearch);print_r($query);
+		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
+		$query=mysqli_query($CONNECTION,$querySearch);
 		$count=mysqli_num_rows($query);
 		
 		while($result=mysqli_fetch_assoc($query))
@@ -120,4 +119,4 @@ if(!$CONNECTION)
 
 	
  	
-}*/
+}
