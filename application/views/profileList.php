@@ -252,8 +252,7 @@
 								<td><?php echo $list->highestQualification;?></td>
 								<td><?php echo $list->income;?></td>
 								<td>
-								     
-									<a href="<?php echo base_url(); ?>Master/profile/<?=$list->no; ?>" class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i> View Profile </a>
+								    <a href="<?php echo base_url(); ?>Master/profile/<?=$list->no; ?>" class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i> View Profile </a>
 									<a href="<?php echo base_url(); ?>Master/deleteProfileList/<?=$list->no;?>" onClick="return confirm('Are you sure you want to delete information....')" class="btn btn-danger "><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
 									<!--<a href="<?php echo base_url(); ?>Master/profile/<?=$list->no;?>" class="btn btn-info btn-sm btn-icon icon-left"> Request</a>-->                
 									<?php 
