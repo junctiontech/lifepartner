@@ -2,7 +2,7 @@
 <?php
 
 $data = json_decode($_POST['json'],true);
-$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");echo $CONNECTION;
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
