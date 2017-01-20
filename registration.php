@@ -25,7 +25,7 @@ if(!$CONNECTION)
 			$row[]=$result;
 		}
 		if(count($row)>0) 
-		{   echo $row;die;
+		{   //echo $row;die;
 			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
