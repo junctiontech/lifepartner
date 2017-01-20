@@ -16,15 +16,16 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' or RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
+		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
 		$query=mysqli_query($CONNECTION,$querySearch);
+		//print_r($query);die;
 		$count=mysqli_num_rows($query);
 		while($result=mysqli_fetch_assoc($query))
 		{    
 			$row[]=$result;
 		}
 		if(count($row)>0) 
-		{   
+		{   echo $row;die;
 			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
