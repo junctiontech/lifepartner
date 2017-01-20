@@ -1,4 +1,4 @@
-<?php $userdata=$this->session->userdata('username'); ?>
+<?php //$userdata=$this->session->userdata('username'); ?>
 <?php
 
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
@@ -16,7 +16,7 @@ if(!$CONNECTION)
 		$aadharName = $id.'_'.$registerID.'_uniqueId'.'_'.date('dmy_H:i:s').'.jpeg';
 		$serverProfileId= $data['serverProfileId'];
         $s_no=$data['S_no'];
-       if ($serverProfileId==''){
+       	if ($serverProfileId==''){
        		/************************ check profile category wise not more than 3 ********************************/
        		/*$queryProfileData="select category from Profiles where registerUserID='$registerID' and category='".$data['category']."'";
        		$query=mysqli_query($CONNECTION,$queryProfileData);

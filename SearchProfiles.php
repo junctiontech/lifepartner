@@ -1,4 +1,4 @@
-<?php $userdata=$this->session->userdata('username'); ?>
+<?php //$userdata=$this->session->userdata('username'); ?>
 <?php
 
 //print_r($data);
