@@ -72,7 +72,7 @@ if(!$CONNECTION)
 						
  					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
  					'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
- 					);
+ 					);print_r($searchResult);
 			
 			 }
 			 $re= array('code'=>"100",
