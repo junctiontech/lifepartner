@@ -29,7 +29,8 @@ if(!$CONNECTION)
 			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
-			 {
+			 { 
+			 	print_r($row);
 				$aa= $result['registerUserID'];
 				$searchResult[]= array('serverProfileId'=>$result['no'],
 					'category'=>$result['category'],
@@ -69,13 +70,11 @@ if(!$CONNECTION)
 					'status'=>'unblock',
 					//'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
 					//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
-						
- 					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
  					'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
  					);print_r($searchResult);
-			
-			 }
-			 $re= array('code'=>"100",
+			}
+			$re= array('code'=>"100",
 					'result'=>"search",				
 					'registeredId'=>$aa,
 					'profiles'=>$searchResult
