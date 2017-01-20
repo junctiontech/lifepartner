@@ -2,7 +2,7 @@
 <?php
 
 $data = json_decode($_POST['json'],true);
-$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","","lifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
@@ -16,19 +16,16 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
+		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' or RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
 		$query=mysqli_query($CONNECTION,$querySearch);
-		//echo $querySearch . "jjjjjjjjj"; print_r($querySearch);die;
 		$count=mysqli_num_rows($query);
-		
 		while($result=mysqli_fetch_assoc($query))
-		{
+		{    
 			$row[]=$result;
 		}
 		if(count($row)>0) 
-		{    //echo "testing update";print_r($row);
+		{   
 			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
-			//echo "<pre>";$updateRegistrationInfo;die;
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
 			{
@@ -87,7 +84,7 @@ if(!$CONNECTION)
 			
 			print_r(json_encode($re));
 			
-		}else { //echo "testing";die;
+		}else { 	
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
 			mysqli_query($CONNECTION,$queryInsert);
 			$id=mysqli_insert_id($CONNECTION);		
