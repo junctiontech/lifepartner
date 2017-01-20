@@ -16,7 +16,7 @@ if(!$CONNECTION)
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
 		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";echo $querySearch;
+		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$count=mysqli_num_rows($query);
 		
@@ -25,9 +25,9 @@ if(!$CONNECTION)
 			$row[]=$result;
 		}
 		if(count($row)>0) 
-		{
+		{    echo "testing update";print_r($row);
 			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
-			echo $updateRegistrationInfo;die;
+			echo "<pre>";$updateRegistrationInfo;die;
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
 			{
@@ -86,7 +86,7 @@ if(!$CONNECTION)
 			
 			print_r(json_encode($re));
 			
-		}else {
+		}else { echo "testing";die;
 			$queryInsert="insert into RegisteredUser(userName,EmailID,MobileNumber) values('$userName','$EmailID','$MobileNumber') ";
 			mysqli_query($CONNECTION,$queryInsert);
 			$id=mysqli_insert_id($CONNECTION);		
