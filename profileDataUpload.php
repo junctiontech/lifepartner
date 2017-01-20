@@ -1,4 +1,4 @@
-<?php $userdata=$this->session->userdata('username'); ?>
+
 <?php
 
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
