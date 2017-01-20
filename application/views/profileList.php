@@ -48,17 +48,18 @@
 				<form method="post" action ="<?=base_url();?>Master/profileList">
 					<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1">Gender<span style="color:red;"> *</span></label>
-						<div class="col-sm-2" style="margin-left: -80px;">
+						<div class="col-sm-2">
 							<select class="selectboxit s2example-1" id="s2example-1" name="gender" onchange="genderChange(this.value);">
-								<?php //foreach($organizationList as $list){ ?>
-								<option value="M">Male</option>
-								<option value="F">Female</option>
-								<?php //} ?>
+								<optgroup label="Please select Organizations Name" >
+									<?php //foreach($organizationList as $list){ ?>
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+									<?php //} ?>
 								</optgroup>
 							</select>
 						</div>
-					<label style="margin-left: -5px;"class="col-sm-1 control-label" for="field-1">Age<span style="color:red;"> *</span></label>
-					<div class="col-sm-3" style="margin-left:-35px">
+					<label style="margin-left: 30px;"class="col-sm-2 control-label" for="field-1">Age<span style="color:red;"> *</span></label>
+					<div class="col-sm-2" style="margin-left: -100px;">
 						<div id="male">
 							<select class="selectboxit s2example-1" id="s2example-1" name="maleAge" required>
 								<optgroup label="Please select Age " >
@@ -94,10 +95,10 @@
 							</select>
 						</div>
 					</div>
-					<label class="col-sm-1 control-label" for="field-1" > Income<span style="color:red;">*</span></label>
-				 	<div class="col-sm-3" style="margin-top: -40px;margin-left: 795px; margin-right: 1px;">
+					<label class="col-sm-2 control-label" for="field-1">Income<span style="color:red;"> *</span></label>
+				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 700px;margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
-							<option value="">Please Select income</option>
+								<option value="">Please Select Income</option>
 								<option value="100000">1 Lakh</option>
 								<option value="500000">5 Lakh</option>
 								<option value="1000000">10 Lakh</option>
@@ -112,16 +113,17 @@
 							</optgroup>
 						</select>
 					</div>
-					<div class="col-sm-2" style="margin-top: -30px;margin-left: 1060px;">
-						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
+					<div class="col-sm-2" style="margin-top: -30px;margin-left: 880px;">
+						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 					</div>
 				</div>
 				</br></br></br>
 				<div class="form-group">
-					<label class="col-sm-2 control-label"  for="field-1">Caste<span style="color:red;"> *</span></label>
-					<div class="col-sm-4" style="margin-left: -80px;">
+					<label class="col-sm-2 control-label" for="field-1">Caste<span style="color:red;"> *</span></label>
+					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="caste">
+							<optgroup label="Please select city name" >
 								<option value="">Please Select Caste</option>
 								<?php foreach($caste as $list){ ?>
 									<option value="<?php echo $list->caste?>"><?php echo $list->caste; ?></option>
@@ -132,6 +134,7 @@
 					<label class="col-sm-2 control-label" for="field-1">Sub Caste<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="subCaste">
+							<optgroup label="Please select education name" >
 								<option value="">Please Select Sub Caste</option>
 								<?php foreach($subCaste as $list){ ?>
 									<option value="<?php echo $list->subcaste?>"><?php echo $list->subcaste; ?></option>
@@ -143,7 +146,7 @@
 				</br></br></br>
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1"> Height<span style="color:red;"> *</span></label>
-					<div class="col-sm-4" style="margin-left: -80px;">
+					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="minHeight" onchange="height(this.value)">
 							<option value="">Min Height</option>
 							<?php for($i=4;$i<=6;$i++){ for($k=0;$k<12;$k++){ ?>
@@ -154,15 +157,16 @@
 					<label class="col-sm-2 control-label" for="field-1"> To<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="minHeight" name="maxHeight">
-							<option value="">Max Height</option>
+							<option value="">Max Height<span style="color:red;"> *</span></option>
 						</select>
 					</div>
 				</div>
 				</br></br></br>
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1">City<span style="color:red;"> *</span></label>
-					<div class="col-sm-4" style="margin-left: -80px;">
+					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="city">
+							<optgroup label="Please select city name" >
 								<option value="">Please Select City</option>
 								<?php foreach($city as $list){ ?>
 									<option value="<?php echo $list->city?>"><?php echo $list->city; ?></option>
@@ -173,20 +177,21 @@
 					<label class="col-sm-2 control-label" for="field-1"> Education<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="education">
+							<optgroup label="Please select education name" >
 								<option value="">Please Select Education</option>
 								<?php //foreach($organizationList as $list){ ?>
-								<option value="Graduate">Doctorate</option>
-								<option value="Post Graduate">Post Graduate</option>
-								<option value="Graduate">Graduate</option>
 								<option value="12th">12th</option>
-								<option value="non-educated">Non Educated</option>
+								<option value="Graduate">Graduate</option>
+								<option value="Post Graduate">Post Graduate</option>
+								<option value="Graduate">Doctorate</option>
+								<!--<option value="non-educated">Non Educated</option>-->
 								<?php // } ?>
 							</optgroup>
 						</select>
 					</div>
 				</div>
-				<div align="right" style="margin-right: 93px; margin-top: 68px;">
-					<button type="submit" value="" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+				<div align="right" style="margin-right: 68px; margin-top: 68px;">
+					<button type="submit" value="" class="btn btn-secondary btn-sm btn-icon icon-left">Search</button>
 				</div>
 			</form>
 		</div>
