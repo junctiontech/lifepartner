@@ -18,7 +18,6 @@ if(!$CONNECTION)
 		
 		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
 		$query=mysqli_query($CONNECTION,$querySearch);
-		//print_r($query);die;
 		$count=mysqli_num_rows($query);
 		while($result=mysqli_fetch_assoc($query))
 		{    
@@ -30,8 +29,7 @@ if(!$CONNECTION)
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
 			 { 
-			 	print_r($row);
-				$aa= $result['registerUserID'];
+			 	$aa= $result['registerUserID'];
 				$searchResult[]= array('serverProfileId'=>$result['no'],
 					'category'=>$result['category'],
 					'gender'=>$result['gender'],
@@ -72,7 +70,7 @@ if(!$CONNECTION)
 					//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
 					'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
  					'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
- 					);print_r($searchResult);
+ 					);
 			}
 			$re= array('code'=>"100",
 					'result'=>"search",				
