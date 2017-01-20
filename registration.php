@@ -2,7 +2,7 @@
 <?php
 
 $data = json_decode($_POST['json'],true);
-//print_r($data);
+print_r($data);
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
