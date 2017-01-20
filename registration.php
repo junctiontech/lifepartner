@@ -25,11 +25,11 @@ if(!$CONNECTION)
 			$row[]=$result;
 		}
 		if(count($row)>0) 
-		{   //echo $row;die;
+		{  
 			$updateRegistrationInfo="UPDATE RegisteredUser SET EmailID='$EmailID',userName='$userName' WHERE MobileNumber='$MobileNumber'";
 			mysqli_query($CONNECTION,$updateRegistrationInfo);
 			foreach ($row as $result)
-			{
+			 {
 				$aa= $result['registerUserID'];
 				$searchResult[]= array('serverProfileId'=>$result['no'],
 					'category'=>$result['category'],
@@ -66,7 +66,7 @@ if(!$CONNECTION)
 					'city'=>$result['city'],
 					'caste'=>$result['caste'],
 					'subcaste'=>$result['subcaste'],
-					'status'=>$result['unblock'],
+					'status'=>'unblock',
 					//'imageName'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['imageName'],
 					//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
 						
@@ -74,15 +74,12 @@ if(!$CONNECTION)
  					'uniqueImageId'=>"http://lifepartner.zeroerp.com/images/".$result['uniqueImageId'],
  					);
 			
-			}
-			
-						
-			$re= array('code'=>"100",
+			 }
+			 $re= array('code'=>"100",
 					'result'=>"search",				
 					'registeredId'=>$aa,
 					'profiles'=>$searchResult
 			);
-			
 			print_r(json_encode($re));
 			
 		}else { 	
