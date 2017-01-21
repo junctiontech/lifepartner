@@ -26,9 +26,9 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<!-- <div class="panel-heading">
 					<h3 class="panel-title">Profile View</h3>
-				</div>
+				</div> -->
 				<div class="panel-body"> 
 					<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>Master/insert_organization">
 						<div class="row">
