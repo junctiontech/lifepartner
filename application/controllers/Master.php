@@ -33,6 +33,7 @@
 		$maxHeight=$this->input->post('maxHeight');
 		$incomeIdentity=$this->input->post('incomeIdentity');
 		$highestQualifications=$this->input->post('education');
+		
 		//print_r($status);die;
 		if($this->input->post('maleAge')!=='')
 		{
@@ -43,7 +44,7 @@
 			$ages=$this->input->post('feMaleAge');
 		}
 		
-		if(!empty($genders)  or !empty($incomes) or !empty($birthPlaces) or !empty($highestQualifications) or !empty($status))
+		if(!empty($genders)  or !empty($incomes) or !empty($citys) or !empty($highestQualifications) or !empty($status))
 		{	
 			if(!empty($genders)){ $query =" gender='$genders' and status='unblock'";}
 			
@@ -51,25 +52,24 @@
 			{
 				if(strcasecmp($incomeIdentity,'>')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income$incomeIdentity='$incomes' "; }
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income $incomeIdentity='$incomes' ";}
 				}
 				if(strcasecmp($incomeIdentity,'<')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity='$incomes' or income='none'"; }
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity='$incomes' or income='none'";}
 				}
 			}
-			
 			//if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
 			if(!empty($citys)){ $query.=" and city='$citys'"; }
 			if(!empty($castes)){ $query.=" and caste='$castes'"; }
 			if(!empty($subCastes)){ $query.=" and subcaste='$subCastes'"; }
 			if(!empty($minHeight)){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
 			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
-			if(!empty($status)){ $query.=" and status='$status'";}
-				
+			
 			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);
+			echo "<pre>";print_r($profileLists);die;
 			if(!empty($ages))
-			{ 
+			 { 
 				$explode=explode('-',$ages);$firstYear=$explode[0];if(isset($explode[1])){ $secondYear=$explode[1]; }; 
 				if(!isset($secondYear)){$secondYear='';}
 				foreach($profileLists as $list)
