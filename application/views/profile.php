@@ -65,7 +65,7 @@
 									  <!--<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 120px; max-height: 120px; line-height: 20px;"></div>-->
 										</div>
 							</div>
-							<div class="row col-sm-4">
+							<div class="row col-sm-4" style="margin-left: -75px;margin-top: 75px;">
 								<div class="form-group">
 									<label class="col-sm-4 control-label" for="field-1">Gender<span style="color:red;"> *</span></label>
 									<div class="col-sm-8">
