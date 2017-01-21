@@ -67,7 +67,7 @@
 			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
 			
 			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);
-			echo "<pre>";print_r($profileLists);die;
+			//echo "<pre>";print_r($profileLists);die;
 			if(!empty($ages))
 			 { 
 				$explode=explode('-',$ages);$firstYear=$explode[0];if(isset($explode[1])){ $secondYear=$explode[1]; }; 
