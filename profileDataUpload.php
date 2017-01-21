@@ -37,9 +37,9 @@ if(!$CONNECTION)
 			    $aadharImage= $data['userAadharIdPath'];
 				file_put_contents($path,base64_decode($image));
 				file_put_contents($aadharPath,base64_decode($aadharImage));
-					
+				
 				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
-				print_r($resultUpload);die;
+				
 			}
 			else {
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
