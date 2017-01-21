@@ -1,12 +1,13 @@
 
 <?php
-
+echo "xng";die;
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
+	   
 		$Totaldata=json_decode($_POST['json'],true);
 		$registerID= $_POST['registeredId'];//echo $registerID;
 		$resultUpload=array();
