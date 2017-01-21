@@ -182,7 +182,7 @@
 								<option value="12th">12th</option>
 								<option value="Graduate">Graduate</option>
 								<option value="Post Graduate">Post Graduate</option>
-								<option value="Graduate">Doctorate</option>
+								<option value="Doctorate">Doctorate</option>
 								<!--<option value="non-educated">Non Educated</option>-->
 								<?php // } ?>
 							</optgroup>
