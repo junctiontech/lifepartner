@@ -280,7 +280,7 @@
 								<!--<button type="submit" class="btn btn-success">Submit</button>-->
 								<button type="reset" class="btn btn-white" onClick="window.history.go(-1);">Cancel</button>
 							</div>
-					</form>
+						</form>
 				</div>
 			</div>
 		</div>
