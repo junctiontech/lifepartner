@@ -30,7 +30,7 @@
 					<h3 class="panel-title">Profile View</h3>
 				</div> -->
 				<div class="panel-body"> 
-					<form role="form" class="form-horizontal" method="get" action="<?=base_url();?>Master/insert_organization">
+					<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>Master/insert_organization">
 						<div class="row">
 							<div class="col-sm-12">
 							<div class="row col-sm-4">
@@ -278,7 +278,7 @@
 						<div class="form-group-separator"></div>
 							<div class="form-group">
 								<!--<button type="submit" class="btn btn-success">Submit</button>-->
-								<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
+								<button type="reset" class="btn btn-white" onClick="window.history.go(-1);">Cancel</button>
 							</div>
 					</form>
 				</div>
