@@ -278,7 +278,7 @@
 						<div class="form-group-separator"></div>
 							<div class="form-group">
 								<!--<button type="submit" class="btn btn-success">Submit</button>-->
-								<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
+								<button type="button" onclick="goBack()" class="btn btn-white">Cancel</button>
 							</div>
 					</form>
 				</div>
@@ -288,3 +288,11 @@
 			<!-- body container ends starts -->
 </div><!-- main content div end -->
 </div><!-- page container div end -->
+			
+<script>
+function goBack() 
+  {
+    window.history.back()
+  }
+</script>
+
