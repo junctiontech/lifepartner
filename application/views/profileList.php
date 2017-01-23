@@ -154,7 +154,7 @@
 					<label class="col-sm-2 control-label" for="field-1"> To<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="minHeight" name="maxHeight">
-							<option value="">Max Height<span style="color:red;"> *</span></option>
+							<option value="">Max Height</option>
 						</select>
 					</div>
 				</div>
