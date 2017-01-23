@@ -278,9 +278,9 @@
 						<div class="form-group-separator"></div>
 							<div class="form-group">
 								<!--<button type="submit" class="btn btn-success">Submit</button>-->
-								<button type="reset" class="btn btn-white" onClick="window.history.go(-1);">Cancel</button>
+								<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
 							</div>
-						</form>
+					</form>
 				</div>
 			</div>
 		</div>
