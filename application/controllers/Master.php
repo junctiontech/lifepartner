@@ -140,13 +140,13 @@
 		  $dataArray=array('status'=>'block');
 		  $update= $this->data['update']=$this->MasterModel->put('Profiles',$dataArray,array('no'=>$_GET['no']));
 		  $this->session->set_flashdata('category_error','message');
-		  $this->session->set_flashdata('message','User Diable Successfully');
+		  $this->session->set_flashdata('message','Profile block successfully');
 		  redirect($_SERVER['HTTP_REFERER']);
 	    }
 	 else
 	    {
 		  $this->session->set_flashdata('category_error','message');
-		  $this->session->set_flashdata('message',' Not Successfully');
+		  $this->session->set_flashdata('message','Profile not block successfully');
 		  redirect($_SERVER['HTTP_REFERER']);
 	    }
     }
@@ -158,13 +158,13 @@
 	     	$dataArray=array('status'=>'unblock');
 	     	$update_User = $this->data['update_User']=$this->MasterModel->put('Profiles',$dataArray,array('no'=>$_GET['no']));
 	     	$this->session->set_flashdata('category_success','message');
-		    $this->session->set_flashdata('message','User Enable Successfully');
+		    $this->session->set_flashdata('message','Profile Un-block successfully');
 		    redirect($_SERVER['HTTP_REFERER']);
 		 }
 	   else
 		 {
 		  $this->session->set_flashdata('category_error','message');
-		  $this->session->set_flashdata('message','not Successfully');
+		  $this->session->set_flashdata('message','Profile not Un-block successfully');
 		  redirect($_SERVER['HTTP_REFERER']);
 		 }
 	}
