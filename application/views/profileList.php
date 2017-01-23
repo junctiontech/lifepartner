@@ -50,6 +50,7 @@
 					<label class="col-sm-2 control-label" for="field-1">Gender<span style="color:red;"> *</span></label>
 						<div class="col-sm-2">
 							<select class="selectboxit s2example-1" id="s2example-1" name="gender" onchange="genderChange(this.value);">
+								<optgroup label="Please select Organizations Name" >
 									<?php //foreach($organizationList as $list){ ?>
 									<option value="M">Male</option>
 									<option value="F">Female</option>
@@ -95,7 +96,7 @@
 						</div>
 					</div>
 					<label class="col-sm-2 control-label" for="field-1">Income<span style="color:red;"> *</span></label>
-				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 850px;margin-right: 1px;">
+				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 700px;margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
 								<option value="">Please Select Income</option>
 								<option value="100000">1 Lakh</option>
@@ -112,9 +113,9 @@
 							</optgroup>
 						</select>
 					</div>
-					<div class="col-sm-2" style="margin-top: -30px;margin-left: 1025px;">
-						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
+					<div class="col-sm-2" style="margin-top: -30px;margin-left: 880px;">
+						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 					</div>
 				</div>
 				</br></br></br>
@@ -182,7 +183,7 @@
 								<option value="12th">12th</option>
 								<option value="Graduate">Graduate</option>
 								<option value="Post Graduate">Post Graduate</option>
-								<option value="Doctorate">Doctorate</option>
+								<option value="Graduate">Doctorate</option>
 								<!--<option value="non-educated">Non Educated</option>-->
 								<?php // } ?>
 							</optgroup>
@@ -256,11 +257,11 @@
 									<!--<a href="<?php echo base_url(); ?>Master/profile/<?=$list->no;?>" class="btn btn-info btn-sm btn-icon icon-left"> Request</a>-->                
 									<?php 
 									if(strcasecmp($list->status,'block')==0){ ?>
-										<a href="<?php echo base_url(); ?>Master/disapprove/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm(' Are you sure you want to Enable <?php echo $list->firstName?> profile');" class="btn btn-success "><i class="fa fa-unlock-alt" aria-hidden="true"></i> Un-block</a>
+										<a href="<?php echo base_url(); ?>Master/disapprove/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm(' Are you sure you want to Un-block <?php echo $list->firstName?> profile');" class="btn btn-success "><i class="fa fa-unlock-alt" aria-hidden="true"></i> Un-block</a>
 										<?php }
 										else
 										{ ?>	
-										<a href="<?php echo base_url(); ?>Master/approve/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm('Are you sure you want to Disable <?php echo $list->firstName?> profile');" class="btn btn-danger "><i class="fa fa-lock" aria-hidden="true"></i> Block</a>
+										<a href="<?php echo base_url(); ?>Master/approve/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm('Are you sure you want to block <?php echo $list->firstName?> profile');" class="btn btn-danger "><i class="fa fa-lock" aria-hidden="true"></i> Block</a>
 									<?php }?>
 								</td>
 							</tr>
