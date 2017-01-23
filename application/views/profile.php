@@ -30,7 +30,7 @@
 					<h3 class="panel-title">Profile View</h3>
 				</div> -->
 				<div class="panel-body"> 
-					<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>Master/insert_organization">
+					<form role="form" class="form-horizontal" method="get" action="<?=base_url();?>Master/insert_organization">
 						<div class="row">
 							<div class="col-sm-12">
 							<div class="row col-sm-4">
