@@ -122,7 +122,6 @@
 					<label class="col-sm-2 control-label" for="field-1">Caste<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="caste">
-							<optgroup label="Please select city name" >
 								<option value="">Please Select Caste</option>
 								<?php foreach($caste as $list){ ?>
 									<option value="<?php echo $list->caste?>"><?php echo $list->caste; ?></option>
@@ -133,7 +132,6 @@
 					<label class="col-sm-2 control-label" for="field-1">Sub Caste<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="subCaste">
-							<optgroup label="Please select education name" >
 								<option value="">Please Select Sub Caste</option>
 								<?php foreach($subCaste as $list){ ?>
 									<option value="<?php echo $list->subcaste?>"><?php echo $list->subcaste; ?></option>
@@ -165,7 +163,6 @@
 					<label class="col-sm-2 control-label" for="field-1">City<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="city">
-							<optgroup label="Please select city name" >
 								<option value="">Please Select City</option>
 								<?php foreach($city as $list){ ?>
 									<option value="<?php echo $list->city?>"><?php echo $list->city; ?></option>
@@ -176,7 +173,6 @@
 					<label class="col-sm-2 control-label" for="field-1"> Education<span style="color:red;"> *</span></label>
 					<div class="col-sm-4">
 						<select class="selectboxit s2example-1" id="" name="education">
-							<optgroup label="Please select education name" >
 								<option value="">Please Select Education</option>
 								<?php //foreach($organizationList as $list){ ?>
 								<option value="12th">12th</option>
