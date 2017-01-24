@@ -1,7 +1,7 @@
 
 <?php
 
-$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","","lifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
@@ -38,7 +38,6 @@ if(!$CONNECTION)
 				file_put_contents($aadharPath,base64_decode($aadharImage));
 				
 				$resultUpload[] = array('result'=>"success", 'S_no'=>$s_no,'profileID'=>$profile_no."");
-				
 			}
 			else {
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
@@ -75,7 +74,6 @@ if(!$CONNECTION)
 					}
 			  }else $resultUpload[] =  array('result'=>"image deletion failled");				
 				
-			
 			}
 			
 	  }
