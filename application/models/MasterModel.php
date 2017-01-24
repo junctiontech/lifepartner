@@ -31,7 +31,7 @@ class MasterModel extends CI_Model{
 	}
 	
 	function ProfilesListGet($query)
-	{	echo "select * from Profiles where $query";die;
+	{	//echo "select * from Profiles where $query";die;
 		$query=$this->db->query("select * from Profiles where $query");// print_r($query);die;
 		return $query->result();
 	}
