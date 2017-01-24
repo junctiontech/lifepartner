@@ -44,7 +44,7 @@
 			$ages=$this->input->post('feMaleAge');
 		}
 		
-		if(!empty($genders)  or !empty($incomes) or !empty($citys) or !empty($highestQualifications) or !empty($status))
+		if(!empty($genders)  or !empty($incomes) or !empty($highestQualifications) or !empty($status))
 		{	
 			if(!empty($genders)){ $query =" gender='$genders' and status='unblock'";}
 			
