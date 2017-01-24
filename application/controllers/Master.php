@@ -52,11 +52,11 @@
 			{
 				if(strcasecmp($incomeIdentity,'>')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income. $incomeIdentity='$incomes' ";}
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income $incomeIdentity='$incomes' ";}
 				}
 				if(strcasecmp($incomeIdentity,'<')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income. $incomeIdentity='$incomes' or income='none'";}
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income $incomeIdentity='$incomes' or income='none'";}
 				}
 			}
 			//if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
