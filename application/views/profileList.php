@@ -95,7 +95,7 @@
 						</div>
 					</div>
 					<label class="col-sm-2 control-label" for="field-1">Income<span style="color:red;"> *</span></label>
-				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 800px;margin-right: 1px;">
+				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 710px;margin-right: 1px;">
 						<select class="selectboxit s2example-1" id="" name="income" >
 								<option value="">Please Select Income</option>
 								<option value="100000">1 Lakh</option>
@@ -112,7 +112,7 @@
 							</optgroup>
 						</select>
 					</div>
-					<div class="col-sm-2" style="margin-top: -30px;margin-left: 980px;">
+					<div class="col-sm-2" style="margin-top: -30px;margin-left: 870px;">
 						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 					</div>
