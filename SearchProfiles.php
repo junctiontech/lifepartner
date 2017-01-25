@@ -8,8 +8,8 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-	
-	$abc = json_decode($_POST['data'],true);
+	echo "hello";
+	$abc = json_decode($_POST['data'],true);print_r($abc);die;
 	$min_age= $abc['min_age'];
 	$max_age= $abc['max_age'];//echo $min_age; echo $max_age;die;
 	$bride_groom= $abc['bride_groom'];
