@@ -9,22 +9,22 @@ if(!$CONNECTION)
 	exit();
 }else{
 	echo "hello";
-	$abc = json_decode($_POST['data'],true);print_r($abc);die;
-	$min_age= $abc['min_age'];
-	$max_age= $abc['max_age'];//echo $min_age; echo $max_age;die;
-	$bride_groom= $abc['bride_groom'];
-	$manglik= $abc['manglik'];
-	$city= $abc['city'];
-	$minHeight=$abc['min_height'];
-	$maxHeight=$abc['max_height'];
-	$income=$abc['income'];
-	$income_above_below=$abc['income_above_below'];//echo $income_above_below;die;
+	//$abc = json_decode($_POST['data'],true);print_r($abc);die;
+	$min_age= $_POST['min_age'];
+	$max_age= $_POST['max_age'];//echo $min_age; echo $max_age;die;
+	$bride_groom= $_POST['bride_groom'];
+	$manglik= $_POST['manglik'];
+	$city= $_POST['city'];
+	$minHeight=$_POST['min_height'];
+	$maxHeight=$_POST['max_height'];
+	$income=$_POST['income'];
+	$income_above_below=$_POST['income_above_below'];//echo $income_above_below;die;
 	$explode=explode(' ',$income);//echo $explode;die;
 	$incomes=$explode[0].'00000';
 	$incomes = str_replace(',', '', $incomes);echo $incomes;die;
-	$caste=$abc['caste'];
-	$subCaste=$abc['subcaste'];
-	$registeredId = $abc['registeredId'];
+	$caste=$_POST['caste'];
+	$subCaste=$_POST['subcaste'];
+	$registeredId = $_POST['registeredId'];
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(isset($income_above_below)&&!empty($income_above_below)) 
