@@ -8,7 +8,7 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-	echo "hello";
+	
 	//$abc = json_decode($_POST['data'],true);print_r($abc);die;
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];//echo $min_age; echo $max_age;die;
@@ -21,7 +21,7 @@ if(!$CONNECTION)
 	$income_above_below=$_POST['income_above_below'];//echo $income_above_below;die;
 	$explode=explode(' ',$income);//echo $explode;die;
 	$incomes=$explode[0].'00000';
-	$incomes = str_replace(',', '', $incomes);echo $incomes;die;
+	$incomes = str_replace(',', '', $incomes);
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
