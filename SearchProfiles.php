@@ -30,12 +30,12 @@ if(!$CONNECTION)
 	if(isset($income_above_below)&&!empty($income_above_below)) 
 	{   
 		if(strcasecmp($income_above_below,'above')==0)
-		{
-			$incomeIdentity='>';
+		{ echo "sbgbsjgbjjknkj";
+			$incomeIdentity='>';echo $incomeIdentity;
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income>=$incomes "; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)
-		{
+		{  
 			$incomeIdentity='<';$none='none';
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<=$incomes or income='$none' "; }
 		}	
@@ -45,13 +45,13 @@ if(!$CONNECTION)
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }//echo $query;die;
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-	$querySearch="Select * from Profiles where $query LIMIT 100";//echo $querySearch;die;
+	$querySearch="Select * from Profiles where $query LIMIT 100";echo $querySearch;die;
 	$query=mysqli_query($CONNECTION,$querySearch);//print_r($query);die;
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
  	{
 		while($result=mysqli_fetch_array($query))
-		{   print_r($result);//die;
+		{   //print_r($result);//die;
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql)!=0)
