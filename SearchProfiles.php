@@ -2,15 +2,15 @@
 <?php
 
 //print_r($data);
-$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-	
+	error_reporting('0');
 	$abc = json_decode($_POST['data'],true);//print_r($abc);die;
-	$min_age= $abc['min_age'];// echo $min_age;die;
+	$min_age= $abc['min_age']; //echo $min_age;die;
 	$max_age=$abc['max_age']; //echo $min_age; echo $max_age;die;
 	$bride_groom= $abc['bride_groom'];
 	$manglik=$abc['manglik'];
@@ -62,7 +62,7 @@ if(!$CONNECTION)
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
-				{		//print_r($age);"<br>" ;//echo $min_age;"<br>"; echo $max_age;die;
+				{		//print_r($age);"<br>" ;echo $min_age;"<br>"; echo $max_age;die;
 					 $searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
@@ -104,6 +104,7 @@ if(!$CONNECTION)
 					); 
 				}
 			//}
+			
 		}
 	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
