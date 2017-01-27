@@ -47,7 +47,7 @@ if(!$CONNECTION)
  	if(mysqli_num_rows($query)!=0)
  	 {   
 		while($result=mysqli_fetch_array($query))
-		{   //print_r($result);
+		{   print_r($result);
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql)!=0)
@@ -60,7 +60,7 @@ if(!$CONNECTION)
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
-				{		//print_r($age);echo $min_age;echo $max_age;//die;
+				 {		print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
@@ -70,7 +70,7 @@ if(!$CONNECTION)
 							'fatherName'=>$result['fatherName'],
 							'dateOfBirth'=>$result['dateOfBirth'],
 							'no_of_kids'=>$result['noOfKids'],
-							 'marital_status'=>$result['maritalStatus'],
+							'marital_status'=>$result['maritalStatus'],
 							'birthPlace'=>$result['birthPlace'],
 							'heightOfUser'=>$result['heightOfUser'],
 							'birthTime'=>$result['birthTime'],
@@ -99,8 +99,8 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'], 
-					);
-				}
+					      );
+				  }
 			//}
 		}
 	}//echo count($searchResult);
