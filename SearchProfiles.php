@@ -24,14 +24,14 @@ if(!$CONNECTION)
 	$incomes = str_replace(',', '', $incomes);
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
-	$registeredId = $_POST['registeredId'];
+	$registeredId = $_POST['registeredId'];echo $registeredId;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(isset($income_above_below)&&!empty($income_above_below)) 
-	 {   
+	 {   echo "vsbgbe"; $registeredId;
 		if(strcasecmp($income_above_below,'above')==0)
 		{ 
-			$incomeIdentity='>';echo $incomeIdentity;
+			$incomeIdentity='>';
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income>=$incomes "; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)
