@@ -62,7 +62,7 @@ if(!$CONNECTION)
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
-				print_r($from);//die;
+					print_r($from);//die;
 				if ($min_age<=$age && $age <=$max_age)
 				  {		
 					 print_r($age);"<br>" ;echo $min_age;"<br>"; echo $max_age;//die;
