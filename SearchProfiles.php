@@ -21,7 +21,7 @@ if(!$CONNECTION)
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
-	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
+	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId' and status='unblock' "; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
