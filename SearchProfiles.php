@@ -10,7 +10,7 @@ if(!$CONNECTION)
 }else{
 	error_reporting('0');
 	$abc = json_decode($_POST['data'],true);
-	$min_age= $abc['min_age']; //echo $min_age;die;
+	$min_age= $abc['min_age']; echo $min_age;die;
 	$max_age=$abc['max_age']; //echo $min_age; echo $max_age;die;
 	$bride_groom= $abc['bride_groom'];
 	$manglik=$abc['manglik'];
