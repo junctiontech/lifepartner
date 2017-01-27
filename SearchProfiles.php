@@ -17,9 +17,9 @@ if(!$CONNECTION)
 	$city= $_POST['city'];
 	$minHeight=$_POST['min_height'];
 	$maxHeight=$_POST['max_height'];
-	$income=$_POST['income'];print_r($income);die;
+	$income=$_POST['income'];//print_r($income);die;
 	$income_above_below=$_POST['income_above_below'];
-	$explode=explode(' ',$income); //echo $explode;die;
+	$explode=explode(' ',$income); echo $explode;die;
 	$incomes=$explode[0].'00000';
 	$incomes = str_replace(',', '', $incomes);
 	$caste=$_POST['caste'];
