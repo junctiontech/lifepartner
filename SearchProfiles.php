@@ -2,7 +2,7 @@
 <?php
 
 //print_r($data);
-$CONNECTION=mysqli_connect("localhost","root","","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
