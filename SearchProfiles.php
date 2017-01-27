@@ -11,7 +11,7 @@ if(!$CONNECTION)
 	//error_reporting('0');
 	//$abc = json_decode($_POST['data'],true);
 	$min_age= $_POST['min_age'];//echo $min_age;//die;
-	$max_age=$_POST['max_age']; echo $min_age; echo $max_age;//die;
+	$max_age=$_POST['max_age']; //echo $min_age; echo $max_age;//die;
 	$bride_groom= $_POST['bride_groom'];
 	$manglik=$_POST['manglik'];
 	$city= $_POST['city'];
@@ -45,7 +45,7 @@ if(!$CONNECTION)
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-	$querySearch="Select * from Profiles where $query LIMIT 100"; echo $querySearch;
+	$querySearch="Select * from Profiles where $query LIMIT 100"; //echo $querySearch;
 	$query=mysqli_query($CONNECTION,$querySearch);//print_r($query);die;
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0) 
