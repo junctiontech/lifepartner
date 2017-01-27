@@ -42,10 +42,10 @@ if(!$CONNECTION)
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }//echo $query;
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
 	$querySearch="Select * from Profiles where $query LIMIT 100";//echo $querySearch;//die;
-	$query=mysqli_query($CONNECTION,$querySearch);print_r($query);//die;
+	$query=mysqli_query($CONNECTION,$querySearch);//print_r($query);//die;
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
- 	{   echo "hiiii";print_r(mysqli_num_rows($query));die;
+ 	{   
 		while($result=mysqli_fetch_array($query))
 		{   print_r($result);
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
