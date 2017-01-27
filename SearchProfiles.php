@@ -32,7 +32,7 @@ if(!$CONNECTION)
 		}
 		if(strcasecmp($income_above_below,'below')==0)
 		{
-			$incomeIdentity='<';$none='none';
+			$incomeIdentity='<';$none=none;
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<=$incomes or income='$none' "; }
 		}
 	}
