@@ -1,4 +1,3 @@
-<?php //$userdata=$this->session->userdata('username'); ?>
 <?php
 
 //print_r($data);
@@ -8,65 +7,61 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-	//error_reporting('0');
-	//$abc = json_decode($_POST['data'],true);
-	$min_age= $_POST['min_age'];//echo $min_age;//die;
-	$max_age=$_POST['max_age']; //echo $min_age; echo $max_age;//die;
+	$min_age= $_POST['min_age'];
+	$max_age= $_POST['max_age'];//echo $min_age;echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
-	$manglik=$_POST['manglik'];
+	$manglik= $_POST['manglik'];
 	$city= $_POST['city'];
 	$minHeight=$_POST['min_height'];
 	$maxHeight=$_POST['max_height'];
-	$income=$_POST['income'];//print_r($income);die;
+	$income=$_POST['income'];
 	$income_above_below=$_POST['income_above_below'];
-	$explode=explode(' ',$income);// 
+	$explode=explode(' ',$income);
 	$incomes=$explode[0].'00000';
-	$incomes = str_replace(',', '', $incomes);//print_r($incomes) ;die;
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
-	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
+	$registeredId = $_POST['registeredId'];
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
-	if(isset($income_above_below)&&!empty($income_above_below)) 
-	 {  
+	if(isset($income_above_below)&&!empty($income_above_below))
+	{
 		if(strcasecmp($income_above_below,'above')==0)
-		{ 
+		{
 			$incomeIdentity='>';
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income>=$incomes "; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)
-		 {  
+		{
 			$incomeIdentity='<';$none='none';
 			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<=$incomes or income='$none' "; }
-		 }	
-	 }
+		}
+	}
 	if(isset($manglik) && !empty($manglik)){ $query.=" and manglik='$manglik'"; }
 	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
-	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }
+	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }//echo $query;
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-	//if(!empty($min_age) && $min_age!=='Select'){$query.=" and dateOfBirth>='$min_age' and dateOfBirth<='$max_age'";}
-	$querySearch="Select * from Profiles where $query LIMIT 100"; //echo $querySearch;
+	$querySearch="Select * from Profiles where $query LIMIT 100";//echo $querySearch;//die;
 	$query=mysqli_query($CONNECTION,$querySearch);//print_r($query);die;
  	$searchResult=array();
- 	if(mysqli_num_rows($query)!=0) 
+ 	if(mysqli_num_rows($query)!=0)
  	{
 		while($result=mysqli_fetch_array($query))
-		{   
+		{
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql)!=0)
 			{
 				
 			}
+			else 
+			{ 
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
-					print_r($from);//die;
 				if ($min_age<=$age && $age <=$max_age)
-				  {		
-					 print_r($age);"<br>" ;echo $min_age;"<br>"; echo $max_age;//die;
-					 $searchResult[]= array(
+				{		//print_r($age);echo $min_age;echo $max_age;//die;
+					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
 							'gender'=>$bride_groom,
@@ -75,7 +70,7 @@ if(!$CONNECTION)
 							'fatherName'=>$result['fatherName'],
 							'dateOfBirth'=>$result['dateOfBirth'],
 							'no_of_kids'=>$result['noOfKids'],
-							'marital_status'=>$result['maritalStatus'],
+							 'marital_status'=>$result['maritalStatus'],
 							'birthPlace'=>$result['birthPlace'],
 							'heightOfUser'=>$result['heightOfUser'],
 							'birthTime'=>$result['birthTime'],
@@ -104,16 +99,15 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'], 
-						); 
+					);
 				}
-			//}
-			
+			}
 		}
-	}
+	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
 	print_r(json_encode($searchResult));
 
 	
-	 
+	
 	
 }
