@@ -21,7 +21,7 @@ if(!$CONNECTION)
 	$income_above_below=$_POST['income_above_below'];
 	$explode=explode(' ',$income);// 
 	$incomes=$explode[0].'00000';
-	$incomes = str_replace(',', '', $incomes);print_r($incomes) ;die;
+	$incomes = str_replace(',', '', $incomes);//print_r($incomes) ;die;
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
