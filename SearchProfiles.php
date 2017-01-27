@@ -54,8 +54,8 @@ if(!$CONNECTION)
 			{
 				
 			}
-			else 
-			{ 
+// 			else 
+// 			{ 
 				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
@@ -101,7 +101,7 @@ if(!$CONNECTION)
 							'subcaste'=>$result['subcaste'], 
 					);
 				}
-			}
+			//}
 		}
 	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
