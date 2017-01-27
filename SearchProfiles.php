@@ -18,7 +18,7 @@ if(!$CONNECTION)
 	$minHeight=$_POST['min_height'];
 	$maxHeight=$_POST['max_height'];
 	$income=$_POST['income'];
-	$income_above_below=$_POST['income_above_below'];//echo $income_above_below;die;
+	$income_above_below=$_POST['income_above_below'];
 	$explode=explode(' ',$income); //echo $explode;die;
 	$incomes=$explode[0].'00000';
 	$incomes = str_replace(',', '', $incomes);
