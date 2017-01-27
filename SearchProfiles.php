@@ -45,7 +45,7 @@ if(!$CONNECTION)
 	$query=mysqli_query($CONNECTION,$querySearch);//print_r($query);//die;
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
- 	{   
+ 	 {   
 		while($result=mysqli_fetch_array($query))
 		{   print_r($result);
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
