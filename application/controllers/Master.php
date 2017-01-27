@@ -80,7 +80,7 @@
 					{	
 						$profileList=$this->data['profileList'][]=$list;
 					}
-				}//die;
+				}
 				//echo'<pre>';print_r($profileList);echo'</pre>';die;
 			}
 			else 
