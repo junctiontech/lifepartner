@@ -9,7 +9,7 @@ if(!$CONNECTION)
 	exit();
 }else{
 	
-	$abc = json_decode($_POST['data'],true);print_r($abc);die;
+	//$abc = json_decode($_POST['data'],true);print_r($abc);die;
 	$min_age= $_POST['min_age'];//echo $min_age;die;
 	$max_age= $_POST['max_age'];//echo $min_age; echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
