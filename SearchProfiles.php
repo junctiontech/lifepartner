@@ -10,7 +10,7 @@ if(!$CONNECTION)
 }else{
 	
 	$abc = json_decode($_POST['data'],true);//print_r($abc);die;
-	$min_age= $abc['min_age']; echo $min_age;die;
+	$min_age= $abc['min_age'];// echo $min_age;die;
 	$max_age=$abc['max_age']; //echo $min_age; echo $max_age;die;
 	$bride_groom= $abc['bride_groom'];
 	$manglik=$abc['manglik'];
@@ -24,7 +24,7 @@ if(!$CONNECTION)
 	$incomes = str_replace(',', '', $incomes);
 	$caste=$abc['caste'];
 	$subCaste=$abc['subcaste'];
-	$registeredId = $abc['registeredId'];echo $registeredId;
+	$registeredId = $abc['registeredId'];//echo $registeredId;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(isset($income_above_below)&&!empty($income_above_below)) 
