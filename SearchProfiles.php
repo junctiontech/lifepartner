@@ -45,7 +45,7 @@ if(!$CONNECTION)
 	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
 	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-	$querySearch="Select * from Profiles where $query LIMIT 100"; echo $querySearch;die;
+	$querySearch="Select * from Profiles where $query LIMIT 100"; echo $querySearch;
 	$query=mysqli_query($CONNECTION,$querySearch);//print_r($query);die;
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0) 
@@ -63,7 +63,7 @@ if(!$CONNECTION)
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
-				{		//print_r($age);"<br>" ;echo $min_age;"<br>"; echo $max_age;die;
+				{		print_r($age);"<br>" ;echo $min_age;"<br>"; echo $max_age;//die;
 					 $searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
