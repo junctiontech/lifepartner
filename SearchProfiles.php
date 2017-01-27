@@ -24,7 +24,7 @@ if(!$CONNECTION)
 	$incomes = str_replace(',', '', $incomes);
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
-	$registeredId = $_POST['registeredId'];echo $registeredId;die;
+	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId'"; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; }
 	if(isset($income_above_below)&&!empty($income_above_below)) 
