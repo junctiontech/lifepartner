@@ -1,7 +1,7 @@
 
 <?php
 
-$CONNECTION=mysqli_connect("localhost","root","","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
@@ -11,7 +11,7 @@ if(!$CONNECTION)
 		$registerID= $_POST['registeredId'];//echo $registerID;die;
 		$resultUpload=array();
 		$income = $Totaldata['profileData'][0]['income'];// echo $income ;//die;
-		$income = str_replace(',', '', $income);//echo $income;die;
+		$income = str_replace(',', '',$income);//echo $income;die;
 		$ProfileData = $Totaldata['profileData'];
 		foreach ($ProfileData as $data){	
 		$id=substr(md5(microtime()),rand(0,26),5);
