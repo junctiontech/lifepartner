@@ -22,7 +22,7 @@ if(!$CONNECTION)
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId' and status='unblock' "; }
-	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; } //echo $query;//die;
+	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; } 
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
 		if(strcasecmp($income_above_below,'above')==0)
