@@ -54,7 +54,7 @@ if(!$CONNECTION)
 			
 			if(mysqli_num_rows($sql))
 			{
-				print_r(mysqli_num_rows($sql));
+			  print_r(mysqli_num_rows($sql));
 			}
 // 			else 
 // 			{ 
