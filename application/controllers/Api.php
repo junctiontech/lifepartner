@@ -15,7 +15,8 @@
  	/* Start Function for request contact api.......................................................................*/
  	function request()
  	{
- 		$request=$_POST['request'];//echo $request;
+ 		
+ 		$request=$_POST['request'];echo $request;
  		if(isset($request))
  		{
  			$json=json_decode($request,true);//print_r($json);die; 
@@ -23,7 +24,7 @@
  			$requestRegisterUserID=$json['requestRegisterUserID'];
  			$profileId=$json['profileId'];
  			$requestProfileID=$json['requestProfileID'];
- 			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
+ 			$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);echo "filter Testing ";print_r($filter);//die; 
  			
  			$filter_track_record=array('requestRegisterUserID'=>$requestRegisterUserID);
  			$getCount=$this->data['getCount']=$this->Apimodel->getfilter('requestContact',$filter_track_record);
@@ -33,12 +34,12 @@
  			}
  			
  			
- 			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);//print_r($getRequest);//die;
+ 			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);echo "get Request ";print_r($getRequest);//die; 
  			if(count($getRequest)>0)
  			{
- 				 $data=array('status'=>'','requestProfileID'=>$requestProfileID,'registerUserID'=>$registerUserID,'profileID'=>$profileId);
+ 				 $data=array('status'=>'','requestProfileID'=>$requestProfileID,'registerUserID'=>$registerUserID,'profileID'=>$profileId);echo " data ";print_r($data);
  				$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
- 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);
+ 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);echo "request Update ";print_r($requestUpdate);
  				if($requestUpdate)
  				{
  					$response=array('code'=>'200','message'=>'request updated successfully');echo json_encode($response);
@@ -50,8 +51,8 @@
  			} 
  			else 
  			{
- 				$data=array('registerUserID'=>$registerUserID,'requestProfileID'=>$requestProfileID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);//print_r($data);
- 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);
+ 				$data=array('registerUserID'=>$registerUserID,'requestProfileID'=>$requestProfileID,'profileID'=>$profileId,'requestRegisterUserID'=>$requestRegisterUserID);echo " request data ";print_r($data);
+ 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->post('requestContact',$data);echo "Last request Update ";print_r($requestUpdate);
  				if($requestUpdate)
  				{
  					$result=array('code'=>'200','message'=>'request successfully');echo json_encode($result);die;
