@@ -22,6 +22,7 @@ if(!$CONNECTION)
 		$serverProfileId= $data['serverProfileId'];
         $s_no=$data['S_no'];
         if ($serverProfileId==''){
+        	print_r($serverProfileId);die;
        		/************************ check profile category wise not more than 3 ********************************/
        		/*$queryProfileData="select category from Profiles where registerUserID='$registerID' and category='".$data['category']."'";
        		$query=mysqli_query($CONNECTION,$queryProfileData);
@@ -31,7 +32,6 @@ if(!$CONNECTION)
        		}*/
        		/************************ check profile category wise not more than 3 ********************************/
 			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`,`noOfKids`,`maritalStatus`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`,`uniqueImageId`, `city`, `caste`, `subcaste`,`status`) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['no_of_kids']."','".$data['marital_status']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','$income','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name','$aadharName','".$data['city']."','".$data['caste']."','".$data['subcaste']."','unblock')";
-			
 			$a=mysqli_query($CONNECTION,$queryInsert);//print_r($a);die;
 			$profile_no=mysqli_insert_id($CONNECTION);
 			if ($a>0){ 
