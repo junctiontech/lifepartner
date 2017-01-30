@@ -58,7 +58,6 @@ if(!$CONNECTION)
 			$filepathAdhar = "images/$tempNameAadhar";
 			
 				if (unlink($filepath) && unlink($filepathAdhar)){
-					echo "hello";print_r($filepathAdhar);print_r($filepath);die;
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
 					file_put_contents($path,base64_decode($image));
@@ -66,7 +65,7 @@ if(!$CONNECTION)
 					$aadharImage= $data['userAadharIdPath'];
 					file_put_contents($aadharPath,base64_decode($aadharImage));
 					$sql = "UPDATE Profiles SET gender='".$data['gender']."', city= '".$data['city']."' , caste= '".$data['caste']."' , subcaste= '".$data['subcaste']."' , firstName= '".$data['firstName']."' , lastName='".$data['lastName']."',`fatherName`='".$data['fatherName']."', `dateOfBirth`='".$data['dateOfBirth']."',`noOfKids`='".$data['no_of_kids']."',`maritalStatus`='".$data['marital_status']."', `birthPlace`='".$data['birthPlace']."', `heightOfUser`='".$data['heightOfUser']."', `birthTime`='".$data['birthTime']."', `highestQualification`='".$data['highestQualification']."',`userJobProfile`='".$data['userJobProfile']."', `TypeOfBusiness`='".$data['TypeOfBusiness']."', `business`='".$data['business']."',`income`='$income',`fatherJobProfile`='".$data['fatherJobProfile']."', `TypeOfFatherBusiness`='".$data['TypeOfFatherBusiness']."', `fatherBusiness`='".$data['fatherBusiness']."', `fatherIncome`='".$data['fatherIncome']."', `gautr`='".$data['gautr']."', `gautrNanihal`='".$data['gautrNanihal']."', `zodiacSign`='".$data['zodiacSign']."', `star`='".$data['star']."', `saturn`='".$data['saturn']."', `manglik`='".$data['manglik']."', `currentAddress`='".$data['currentAddress']."', `permanentAddress`='".$data['permanentAddress']."', `emailId`='".$data['emailId']."', `mobileNumber`='".$data['mobileNumber']."', `WhatsAppNumber`='".$data['WhatsAppNumber']."', `lastUpdationDate`='".date('d-m-Y H:i:s')."', `imageName`='$name',`uniqueImageId`='$aadharName' WHERE registerUserID='$registerID' AND no='$serverProfileId'";
-					
+					print_r($sql);
 					$resultupdate =	mysqli_query($CONNECTION,$sql);
 						
 					if ($resultupdate){
