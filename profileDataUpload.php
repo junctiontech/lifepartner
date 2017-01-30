@@ -23,7 +23,7 @@ if(!$CONNECTION)
         $s_no=$data['S_no'];
         if ($serverProfileId=='')
         	{
-        		print_r($serverProfileId);die;
+        		echo"hiiiii";print_r($serverProfileId);die;
        		/************************ check profile category wise not more than 3 ********************************/
        		/*$queryProfileData="select category from Profiles where registerUserID='$registerID' and category='".$data['category']."'";
        		$query=mysqli_query($CONNECTION,$queryProfileData);
@@ -52,7 +52,7 @@ if(!$CONNECTION)
 				  }
 			}
 		else 
-			{	 print_r($serverProfileId);die;
+			{	echo"hello"; print_r($serverProfileId);die;
 				$querySearch="Select imageName,uniqueImageId from Profiles where no='$serverProfileId'";				
 				$ress=	mysqli_query($CONNECTION,$querySearch);
 				$imagename=mysqli_fetch_assoc($ress);
