@@ -70,18 +70,19 @@
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{
- 		$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
+ 		$registerUserID=$_POST['registerUserID'];//print_r($registerUserID);die;
  		$result=array();
  		$response=array();
  		if(isset($registerUserID))
  		{
- 			$filter=array('registerUserID'=>$registerUserID);
+ 			$filter=array('registerUserID'=>$registerUserID);//print_r($filter);die;
  			
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
+ 			//print_r($getRequestList);die;
  			if(count($getRequestList)>0)
  			{
  				foreach ($getRequestList as $list)
- 				{
+ 				{	//print_r($list);die;
  					if($list->status=='N' || $list->status=='')
  					{
 	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
@@ -91,9 +92,9 @@
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
 	 						if(count($getData)>0)
-	 						{
+	 						{	//print_r($getData);die;
 	 							foreach ($getData as $list1)
-	 							{
+	 							{	//print_r($list1);die;
 	 							
 			 						$response[]=array(
 			 								'profileName'=>$list1->firstName." ".$list1->lastName,
@@ -106,8 +107,8 @@
 			 						);
 	 							}
 	 						}
-	 					}
-	 					$requestProfileIdFilter=array('no'=>$list->requestProfileID);
+	 					}//echo $list->requestProfileID;die;
+	 					$requestProfileIdFilter=array('no'=>$list->requestProfileID);//print_r($requestProfileIdFilter);
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
  						if(count($getRequestProfileList)>0)
  						{
