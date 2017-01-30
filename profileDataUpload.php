@@ -31,7 +31,7 @@ if(!$CONNECTION)
 			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`,`noOfKids`,`maritalStatus`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`,`uniqueImageId`, `city`, `caste`, `subcaste`,`status`) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['no_of_kids']."','".$data['marital_status']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','$income','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name','$aadharName','".$data['city']."','".$data['caste']."','".$data['subcaste']."','unblock')";
 			$a=mysqli_query($CONNECTION,$queryInsert);//print_r($a);die;
 			$profile_no=mysqli_insert_id($CONNECTION);
-			if ($a>0){ echo "rrrrrri";
+			if ($a>0){ 
 				$path = "images/$name";
 				$image= $data['profilePhoto'];
 				$aadharPath = "images/$aadharName";
@@ -45,10 +45,10 @@ if(!$CONNECTION)
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
 			}
 			
-		}else {	 echo "fngibni";
+		}else {	 
 			$querySearch="Select imageName,uniqueImageId from Profiles where no='$serverProfileId'";				
 		$ress=	mysqli_query($CONNECTION,$querySearch);
-			echo $querySearch;die;
+			
 		$imagename=mysqli_fetch_assoc($ress);
 			// $imagename =mysqli_result_assoc($ress);
 			$tempName =$imagename['imageName']; 
@@ -56,7 +56,7 @@ if(!$CONNECTION)
 			
 			$tempNameAadhar =$imagename['uniqueImageId'];
 			$filepathAdhar = "images/$tempNameAadhar";
-			
+			echo "hello";print_r($filepathAdhar);print_r($filepath);die;
 				if (unlink($filepath) && unlink($filepathAdhar)){
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
