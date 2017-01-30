@@ -16,7 +16,7 @@ if(!$CONNECTION)
 		$incomes = str_replace(',', '',$income); 
 		$ProfileData = $Totaldata['profileData'];
 		foreach ($ProfileData as $data){
-			print_r($data);	
+			echo "jiii ";print_r($data);	
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
 		$aadharName = $id.'_'.$registerID.'_uniqueId'.'_'.date('dmy_H:i:s').'.jpeg';
@@ -24,7 +24,7 @@ if(!$CONNECTION)
         $s_no=$data['S_no'];
         if ($serverProfileId=='')
         	{
-        		echo"hiiiii";print_r($serverProfileId);die;
+        		
        		/************************ check profile category wise not more than 3 ********************************/
        		/*$queryProfileData="select category from Profiles where registerUserID='$registerID' and category='".$data['category']."'";
        		$query=mysqli_query($CONNECTION,$queryProfileData);
