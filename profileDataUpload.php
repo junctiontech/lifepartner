@@ -16,7 +16,6 @@ if(!$CONNECTION)
 		$incomes = str_replace(',', '',$income); 
 		$ProfileData = $Totaldata['profileData'];
 		foreach ($ProfileData as $data){	
-			echo "hiiii";print_r($data);
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
 		$aadharName = $id.'_'.$registerID.'_uniqueId'.'_'.date('dmy_H:i:s').'.jpeg';
