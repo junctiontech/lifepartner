@@ -56,8 +56,9 @@ if(!$CONNECTION)
 			
 			$tempNameAadhar =$imagename['uniqueImageId'];
 			$filepathAdhar = "images/$tempNameAadhar";
-			echo "hello";print_r($filepathAdhar);print_r($filepath);die;
+			
 				if (unlink($filepath) && unlink($filepathAdhar)){
+					echo "hello";print_r($filepathAdhar);print_r($filepath);die;
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
 					file_put_contents($path,base64_decode($image));
