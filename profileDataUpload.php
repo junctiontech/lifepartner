@@ -20,7 +20,7 @@ if(!$CONNECTION)
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
 		$aadharName = $id.'_'.$registerID.'_uniqueId'.'_'.date('dmy_H:i:s').'.jpeg';
-		$serverProfileId= $data['serverProfileId'];echo   $serverProfileId;die;
+		$serverProfileId= $data->serverProfileId;echo   $serverProfileId;die;
         $s_no=$data['S_no'];
         if ($serverProfileId=='')
         	{
