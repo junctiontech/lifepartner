@@ -37,17 +37,17 @@
  			$getRequest=$this->data['getRequest']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequest)>0)
  			{
- 				$data=array('status'=>'','requestProfileID'=>$requestProfileID,'registerUserID'=>$registerUserID,'profileID'=>$profileId);//print_r($data);die;
+ 				$data=array('status'=>'','requestProfileID'=>$requestProfileID,'registerUserID'=>$registerUserID,'profileID'=>$profileId);
  				$filter=array('registerUserID'=>$registerUserID,'profileID'=>$profileId);
- 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);//echo "request Update ";print_r($requestUpdate);//die;
+ 				$requestUpdate=$this->data['requestUpdate']=$this->Apimodel->put('requestContact',$data,$filter);
  				if($requestUpdate)
- 				{
+ 				  {
  					$response=array('code'=>'200','message'=>'request updated successfully');echo json_encode($response);
- 				}
+ 				  }
  				else
- 				 {
+ 				  {
  					$response=array('code'=>'400','message'=>'request failure');echo json_encode($response);die;
- 				}
+ 				  }
  			} 
  			else 
  			{
@@ -70,7 +70,7 @@
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{
- 		$registerUserID=$_POST['registerUserID'];
+ 		$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
  		$result=array();
  		$response=array();
  		if(isset($registerUserID))
