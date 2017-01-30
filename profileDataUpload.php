@@ -7,7 +7,7 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-		$Totaldata=json_decode($_POST['json'],true);print_r($Totaldata);//die;
+		$Totaldata=json_decode($_POST['json'],true);//print_r($Totaldata);//die;
 		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
 		$salary = $Totaldata['profileData']['income'];echo $salary;die;
