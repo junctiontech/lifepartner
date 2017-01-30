@@ -10,7 +10,8 @@ if(!$CONNECTION)
 		$Totaldata=json_decode($_POST['json'],true);print_r($Totaldata);//die;
 		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
-		$income = $Totaldata['profileData']['income'];echo $income;die;
+		$salary = $Totaldata['profileData']['income'];echo $salary;die;
+		$income = $Totaldata['profileData'][0]['income'];
 		$incomes = str_replace(',', '',$income); 
 		$ProfileData = $Totaldata['profileData'];//print_r($ProfileData);die;
 		foreach ($ProfileData as $data){	
