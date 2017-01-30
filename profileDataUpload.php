@@ -11,7 +11,7 @@ if(!$CONNECTION)
 		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
 		$salary = $Totaldata['profileData']['income'];
-		$salary = str_replace(',', '',$salary);echo $salary;die;
+		$salary = str_replace(',', '',$salary);//echo $salary;die;
 		$income = $Totaldata['profileData'][0]['income'];
 		$incomes = str_replace(',', '',$income); 
 		$ProfileData = $Totaldata['profileData'];//print_r($ProfileData);die;
