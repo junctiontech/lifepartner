@@ -7,14 +7,14 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-		$Totaldata=json_decode($_POST['json'],true);print_r($Totaldata);//die;
+		$Totaldata=json_decode($_POST['json'],true);//print_r($Totaldata);//die;
 		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
 		$salary = $Totaldata['profileData']['income'];
 		$salary = str_replace(',', '',$salary);//echo $salary;die;
 		$income = $Totaldata['profileData'][0]['income'];
 		$incomes = str_replace(',', '',$income); 
-		$ProfileData = $Totaldata['profileData'];
+		$ProfileData = $Totaldata['profileData'];print_r($ProfileData);die;
 		foreach ($ProfileData as $data){
 			print_r($data);die;
 		$id=substr(md5(microtime()),rand(0,26),5);
