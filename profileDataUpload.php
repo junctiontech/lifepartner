@@ -53,7 +53,7 @@ if(!$CONNECTION)
 			// $imagename =mysqli_result_assoc($ress);
 			$tempName =$imagename['imageName']; 
 			$filepath = "images/$tempName";
-			
+			echo $filepath;
 			$tempNameAadhar =$imagename['uniqueImageId'];
 			$filepathAdhar = "images/$tempNameAadhar";
 			
