@@ -16,7 +16,7 @@ if(!$CONNECTION)
 		$incomes = str_replace(',', '',$income); 
 		$ProfileData = $Totaldata['profileData'];
 		foreach ($ProfileData as $data){
-			echo "jiii ";print_r($data);	
+			print_r($data);
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
 		$aadharName = $id.'_'.$registerID.'_uniqueId'.'_'.date('dmy_H:i:s').'.jpeg';
@@ -53,7 +53,7 @@ if(!$CONNECTION)
 				  }
 			}
 		else 
-			{	 print_r($serverProfileId);die;
+			{	 
 				$querySearch="Select imageName,uniqueImageId from Profiles where no='$serverProfileId'";				
 				$ress=	mysqli_query($CONNECTION,$querySearch);
 				$imagename=mysqli_fetch_assoc($ress);
