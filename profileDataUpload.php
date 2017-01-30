@@ -1,17 +1,17 @@
 
 <?php
 
-$CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
+$CONNECTION=mysqli_connect("localhost","root","","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
 		$Totaldata=json_decode($_POST['json'],true);//print_r($Totaldata);die;
-		$registerID= $_POST['registeredId'];//echo $registerID;die;
+		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
 		$income = $Totaldata['profileData'][0]['income'];
-		$income = str_replace(',', '',$income);//echo $income;die;
+		$income = str_replace(',', '',$income);echo $income;die;
 		$ProfileData = $Totaldata['profileData'];
 		foreach ($ProfileData as $data){	
 		$id=substr(md5(microtime()),rand(0,26),5);
