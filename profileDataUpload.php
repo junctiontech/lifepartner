@@ -11,7 +11,7 @@ if(!$CONNECTION)
 		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
 		$income = $Totaldata['profileData'][0]['income'];
-		$income = str_replace(',', '',$income);//echo $income;die;
+		$income = str_replace(',', '',$income);echo $income;die;
 		$ProfileData = $Totaldata['profileData'];
 		foreach ($ProfileData as $data){	
 		$id=substr(md5(microtime()),rand(0,26),5);
