@@ -45,10 +45,10 @@ if(!$CONNECTION)
 				$resultUpload[] = array('result'=>"error",'S_no'=>$s_no);
 			}
 			
-		}else {	 
+		}else {	 echo "hiiiiiiii";
 			$querySearch="Select imageName,uniqueImageId from Profiles where no='$serverProfileId'";				
 		$ress=	mysqli_query($CONNECTION,$querySearch);
-			//echo $querySearch;die;
+			echo $querySearch;die;
 		$imagename=mysqli_fetch_assoc($ress);
 			// $imagename =mysqli_result_assoc($ress);
 			$tempName =$imagename['imageName']; 
