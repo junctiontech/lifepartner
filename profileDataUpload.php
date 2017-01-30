@@ -19,7 +19,7 @@ if(!$CONNECTION)
 		$id=substr(md5(microtime()),rand(0,26),5);
 		$name = $id.'_'.$registerID.'_'.date('dmy_H:i:s').'.jpeg';
 		$aadharName = $id.'_'.$registerID.'_uniqueId'.'_'.date('dmy_H:i:s').'.jpeg';
-		$serverProfileId= $data['serverProfileId'];
+		$serverProfileId= $data['serverProfileId'];echo $serverProfileId;
         $s_no=$data['S_no'];
         if ($serverProfileId=='')
         	{
@@ -52,7 +52,7 @@ if(!$CONNECTION)
 				  }
 			}
 		else 
-			{	echo"hello"; print_r($serverProfileId);die;
+			{	 print_r($serverProfileId);die;
 				$querySearch="Select imageName,uniqueImageId from Profiles where no='$serverProfileId'";				
 				$ress=	mysqli_query($CONNECTION,$querySearch);
 				$imagename=mysqli_fetch_assoc($ress);
