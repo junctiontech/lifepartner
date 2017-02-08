@@ -75,10 +75,10 @@
  		$response=array();
  		if(isset($registerUserID))
  		 {
- 			$filter=array('registerUserID'=>$registerUserID);print_r($filter);//die;
+ 			$filter=array('registerUserID'=>$registerUserID);//print_r($filter);//die;
  		 
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
- 			print_r($getRequestList);die;
+ 			
  			if(count($getRequestList)>0)
  			 {  
  				foreach ($getRequestList as $list)
@@ -90,7 +90,6 @@
 	 					  {
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
-	 						//print_r($getData);die;
 	 						if(count($getData)>0)
 	 						 {
 	 							foreach ($getData as $list1)
