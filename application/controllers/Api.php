@@ -78,18 +78,17 @@
  			$filter=array('registerUserID'=>$registerUserID);
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequestList)>0)
- 			 {   echo"testing";print_r($getRequestList);//die;
+ 			 {  
  				foreach ($getRequestList as $list)
  				 {
  				 	if($list->status=='N' || $list->status=='')
  					 { 
 	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
 	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
-	 					echo"testing filter";print_r($getRequestList);
+	 					
 	 					 {
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
-	 						echo"testing new filter";print_r($getRequestList);die;
 	 						if(count($getData)>0)
 	 						 {
 	 							foreach ($getData as $list1)
@@ -107,9 +106,9 @@
 	 							}
 	 						}
 	 					}
-	 					$requestProfileIdFilter=array('no'=>$list->requestProfileID);//print_r($requestProfileIdFilter);die;
+	 					$requestProfileIdFilter=array('no'=>$list->requestProfileID);print_r($requestProfileIdFilter);//die;
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
-	 					
+	 					echo"testing new filter";print_r($getRequestProfileList);die;
  						if(count($getRequestProfileList)>0)
  						{    
  							$profileDetail[]=array(
