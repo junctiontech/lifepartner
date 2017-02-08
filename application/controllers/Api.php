@@ -89,6 +89,7 @@
 	 					 {
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
+	 						echo "hiiii ";print_r($getData);die;
 	 						if(count($getData)>0)
 	 						 {
 	 							foreach ($getData as $list1)
@@ -150,7 +151,7 @@
  									'caste'=>$getRequestProfileList[0]->caste,
  									'subcaste'=>$getRequestProfileList[0]->subcaste,
  									//'message'=>$msg
- 									);print_r($profileDetail);
+ 									);//print_r($profileDetail);
  							}
  					}
  				}
