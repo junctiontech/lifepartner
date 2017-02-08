@@ -17,7 +17,7 @@ class Apimodel extends CI_Model{
 
 	function getfilter($table,$filter)
 	{
-		$qry=$this->db->get_where($table,$filter);
+		$qry=$this->db->get_where($table,$filter); 
 		return $qry->result();
 	}
 	
