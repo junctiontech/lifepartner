@@ -89,7 +89,7 @@
 	 					 {
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
-	 						echo "hiiii ";print_r($getData);die;
+	 						echo "hiiii ";print_r($filterNew);die;
 	 						if(count($getData)>0)
 	 						 {
 	 							foreach ($getData as $list1)
