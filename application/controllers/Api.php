@@ -110,7 +110,7 @@
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
 	 					
  						if(count($getRequestProfileList)>0)
- 						{   echo "request"; print_r($getRequestProfileList);
+ 						{   
  							$profileDetail[]=array(
  									'profileId'=>$getRequestProfileList[0]->no,
  									'registerUserID'=>$getRequestProfileList[0]->registerUserID,
