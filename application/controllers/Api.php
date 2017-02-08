@@ -70,7 +70,7 @@
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{  
- 		$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
+ 		$registerUserID=$_POST['registerUserID'];//print_r($registerUserID);die;
  		$result=array();
  		$response=array();
  		if(isset($registerUserID))
@@ -78,18 +78,18 @@
  			$filter=array('registerUserID'=>$registerUserID);
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequestList)>0)
- 			 {   
+ 			 {   echo"testing";print_r($getRequestList);//die;
  				foreach ($getRequestList as $list)
  				 {
  				 	if($list->status=='N' || $list->status=='')
  					 { 
 	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
 	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
-	 					
-	 					if(count($getRegisterList)>0)
+	 					echo"testing filter";print_r($getRequestList);
 	 					 {
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
+	 						echo"testing new filter";print_r($getRequestList);die;
 	 						if(count($getData)>0)
 	 						 {
 	 							foreach ($getData as $list1)
