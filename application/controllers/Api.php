@@ -19,7 +19,7 @@
  		$request=$_POST['request'];
  		if(isset($request))
  		{
- 			$json=json_decode($request,true);//print_r($json);die; 
+ 			$json=json_decode($request,true);
  			$registerUserID=$json['registerUserID'];
  			$requestRegisterUserID=$json['requestRegisterUserID'];
  			$profileId=$json['profileId'];
@@ -70,13 +70,12 @@
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{
- 		$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
+ 	 	$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
  		$result=array();
  		$response=array();
  		if(isset($registerUserID))
  		{
  			$filter=array('registerUserID'=>$registerUserID);
- 			
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequestList)>0)
  			{
