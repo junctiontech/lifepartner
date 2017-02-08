@@ -70,7 +70,7 @@
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{  
- 		$registerUserID=$_POST['registerUserID'];//print_r($registerUserID);die;
+ 		$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
  		$result=array();
  		$response=array();
  		if(isset($registerUserID))
@@ -261,7 +261,7 @@
     	$request=$_POST['approval'];
     	if(isset($request))
     	{
-    		$json=json_decode($request,true);//print_r($json);
+    		$json=json_decode($request,true);//print_r($json);die;
     		$requestRegisterUserID=$json['requestRegisterUserID'];
     		$registerUserID=$json['registerUserID'];
     		$profileId=$json['profileId'];
@@ -286,19 +286,19 @@
     		}
     	}
     }
-    /* End Function for approval..............................................................................*/
+/* End Function for approval..............................................................................*/
  
     function requestProfile()
     {
-    	$request=$_POST['requestProfile'];
+    	$request=$_POST['requestProfile'];//print_r($request);die;
     	if(isset($request))
     	{
-    		$profileResult=array();
-    		$json=json_decode($request,true);//print_r($json);
+    		$profileResult=array();	
+    		$json=json_decode($request,true);//print_r($json);die;
     		$registerUserID=$json['registerUserID'];
     		//$filter=array('requestRegisterUserID'=>$registerUserID);
     		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilterOrderBy('requestContact',$registerUserID);
-    		//print_r($getRequestStatus);
+    		//print_r($getRequestStatus);die;
     		if(count($getRequestStatus)>0)
     		{
     			foreach($getRequestStatus as $list)
