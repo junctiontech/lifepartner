@@ -189,10 +189,9 @@
  			{
  				foreach ($getRequestList as $list)
  				{
- 					echo "list "; print_r($list);//die;
+ 					
  					$filter=array('no'=>$list->requestProfileID);
  					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
- 					echo "filter";print_r($filter);print_r($getProfileDetails);
  					if(count($getProfileDetails)>0)
  					{
  						$response[]= array(
@@ -234,7 +233,7 @@
  								'caste'=>$getProfileDetails[0]->caste,
  								'subcaste'=>$getProfileDetails[0]->subcaste,
  								//'message'=>$msg
- 							);echo "array";print_r($response);
+ 							);
  					 }
  				}
  				if(isset($response) && count($response)>0)
