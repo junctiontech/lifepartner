@@ -107,9 +107,9 @@
 	 							}
 	 						}
 	 					}
-	 					$requestProfileIdFilter=array('no'=>$list->requestProfileID);//print_r($requestProfileIdFilter);//die;
+	 					$requestProfileIdFilter=array('no'=>$list->requestProfileID);print_r($requestProfileIdFilter);//die;
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
-	 					
+	 					print_r($getRequestProfileList);die;
  						if(count($getRequestProfileList)>0)
  						{   
  							$profileDetail[]=array(
