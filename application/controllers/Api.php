@@ -103,7 +103,7 @@
 			 								'name'=>$getRegisterList[0]->userName,
 			 								'EmailID'=>$getRegisterList[0]->EmailID,
 			 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
-			 						);print_r($response);
+			 						);
 	 							}
 	 						}
 	 					}
