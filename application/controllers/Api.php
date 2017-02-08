@@ -75,28 +75,27 @@
  		$response=array();
  		if(isset($registerUserID))
  		 {
- 			$filter=array('registerUserID'=>$registerUserID);
+ 			$filter=array('registerUserID'=>$registerUserID);print_r($filter);//die;
+ 		 
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
- 			
+ 			print_r($getRequestList);die;
  			if(count($getRequestList)>0)
  			 {  
  				foreach ($getRequestList as $list)
  				 {
  				 	if($list->status=='N' || $list->status=='')
- 					 { print_r($list);die;
+ 					 { 
 	 					$filter=array('registerUserID'=>$list->requestRegisterUserID);
 	 					$getRegisterList=$this->data['getRegisterList']=$this->Apimodel->getfilter('RegisteredUser',$filter);
-	 					
-	 					 {
+	 					  {
 	 						$filterNew=array('no'=>$list->profileID,'registerUserID'=>$list->registerUserID);
 	 						$getData=$this->data['getData']=$this->Apimodel->getfilter('Profiles',$filterNew);
-	 						
+	 						//print_r($getData);die;
 	 						if(count($getData)>0)
 	 						 {
 	 							foreach ($getData as $list1)
 	 							{
-	 							
-			 						$response[]=array(
+	 								$response[]=array(
 			 								'profileName'=>$list1->firstName." ".$list1->lastName,
 			 								'profileID'=>$list->profileID,
 			 								'registerUserID'=>$list->registerUserID,
@@ -104,7 +103,7 @@
 			 								'name'=>$getRegisterList[0]->userName,
 			 								'EmailID'=>$getRegisterList[0]->EmailID,
 			 								'MobileNumber'=>$getRegisterList[0]->MobileNumber
-			 						);
+			 						)	;
 	 							}
 	 						}
 	 					}
@@ -151,7 +150,7 @@
  									'caste'=>$getRequestProfileList[0]->caste,
  									'subcaste'=>$getRequestProfileList[0]->subcaste,
  									//'message'=>$msg
- 									);//print_r($profileDetail);
+ 									);
  							}
  					}
  				}
