@@ -100,7 +100,6 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							'status'=>$result['status'],
 					     );
 				  }
 			}
