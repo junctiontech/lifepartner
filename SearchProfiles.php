@@ -49,16 +49,15 @@ if(!$CONNECTION)
 		while($result=mysqli_fetch_array($query))
 		 {  //print_r($result);//die;
 		 	$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
-			//print_r($queryRequestContact);//die;
+			echo $queryRequestContact;die;
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
-			print_r($sql);
 			if(mysqli_num_rows($sql))
 			{
 			  
 			}
 			else 
 			{ 
-				$from = new DateTime($result['dateOfBirth']);
+				$from = new DateTime($result['dateOfBirth']);print_r($from);die;
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
