@@ -49,7 +49,7 @@ if(!$CONNECTION)
 		while($result=mysqli_fetch_array($query))
 		 {  
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
-			print_r($queryRequestContact);
+			//print_r($queryRequestContact);
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql))
 			{
@@ -101,7 +101,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							);print_r($searchResult);
+							);//print_r($searchResult);
 				  }
 			}
 		}
