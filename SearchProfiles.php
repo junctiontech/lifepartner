@@ -104,11 +104,10 @@ if(!$CONNECTION)
 							);//print_r($searchResult);
 				  }
 			} 
-		}	print_r($searchResult);
-		
+		}
 	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
-	//print_r(json_encode($searchResult));
+	print_r(json_encode($searchResult));
 
 	
 	
