@@ -53,7 +53,7 @@ if(!$CONNECTION)
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql))
 			{
-			  
+			  echo "exit";
 			}
 			else 
 			{ 
