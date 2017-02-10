@@ -8,7 +8,7 @@ if(!$CONNECTION)
 	exit();
 }else{
 	$min_age= $_POST['min_age'];
-	$max_age= $_POST['max_age'];echo $min_age;echo $max_age;die;
+	$max_age= $_POST['max_age'];//echo $min_age;echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
 	$manglik= $_POST['manglik'];
 	$city= $_POST['city'];
@@ -20,7 +20,7 @@ if(!$CONNECTION)
 	$incomes=$explode[0].'00000';
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
-	$registeredId = $_POST['registeredId'];
+	$registeredId = $_POST['registeredId'];echo $registeredId;die;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId' and status='unblock' "; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; } 
 	if(isset($income_above_below)&&!empty($income_above_below))
