@@ -20,7 +20,7 @@ if(!$CONNECTION)
 	$incomes=$explode[0].'00000';
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
-	$registeredId = $_POST['registeredId'];echo $registeredId;die;
+	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId' and status='unblock' "; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; } 
 	if(isset($income_above_below)&&!empty($income_above_below))
@@ -61,7 +61,7 @@ if(!$CONNECTION)
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
 				 {	
-				 	//print_r($age);echo $min_age;echo $max_age;//die;
+				 	echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
