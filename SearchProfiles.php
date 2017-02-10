@@ -101,7 +101,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							);print_r($searchResult);
+							);//print_r($searchResult);
 				  }
 			} 
 		}
