@@ -62,7 +62,7 @@ if(!$CONNECTION)
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
 				 {	
-				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
+				 	echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
@@ -101,7 +101,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							);//print_r($searchResult);
+							);print_r($searchResult);
 				  }
 			}
 		}
