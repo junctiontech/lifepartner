@@ -47,8 +47,8 @@ if(!$CONNECTION)
  	if(mysqli_num_rows($query)!=0)
  	 {   
 		while($result=mysqli_fetch_array($query))
-		 {  print_r(mysqli_fetch_array($query));die;
-		 	$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
+		 {  print_r($query);//die;
+		 	/* $queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 			//print_r($queryRequestContact);//die;
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql))
@@ -103,11 +103,11 @@ if(!$CONNECTION)
 							'subcaste'=>$result['subcaste'],
 							);//print_r($searchResult);
 				  }
-			}
+			} */
 		}
 	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
-	print_r(json_encode($searchResult));
+	//print_r(json_encode($searchResult));
 
 	
 	
