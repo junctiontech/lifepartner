@@ -100,12 +100,12 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							'status'=>$result['status'],
-					     );//print_r($searchResult);die;
+							//'status'=>$result['status'],
+					     );
 				  }
 			}
 		}
-	}echo count($searchResult);
+	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
 	print_r(json_encode($searchResult));
 
