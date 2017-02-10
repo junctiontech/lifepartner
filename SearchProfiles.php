@@ -57,13 +57,12 @@ if(!$CONNECTION)
 			}
 			else 
 			{ 
-				$from = new DateTime($result['dateOfBirth']);			print_r($from);
-			
+				$from = new DateTime($result['dateOfBirth']);
 				$to   = new DateTime('today');
 				$age = $from->diff($to)->y;
 				if ($min_age<=$age && $age <=$max_age)
 				 {	
-				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
+				 	echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
 							'registerUserID'=>$result['registerUserID'],
