@@ -53,7 +53,7 @@ if(!$CONNECTION)
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql))
 			{
-			  echo "testing";
+			  
 			}
 			else 
 			{ 
@@ -105,8 +105,7 @@ if(!$CONNECTION)
 				  }
 			} 
 		}
-	}echo "kdjfkj";
-	//echo count($searchResult);
+	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
 	print_r(json_encode($searchResult));
 
