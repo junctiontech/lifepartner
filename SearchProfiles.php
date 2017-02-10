@@ -33,7 +33,7 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'below')==0)
 		{
 			$incomeIdentity='<'; $none='none';
-			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes or $none "; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes OR '$none' "; }
 		}
 	}
 	if(isset($manglik) && !empty($manglik)){ $query .=" and manglik='$manglik'"; }
