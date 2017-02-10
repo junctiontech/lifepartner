@@ -101,7 +101,7 @@ if(!$CONNECTION)
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
 							'status'=>$result['status'],
-					     );print_r($searchResult);die;
+					     );//print_r($searchResult);die;
 				  }
 			}
 		}
