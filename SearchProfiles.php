@@ -20,7 +20,7 @@ if(!$CONNECTION)
 	$incomes=$explode[0].'00000';
 	$caste=$_POST['caste'];
 	$subCaste=$_POST['subcaste'];
-	$registeredId = $_POST['registeredId'];echo $registeredId;die;
+	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId' and status='unblock' "; }
 	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; } 
 	if(isset($income_above_below)&&!empty($income_above_below))
@@ -49,7 +49,7 @@ if(!$CONNECTION)
 		while($result=mysqli_fetch_array($query))
 		 {  
 			$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
-			//print_r($queryRequestContact);
+			print_r($queryRequestContact);
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql))
 			{
