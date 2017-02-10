@@ -1,5 +1,6 @@
 <?php
 
+//print_r($data);
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
@@ -7,7 +8,7 @@ if(!$CONNECTION)
 	exit();
 }else{
 	$min_age= $_POST['min_age'];
-	$max_age= $_POST['max_age'];echo $min_age;echo $max_age;die;
+	$max_age= $_POST['max_age'];//echo $min_age;echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
 	$manglik= $_POST['manglik'];
 	$city= $_POST['city'];
