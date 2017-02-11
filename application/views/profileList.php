@@ -124,8 +124,9 @@
 					</div>
 					<label class="col-sm-2 control-label" for="field-1">Sub Caste</label>
 					<div class="col-sm-4">
+													<option value="">Please Select Sub Caste</option>
+					
 						<select class="selectboxit s2example-1" id="" name="subCaste">
-								<option value="">Please Select Sub Caste</option>
 								<?php foreach($subCaste as $list){ ?>
 									<option value="<?php echo $list->subcaste?>"><?php echo $list->subcaste; ?></option>
 								<?php } ?>
