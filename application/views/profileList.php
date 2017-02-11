@@ -48,7 +48,7 @@
 				<form method="post" action ="<?=base_url();?>Master/profileList">
 					<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1">Gender<span style="color:red;"> *</span></label>
-						<div class="col-sm-2">
+						<div class="col-sm-4">
 							<select class="selectboxit s2example-1" id="s2example-1" name="gender" onchange="genderChange(this.value);">
 									<?php //foreach($organizationList as $list){ ?>
 									<option value="M">Male</option>
@@ -56,8 +56,8 @@
 									<?php //} ?>
 							</select>
 						</div>
-					<label style="margin-left: 30px;"class="col-sm-2 control-label" for="field-1">Age</label>
-					<div class="col-sm-2" style="margin-left: -100px;">
+					<label style="margin-left: 0px;"class="col-sm-2 control-label" for="field-1">Age</label>
+					<div class="col-sm-4" style="margin-left: 0px;">
 						<div id="male">
 							<select class="selectboxit s2example-1" id="s2example-1" name="maleAge" required>
 									<?php //foreach($organizationList as $list){ ?>
@@ -89,9 +89,20 @@
 							</select>
 						</div>
 					</div>
-					<label class="col-sm-2 control-label" for="field-1">Income</label>
-				 	<div class="col-sm-2" style="    margin-top: -34px;margin-left: 710px;margin-right: 1px;">
-						<select class="selectboxit s2example-1" id="" name="income" >
+					</div>	</br></br></br>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="field-1">City</label>
+						<div class="col-sm-4">
+							<select class="selectboxit s2example-1" id="" name="city">
+								<option value="">Please Select City</option>
+								<?php foreach($city as $list){ ?>
+									<option value="<?php echo $list->city?>"><?php echo $list->city; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<label class="col-sm-2 control-label" for="field-1">Income</label>
+				 		<div class="col-sm-4" style="    margin-top: 0px;margin-left: 0px;margin-right: 0px;">
+							<select class="selectboxit s2example-1" id="" name="income" >
 								<option value="">Please Select Income</option>
 								<option value="100000">1 Lakh</option>
 								<option value="500000">5 Lakh</option>
@@ -104,9 +115,9 @@
 								<option value="4000000">40 Lakh</option>
 								<option value="4500000">45 Lakh</option>
 								<option value="5000000">50 Lakh</option>
-						</select>
-					</div>
-					<div class="col-sm-2" style="margin-top: -30px;margin-left: 870px;">
+							</select>
+						</div>
+					<div class="col-sm-2" style="margin-top: -30px;margin-left: 1150px;">
 						<input type="radio" class=""  name="incomeIdentity" value=">" id="field-1" checked /><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 						<input type="radio" class=""  name="incomeIdentity" value="<" id="field-1" /><i class="fa-thumbs-o-down" aria-hidden="true"></i>
 					</div>
@@ -152,13 +163,17 @@
 				</div>
 				</br></br></br>
 				<div class="form-group">
-					<label class="col-sm-2 control-label" for="field-1">City</label>
+					<label class="col-sm-2 control-label" for="field-1">Date</label>
 					<div class="col-sm-4">
-						<select class="selectboxit s2example-1" id="" name="city">
-								<option value="">Please Select City</option>
-								<?php foreach($city as $list){ ?>
-									<option value="<?php echo $list->city?>"><?php echo $list->city; ?></option>
-								<?php } ?>
+						<select class="selectboxit s2example-1" id="" name="education">
+								<option value="">Please Select Education</option>
+								<?php //foreach($organizationList as $list){ ?>
+								<option value="12th">12th</option>
+								<option value="Graduate">Graduate</option>
+								<option value="Post Graduate">Post Graduate</option>
+								<option value="Doctorate">Doctorate</option>
+								<option value="non-educated">Non Educated</option>
+								<?php // } ?>
 						</select>
 					</div>
 					<label class="col-sm-2 control-label" for="field-1"> Education</label>
@@ -175,8 +190,9 @@
 						</select>
 					</div>
 				</div>
-				<div align="right" style="margin-right: 68px; margin-top: 68px;">
-					<button type="submit" value="" class="btn btn-secondary btn-sm btn-icon icon-left">Search</button>
+				</br></br>
+				<div align="right" style="margin-right:10px; margin-top: 0px;">
+					<button type="submit" value="" class="btn btn-secondary ">Search</button>
 				</div>
 			</form>
 		</div>
