@@ -1,6 +1,6 @@
 function genderChange(value)
 {	
-	alert(value);
+	alert('testing');
 	if(value=='F')
 	{	
 		$('#female').show();
