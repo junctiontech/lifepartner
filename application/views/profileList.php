@@ -118,17 +118,16 @@
 						<select class="selectboxit s2example-1" id="" name="caste">
 								<option value="">Please Select Caste</option>
 								<?php foreach($caste as $list){ ?>
-									<option value="<?php echo $list->caste?>"><?php echo $list->caste; ?></option>
+								<option value="<?php echo $list->caste?>"><?php echo $list->caste; ?></option>
 								<?php } ?>
 						</select>
 					</div>
 					<label class="col-sm-2 control-label" for="field-1">Sub Caste</label>
 					<div class="col-sm-4">
-													<option value="">Please Select Sub Caste</option>
-					
 						<select class="selectboxit s2example-1" id="" name="subCaste">
+								<option value="">Please Select Sub Caste</option>
 								<?php foreach($subCaste as $list){ ?>
-									<option value="<?php echo $list->subcaste?>"><?php echo $list->subcaste; ?></option>
+								<option value="<?php echo $list->subcaste?>"><?php echo $list->subcaste; ?></option>
 								<?php } ?>
 						</select>
 					</div>
