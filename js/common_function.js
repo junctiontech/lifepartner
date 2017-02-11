@@ -5,10 +5,15 @@ function genderChange(value)
 		$('#female').show();
 		$('#male').hide();
 	}
-	else
+	else if(value== 'M')
 	{
 		$('#female').hide();
 		$('#male').show(); 
+	}
+	else if(value=='ALL')
+	{
+		$('#female').show();
+		$('#male').show();
 	}
 }
 
