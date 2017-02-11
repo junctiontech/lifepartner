@@ -47,8 +47,10 @@ if(!$CONNECTION)
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
  	 {   
-		while($result=mysqli_fetch_array($query))
+ 	 	while($result=mysqli_fetch_array($query))
 		 {   //print_r($result['no']);
+		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
+		 	{
 		 	$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 			$sql=mysqli_query($CONNECTION,$queryRequestContact);
 			if(mysqli_num_rows($sql))
@@ -104,6 +106,7 @@ if(!$CONNECTION)
 							);//print_r($searchResult);
 				  }
 			} 
+		  }
 		}
 	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
