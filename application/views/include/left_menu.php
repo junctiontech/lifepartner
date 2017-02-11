@@ -153,7 +153,7 @@
 					<li>
 						<a onclick="return passwordCHeck();" >
 							<i class="linecons-lightbulb" title="Dashboard"></i>
-							<span class="title" >Registration</span>
+							<span class="title" >Created Profile</span>
 						</a>
 					</li>
 				</ul>
