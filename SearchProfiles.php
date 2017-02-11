@@ -22,25 +22,25 @@ if(!$CONNECTION)
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
 	if(!empty($registeredId)){ $query=" registerUserID!='$registeredId' and status='unblock' "; }
-	if(!empty($bride_groom)){ $query .=" and gender='$bride_groom'"; } 
+	if(!empty($bride_groom)){ $query.=" and gender='$bride_groom'"; } 
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
 		if(strcasecmp($income_above_below,'above')==0)
 		{
 			$incomeIdentity='>';
-			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income!='none' and income>=$incomes "; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income>=$incomes "; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)
 		{
 			$incomeIdentity='<'; $none='none';
-			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes OR income='$none' "; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income<=$incomes OR income='$none' "; }
 		}
 	}
-	if(isset($manglik) && !empty($manglik)){ $query .=" and manglik='$manglik'"; }
-	if(!empty($city && $city!=='Select')){ $query .=" and city='$city'"; }
-	if(!empty($caste && $caste!=='Select')){ $query .=" and caste='$caste'"; }
-	if(!empty($subCaste && $subCaste!=='Select')){ $query .=" and subcaste='$subCaste'"; }
-	if(!empty($minHeight) && $minHeight!=='Select'){ $query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
+	if(isset($manglik) && !empty($manglik)){ $query.=" and manglik='$manglik'"; }
+	if(!empty($city && $city!=='Select')){ $query.=" and city='$city'"; }
+	if(!empty($caste && $caste!=='Select')){ $query.=" and caste='$caste'"; }
+	if(!empty($subCaste && $subCaste!=='Select')){ $query.=" and subcaste='$subCaste'"; }
+	if(!empty($minHeight) && $minHeight!=='Select'){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
 	$query=mysqli_query($CONNECTION,$querySearch); 
