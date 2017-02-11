@@ -53,6 +53,7 @@
 									<?php //foreach($organizationList as $list){ ?>
 									<option value="M">Male</option>
 									<option value="F">Female</option>
+									<option value="ALL">ALL</option>
 									<?php //} ?>
 							</select>
 						</div>
