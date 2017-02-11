@@ -42,7 +42,7 @@ if(!$CONNECTION)
 	if(!empty($subCaste && $subCaste!=='Select')){ $query .=" and subcaste='$subCaste'"; }
 	if(!empty($minHeight) && $minHeight!=='Select'){ $query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
 	$querySearch="Select * from Profiles where $query LIMIT 100";
-	
+	echo $querySearch;die;
 	$query=mysqli_query($CONNECTION,$querySearch); 
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
@@ -51,19 +51,19 @@ if(!$CONNECTION)
 		 {   //print_r($result['no']);
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
-		 	$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
-			$sql=mysqli_query($CONNECTION,$queryRequestContact);
-			if(mysqli_num_rows($sql))
-			{
+		 		$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
+				$sql=mysqli_query($CONNECTION,$queryRequestContact);
+				if(mysqli_num_rows($sql))
+				{
 			  
-			}
+				}
 			else 
-			{ 
-				$from = new DateTime($result['dateOfBirth']);
-				$to   = new DateTime('today');
-				$age = $from->diff($to)->y;
-				if ($min_age<=$age && $age <=$max_age)
-				 {	
+				{ 
+					$from = new DateTime($result['dateOfBirth']);
+					$to   = new DateTime('today');
+					$age = $from->diff($to)->y;
+					if ($min_age<=$age && $age <=$max_age)
+					 {	
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
