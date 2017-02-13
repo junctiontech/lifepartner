@@ -28,11 +28,11 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'above')==0)
 		{
 			$incomeIdentity='>';
-			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income!='none' and income>=$incomes "; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income!='0' and income>=$incomes "; }
 		}
 		if(strcasecmp($income_above_below,'below')==0)
 		{
-			$incomeIdentity='<'; $none='none';
+			$incomeIdentity='<'; $none='0';
 			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes and income='$none' "; }
 		}
 	}
