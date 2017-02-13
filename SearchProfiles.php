@@ -64,14 +64,14 @@ if(!$CONNECTION)
 					$age = $from->diff($to)->y;
 					if ($min_age<=$age && $age <=$max_age)
 					 {		
-					 	$none = $result['income']=='0';
-    					if(isset($none)&& !empty($none))
+					 	$None = $result['income']=='0';
+    					if(isset($None)&& !empty($None))
     					  {
     						$incomes='none';
     					   }
     					else
     					   {
-    					    $incomes=$none;
+    					    $incomes=$None;
     					   }
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
