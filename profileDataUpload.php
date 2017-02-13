@@ -36,7 +36,7 @@ if(!$CONNECTION)
         	$none = $data['income']=='none';
         	if(isset($none)&& !empty($none)) 
         	{
-        		$salaryes='0';
+        		$incomes='0';
         	}
         	else 
         	{
