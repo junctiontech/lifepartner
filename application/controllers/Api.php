@@ -1,5 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
  class Api extends CI_Controller{
  	function __construct()
  	{
@@ -78,7 +77,6 @@
  			$filter=array('registerUserID'=>$registerUserID);//print_r($filter);//die;
  		 
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
- 			
  			if(count($getRequestList)>0)
  			 {  
  				foreach ($getRequestList as $list)
@@ -110,6 +108,15 @@
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
 	 					if(count($getRequestProfileList)>0)
  						{   
+ 							$none = $getRequestProfileList[0]->income=='0';
+ 							if(isset($none)&& !empty($none))
+ 							{
+ 								$incomes='none';
+ 							}
+ 							else
+ 							{
+ 								$incomes=$none;
+ 							}
  							$profileDetail[]=array(
  									'profileId'=>$getRequestProfileList[0]->no,
  									'registerUserID'=>$getRequestProfileList[0]->registerUserID,
@@ -126,7 +133,12 @@
  									'highestQualification'=>$getRequestProfileList[0]->highestQualification,
  									'TypeOfBusiness'=>$getRequestProfileList[0]->TypeOfBusiness,
  									'business'=>$getRequestProfileList[0]->business,
- 									'income'=>$getRequestProfileList[0]->income,
+ 									
+ 									
+ 									//'income'=>$getRequestProfileList[0]->income,
+ 									
+ 									'income'=>$incomes,
+ 									
  									'fatherJobProfile'=>$getRequestProfileList[0]->fatherJobProfile,
  									'TypeOfFatherBusiness'=>$getRequestProfileList[0]->TypeOfFatherBusiness,
  									'fatherBusiness'=>$getRequestProfileList[0]->fatherBusiness,
@@ -192,7 +204,16 @@
  					$filter=array('no'=>$list->requestProfileID);
  					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
  					if(count($getProfileDetails)>0)
- 					{
+ 					 {
+ 						$none = $getRequestProfileList[0]->income=='0';
+ 						if(isset($none)&& !empty($none))
+ 						{
+ 							$incomes='none';
+ 						}
+ 						else
+ 						{
+ 							$incomes=$none;
+ 						}
  						$response[]= array(
  								'profileId'=>$getProfileDetails[0]->no,
  								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -209,7 +230,10 @@
  								'highestQualification'=>$getProfileDetails[0]->highestQualification,
  								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
  								'business'=>$getProfileDetails[0]->business,
- 								'income'=>$getProfileDetails[0]->income,
+ 								
+ 								'income'=>$incomes,
+ 								
+ 								
  								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
  								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
  								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
@@ -314,6 +338,16 @@
     							$msg= "Your request not approved";
     						else $msg= "Your request is under processed";
     						
+    						$none = $getRequestProfileList[0]->income=='0';
+    						if(isset($none)&& !empty($none))
+    						{
+    							$incomes='none';
+    						}
+    						else
+    						{
+    							$incomes=$none;
+    						}
+    						
     						$profileResult[]= array(
     								'profileId'=>$getProfileDetails[0]->no,
     								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -331,7 +365,9 @@
     								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
     								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
     								'business'=>$getProfileDetails[0]->business,
-    								'income'=>$getProfileDetails[0]->income,
+    								
+    								'income'=>$incomes,
+    								
     								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
     								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
     								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
