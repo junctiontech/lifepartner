@@ -10,6 +10,7 @@ if(!$CONNECTION)
 		$registerID= $_POST['registeredId'];
 		$resultUpload=array();
 		$incomes = $Totaldata['profileData'][0]['income'];
+		
 		//$incomes = str_replace(',', '',$income);//echo $incomes;die;
 		//$salary = $Totaldata['profileData'][0]['income'];
 		//$salarys = str_replace(',', '', $salary);//echo $salarys;
@@ -28,8 +29,22 @@ if(!$CONNECTION)
        		{
        			$result[]=$rowProfileData['category'];
        		}*/
-        	$salaryes=str_replace(',', '',$data['income']);
-       		/************************ check profile category wise not more than 3 ********************************/
+        	
+        	
+        	
+        	
+        	$salaryes =$data['income']=='none';
+        	if(isset($salaryes)&& !empty($salaryes)) 
+        	{
+        		$incomes='0';
+        	}
+        	else 
+        	{
+        		$salaryes=str_replace(',', '',$data['income']);
+        	}
+        	
+        	
+        	/************************ check profile category wise not more than 3 ********************************/
 			$queryInsert= "insert into Profiles(`registerUserID`,`category` ,`gender`, `firstName`, `lastName`, `fatherName`, `dateOfBirth`,`noOfKids`,`maritalStatus`, `birthPlace`, `heightOfUser`, `birthTime`, `highestQualification`, `userJobProfile`,`TypeOfBusiness`, `business`, `income`,`fatherJobProfile`, `TypeOfFatherBusiness`, `fatherBusiness`, `fatherIncome`, `gautr`, `gautrNanihal`, `zodiacSign`, `star`, `saturn`, `manglik`, `currentAddress`, `permanentAddress`, `emailId`, `mobileNumber`, `WhatsAppNumber`, `dateOfCreation`, `lastUpdationDate`, `imageName`,`uniqueImageId`, `city`, `caste`, `subcaste`,`status`) values('$registerID','".$data['category']."','".$data['gender']."','".$data['firstName']."','".$data['lastName']."','".$data['fatherName']."','".$data['dateOfBirth']."','".$data['no_of_kids']."','".$data['marital_status']."','".$data['birthPlace']."','".$data['heightOfUser']."','".$data['birthTime']."','".$data['highestQualification']."','".$data['userJobProfile']."','".$data['TypeOfBusiness']."','".$data['business']."','$salaryes','".$data['fatherJobProfile']."','".$data['TypeOfFatherBusiness']."','".$data['fatherBusiness']."','".$data['fatherIncome']."','".$data['gautr']."','".$data['gautrNanihal']."','".$data['zodiacSign']."','".$data['star']."','".$data['saturn']."','".$data['manglik']."','".$data['currentAddress']."','".$data['permanentAddress']."','".$data['emailId']."','".$data['mobileNumber']."','".$data['WhatsAppNumber']."','".date('d-m-Y H:i:s')."','".date('d-m-Y H:i:s')."','$name','$aadharName','".$data['city']."','".$data['caste']."','".$data['subcaste']."','unblock')";
 			
 			$a=mysqli_query($CONNECTION,$queryInsert);
@@ -58,7 +73,27 @@ if(!$CONNECTION)
 			$filepath = "images/$tempName";
 			$tempNameAadhar =$imagename['uniqueImageId'];
 			$filepathAdhar = "images/$tempNameAadhar";
-			$salaryes=str_replace(',', '',$data['income']);
+			
+			
+			
+			//$salaryes=str_replace(',', '',$data['income']);
+			
+			$salaryes = $data['income']=='none';
+			if($salaryes)
+			{
+				$incomes='0';
+			}
+			else
+			{
+				$salaryes=str_replace(',', '',$data['income']);
+			}
+			
+			
+			
+			
+			
+			
+			
 				if (unlink($filepath) && unlink($filepathAdhar)){
 					$path = "images/$name";
 					$image= $data['profilePhoto'];
