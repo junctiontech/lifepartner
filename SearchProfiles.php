@@ -71,8 +71,7 @@ if(!$CONNECTION)
     					   }
     					else
     					   {
-    					    $incomes=$None;
-    					   }
+    					  
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
@@ -114,6 +113,7 @@ if(!$CONNECTION)
 							'subcaste'=>$result['subcaste'],
 							);//print_r($searchResult);
 				  }
+				}
 			} 
 		  }
 		}
