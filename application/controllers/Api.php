@@ -69,7 +69,7 @@
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
  	{  
- 		$registerUserID=$_POST['registerUserID'];print_r($registerUserID);die;
+ 		$registerUserID=$_POST['registerUserID'];//print_r($registerUserID);die;
  		$result=array();
  		$response=array();
  		if(isset($registerUserID))
