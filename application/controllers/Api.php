@@ -108,15 +108,14 @@
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
 	 					if(count($getRequestProfileList)>0)
  						{   
- 							$none = $getRequestProfileList[0]->income=='0';
- 							if(isset($none)&& !empty($none))
+ 							/* if($getRequestProfileList[0]->income=='0')
  							{
  								$incomes='none';
  							}
  							else
  							{
- 								$incomes=$none;
- 							}
+ 								$incomes=$getRequestProfileList[0]->income;
+ 							} */
  							$profileDetail[]=array(
  									'profileId'=>$getRequestProfileList[0]->no,
  									'registerUserID'=>$getRequestProfileList[0]->registerUserID,
@@ -135,9 +134,9 @@
  									'business'=>$getRequestProfileList[0]->business,
  									
  									
- 									//'income'=>$getRequestProfileList[0]->income,
+ 									'income'=>$getRequestProfileList[0]->income,
  									
- 									'income'=>$incomes,
+ 									//'income'=>$incomes,
  									
  									'fatherJobProfile'=>$getRequestProfileList[0]->fatherJobProfile,
  									'TypeOfFatherBusiness'=>$getRequestProfileList[0]->TypeOfFatherBusiness,
@@ -204,16 +203,7 @@
  					$filter=array('no'=>$list->requestProfileID);
  					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
  					if(count($getProfileDetails)>0)
- 					 {
- 						$none = $getRequestProfileList[0]->income=='0';
- 						if(isset($none)&& !empty($none))
- 						{
- 							$incomes='none';
- 						}
- 						else
- 						{
- 							$incomes=$none;
- 						}
+ 					{
  						$response[]= array(
  								'profileId'=>$getProfileDetails[0]->no,
  								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -230,10 +220,7 @@
  								'highestQualification'=>$getProfileDetails[0]->highestQualification,
  								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
  								'business'=>$getProfileDetails[0]->business,
- 								
- 								'income'=>$incomes,
- 								
- 								
+ 								'income'=>$getProfileDetails[0]->income,
  								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
  								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
  								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
@@ -338,16 +325,6 @@
     							$msg= "Your request not approved";
     						else $msg= "Your request is under processed";
     						
-    						$none = $getRequestProfileList[0]->income=='0';
-    						if(isset($none)&& !empty($none))
-    						{
-    							$incomes='none';
-    						}
-    						else
-    						{
-    							$incomes=$none;
-    						}
-    						
     						$profileResult[]= array(
     								'profileId'=>$getProfileDetails[0]->no,
     								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -365,9 +342,7 @@
     								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
     								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
     								'business'=>$getProfileDetails[0]->business,
-    								
-    								'income'=>$incomes,
-    								
+    								'income'=>$getProfileDetails[0]->income,
     								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
     								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
     								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
