@@ -78,10 +78,10 @@ if(!$CONNECTION)
 			
 			//$salaryes=str_replace(',', '',$data['income']);
 			
-			$salaryes = $data['income']=='none';
-			if($salaryes)
+			$none = $data['income']=='none';
+			if(isset($none) && !empty($none))
 			{
-				$incomes='0';
+				$salaryes='0';
 			}
 			else
 			{
