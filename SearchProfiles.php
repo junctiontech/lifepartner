@@ -64,8 +64,8 @@ if(!$CONNECTION)
 					$age = $from->diff($to)->y;
 					if ($min_age<=$age && $age <=$max_age)
 					 {		
-					 	$None = $result['income']=='0';
-    					if(isset($None)&& !empty($None))
+					 	$none = $result['income']=='0';
+    					if(isset($none)&& !empty($none))
     					  {
     						$incomes='none';
     					   }
