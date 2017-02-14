@@ -77,10 +77,8 @@
  			$filter=array('registerUserID'=>$registerUserID);//print_r($filter);//die;
  		 
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
- 			print_r($getRequestList);
  			if(count($getRequestList)>0)
  			 {
- 			 	echo "jgnbjdgnbj"; 
  				foreach ($getRequestList as $list)
  				 {
  				 	if($list->status=='N' || $list->status=='')
