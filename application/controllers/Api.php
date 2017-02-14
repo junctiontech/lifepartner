@@ -74,9 +74,10 @@
  		$response=array();
  		if(isset($registerUserID))
  		 {
- 			$filter=array('registerUserID'=>$registerUserID);print_r($filter);//die;
+ 			$filter=array('registerUserID'=>$registerUserID);//print_r($filter);//die;
  		 
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
+ 			print_r($getRequestList);
  			if(count($getRequestList)>0)
  			 {
  			 	echo "jgnbjdgnbj"; 
