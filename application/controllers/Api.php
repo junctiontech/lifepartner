@@ -27,6 +27,7 @@
  			
  			$filter_track_record=array('requestRegisterUserID'=>$requestRegisterUserID);
  			$getCount=$this->data['getCount']=$this->Apimodel->getfilter('requestContact',$filter_track_record);
+ 			print_r($getCount);die;
  			if(count($getCount)>299)
  			{
  				$response=array('code'=>'400','message'=>'You reached my maximum limit, Request Failure');echo json_encode($response);die;
@@ -108,7 +109,7 @@
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
 	 					if(count($getRequestProfileList)>0)
  						{   
- 							  $none = $getRequestProfileList[0]->income=='0';
+ 							 $none = $getRequestProfileList[0]->income=='0';
  							 if(isset($none)&& !empty($none))
  							{
  								$incomes='none';
