@@ -74,11 +74,12 @@
  		$response=array();
  		if(isset($registerUserID))
  		 {
- 			$filter=array('registerUserID'=>$registerUserID);//print_r($filter);//die;
+ 			$filter=array('registerUserID'=>$registerUserID);print_r($filter);//die;
  		 
  			$getRequestList=$this->data['getRequestList']=$this->Apimodel->getfilter('requestContact',$filter);
  			if(count($getRequestList)>0)
- 			 {  
+ 			 {
+ 			 	echo "jgnbjdgnbj"; 
  				foreach ($getRequestList as $list)
  				 {
  				 	if($list->status=='N' || $list->status=='')
@@ -176,7 +177,7 @@
  			}
  			else 
  			{
- 				$response=array('code'=>'400','message'=>'No fggf Request Found');echo json_encode($response);die;
+ 				$response=array('code'=>'400','message'=>'No Request Found');echo json_encode($response);die;
  			}
  		}
  	}
