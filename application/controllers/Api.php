@@ -108,14 +108,14 @@
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
 	 					if(count($getRequestProfileList)>0)
  						{   
- 							/* if($getRequestProfileList[0]->income=='0')
+ 							 if($getRequestProfileList[0]->income=='0')
  							{
  								$incomes='none';
  							}
  							else
  							{
  								$incomes=$getRequestProfileList[0]->income;
- 							} */
+ 							} 
  							$profileDetail[]=array(
  									'profileId'=>$getRequestProfileList[0]->no,
  									'registerUserID'=>$getRequestProfileList[0]->registerUserID,
@@ -134,9 +134,9 @@
  									'business'=>$getRequestProfileList[0]->business,
  									
  									
- 									'income'=>$getRequestProfileList[0]->income,
+ 									//'income'=>$getRequestProfileList[0]->income,
  									
- 									//'income'=>$incomes,
+ 									'income'=>$incomes,
  									
  									'fatherJobProfile'=>$getRequestProfileList[0]->fatherJobProfile,
  									'TypeOfFatherBusiness'=>$getRequestProfileList[0]->TypeOfFatherBusiness,
