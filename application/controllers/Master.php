@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
- class Master extends CI_Controller{
+  
+  class Master extends CI_Controller{
  	function __construct()
  	{
  		parent::__construct();
@@ -23,9 +23,18 @@
  /* Start Function For View Registratio Report......................................................................... */
 	function profileList()
 	{	
+		error_reporting('0');
 	    if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
 		$genders=$this->input->post('gender');
 		$incomes=$this->input->post('income');
+	  	$date=$this->input->post('dateOfCreation');
+		$date_profile_create = explode('-',$date);
+		$start_date = date('d/m/Y' ,strtotime($date_profile_create[0]));//print_r($start_date);die;
+		$start_date_formate = strtotime('-1 month',strtotime($start_date));
+		$start_date_create = date('m/d/Y' , $start_date_formate);
+		$end_date = date('d/m/Y' ,strtotime($date_profile_create[1]));
+		$end_date_time = $end_date .' 12:00:00';
+		
 		$citys=$this->input->post('city');
 		$castes=$this->input->post('caste');
 		$subCastes=$this->input->post('subCaste');
@@ -33,7 +42,8 @@
 		$maxHeight=$this->input->post('maxHeight');
 		$incomeIdentity=$this->input->post('incomeIdentity');
 		$highestQualifications=$this->input->post('education');
-		
+		//$first_date_find = strtotime($date);
+		//echo $first_date_find;die;
 		//print_r($status);die;
 		if($this->input->post('maleAge')!=='')
 		{
@@ -44,29 +54,35 @@
 			$ages=$this->input->post('feMaleAge');
 		}
 		
-		if(!empty($genders)  or !empty($incomes) or !empty($highestQualifications) or !empty($status))
+		if(!empty($genders)  or !empty($incomes) or !empty($highestQualifications) or !empty($date))
 		{	
-			if(!empty($genders)){ $query =" gender='$genders' and status='unblock'";}
+			$query =" status='unblock'";
 			
 			if(isset($incomeIdentity)&&!empty($incomeIdentity))
 			{
 				if(strcasecmp($incomeIdentity,'>')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income$incomeIdentity=$incomes ";}
+					if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income!='none' and income$incomeIdentity=$incomes ";}
 					
 				}
 				if(strcasecmp($incomeIdentity,'<')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity=$incomes OR 'none'";}
+					if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income$incomeIdentity=$incomes OR 'none'";}
 				}
 			}
 			//if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
-			if(!empty($citys)){ $query.=" and city='$citys'"; }
-			if(!empty($castes)){ $query.=" and caste='$castes'"; }
-			if(!empty($subCastes)){ $query.=" and subcaste='$subCastes'"; }
-			if(!empty($minHeight)){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
 			
+			if(isset($genders) && !empty($genders) && $genders !=='all')
+			{
+				if(!empty($genders)){ $query .=" and gender='$genders'"; }
+			}
+			if(!empty($citys)){ $query .=" and city='$citys'"; }
+			if(!empty($date)){ $query .=" and dateOfCreation>='$start_date_create' and dateOfCreation<='$end_date_time'"; }
+			if(!empty($castes)){ $query .=" and caste='$castes'"; }
+			if(!empty($subCastes)){ $query .=" and subcaste='$subCastes'"; }
+			if(!empty($minHeight)){ $query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
+			if(!empty($highestQualifications)){ $query .=" and highestQualification='$highestQualifications'"; }
+			//print_r($query);die;
 			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);
 			//echo "<pre>";print_r($profileLists);die;
 			if(!empty($ages))
@@ -89,10 +105,9 @@
 			}
 		}
 		else
-		{
-			$profileList=$this->data['profileList']=$this->MasterModel->get('Profiles');
-		}
-		
+			{
+				$profileList=$this->data['profileList']=$this->MasterModel->get('Profiles');
+			}
 			$userDetail=$this->data['userDetail']=$this->MasterModel->get();
 			$filter = $userDetail[0]->registerUserID;
 			$user_Id = $this->data['user_Id']=$this->MasterModel->getData('Profiles',array('registerUserID'=>$filter));
@@ -116,13 +131,13 @@
 	/* End Function For View Registratio Report......................................................................... */
 	
 	function profile($id)
-	{ 
+	 { 
 		$profile=$this->data['profile']=$this->MasterModel->getfilter('Profiles',array('no'=>$id));//print_r($profile[0]);die;
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('profile',$this->data);
 		$this->parser->parse('include/footer',$this->data);
-	}
+	 }
 	/* Start Function For Delete profileList Report......................................................................... */
 		
 	function deleteProfileList($id)

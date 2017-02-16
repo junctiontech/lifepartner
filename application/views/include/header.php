@@ -11,8 +11,7 @@
 	<title>Zero Erp</title>
 	<!-- base url defined -->
 	<base href="<?php echo base_url(); ?>"/>
-   
-	<!-- hrms css started added by palak on 20 june -->
+   	<!-- hrms css started added by palak on 20 june -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fonts/linecons/css/linecons.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fonts/fontawesome/css/font-awesome.min.css">
@@ -24,16 +23,27 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/popup_box.css">
+	
+	
+	<link rel="stylesheet" href="<?php echo base_url(); ?>js/daterangepicker-bs3.css">
+	
 	<!-- mandatory scripts starts added by palak on 20th june -->
-	<!-- login page style scripts starts added by ankit singh on 16th may  -->
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/loginstyle.css">
-	<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>js/common_function.js"></script>
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
+		<!-- login page style scripts starts added by ankit singh on 16th may  -->
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/loginstyle.css">
+		
+		<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
+		
+				<script src="<?php echo base_url(); ?>js/moment.js"></script>
+				<script src="<?php echo base_url(); ?>js/moment.min.js"></script>
+				<!--<script src="<?php echo base_url();?>js/jQuery-2.1.4.min.js"></script>-->
+				<script type="text/javascript" src="<?php echo base_url();?>js/daterangepicker.js"></script>
+						
+		<script type="text/javascript" src="<?php echo base_url();?>js/common_function.js"></script>
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+		<![endif]-->
 		<!-- Imported styles for select2 -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/select2/select2.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/select2/select2-bootstrap.css">
