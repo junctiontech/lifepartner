@@ -54,7 +54,7 @@
 			$ages=$this->input->post('feMaleAge');
 		}
 		
-		if(!empty($genders)  or !empty($incomes) or !empty($highestQualifications) or !empty($date))
+		if(!empty($genders) or !empty($ages)  or !empty($minHeight)  or !empty($maxHeight)  or  !empty($incomes) or !empty($citys) or !empty($highestQualifications) or !empty($date))
 		{	
 			$query =" status='unblock'";
 			
@@ -62,26 +62,26 @@
 			{
 				if(strcasecmp($incomeIdentity,'>')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income!='none' and income$incomeIdentity=$incomes ";}
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income!='none' and income$incomeIdentity=$incomes ";}
 					
 				}
 				if(strcasecmp($incomeIdentity,'<')==0)
 				{
-					if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income$incomeIdentity=$incomes OR 'none'";}
+					if(!empty($incomes) && $incomes!=='Select'){ $query.=" and income$incomeIdentity=$incomes OR 'none'";}
 				}
 			}
 			//if(!empty($incomes)){ $query.=" and income$incomeIdentity='$incomes'"; }
 			
 			if(isset($genders) && !empty($genders) && $genders !=='all')
 			{
-				if(!empty($genders)){ $query .=" and gender='$genders'"; }
+				if(!empty($genders)){ $query.=" and gender='$genders'"; }
 			}
-			if(!empty($citys)){ $query .=" and city='$citys'"; }
-			if(!empty($date)){ $query .=" and dateOfCreation>='$start_date_create' and dateOfCreation<='$end_date_time'"; }
-			if(!empty($castes)){ $query .=" and caste='$castes'"; }
-			if(!empty($subCastes)){ $query .=" and subcaste='$subCastes'"; }
-			if(!empty($minHeight)){ $query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
-			if(!empty($highestQualifications)){ $query .=" and highestQualification='$highestQualifications'"; }
+			if(!empty($citys)){ $query.=" and city='$citys'"; }
+			if(!empty($date)){ $query.=" and dateOfCreation>='$start_date_create' and dateOfCreation<='$end_date_time'"; }
+			if(!empty($castes)){ $query.=" and caste='$castes'"; }
+			if(!empty($subCastes)){ $query.=" and subcaste='$subCastes'"; }
+			if(!empty($minHeight)){ $query.=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
+			if(!empty($highestQualifications)){ $query.=" and highestQualification='$highestQualifications'"; }
 			//print_r($query);die;
 			$profileLists=$this->data['profileLists']=$this->MasterModel->ProfilesListGet($query);
 			//echo "<pre>";print_r($profileLists);die;
