@@ -65,6 +65,111 @@
  	}
  	/* End Function for request contact api.......................................................................*/
  	
+ 	/* Request Send profile List View  Function for ..............................................................................*/
+ 	function requestProfile()
+ 	{
+ 		$request=$_POST['requestProfile'];//print_r($request);die;
+ 		if(isset($request))
+ 		{
+ 			$profileResult=array();
+ 			$json=json_decode($request,true);//print_r($json);die;
+ 			$registerUserID=$json['registerUserID'];
+ 			//$filter=array('requestRegisterUserID'=>$registerUserID);
+ 			$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilterOrderBy('requestContact',$registerUserID);
+ 			//print_r($getRequestStatus);die;
+ 			if(count($getRequestStatus)>0)
+ 			{
+ 				foreach($getRequestStatus as $list)
+ 				{
+ 					//     				if($list->status=='Y')
+ 						//     				{
+ 					$filter=array('no'=>$list->profileID);
+ 					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);//print_r($getProfileDetails);die;
+ 					if(count($getProfileDetails)>0)
+ 					{
+ 						if ($list->status=='Y')
+ 							$msg= "Success";
+ 						else if ($list->status=='N')
+ 							$msg= "Your request not approved";
+ 						else $msg= "Your request is under processed";
+ 	
+ 	
+ 	
+ 	
+ 						$NONE = $getProfileDetails[0]->income=='0';
+ 						if(isset($NONE)&& !empty($NONE))
+ 						{
+ 							$incomes ='none';
+ 						}
+ 						else
+ 						{
+ 							$incomes=$getProfileDetails[0]->income;
+ 						}
+ 						$profileResult[]= array(
+ 								'profileId'=>$getProfileDetails[0]->no,
+ 								'registerUserID'=>$getProfileDetails[0]->registerUserID,
+ 								'gender'=>$getProfileDetails[0]->gender,
+ 								'firstName'=>$getProfileDetails[0]->firstName,
+ 								'lastName'=>$getProfileDetails[0]->lastName,
+ 								'fatherName'=>$getProfileDetails[0]->fatherName,
+ 								'dateOfBirth'=>$getProfileDetails[0]->dateOfBirth,
+ 								'birthPlace'=>$getProfileDetails[0]->birthPlace,
+ 								'heightOfUser'=>$getProfileDetails[0]->heightOfUser,
+ 								'birthTime'=>$getProfileDetails[0]->birthTime,
+ 								'no_of_kids'=>$getProfileDetails[0]->noOfKids,
+ 								'marital_status'=>$getProfileDetails[0]->maritalStatus,
+ 								'highestQualification'=>$getProfileDetails[0]->highestQualification,
+ 								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
+ 								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
+ 								'business'=>$getProfileDetails[0]->business,
+ 								'income'=>$incomes,
+ 								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
+ 								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
+ 								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
+ 								'fatherIncome'=>$getProfileDetails[0]->fatherIncome,
+ 								'gautr'=>$getProfileDetails[0]->gautr,
+ 								'gautrNanihal'=>$getProfileDetails[0]->gautrNanihal,
+ 								'zodiacSign'=>$getProfileDetails[0]->zodiacSign,
+ 								'star'=>$getProfileDetails[0]->star,
+ 								'saturn'=>$getProfileDetails[0]->saturn,
+ 								'manglik'=>$getProfileDetails[0]->manglik,
+ 								'currentAddress'=>$getProfileDetails[0]->currentAddress,
+ 								'permanentAddress'=>$getProfileDetails[0]->permanentAddress,
+ 								'emailId'=>$getProfileDetails[0]->emailId,
+ 								'mobileNumber'=>$getProfileDetails[0]->mobileNumber,
+ 								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
+ 								'imageName'=>"http://lifepartner.zeroerp.com/images/".$getProfileDetails[0]->imageName,
+ 								//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
+ 								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+ 								'city'=>$getProfileDetails[0]->city,
+ 								'caste'=>$getProfileDetails[0]->caste,
+ 								'subcaste'=>$getProfileDetails[0]->subcaste,
+ 								'message'=>$msg
+ 	
+ 						);
+ 					}
+ 					//}
+ 				}
+ 				if(count($profileResult)>0 && $list->status=='Y')
+ 				{
+ 					$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
+ 				}
+ 				else if(count($profileResult)>0 && $list->status=='N')
+ 				{
+ 					$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
+ 				}
+ 				else
+ 				{
+ 					$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
+ 				}
+ 			}
+ 			else
+ 			{
+ 				$result=array('code'=>'400','message'=>'You have not requested to any profile');echo json_encode($result);die;
+ 			}
+ 		}
+ 	}
+ 	/* Request Send List Function End ..............................................................................*/
  	
  	/* Start Function for request list get.......................................................................*/
  	function requestList()
@@ -203,6 +308,19 @@
  					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);
  					if(count($getProfileDetails)>0)
  					{
+ 						
+ 						$NONE = $getProfileDetails[0]->income=='0';
+ 						if(isset($NONE)&& !empty($NONE))
+ 						{
+ 							$incomes ='none';
+ 						}
+ 						else
+ 						{
+ 							$incomes=$getProfileDetails[0]->income;
+ 						}
+ 						
+ 						
+ 						
  						$response[]= array(
  								'profileId'=>$getProfileDetails[0]->no,
  								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -219,7 +337,7 @@
  								'highestQualification'=>$getProfileDetails[0]->highestQualification,
  								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
  								'business'=>$getProfileDetails[0]->business,
- 								'income'=>$getProfileDetails[0]->income,
+ 								'income'=>$incomes,
  								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
  								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
  								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
@@ -297,113 +415,5 @@
     }
 /* End Function for approval..............................................................................*/
  
-    function requestProfile()
-    {
-    	$request=$_POST['requestProfile'];//print_r($request);die;
-    	if(isset($request))
-    	{
-    		$profileResult=array();	
-    		$json=json_decode($request,true);//print_r($json);die;
-    		$registerUserID=$json['registerUserID'];
-    		//$filter=array('requestRegisterUserID'=>$registerUserID);
-    		$getRequestStatus=$this->data['getRequestStatus']=$this->Apimodel->getfilterOrderBy('requestContact',$registerUserID);
-    		//print_r($getRequestStatus);die;
-    		if(count($getRequestStatus)>0)
-    		{
-    			foreach($getRequestStatus as $list)
-    			{
-//     				if($list->status=='Y')
-//     				{
-    					$filter=array('no'=>$list->profileID);
-    					$getProfileDetails=$this->data['getProfileDetails']=$this->Apimodel->getfilter('Profiles',$filter);//print_r($getProfileDetails);die;
-    					if(count($getProfileDetails)>0)
-    					{
-    						if ($list->status=='Y')
-    							$msg= "Success";
-    						else if ($list->status=='N')
-    							$msg= "Your request not approved";
-    						else $msg= "Your request is under processed";
-    						
-    						
-    						
-    						
-    						$NONE = $getProfileDetails[0]->income=='0';
-    						if(isset($NONE)&& !empty($NONE))
-    						{
-    							$incomes ='none';
-    						}
-    						else
-    						{
-    							$incomes=$getProfileDetails[0]->income;
-    						}
-    						
-    						
-    						
-    						
-    						$profileResult[]= array(
-    								'profileId'=>$getProfileDetails[0]->no,
-    								'registerUserID'=>$getProfileDetails[0]->registerUserID,
-    								'gender'=>$getProfileDetails[0]->gender,
-    								'firstName'=>$getProfileDetails[0]->firstName,
-    								'lastName'=>$getProfileDetails[0]->lastName,
-    								'fatherName'=>$getProfileDetails[0]->fatherName,
-    								'dateOfBirth'=>$getProfileDetails[0]->dateOfBirth,
-    								'birthPlace'=>$getProfileDetails[0]->birthPlace,
-    								'heightOfUser'=>$getProfileDetails[0]->heightOfUser,
-    								'birthTime'=>$getProfileDetails[0]->birthTime,
-    								'no_of_kids'=>$getProfileDetails[0]->noOfKids,
-    								'marital_status'=>$getProfileDetails[0]->maritalStatus,
-    								'highestQualification'=>$getProfileDetails[0]->highestQualification,
-    								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
-    								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
-    								'business'=>$getProfileDetails[0]->business,
-    								'income'=>$incomes,
-    								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
-    								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
-    								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
-    								'fatherIncome'=>$getProfileDetails[0]->fatherIncome,
-    								'gautr'=>$getProfileDetails[0]->gautr,
-    								'gautrNanihal'=>$getProfileDetails[0]->gautrNanihal,
-    								'zodiacSign'=>$getProfileDetails[0]->zodiacSign,
-    								'star'=>$getProfileDetails[0]->star,
-    								'saturn'=>$getProfileDetails[0]->saturn,
-    								'manglik'=>$getProfileDetails[0]->manglik,
-    								'currentAddress'=>$getProfileDetails[0]->currentAddress,
-    								'permanentAddress'=>$getProfileDetails[0]->permanentAddress,
-    								'emailId'=>$getProfileDetails[0]->emailId,
-    								'mobileNumber'=>$getProfileDetails[0]->mobileNumber,
-    								'WhatsAppNumber'=>$getProfileDetails[0]->WhatsAppNumber,
-    								'imageName'=>"http://lifepartner.zeroerp.com/images/".$getProfileDetails[0]->imageName,
-    								//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
-    								//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
-    								'city'=>$getProfileDetails[0]->city,
-    								'caste'=>$getProfileDetails[0]->caste, 
-    								'subcaste'=>$getProfileDetails[0]->subcaste,
-    								'message'=>$msg
-    								
-    						);
-    					}
-    				//}
-    			}
-    			if(count($profileResult)>0 && $list->status=='Y')
-    			{
-    				$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
-    			}
-    			else if(count($profileResult)>0 && $list->status=='N')
-    			{
-    				$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
-    			}
-    			else 
-    			{
-    				$result=array('code'=>'200','data'=>$profileResult);echo json_encode($result);die;
-    			}
-    		}
-    		else 
-    		{
-    			$result=array('code'=>'400','message'=>'You have not requested to any profile');echo json_encode($result);die;
-    		}
-    	}
-    }
-    
-    
- }
+
+  }
