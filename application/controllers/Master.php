@@ -31,9 +31,9 @@
 		$date_profile_create = explode('-',$date);
 		$start_date = date('d/m/Y' ,strtotime($date_profile_create[0]));//print_r($start_date);die;
 		$start_date_formate = strtotime('-1 month',strtotime($start_date));
-		print_r($start_date_formate);die;
 		
-		$start_date_create = date('m/d/Y' , $start_date_formate);
+		
+		$start_date_create = date('m/d/Y' , $start_date_formate);print_r($start_date_create);die;
 		$end_date = date('d/m/Y' ,strtotime($date_profile_create[1]));
 		$end_date_time = $end_date .' 12:00:00';
 		
