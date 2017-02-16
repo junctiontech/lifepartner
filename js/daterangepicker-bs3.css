@@ -17,11 +17,11 @@
   margin: 4px;
 }
 
-.daterangepicker.opensright .ranges, .daterangepicker.opensright .calendar,
-.daterangepicker.openscenter .ranges, .daterangepicker.openscenter .calendar {
+ .daterangepicker.opensright .ranges, .daterangepicker.opensright .calendar,
+ .daterangepicker.openscenter .ranges, .daterangepicker.openscenter .calendar {
   float: right;
   margin: 4px;
-}
+ }
 
 .daterangepicker.single .ranges, .daterangepicker.single .calendar {
   float: none;

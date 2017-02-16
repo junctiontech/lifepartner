@@ -43,8 +43,8 @@
         //tracks visible state
         this.isShowing = false;
 
-        //create the picker HTML object
-        var DRPTemplate = '<div class="daterangepicker dropdown-menu">' +
+         //create the picker HTML object
+         var DRPTemplate = '<div class="daterangepicker dropdown-menu">' +
                 '<div class="calendar first left"></div>' +
                 '<div class="calendar second right"></div>' +
                 '<div class="ranges">' +

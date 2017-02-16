@@ -11,7 +11,6 @@ function genderChange(value)
 		$('#male').show(); 
 	}
 }
-
 function height(value)
 {	
 	$.ajax({
