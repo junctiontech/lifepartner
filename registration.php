@@ -24,7 +24,7 @@ if(!$CONNECTION)
 	   else 
 		{
 			$result= array('code'=>'200','message'=>'mobile number not correct');
-			print_r(json_encode($result));
+			print_r(json_encode($result));die;
 		}
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$count=mysqli_num_rows($query);
