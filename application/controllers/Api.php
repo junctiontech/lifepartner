@@ -108,60 +108,60 @@
 	 					$getRequestProfileList=$this->data['getRequestProfileList']=$this->Apimodel->getfilter('Profiles',$requestProfileIdFilter);
 	 					if(count($getRequestProfileList)>0)
  						{   
- 							  $none = $getRequestProfileList[0]->income=='0';
+ 							 $none = $getRequestProfileList[0]->income=='0';
  							 if(isset($none)&& !empty($none))
- 							{
- 								$incomes='none';
- 							}
- 							else
- 							{
+ 							  {
+ 								$incomes ='none';
+ 							  }
+ 						   else
+ 							  {
  								$incomes=$getRequestProfileList[0]->income;
- 							} 
+ 							  } 
  							$profileDetail[]=array(
- 									'profileId'=>$getRequestProfileList[0]->no,
- 									'registerUserID'=>$getRequestProfileList[0]->registerUserID,
- 									'gender'=>$getRequestProfileList[0]->gender,
- 									'firstName'=>$getRequestProfileList[0]->firstName,
- 									'lastName'=>$getRequestProfileList[0]->lastName,
- 									'fatherName'=>$getRequestProfileList[0]->fatherName,
- 									'dateOfBirth'=>$getRequestProfileList[0]->dateOfBirth,
- 									'birthPlace'=>$getRequestProfileList[0]->birthPlace,
- 									'heightOfUser'=>$getRequestProfileList[0]->heightOfUser,
- 									'birthTime'=>$getRequestProfileList[0]->birthTime,
- 									'no_of_kids'=>$getRequestProfileList[0]->noOfKids,
- 									'marital_status'=>$getRequestProfileList[0]->maritalStatus,
- 									'highestQualification'=>$getRequestProfileList[0]->highestQualification,
- 									'TypeOfBusiness'=>$getRequestProfileList[0]->TypeOfBusiness,
- 									'business'=>$getRequestProfileList[0]->business,
- 									
- 									//'income'=>$getRequestProfileList[0]->income,
- 									'income'=>$incomes,
- 									
- 									'fatherJobProfile'=>$getRequestProfileList[0]->fatherJobProfile,
- 									'TypeOfFatherBusiness'=>$getRequestProfileList[0]->TypeOfFatherBusiness,
- 									'fatherBusiness'=>$getRequestProfileList[0]->fatherBusiness,
- 									'fatherIncome'=>$getRequestProfileList[0]->fatherIncome,
- 									'gautr'=>$getRequestProfileList[0]->gautr,
- 									'gautrNanihal'=>$getRequestProfileList[0]->gautrNanihal,
- 									'zodiacSign'=>$getRequestProfileList[0]->zodiacSign,
- 									'star'=>$getRequestProfileList[0]->star,
- 									'saturn'=>$getRequestProfileList[0]->saturn,
- 									'manglik'=>$getRequestProfileList[0]->manglik,
- 									'currentAddress'=>$getRequestProfileList[0]->currentAddress,
- 									'permanentAddress'=>$getRequestProfileList[0]->permanentAddress,
- 									'emailId'=>$getRequestProfileList[0]->emailId,
- 									'mobileNumber'=>$getRequestProfileList[0]->mobileNumber,
- 									'WhatsAppNumber'=>$getRequestProfileList[0]->WhatsAppNumber,
- 									'imageName'=>"http://lifepartner.zeroerp.com/images/".$getRequestProfileList[0]->imageName,
- 									//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
- 									//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
- 									'city'=>$getRequestProfileList[0]->city,
- 									'caste'=>$getRequestProfileList[0]->caste,
- 									'subcaste'=>$getRequestProfileList[0]->subcaste,
- 									//'message'=>$msg
- 									);
+		 									'profileId'=>$getRequestProfileList[0]->no,
+		 									'registerUserID'=>$getRequestProfileList[0]->registerUserID,
+		 									'gender'=>$getRequestProfileList[0]->gender,
+		 									'firstName'=>$getRequestProfileList[0]->firstName,
+		 									'lastName'=>$getRequestProfileList[0]->lastName,
+		 									'fatherName'=>$getRequestProfileList[0]->fatherName,
+		 									'dateOfBirth'=>$getRequestProfileList[0]->dateOfBirth,
+		 									'birthPlace'=>$getRequestProfileList[0]->birthPlace,
+		 									'heightOfUser'=>$getRequestProfileList[0]->heightOfUser,
+		 									'birthTime'=>$getRequestProfileList[0]->birthTime,
+		 									'no_of_kids'=>$getRequestProfileList[0]->noOfKids,
+		 									'marital_status'=>$getRequestProfileList[0]->maritalStatus,
+		 									'highestQualification'=>$getRequestProfileList[0]->highestQualification,
+		 									'TypeOfBusiness'=>$getRequestProfileList[0]->TypeOfBusiness,
+		 									'business'=>$getRequestProfileList[0]->business,
+		 									
+		 									//'income'=>$getRequestProfileList[0]->income,
+		 									'income'=>$incomes,
+		 									
+		 									'fatherJobProfile'=>$getRequestProfileList[0]->fatherJobProfile,
+		 									'TypeOfFatherBusiness'=>$getRequestProfileList[0]->TypeOfFatherBusiness,
+		 									'fatherBusiness'=>$getRequestProfileList[0]->fatherBusiness,
+		 									'fatherIncome'=>$getRequestProfileList[0]->fatherIncome,
+		 									'gautr'=>$getRequestProfileList[0]->gautr,
+		 									'gautrNanihal'=>$getRequestProfileList[0]->gautrNanihal,
+		 									'zodiacSign'=>$getRequestProfileList[0]->zodiacSign,
+		 									'star'=>$getRequestProfileList[0]->star,
+		 									'saturn'=>$getRequestProfileList[0]->saturn,
+		 									'manglik'=>$getRequestProfileList[0]->manglik,
+		 									'currentAddress'=>$getRequestProfileList[0]->currentAddress,
+		 									'permanentAddress'=>$getRequestProfileList[0]->permanentAddress,
+		 									'emailId'=>$getRequestProfileList[0]->emailId,
+		 									'mobileNumber'=>$getRequestProfileList[0]->mobileNumber,
+		 									'WhatsAppNumber'=>$getRequestProfileList[0]->WhatsAppNumber,
+		 									'imageName'=>"http://lifepartner.zeroerp.com/images/".$getRequestProfileList[0]->imageName,
+		 									//'uniqueImageId'=>"http://".$_SERVER['HTTP_HOST']."/images/".$result['uniqueImageId'],
+		 									//'imageName'=>"http://lifepartner.zeroerp.com/images/".$result['imageName'],
+		 									'city'=>$getRequestProfileList[0]->city,
+		 									'caste'=>$getRequestProfileList[0]->caste,
+		 									'subcaste'=>$getRequestProfileList[0]->subcaste,
+		 									//'message'=>$msg
+ 										 );
+ 									}	
  							}
- 					}
  				}
  				if(isset($response) && count($response)>0)
  				{
