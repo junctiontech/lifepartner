@@ -15,9 +15,9 @@ if(!$CONNECTION)
 		$userName = $data['userName'];
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
-		if(isset($MobileNumber)&& !empty($MobileNumber)&&count($MobileNumber)<=10)
+		if(isset($MobileNumber)&& !empty($MobileNumber)&&count($MobileNumber)<10)
 		{
-			$result= array('code'=>'200','message'=>'Mobile number not correct');
+			$result= array('code'=>'401','message'=>'Mobile number not correct');
 			print_r(json_encode($result));die;
 		}
 		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
