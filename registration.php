@@ -17,13 +17,13 @@ if(!$CONNECTION)
 		$MobileNumber = $data['MobileNumber'];
 		$number = preg_replace("%[^0-9]%", "", $MobileNumber );
 		$length = strlen($number);
-		if ( $length == 10 || $length == 7 ) 
+		if ( $length == 10 || $length == 12 ) 
 		{
 			$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
 		}
 	   else 
 		{
-			$result= array('code'=>'200','message'=>'mobile number not correct');
+			$result= array('code'=>'400','message'=>'mobile number not correct');
 			print_r(json_encode($result));die;
 		}
 		$query=mysqli_query($CONNECTION,$querySearch);
