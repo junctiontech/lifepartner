@@ -15,18 +15,15 @@ if(!$CONNECTION)
 		$userName = $data['userName'];
 		$EmailID = $data['EmailID'];
 		$MobileNumber = $data['MobileNumber'];
-		if(isset($MobileNumber)&& !empty($MobileNumber)&&count($MobileNumber)<10)
+		if (preg_match('/^0\d{9}$/', $MobileNumber) ) 
 		{
-			$result= array('code'=>'200','message'=>'Mobile number not correct');
-			print_r(json_encode($result));
-		}
-		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
-		$query=mysqli_query($CONNECTION,$querySearch);
-		$count=mysqli_num_rows($query);
-		while($result=mysqli_fetch_assoc($query))
-		{    
-			$row[]=$result;
+			$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
+			$query=mysqli_query($CONNECTION,$querySearch);
+			$count=mysqli_num_rows($query);
+			while($result=mysqli_fetch_assoc($query))
+			{    
+				$row[]=$result;
+			}
 		}
 		if(count($row)>0) 
 		{  
