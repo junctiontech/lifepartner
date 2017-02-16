@@ -29,12 +29,12 @@
 		$incomes=$this->input->post('income');
 	  	$date=$this->input->post('dateOfCreation');
 		$date_profile_create = explode('-',$date);
-		$start_date = date('d/m/Y' ,strtotime($date_profile_create[0]));//print_r($start_date);die;
-		$start_date_formate = strtotime('-1 month',strtotime($start_date));
+		$start_date = date('m/d/Y' ,strtotime($date_profile_create[0]));//print_r($date_profile_create);die;
+		$start_date_formate = strtotime('-1 day',strtotime($start_date));
 		
 		
-		$start_date_create = date('m/d/Y' , $start_date_formate);//print_r($start_date_create);die;
-		$end_date = date('d/m/Y' ,strtotime($date_profile_create[1]));
+		$start_date_create = date('d/m/Y' ,strtotime($start_date_formate));//print_r($start_date_create);die;
+		$end_date = date('d/m/Y' ,strtotime($date_profile_create[1]));//print_r($start_date_create);die;
 		$end_date_time = $end_date .' 12:00:00';
 		
 		$citys=$this->input->post('city');
