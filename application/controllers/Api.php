@@ -324,6 +324,22 @@
     							$msg= "Your request not approved";
     						else $msg= "Your request is under processed";
     						
+    						
+    						
+    						
+    						$NONE = $getProfileDetails[0]->income=='0';
+    						if(isset($NONE)&& !empty($NONE))
+    						{
+    							$incomes ='none';
+    						}
+    						else
+    						{
+    							$incomes=$getProfileDetails[0]->income;
+    						}
+    						
+    						
+    						
+    						
     						$profileResult[]= array(
     								'profileId'=>$getProfileDetails[0]->no,
     								'registerUserID'=>$getProfileDetails[0]->registerUserID,
@@ -341,7 +357,7 @@
     								//'userJobProfile'=>$getProfileDetails['userJobProfile'],
     								'TypeOfBusiness'=>$getProfileDetails[0]->TypeOfBusiness,
     								'business'=>$getProfileDetails[0]->business,
-    								'income'=>$getProfileDetails[0]->income,
+    								'income'=>$incomes,
     								'fatherJobProfile'=>$getProfileDetails[0]->fatherJobProfile,
     								'TypeOfFatherBusiness'=>$getProfileDetails[0]->TypeOfFatherBusiness,
     								'fatherBusiness'=>$getProfileDetails[0]->fatherBusiness,
