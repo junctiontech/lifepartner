@@ -17,7 +17,7 @@ if(!$CONNECTION)
 		$MobileNumber = $data['MobileNumber'];
 		$number = preg_replace("%[^0-9]%", "", $MobileNumber );
 		$length = strlen($number);
-		$numberlength == 10;
+		$numberlength = $length == 10;
 		if(isset($numberlength)&&!empty($numberlength)) 
 		{
 			$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
