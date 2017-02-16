@@ -20,8 +20,9 @@ if(!$CONNECTION)
 			$result= array('code'=>'200','message'=>'Mobile number not correct');
 			print_r(json_encode($result));die;
 		}
-		
-		$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
+		else{
+			$querySearch="Select * from RegisteredUser,Profiles where RegisteredUser.MobileNumber='$MobileNumber' and RegisteredUser.registerUserID=Profiles.registerUserID";//echo $querySearch;
+			}
 		$query=mysqli_query($CONNECTION,$querySearch);
 		$count=mysqli_num_rows($query);
 		while($result=mysqli_fetch_assoc($query))
