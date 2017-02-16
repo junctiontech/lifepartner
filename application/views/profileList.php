@@ -85,7 +85,7 @@
 											<option value="">Please Select Age</option>
 											<option value="18-25">18-25 Year</option>
 											<option value="25-30">25-30 Year</option>
-											<option value="31-35">31-35 Year</option>
+											<option value="30-35">31-35 Year</option>
 											<option value="35-40">35-40 Year</option>
 											<option value="40-45">40-45 Year</option>
 											<option value="45-50">45-50 Year</option>
