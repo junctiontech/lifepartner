@@ -8,8 +8,8 @@ if(!$CONNECTION)
 	exit();
 }else{
 	//json_encode($_POST[]);
-	print_r(json_encode($_POST[]));
-	die();
+	/* print_r(json_encode($_POST[]));
+	die(); */
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];//echo $min_age;echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
