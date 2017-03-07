@@ -365,6 +365,7 @@ if(isset($_SERVER['REQUEST_METHOD']) &&!empty($_SERVER['REQUEST_METHOD']))
 		if(isset($_GET['action'])&&!empty($_GET['action']) &&$_GET['action']=='searchCaste')
 		{
 			$param=json_decode($_POST['data'],true);
+			print_r("Hello");die();
 			$databaseName=$_GET['databaseName'];
 			$response=$instance->casteSearch($databaseName,$param);
 			echo json_encode($response);die;
