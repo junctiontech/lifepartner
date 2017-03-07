@@ -3,7 +3,6 @@ include("Sqlfile.php");
 class FilterApi extends sqlfile
 {
 	private $table='Profiles';
-
 	
 	########## Authontication Check Function is Abstrect Method In Every Api You Shoud Used ############
 	function AuthonticationCheck($databaseName)
