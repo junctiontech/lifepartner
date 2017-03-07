@@ -85,7 +85,7 @@ class FilterApi extends sqlfile
 		if(isset($connection) && !empty($connection) && $connection!==0)
 		{
 			$list=array();
-			$sql="select caste from Profiles where caste like '%".$param['value']."%'";
+			$sql="select DISTINCT caste from Profiles where caste like '%".'b'."%'";
 			//$response=array('code'=>'200','message'=>'Valid Id','result'=>$sql);return $response;die;
 			$searchDataQuery=mysqli_query($connection, $sql);
 			if(mysqli_num_rows($searchDataQuery)>0)
