@@ -107,6 +107,34 @@ class FilterApi extends sqlfile
 		}
 	}
 	
+	function subcasteSearch($databaseName,$param)
+	{
+		$connection=Config::connection($databaseName);
+		if(isset($connection) && !empty($connection) && $connection!==0)
+		{
+			$list=array();
+			$sql="select DISTINCT subcaste from Profiles where subcaste like '%".$param['value']."%'";
+			//$response=array('code'=>'200','message'=>'Valid Id','result'=>$sql);return $response;die;
+			$searchDataQuery=mysqli_query($connection, $sql);
+			if(mysqli_num_rows($searchDataQuery)>0)
+			{
+				while($searchList=mysqli_fetch_assoc($searchDataQuery))
+				{
+					$list[]=$searchList;
+				}
+				$response=array('code'=>'200','message'=>'Valid Id','result'=>$list);return $response;die;
+			}
+			else
+			{
+				$response=array('code'=>'401','message'=>'Data Not Found','result'=>'');return $response;die;
+			}
+		}
+		else
+		{
+			$response=array('code'=>'502','message'=>'Bad Gateway or Connection Failed','result'=>mysqli_error($connection));return $response;
+		}
+	}
+	
 	
 	function MultiInsert($databaseName,$param)
 	{
@@ -369,6 +397,16 @@ if(isset($_SERVER['REQUEST_METHOD']) &&!empty($_SERVER['REQUEST_METHOD']))
 			$response=$instance->casteSearch($databaseName,$param);
 			echo json_encode($response);die;
 		}
+		
+		if(isset($_GET['action'])&&!empty($_GET['action']) &&$_GET['action']=='searchSubCaste')
+		{
+			$param=json_decode($_POST['data'],true);
+			$databaseName=$_GET['databaseName'];
+			$response=$instance->subcasteSearch($databaseName,$param);
+			echo json_encode($response);die;
+		}
+		
+		
 		if(isset($_GET['action'])&&!empty($_GET['action']) &&$_GET['action']=='multipleStopageMasterEntrys')
 		{
 			$param=json_decode($_POST['data'],true);
