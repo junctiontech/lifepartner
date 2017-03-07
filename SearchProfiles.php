@@ -7,6 +7,8 @@ if(!$CONNECTION)
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
+	print_r($_POST[]);
+	die();
 	$min_age= $_POST['min_age'];
 	$max_age= $_POST['max_age'];//echo $min_age;echo $max_age;die;
 	$bride_groom= $_POST['bride_groom'];
@@ -36,11 +38,26 @@ if(!$CONNECTION)
 			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes and income='$none' "; }
 		}
 	}
-	if(isset($manglik) && !empty($manglik)){ $query .=" and manglik='$manglik'"; }
-	if(!empty($city && $city!=='Select')){ $query .=" and city='$city'"; }
-	if(!empty($caste && $caste!=='Select')){ $query .=" and caste='$caste'"; }
-	if(!empty($subCaste && $subCaste!=='Select')){ $query .=" and subcaste='$subCaste'"; }
-	if(!empty($minHeight) && $minHeight!=='Select'){ $query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; }
+	if(isset($manglik) && !empty($manglik))
+	{
+		$query .=" and manglik='$manglik'"; 
+	}
+	if(!empty($city && $city!=='Select'))
+	{ 
+		$query .=" and city='$city'"; 
+	}
+	if(!empty($caste && $caste!=='Select'))
+	{ 
+		$query .=" and caste='$caste'";
+	}
+	if(!empty($subCaste && $subCaste!=='Select'))
+	{ 
+		$query .=" and subcaste='$subCaste'"; 
+	}
+	if(!empty($minHeight) && $minHeight!=='Select')
+	{ 
+		$query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; 
+	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
 	$query=mysqli_query($CONNECTION,$querySearch); 
