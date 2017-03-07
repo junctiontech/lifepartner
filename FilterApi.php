@@ -81,7 +81,7 @@ class FilterApi extends sqlfile
 	
 	function casteSearch($databaseName,$param)
 	{
-		$connection=Config::getConnection($databaseName);
+		$connection=Config::connection($databaseName);
 		if(isset($connection) && !empty($connection) && $connection!==0)
 		{
 			$list=array();
