@@ -92,7 +92,10 @@ if(!$CONNECTION)
 					
 					//print_r("in else");
 					if($result['dateOfBirth'] == 'Select Date')
-						continue;
+					{
+						//continue;
+						goto withoutDate;
+					}
 					
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
@@ -105,7 +108,7 @@ if(!$CONNECTION)
 					
 					if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
 					 {		
-					 	
+					 	withoutDate:
 					 //	print_r("in if min age");
 					
 					 	 $none = $result['income']=='0';
