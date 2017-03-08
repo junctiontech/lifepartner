@@ -91,6 +91,9 @@ if(!$CONNECTION)
 				{ 
 					
 					print_r("in else");
+					if($result['dateOfBirth'] == 'Select Date')
+						continue;
+					
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
