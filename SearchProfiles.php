@@ -150,7 +150,7 @@ if(!$CONNECTION)
 							'age'=>	$age,
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
-							'subcaste'=>$result['subcaste'],
+							'subcaste'=>$result['subcaste']
 							);//print_r($searchResult);
 				 
 				}
