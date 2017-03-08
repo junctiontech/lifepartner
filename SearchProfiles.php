@@ -129,12 +129,19 @@ if(!$CONNECTION)
     					   	$max_height_arr = explode('.', $maxHeight);
     					   	$res_max = ($max_height_arr[0]*12+$max_height_arr[1])*2.54;
     					   	
+    					   	$min_height_arr = explode('.', $minHeight);
+    					   	$res_min = ($min_height_arr[0]*12+$min_height_arr[1])*2.54;
+    					   	
     					   	$heightOfUser = $result['heightOfUser'];
     					   	$heightOfUser_arr = explode('.', $heightOfUser);
     					   	$heightOfUser_max = ($heightOfUser_arr[0]*12+$heightOfUser_arr[1])*2.54;
     					   	
-    					   	if($heightOfUser_max>$res_max)
-    					   	continue;
+    					   	if($res_min<=$heightOfUser_max and $res_max>=$heightOfUser_max)
+    					   	{
+    					   		
+    					   	}
+    					   		
+    					   		else continue;
     					   
     					   }
     					   
