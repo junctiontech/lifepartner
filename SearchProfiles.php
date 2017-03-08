@@ -66,6 +66,8 @@ if(!$CONNECTION)
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
+	print_r($querySearch);die();
+	
 	$query=mysqli_query($CONNECTION,$querySearch); 
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
