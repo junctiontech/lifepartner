@@ -74,9 +74,10 @@ if(!$CONNECTION)
  	 {   
  	 	while($result=mysqli_fetch_array($query))
 		 {   
+		 	
+		 	print_r("test");
+		 	print_r($result['dateOfBirth']);
 		 
-		 //	print_r($result['dateOfBirth']);
-		 //	$result['dateOfBirth'];
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
@@ -90,16 +91,16 @@ if(!$CONNECTION)
 				{ 
 					
 					print_r("in else");
-				//	$from = new DateTime($result['dateOfBirth']);
-				//	$to   = new DateTime('today');
-				//	$age = $from->diff($to)->y;
+					$from = new DateTime($result['dateOfBirth']);
+					$to   = new DateTime('today');
+					$age = $from->diff($to)->y;
 					
-				//	print_r($age."\n");
-				//	$min_age_ex = explode(" ",$min_age);
-				//	$max_age_ex = explode(" ",$max_age);
+					print_r($age."\n");
+					$min_age_ex = explode(" ",$min_age);
+					$max_age_ex = explode(" ",$max_age);
 					
 					
-				//	if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
+					if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
 					 {		
 					 	
 					 //	print_r("in if min age");
@@ -157,8 +158,8 @@ if(!$CONNECTION)
 				//	print_r($searchResult);
 				 
 				}
-				/* else 
-					print_r("in else min age"); */
+				else 
+					print_r("in else min age");
 			} 
 		  }
 		  else
