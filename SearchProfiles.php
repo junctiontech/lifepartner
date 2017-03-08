@@ -74,7 +74,7 @@ if(!$CONNECTION)
 		 {   
 		 	
 		 	print_r($result);
-		 	die();
+		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
 		 		$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
