@@ -48,13 +48,9 @@ if(!$CONNECTION)
 	{
 		$query .=" and manglik='$manglik'"; 
 	}
-	if(!empty($city && $city!='Select'))
+	if(!empty($city && $city!=='Select'))
 	{ 
 		$query .=" and city='$city'"; 
-	}
-	if(!empty($city && $city=='Select'))
-	{
-		$query .=" and city!=Select";
 	}
 	if(!empty($caste && $caste!=='Select'))
 	{ 
@@ -70,7 +66,7 @@ if(!$CONNECTION)
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
-	//print_r($querySearch);die();
+//	print_r($querySearch);die();
 	
 	$query=mysqli_query($CONNECTION,$querySearch); 
  	$searchResult=array();
@@ -79,7 +75,7 @@ if(!$CONNECTION)
  	 	while($result=mysqli_fetch_array($query))
 		 {   
 		 	
-		 	//print_r($result);
+		 	print_r($result);
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
