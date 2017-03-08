@@ -75,7 +75,7 @@ if(!$CONNECTION)
  	 	while($result=mysqli_fetch_array($query))
 		 {   
 		 	
-		 	print_r($result);
+		// 	print_r($result);
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
@@ -101,7 +101,7 @@ if(!$CONNECTION)
 					if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
 					 {		
 					 	
-					 //	print_r("in if min age");
+					 	print_r("age issue solve");
 					
 					 	 $none = $result['income']=='0';
     					if(isset($none)&& !empty($none))
