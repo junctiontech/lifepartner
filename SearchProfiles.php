@@ -30,7 +30,12 @@ if(!$CONNECTION)
 	$subCaste=$_POST['subcaste'];
 	$registeredId = $_POST['registeredId'];//echo $registeredId;die;
 	if(!empty($registeredId)){ $query =" registerUserID!='$registeredId' and status='unblock' "; }
-	if(!empty($bride_groom)){ $query .=" and gender='$bride_groom'"; } 
+	if(!empty($bride_groom)){ $query .=" and gender='$bride_groom'"; }
+	if(isset($manglik) && !empty($manglik))
+	{
+		$query .=" and manglik='$manglik'";
+	}
+	
 	if(isset($income_above_below)&&!empty($income_above_below))
 	{
 		if(strcasecmp($income_above_below,'above')==0)
@@ -41,13 +46,10 @@ if(!$CONNECTION)
 		if(strcasecmp($income_above_below,'below')==0)
 		{
 			$incomeIdentity='<'; $none='none';
-			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes and income='$none' "; }
+			if(!empty($incomes) && $incomes!=='Select'){ $query .=" and income<=$incomes or income='$none' "; }
 		}
 	}
-	if(isset($manglik) && !empty($manglik))
-	{
-		$query .=" and manglik='$manglik'"; 
-	}
+	
 	if(!empty($city && $city!=='Select'))
 	{ 
 		$query .=" and city='$city'"; 
