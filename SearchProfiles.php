@@ -98,7 +98,7 @@ if(!$CONNECTION)
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
 					
-					print_r($age."\n");
+					//print_r($age."\n");
 					$min_age_ex = explode(" ",$min_age);
 					$max_age_ex = explode(" ",$max_age);
 					
@@ -161,12 +161,12 @@ if(!$CONNECTION)
 				//	print_r($searchResult);
 				 
 				}
-				else 
-					print_r("in else min age");
+				/* else 
+					print_r("in else min age"); */
 			} 
 		  }
-		  else
-		  	print_r("gender issue");
+		  /* else
+		  	print_r("gender issue"); */
 		}
 	}//echo count($searchResult);
 	//'imageName'=>"http://192.168.1.151/lifepartner/images/".$result['imageName']
