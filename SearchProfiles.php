@@ -88,16 +88,16 @@ if(!$CONNECTION)
 				else 
 				{ 
 					
-					print_r("in else");
+				//	print_r("in else");
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
 					if ($min_age<=$age && $age <=$max_age)
 					 {		
 					 	
-					 	print_r("in if min age");
-					 	
-					 	/* $none = $result['income']=='0';
+					 //	print_r("in if min age");
+					
+					 	 $none = $result['income']=='0';
     					if(isset($none)&& !empty($none))
     					  {
     						$incomes='none';
@@ -105,7 +105,7 @@ if(!$CONNECTION)
     					else
     					   {
     					   	$incomes =$result['income'];
-    					   } */
+    					   } 
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
@@ -124,8 +124,8 @@ if(!$CONNECTION)
 							'userJobProfile'=>$result['userJobProfile'],
 							'TypeOfBusiness'=>$result['TypeOfBusiness'],
 							'business'=>$result['business'],
-						//	'income'=>$incomes,
-							'income'=>$result['income'],
+							'income'=>$incomes,
+						//	'income'=>$result['income'],
 							'fatherJobProfile'=>$result['fatherJobProfile'],
 							'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
 							'fatherBusiness'=>$result['fatherBusiness'],
