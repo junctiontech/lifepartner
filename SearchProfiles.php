@@ -83,17 +83,17 @@ if(!$CONNECTION)
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
 				{
-					print_r($result['city']);
+					//print_r($result['city']);
 				}
 				else 
 				{ 
 					
-					print_r("in else");
+				//	print_r("in else");
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
 					
-					print_r($age."\n");
+				//	print_r($age."\n");
 					$min_age_ex = explode(" ",$min_age);
 					$max_age_ex = explode(" ",$max_age);
 					
@@ -101,7 +101,7 @@ if(!$CONNECTION)
 					if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
 					 {		
 					 	
-					 	print_r("age issue solve");
+					// 	print_r("age issue solve");
 					
 					 	 $none = $result['income']=='0';
     					if(isset($none)&& !empty($none))
@@ -151,7 +151,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							);print_r($searchResult);
+							);//print_r($searchResult);
 				 
 				}
 				else 
