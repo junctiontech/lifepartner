@@ -66,15 +66,15 @@ if(!$CONNECTION)
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
-	print_r($querySearch);
-	die();
-	
 	$query=mysqli_query($CONNECTION,$querySearch); 
  	$searchResult=array();
  	if(mysqli_num_rows($query)!=0)
  	 {   
  	 	while($result=mysqli_fetch_array($query))
-		 {   //print_r($result['no']);
+		 {   
+		 	
+		 	print_r($result);
+		 	die();
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
 		 		$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
@@ -83,7 +83,7 @@ if(!$CONNECTION)
 				{
 			  
 				}
-			else 
+				else 
 				{ 
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
