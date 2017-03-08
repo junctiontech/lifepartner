@@ -83,7 +83,7 @@ if(!$CONNECTION)
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
 				{
-					print_r($result['city']);
+					//print_r($result['city']);
 				}
 				else 
 				{ 
