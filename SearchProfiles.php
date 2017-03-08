@@ -75,7 +75,7 @@ if(!$CONNECTION)
  	 	while($result=mysqli_fetch_array($query))
 		 {   
 		 	
-		// 	print_r($result);
+		 	print_r($result);
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
@@ -83,17 +83,17 @@ if(!$CONNECTION)
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
 				{
-					//print_r($result['city']);
+					print_r($result['city']);
 				}
 				else 
 				{ 
 					
-				//	print_r("in else");
+					print_r("in else");
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
 					
-				//	print_r($age."\n");
+					print_r($age."\n");
 					$min_age_ex = explode(" ",$min_age);
 					$max_age_ex = explode(" ",$max_age);
 					
@@ -101,7 +101,7 @@ if(!$CONNECTION)
 					if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
 					 {		
 					 	
-					// 	print_r("age issue solve");
+					 //	print_r("in if min age");
 					
 					 	 $none = $result['income']=='0';
     					if(isset($none)&& !empty($none))
@@ -131,6 +131,7 @@ if(!$CONNECTION)
 							'TypeOfBusiness'=>$result['TypeOfBusiness'],
 							'business'=>$result['business'],
 							'income'=>$incomes,
+						//	'income'=>$result['income'],
 							'fatherJobProfile'=>$result['fatherJobProfile'],
 							'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
 							'fatherBusiness'=>$result['fatherBusiness'],
@@ -150,7 +151,7 @@ if(!$CONNECTION)
 							'age'=>	$age,
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
-							'subcaste'=>$result['subcaste']
+							'subcaste'=>$result['subcaste'],
 							);//print_r($searchResult);
 				 
 				}
