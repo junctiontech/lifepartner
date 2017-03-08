@@ -139,10 +139,10 @@ if(!$CONNECTION)
     					   	$heightOfUser_arr = explode('.', $heightOfUser);
     					   	$heightOfUser_max = (($heightOfUser_arr[0]*12)+$heightOfUser_arr[1])*2.54;
     					   	
-    					   	print_r($res_max);
-    					   	print_r($res_min);
+    					  // 	print_r($res_max);
+    					  // 	print_r($res_min);
     					   	
-    					   	print_r($heightOfUser_max);
+    					  // 	print_r($heightOfUser_max);
     					   	
     					   	if($res_min<=$heightOfUser_max and $res_max>=$heightOfUser_max)
     					   	{
