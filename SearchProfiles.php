@@ -97,7 +97,7 @@ if(!$CONNECTION)
 					 	
 					 	print_r("in if min age");
 					 	
-					 	$none = $result['income']=='0';
+					 	/* $none = $result['income']=='0';
     					if(isset($none)&& !empty($none))
     					  {
     						$incomes='none';
@@ -105,7 +105,7 @@ if(!$CONNECTION)
     					else
     					   {
     					   	$incomes =$result['income'];
-    					   }
+    					   } */
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
@@ -124,7 +124,8 @@ if(!$CONNECTION)
 							'userJobProfile'=>$result['userJobProfile'],
 							'TypeOfBusiness'=>$result['TypeOfBusiness'],
 							'business'=>$result['business'],
-							'income'=>$incomes,
+						//	'income'=>$incomes,
+							'income'=>$result['income'],
 							'fatherJobProfile'=>$result['fatherJobProfile'],
 							'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
 							'fatherBusiness'=>$result['fatherBusiness'],
