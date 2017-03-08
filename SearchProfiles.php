@@ -56,6 +56,10 @@ if(!$CONNECTION)
 	{ 
 		$query .=" and caste='$caste'";
 	}
+	if(!empty($caste && $caste=='Select'))
+	{
+		$query .=" and caste!='$caste'";
+	}
 	if(!empty($subCaste && $subCaste!=='Select'))
 	{ 
 		$query .=" and subcaste='$subCaste'"; 
