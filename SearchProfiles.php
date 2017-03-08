@@ -1,6 +1,6 @@
 <?php
 
-print_r($data);
+print_r($_POST[]);
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
