@@ -64,7 +64,7 @@ if(!$CONNECTION)
 	}
 	if(!empty($minHeight) && $minHeight!=='Select')
 	{ 
-		$query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; 
+		$query .=" and heightOfUser='$minHeight' and heightOfUser<='$maxHeight'"; 
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
