@@ -90,7 +90,7 @@ if(!$CONNECTION)
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
-					if ($min_age<=$age && $age <=$max_age)
+				//	if ($min_age<=$age && $age <=$max_age)
 					 {		
 					 	$none = $result['income']=='0';
     					if(isset($none)&& !empty($none))
