@@ -1,21 +1,18 @@
 <?php
 
-//print_r($_POST[]);
 $CONNECTION=mysqli_connect("localhost","root","initial1$","LifePartner");
 if(!$CONNECTION)
 {
 	echo "Database not found or There is an error in connecting to DB!! Please fix this!!!";
 	exit();
 }else{
-	//json_encode($_POST[]);
-	/* print_r(json_encode($_POST[]));
-	die(); */
-	
+
+	/* 
 	$searchResult = $_POST;
 	
 	print_r(json_encode($searchResult));
 	die();
-	
+	 */
 	
 	
 	$min_age= $_POST['min_age'];
@@ -68,6 +65,9 @@ if(!$CONNECTION)
 		$query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; 
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
+	
+	print_r($querySearch);
+	die();
 	
 	$query=mysqli_query($CONNECTION,$querySearch); 
  	$searchResult=array();
