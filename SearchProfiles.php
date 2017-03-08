@@ -75,7 +75,7 @@ if(!$CONNECTION)
  	 	while($result=mysqli_fetch_array($query))
 		 {   
 		 	
-		 	print_r($result);
+		 	//print_r($result);
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
@@ -152,7 +152,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							);//print_r($searchResult);
+							);print_r($searchResult);
 				 
 				}
 				else 
