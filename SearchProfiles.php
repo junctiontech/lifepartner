@@ -75,18 +75,20 @@ if(!$CONNECTION)
  	 	while($result=mysqli_fetch_array($query))
 		 {   
 		 	
-		 //	print_r($result);
+		 	print_r($result);
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
-		 		$queryRequestContact="select * from requestContact where requestProfileID='".$result['no']."'";
+		 		$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
 				{
-				//	print_r($result['city']);
+					print_r($result['city']);
 				}
 				else 
 				{ 
+					
+					print_r("in else");
 					$from = new DateTime($result['dateOfBirth']);
 					$to   = new DateTime('today');
 					$age = $from->diff($to)->y;
