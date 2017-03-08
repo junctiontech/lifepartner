@@ -64,7 +64,8 @@ if(!$CONNECTION)
 	}
 	if(!empty($minHeight) && $minHeight!=='Select')
 	{ 
-		$query .=" and heightOfUser='$minHeight' and heightOfUser<='$maxHeight'"; 
+				
+		$query .=" and ROUND(heightOfUser, 1) AS heightOfUser and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; 
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
@@ -122,6 +123,10 @@ if(!$CONNECTION)
     					   {
     					   	$incomes =$result['income'];
     					   } 
+    					   
+    
+    					   
+    					   
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
 					$searchResult[]= array(
 							'profileId'=>$result['no'],
