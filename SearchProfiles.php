@@ -124,7 +124,7 @@ if(!$CONNECTION)
     					   	$incomes =$result['income'];
     					   } 
     					   
-    					   if(!empty($minHeight) && $minHeight!=='Select')
+    					  /*  if(!empty($minHeight) && $minHeight!=='Select')
     					   {
     					   	$max_height_arr = explode('.', $maxHeight);
     					   	$res_max = (($max_height_arr[0]*12)+$max_height_arr[1])*2.54;
@@ -148,14 +148,14 @@ if(!$CONNECTION)
     					   	
     					   
     					   	
-    					   /* 	if($res_min<=$heightOfUser_max and $res_max>=$heightOfUser_max)
+    					    	if($res_min<=$heightOfUser_max and $res_max>=$heightOfUser_max)
     					   	{
     					   		
     					   	}
     					   		
-    					   		else continue; */
+    					   		else continue; 
     					   
-    					   }
+    					   } */
     					   
     					   
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
