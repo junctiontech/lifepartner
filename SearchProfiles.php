@@ -54,7 +54,7 @@ if(!$CONNECTION)
 	}
 	if(!empty($city && $city=='Select'))
 	{
-		$query .=" and city!='$city'";
+		$query .=" and city!=Select";
 	}
 	if(!empty($caste && $caste!=='Select'))
 	{ 
