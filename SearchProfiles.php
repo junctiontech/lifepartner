@@ -64,8 +64,8 @@ if(!$CONNECTION)
 	}
 	if(!empty($minHeight) && $minHeight!=='Select')
 	{ 
-				
-		$query .=" and ROUND(heightOfUser, 1) and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; 
+		$query .=" and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'"; 
+		//$query .=" and ROUND(heightOfUser, 1) and heightOfUser>='$minHeight' and heightOfUser<='$maxHeight'";
 	}
 	$querySearch="Select * from Profiles where $query LIMIT 100";
 	
@@ -124,7 +124,19 @@ if(!$CONNECTION)
     					   	$incomes =$result['income'];
     					   } 
     					   
-    
+    					   if(!empty($minHeight) && $minHeight!=='Select')
+    					   {
+    					   	$max_height_arr = explode('.', $maxHeight);
+    					   	$res_max = ($max_height_arr[0]*12+$max_height_arr[1])*2.54;
+    					   	
+    					   	$heightOfUser = $result['heightOfUser'];
+    					   	$heightOfUser_arr = explode('.', $heightOfUser);
+    					   	$heightOfUser_max = ($heightOfUser_arr[0]*12+$heightOfUser_arr[1])*2.54;
+    					   	
+    					   	if($heightOfUser_max>$res_max)
+    					   	continue;
+    					   
+    					   }
     					   
     					   
 				 	//echo "testing ";print_r($age);echo $min_age;echo $max_age;//die;
