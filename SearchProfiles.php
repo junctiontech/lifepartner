@@ -94,9 +94,11 @@ if(!$CONNECTION)
 					$age = $from->diff($to)->y;
 					
 					print_r($age."\n");
+					$min_age_ex = explode(" ",$min_age);
+					$max_age_ex = explode(" ",$max_age);
 					
 					
-					if ($min_age<=$age && $age <=$max_age)
+					if ($min_age_ex[0]<=$age && $age <=$max_age_ex[0])
 					 {		
 					 	
 					 //	print_r("in if min age");
