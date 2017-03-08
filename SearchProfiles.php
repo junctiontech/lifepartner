@@ -131,7 +131,6 @@ if(!$CONNECTION)
 							'TypeOfBusiness'=>$result['TypeOfBusiness'],
 							'business'=>$result['business'],
 							'income'=>$incomes,
-						//	'income'=>$result['income'],
 							'fatherJobProfile'=>$result['fatherJobProfile'],
 							'TypeOfFatherBusiness'=>$result['TypeOfFatherBusiness'],
 							'fatherBusiness'=>$result['fatherBusiness'],
@@ -152,7 +151,7 @@ if(!$CONNECTION)
 							'city'=>$result['city'],
 							'caste'=>$result['caste'],
 							'subcaste'=>$result['subcaste'],
-							);//print_r($searchResult);
+							);print_r($searchResult);
 				 
 				}
 				else 
