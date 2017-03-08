@@ -48,17 +48,17 @@ if(!$CONNECTION)
 	{
 		$query .=" and manglik='$manglik'"; 
 	}
-	if(!empty($city && $city!=='Select'))
+	if(!empty($city && $city!='Select'))
 	{ 
 		$query .=" and city='$city'"; 
+	}
+	if(!empty($city && $city=='Select'))
+	{
+		$query .=" and city!='$city'";
 	}
 	if(!empty($caste && $caste!=='Select'))
 	{ 
 		$query .=" and caste='$caste'";
-	}
-	if(!empty($caste && $caste=='Select'))
-	{
-		$query .=" and caste!='$caste'";
 	}
 	if(!empty($subCaste && $subCaste!=='Select'))
 	{ 
