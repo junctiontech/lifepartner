@@ -157,8 +157,8 @@ if(!$CONNECTION)
 				//	print_r($searchResult);
 				 
 				}
-				else 
-					print_r("in else min age");
+				/* else 
+					print_r("in else min age"); */
 			} 
 		  }
 		  else
