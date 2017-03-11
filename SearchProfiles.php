@@ -84,14 +84,14 @@ if(!$CONNECTION)
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
-		 		print_r("Hello");
-		 		print_r($registeredId);
+		 		//print_r("Hello");
+		 		//print_r($registeredId);
 		 		$queryRequestContact="select * from requestContact where requestRegisterUserID='".$_POST['registeredId']."' and profileID='".$result['no']."'";
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
 				{
 					//print_r($result['city']);
-					print_r("entry in requestcontact");
+					//print_r("entry in requestcontact");
 				}
 				else 
 				{ 
@@ -99,7 +99,7 @@ if(!$CONNECTION)
 					//print_r("in else");
 					if($result['dateOfBirth'] == 'Select Date')
 					{
-						print_r("continue");
+						//print_r("continue");
 						continue;
 						//goto withoutDate;
 					}
