@@ -86,7 +86,7 @@ if(!$CONNECTION)
 		 	{
 		 		print_r("Hello");
 		 		print_r($registeredId);
-		 		$queryRequestContact="select * from requestContact where requestRegisterUserID=.$registeredId. and profileID='".$result['no']."'";
+		 		$queryRequestContact="select * from requestContact where requestRegisterUserID=1 and profileID='".$result['no']."'";
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
 				{
