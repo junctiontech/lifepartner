@@ -84,6 +84,7 @@ if(!$CONNECTION)
 		 	
 		 	if(isset($result['gender'])&& !empty($result['gender'])&& $result['gender']==$bride_groom)
 		 	{
+		 		print_r("Hello");
 		 		$queryRequestContact="select * from requestContact where profileID='".$result['no']."'";
 				$sql=mysqli_query($CONNECTION,$queryRequestContact);
 				if(mysqli_num_rows($sql))
