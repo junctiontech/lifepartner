@@ -90,6 +90,7 @@ if(!$CONNECTION)
 				if(mysqli_num_rows($sql))
 				{
 					//print_r($result['city']);
+					print_r("entry in requestcontact");
 				}
 				else 
 				{ 
@@ -97,6 +98,7 @@ if(!$CONNECTION)
 					//print_r("in else");
 					if($result['dateOfBirth'] == 'Select Date')
 					{
+						print_r("continue");
 						continue;
 						//goto withoutDate;
 					}
