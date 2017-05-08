@@ -10,6 +10,7 @@
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->load->model('MasterModel');
+		$this->load->model('Apimodel');
 		$this->load->helper('download');
 		$this->load->helper('file');
 		//$this->load->library('cpanelDB');
@@ -20,12 +21,30 @@
 		if(function_exists('date_default_timezone_set')) date_default_timezone_set($timezone);
 	}
 
- /* Start Function For View Registratio Report......................................................................... */
+	function Register_UserList()
+	{
+		$Register_User=$this->data['Register_User']=$this->MasterModel->get('registereduser');//print_r($Register_User);die;
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('registeruserList',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
+   function Register_Userinfo($id)
+	  {			
+	  	$Userinfo=$this->data['Userinfo']=$this->MasterModel->getfilter('registereduser',array('registerUserID'=>$id));//print_r($profile[0]);die;
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('registeruserInfo',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	  } 
+
+/* Start Function For View Registratio Report......................................................................... */
 	function profileList()
-	{	
-		error_reporting('0');
-	    if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
-		$genders=$this->input->post('gender');
+	{	//echo "test";die;
+		//error_reporting('0');
+		//$a =$this->session->userdata('username');print_r($a);die;
+	    //if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
+	    $genders=$this->input->post('gender');
 		$incomes=$this->input->post('income');
 	  	$date=$this->input->post('dateOfCreation');//print_r($date);die;
 		$date_profile_create = explode('-',$date);
@@ -34,8 +53,8 @@
 		//print_r($start_date_formate);die;
 		
 		$start_date_create = date('d/m/Y' ,$start_date_formate);//print_r($start_date_create);die;
-		$end_date = date('d/m/Y' ,strtotime($date_profile_create[1]));//print_r($start_date_create);die;
-		$end_date_time = $end_date .' 12:00:00';
+		//$end_date = date('d/m/Y' ,strtotime($date_profile_create[1]));//print_r($start_date_create);die;
+		//$end_date_time = $end_date .' 12:00:00';
 		
 		$citys=$this->input->post('city');
 		$castes=$this->input->post('caste');
@@ -108,9 +127,9 @@
 		}
 		else
 			{
-				$profileList=$this->data['profileList']=$this->MasterModel->get('Profiles');
+				$profileList=$this->data['profileList']=$this->Apimodel->get();
 			}
-			$userDetail=$this->data['userDetail']=$this->MasterModel->get();
+			$userDetail=$this->data['userDetail']=$this->MasterModel->get('profiles');
 			$filter = $userDetail[0]->registerUserID;
 			$user_Id = $this->data['user_Id']=$this->MasterModel->getData('Profiles',array('registerUserID'=>$filter));
 			//print_r($user_Id);die;
@@ -134,6 +153,14 @@
 	
 	function profile($id)
 	 { 
+	 	$userDetail=$this->data['userDetail']=$this->MasterModel->get('profiles');
+	 	$filter = $userDetail[0]->registerUserID;
+	 	$user_Id = $this->data['user_Id']=$this->MasterModel->getData('Profiles',array('registerUserID'=>$filter));
+	 	//print_r($user_Id);die;
+	 	foreach($user_Id as $list)
+	 	 {
+	 		$registerUser_ID=$this->data['registerUser_ID'][]=$list->registerUserID;
+	 	 }
 		$profile=$this->data['profile']=$this->MasterModel->getfilter('Profiles',array('no'=>$id));//print_r($profile[0]);die;
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -142,12 +169,12 @@
 	 }
 	/* Start Function For Delete profileList Report......................................................................... */
 		
-	function deleteProfileList($id)
-	{   
-		$delete=$this->data['delete']=$this->MasterModel->delete('Profiles',array('no'=>$id));
-		$this->session->set_flashdata('category_error','message');
-		$this->session->set_flashdata ('message',"Your Record successfully  delete !!!" );
-		redirect($_SERVER['HTTP_REFERER']);
+	 function deleteProfileList($id)
+	 {
+	 	$delete=$this->data['delete']=$this->MasterModel->delete('Profiles',array('no'=>$id));
+	 	$this->session->set_flashdata('category_error','message');
+	 	$this->session->set_flashdata ('message',"Your Record successfully  delete !!!" );
+	 	redirect('Master/profileList');
 	}
 	/*Start Function For userBlock profileList Report......................................................................... */
 	
