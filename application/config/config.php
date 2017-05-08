@@ -26,17 +26,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$config['base_url']	= 'http://junctiondev.cloudapp.net/cpanel/';
 
 //echo $_SERVER['HTTP_HOST'];die;
-if($_SERVER['HTTP_HOST']=="192.168.1.151"){
-$config['base_url']	= 'http://192.168.1.151/lifepartner';	
+/* if($_SERVER['HTTP_HOST']=="192.168.1.181"){
+$config['base_url']	= 'http://192.168.1.181/lifepartner/';	
 }
-elseif($_SERVER['HTTP_HOST']=="localhost:8080"){
-$config['base_url']	= 'http://localhost:8080/lifepartner';	
+elseif($_SERVER['HTTP_HOST']=="localhost:8080" || $_SERVER['HTTP_HOST']=="localhost"){
+	$port=$_SERVER['SERVER_PORT'];
+	$config['base_url']	= "http://localhost:$port/lifepartner/";
 }
 else
 {
 	$config['base_url']	= 'http://lifepartner.zeroerp.com/';
+} */
+if($_SERVER['HTTP_HOST']=="localhost:8080" || $_SERVER['HTTP_HOST']=="localhost"){
+	$port=$_SERVER['SERVER_PORT'];
+	$config['base_url']	= "http://localhost:$port/lifepartner/";
 }
-
+if($_SERVER['HTTP_HOST']=="192.168.1.181"){
+	$config['base_url']	= 'http://192.168.1.181/lifepartner/';
+}
+if($_SERVER['HTTP_HOST']=="lifepartner.zeroerp.com"){
+	$config['base_url']	= 'http://lifepartner.zeroerp.com/';
+}
 
 /*
 |--------------------------------------------------------------------------

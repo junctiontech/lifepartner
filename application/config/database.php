@@ -70,21 +70,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-if($_SERVER['HTTP_HOST']=='192.168.1.151')
-{
-	$username='root';
-	$password='initial1$';
+$database_name='LifePartner';
+//$CI->session->unset_userdata($database_name);
+//$CI->session->sess_destroy();
+//echo $database_name;die;
+if($_SERVER['HTTP_HOST']=="localhost:8080"  || $_SERVER['HTTP_HOST']=="localhost"){
+	$dbname=$database_name;
+	$password="";
+	$username="root";
 }
-elseif($_SERVER['HTTP_HOST']=='lifepartner.zeroerp.com')
-{
-	$username='root';
-	$password='initial1$';
+if($_SERVER['HTTP_HOST']=="192.168.1.181"){
+	$dbname=$database_name;
+	$password="initial1$";
+	$username="root";
 }
-else
-{
-	$username='root';
-	$password='';
+if($_SERVER['HTTP_HOST']=="lifepartner.zeroerp.com"){
+	$dbname=$database_name;
+	$password="initial1$";
+	$username="root";
 }
+
 $active_group = 'default';
 $query_builder = TRUE;
 //echo $username;echo $password;die;
@@ -93,7 +98,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => $username,
 	'password' => $password,
-	'database' => 'LifePartner',
+	'database' => $database_name,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
