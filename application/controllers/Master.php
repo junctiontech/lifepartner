@@ -10,7 +10,6 @@
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->load->model('MasterModel');
-		$this->load->model('Apimodel');
 		$this->load->helper('download');
 		$this->load->helper('file');
 		//$this->load->library('cpanelDB');
@@ -127,16 +126,16 @@
 		}
 		else
 			{
-				$profileList=$this->data['profileList']=$this->Apimodel->get();
+				$profileList=$this->data['profileList']=$this->MasterModel->get('profiles');
 			}
-			$userDetail=$this->data['userDetail']=$this->MasterModel->get('profiles');
-			$filter = $userDetail[0]->registerUserID;
-			$user_Id = $this->data['user_Id']=$this->MasterModel->getData('Profiles',array('registerUserID'=>$filter));
-			//print_r($user_Id);die;
-			foreach($user_Id as $list)
-			{
-				$registerUser_ID=$this->data['registerUser_ID'][]=$list->registerUserID;
-			}
+		/* $userDetail=$this->data['userDetail']=$this->MasterModel->get('profiles');
+		$filter = $userDetail[0]->registerUserID;
+		$user_Id = $this->data['user_Id']=$this->MasterModel->getData('Profiles',array('registerUserID'=>$filter));
+		//print_r($user_Id);die;
+		foreach($user_Id as $list)
+		{
+			$registerUser_ID=$this->data['registerUser_ID'][]=$list->registerUserID;
+		} */
 		$city=$this->data['city']=$this->MasterModel->getDistinct('Profiles','city');//print_r($city);die;
 		$education=$this->data['education']=$this->MasterModel->getDistinct('Profiles','highestQualification');
 		$income=$this->data['income']=$this->MasterModel->getDistinct('Profiles','income');

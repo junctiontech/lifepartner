@@ -7,13 +7,13 @@ class MasterModel extends CI_Model{
 	}
 	
 	/* Function for Verify Organization Admin user id and password.......................................................................*/
-	function get()
+	
+	
+	function get($table)
 	{
-		$this->db->order_by('firstName','asc');
-		$qry=$this->db->get('Profiles');
+		$qry=$this->db->get($table);
 		return $qry->result();
 	}
-	
 	function postLastId($table,$data)
 	{
 		$this->db->insert($table,$data);
