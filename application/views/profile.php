@@ -1,4 +1,4 @@
-<!-- add organization page added by palak on 20 th june -->
+<!-- add organization page added by palak on 20 th june --> <?php //print_r($profile);die;?>
 <!-- add organization body starts -->
 <div class="page-title">
 	<div class="title-env">
@@ -30,7 +30,7 @@
 					<h3 class="panel-title">Profile View</h3>
 				</div> -->
 				<div class="panel-body"> 
-					<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>Master/insert_organization">
+					<form role="form" class="form-horizontal" method="post" action=" ">
 						<div class="row">
 							<div class="col-sm-12">
 							<div class="row col-sm-4">
@@ -274,16 +274,28 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group-separator"></div>
 							<div class="form-group">
-								<!--<button type="submit" class="btn btn-success">Submit</button>-->
-								<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
+								<script>
+									function goBack() 
+									 {
+								      window.location.back();
+									 }
+								</script>
+								<button type="cancel" class="btn btn-white" onclick="window.location.href = window.history.back(1);">Cancel</button>
+								<?php if(isset($profile) && !empty($profile)){ ?>
+								<a href="<?php echo base_url(); ?>Master/deleteProfileList/<?=$profile[0]->no;?>" onClick="return confirm('Are you sure you want to delete information....')" class="btn btn-danger "><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+						        <?php }?>
+						        <?php if(strcasecmp($profile[0]->status,'block')==0){ ?>
+								<a href="<?php echo base_url(); ?>Master/disapprove/<?=$registerUser_ID[0];?>?no=<?=$profile[0]->no;?>" onclick="return confirm(' Are you sure you want to Un-block <?php echo $profile[0]->firstName?> profile');" class="btn btn-success "><i class="fa fa-unlock-alt" aria-hidden="true"></i> Un-block</a>
+								<?php }
+									else
+									{ ?>	
+								<a href="<?php echo base_url(); ?>Master/approve/<?=$registerUser_ID[0];?>?no=<?=$profile[0]->no;?>" onclick="return confirm('Are you sure you want to block <?php echo $profile[0]->firstName?> profile');" class="btn btn-warning "><i class="fa fa-lock" aria-hidden="true"></i> Block</a>
+								<?php }?>
 							</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-			<!-- body container ends starts -->
-</div><!-- main content div end -->
-</div><!-- page container div end -->
+	

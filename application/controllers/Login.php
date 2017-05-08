@@ -37,23 +37,24 @@
  	
  	function verifyUser_Info($username=false,$password=false)
  	{
+ 		//
  		$username = $this->input->post('username');
  		$password = $this->input->post('password');
  		if(isset($username) && !empty($username)&& $username!=='' && isset($password) && !empty($password)&& $password!=='')
- 		{   
+ 		{  
  			$data = array(
  					 'username'=>$username,
  					 'password'=>$password,
- 					);
- 		$user_id = $this->data['user_id']=$this->MasterModel->getfilter('userInfo',$data);
+ 					); 
+ 		$user_id = $this->data['user_id']=$this->MasterModel->getfilter('userInfo',$data);//print_r($user_id);die;
  		if(count($user_id)>0)
  			{
 	 			$sessionArray=array(
 	 							'username'=>$user_id[0]->username,
 	 					          'userID'=>$user_id[0]->userID,
 	 							);
-	 			$this->session->set_userdata('username',$sessionArray);
-	 			$this->session->userdata('username');
+	 			 $this->session->set_userdata('username',$sessionArray);
+	 			 $this->session->userdata('username');
 	 			redirect('Master/profileList');
  			}
  		else

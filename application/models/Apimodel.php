@@ -10,7 +10,7 @@ class Apimodel extends CI_Model{
 	function get()
 	{
 		$this->db->order_by('firstName','asc');
-		$qry=$this->db->get('Profiles');
+		$qry=$this->db->get('profiles');
 		return $qry->result();
 	}
 	
