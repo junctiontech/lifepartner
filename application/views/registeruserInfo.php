@@ -1,5 +1,4 @@
-<!-- add organization page added by palak on 20 th june -->
-<!-- add organization body starts -->
+
 <div class="page-title">
 	<div class="title-env">
 		<h1 class="title">Register User Info</h1>

@@ -44,7 +44,7 @@
 								<td><?php echo $lists->MobileNumber;?></td>
 								<td><?php echo $lists->createdON;?></td>
 								<td>
-								    <a href="<?php echo base_url(); ?>Master/Register_Userinfo/<?=$lists->registerUserID; ?>" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> View Profile </a>
+								   <a href="<?php echo base_url(); ?>Master/Register_Userinfo/<?=$lists->registerUserID; ?>" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> View Profile </a>
 								</td>
 							</tr>
 							<?php $i++; }}?>

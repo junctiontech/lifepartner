@@ -252,7 +252,7 @@
 							<tr>
 								<td><?=$i;?></td>
 								<td><?php echo $list->firstName;?></td>
-								<td><?php  echo date('Y')-date('Y',strtotime($list->dateOfBirth)).' Year';?></td>
+								<td><?php echo date('Y')-date('Y',strtotime($list->dateOfBirth)).' Year';?></td>
 								<td><?php echo $list->city;?></td>
 								<td><?php echo $list->highestQualification;?></td>
 								<td><?php echo $list->income;?></td>
@@ -260,15 +260,15 @@
 								
 								<td>
 								    <a href="<?php echo base_url(); ?>Master/profile/<?=$list->no; ?>" class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i> View Profile </a>
-									<a href="<?php echo base_url(); ?>Master/deleteProfileList/<?=$list->no;?>" onClick="return confirm('Are you sure you want to delete information....')" class="btn btn-danger "><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
-									<!--<a href="<?php echo base_url(); ?>Master/profile/<?=$list->no;?>" class="btn btn-info btn-sm btn-icon icon-left"> Request</a>-->                
+									<!--<a href="<?php echo base_url(); ?>Master/deleteProfileList/<?=$list->no;?>" onClick="return confirm('Are you sure you want to delete information....')" class="btn btn-danger "><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+									<a href="<?php echo base_url(); ?>Master/profile/<?=$list->no;?>" class="btn btn-info btn-sm btn-icon icon-left"> Request</a>               
 									<?php 
 									if(strcasecmp($list->status,'block')==0){ ?>
-										<a href="<?php echo base_url(); ?>Master/disapprove/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm(' Are you sure you want to Un-block <?php echo $list->firstName?> profile');" class="btn btn-success "><i class="fa fa-unlock-alt" aria-hidden="true"></i> Un-block</a>
+										<a href="<?php echo base_url(); ?>Master/disapprove/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm(' Are you sure you want to Un-block <?php echo $list->firstName?> profile');" class="btn btn-success"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Un-block</a>
 										<?php }
 										else
 										{ ?>	
-										<a href="<?php echo base_url(); ?>Master/approve/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm('Are you sure you want to block <?php echo $list->firstName?> profile');" class="btn btn-danger "><i class="fa fa-lock" aria-hidden="true"></i> Block</a>
+										<a href="<?php echo base_url(); ?>Master/approve/<?=$registerUser_ID[$k];?>?no=<?=$list->no;?>" onclick="return confirm('Are you sure you want to block <?php echo $list->firstName?> profile');" class="btn btn-warning"><i class="fa fa-lock" aria-hidden="true"></i> Block</a>-->
 									<?php }?>
 								</td>
 							</tr>
