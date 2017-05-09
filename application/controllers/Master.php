@@ -41,7 +41,7 @@
 /* Start Function For View Registratio Report......................................................................... */
 	function profileList()
 	{	//echo "test";die;
-		//error_reporting('0');
+		error_reporting('0');
 		//$a =$this->session->userdata('username');print_r($a);die;
 	    //if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
 	    $genders=$this->input->post('gender');
